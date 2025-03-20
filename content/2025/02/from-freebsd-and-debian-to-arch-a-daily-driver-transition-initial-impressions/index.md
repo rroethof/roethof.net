@@ -1,7 +1,7 @@
 ---
 date: '2025-02-01T07:12:32+01:00'
 draft: false
-title: 'From FreeBSD and Debian to Arch: A Daily Driver Transition - Initial ImpressionsDaily Driver'
+title: 'From FreeBSD and Debian to Arch: A Daily Driver Transition - Initial Impressions'
 tags:
   - 'freebsd'
   - 'arch'
