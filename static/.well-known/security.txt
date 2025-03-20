@@ -7,7 +7,7 @@ Acknowledgments: https://roethof.net/security/#halloffame
 Preferred-Languages: nl, en
 Canonical: https://roethof.net/.well-known/security.txt
 Policy: https://roethof.net/security/
-Encryption: https://roethof.net/gpg.asc
+Encryption: https://roethof.net/rroethof.asc
 -----BEGIN PGP SIGNATURE-----
 
 iHUEABYKAB0WIQTlxCfdLyrvUeNWEBc8IK1eT/GzAQUCZ8F31gAKCRA8IK1eT/Gz

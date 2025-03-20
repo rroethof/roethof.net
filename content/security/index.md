@@ -24,6 +24,7 @@ showWordCount: false
 showSummary: false
 sharingLinks: false
 showRelatedContent: false
+disableComments: true
 ---
 
 {{< typeit
