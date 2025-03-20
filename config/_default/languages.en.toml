@@ -1,0 +1,31 @@
+disabled = false
+languageCode = "en"
+languageName = "English"
+weight = 1
+title = "Roethof.Net"
+
+[params]
+  displayName = "EN"
+  isoCode = "en"
+  rtl = false
+  dateFormat = "2 January 2006"
+  description = "Ponderings of a System Admin / Security Officer / General Nerd and Father"
+  #copyright = "&copy; Ronny Roethof, All rights reserved."
+  #keywords = "SystemAdmin,SecurityOfficer,GeneralNerd,Nerd,Father,Linux,Tips,Tutorials,Techblog"
+
+[params.author]
+  name = "Ronny Roethof"
+  email = "ronny@roethof.net"
+  image = "img/avatar.png"
+  imageQuality = 96
+  headline = "I'm only human"
+  bio = "A little bit about you"
+  links = [
+    { email = "mailto:ronny@roethof.net" },
+    { github = "https://github.com/rroethof" },
+    { instagram = "https://www.instagram.com/ronny.roethof/" },
+    { keybase = "https://keybase.io/rroethof" },
+    { linkedin = "https://www.linkedin.com/in/rroethof/" },
+    { spotify = "https://open.spotify.com/user/rroethof78" },
+    { twitter = "https://twitter.com/rroethof" }
+  ]

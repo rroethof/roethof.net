@@ -1,0 +1,17 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA256
+
+Contact: mailto:security@roethof.net
+Expires: 2025-12-31T11:59:00.000Z
+Acknowledgments: https://roethof.net/security/#halloffame
+Preferred-Languages: nl, en
+Canonical: https://roethof.net/.well-known/security.txt
+Policy: https://roethof.net/security/
+Encryption: https://roethof.net/gpg.asc
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTlxCfdLyrvUeNWEBc8IK1eT/GzAQUCZ8F31gAKCRA8IK1eT/Gz
+AT/hAQCl59dAtjNWbd3BlE9mvFImowF+fOfETcmJkJBeizDx0gEAljNfMq9HPE4h
+GT46ms+xrJBfelc0+dPwHl/TWDZeAgY=
+=k/ih
+-----END PGP SIGNATURE-----

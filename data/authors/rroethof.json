@@ -1,0 +1,12 @@
+{
+    "name": "Ronny Roethof",
+    "image" : "img/avatar.png",
+    "bio": "Ronny Roethof",
+    "social": [
+        { "linkedin": "https://linkedin.com/in/rroethof" },
+        { "twitter": "https://twitter.com/rroethof" },
+        { "instagram": "https://instagram.com/rroethof" },
+        { "github": "https://github.com/rroethof" },
+        { "keybase": "https://keybase.io/rroethof" }
+    ]
+}
