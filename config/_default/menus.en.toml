@@ -47,33 +47,35 @@
   weight = 20
 
 [[main]]
-  name = "Links"
-  url = "https://familieroethof.nl"
-  weight = 30
-
-[[main]]
   pre = "heart"
   name = "Partner"
   weight = 40
   url = "/partner"
 
 [[main]]
-  name              = "Subscribe via RSS"
-  identifier        = "subscribe"
-  url               = "https://roethof.net/index.xml"
+  pre = "lock"
+  name = "GPG"
   weight = 50
+  url = "/gpg"
+
+
+[[main]]
+  identifier = "rss"
+  pre = "rss"
+  url = "https://roethof.net/index.xml"
+  weight = 60
 
 [[main]]
   identifier = "linkedin"
   pre = "linkedin"
   url = "https://www.linkedin.com/in/rroethof/" 
-  weight = 60
+  weight = 70
 
 [[main]]
   identifier = "github"
   pre = "github"
   url = "https://github.com/rroethof"
-  weight = 70
+  weight = 80
 
 # -- Footer Menu --
 # The footer menu is displayed at the bottom of the page, just before
