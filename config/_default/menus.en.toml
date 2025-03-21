@@ -14,31 +14,31 @@
   pre = "briefcase"
   name = "Categories"
   weight = 10
-  url = "/categories"
+  url = "/categories/"
 
 [[main]]
   name = "Tutorials"
   parent = "Categories"
   weight = 11
-  url = "/categories/tutorials"
+  url = "/categories/tutorials/"
 
 [[main]]
   name = "Arch Linux"
   parent = "Categories"
   weight = 12
-  url = "/categories/arch-linux"
+  url = "/categories/arch-linux/"
 
 [[main]]
   name = "Security"
   parent = "Categories"
   weight = 13
-  url = "/categories/security"
+  url = "/categories/security/"
 
 [[main]]
   name = "Tips"
   parent = "Categories"
   weight = 14
-  url = "/categories/tips"
+  url = "/categories/tips/"
   
 [[main]]
   pre = "briefcase"
@@ -50,13 +50,13 @@
   pre = "heart"
   name = "Partner"
   weight = 40
-  url = "/partner"
+  pageRef = "partner"
 
 [[main]]
   pre = "lock"
   name = "GPG"
   weight = 50
-  url = "/gpg"
+  pageRef = "gpg"
 
 
 [[main]]
@@ -83,18 +83,19 @@
 
 [[footer]]
   name = "Partner"
-  url = "/partner"
+  pageRef = "partner"
   weight = 10
 
 [[footer]]
   name = "Privacy"
-  url = "/privacy"
+  pageRef = "privacy"
   weight = 30
 
 [[footer]]
   name = "Security"
   pageRef = "security"
   weight = 40
+
 [[footer]]
   name              = "RSS"
   identifier        = "subscribe"
