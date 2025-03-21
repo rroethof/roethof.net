@@ -7,6 +7,10 @@ bin-release/
 .hugo_build.lock
 .vscode/
 
+/public
+/node_modules
+/resources
+
 # Other files and folders
 .settings/
 
