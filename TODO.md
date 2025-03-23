@@ -1,8 +1,8 @@
 POSSIBLE TODO ITEMS
 ----------
 
-**"The Sleep-Deprived Sysadmin: How Lack of Sleep Affects Performance and Productivity"**
-Discuss the consequences of sleep deprivation in tech careers and offer tips for improving sleep quality.
+~~**"The Sleep-Deprived Sysadmin: How Lack of Sleep Affects Performance and Productivity"**~~
+~~Discuss the consequences of sleep deprivation in tech careers and offer tips for improving sleep quality.~~
 
 **"The Hidden Dangers of Screen Time: How Prolonged Staring at Screens Affects Your Vision"**: Discuss the risks of prolonged screen time on eye health, offering tips for reducing strain.
 
@@ -17,13 +17,17 @@ Discuss the consequences of sleep deprivation in tech careers and offer tips for
  **"Why Security is Not Just About Compliance: The Real Threats to Your Organization"**: Emphasize the need for proactive security measures beyond just meeting regulatory 
 requirements.
 
-**"The Paradox of Excessive Security Measures: When Does 'Safer' Become 'Overkill'?"**: Explore the tension between over-protection and the need for flexibility and 
-adaptability in security measures.
+~~**"The Paradox of Excessive Security Measures: When Does 'Safer' Become 'Overkill'?"**: Explore the tension between over-protection and the need for flexibility and 
+adaptability in security measures.~~
 
 **"The Rise of 'Secure by Design': How Unintentional Confinement Can Lead to Insecurity"**: Discuss the risks of designing systems with overly restrictive access catcontrols, limiting flexibility and adaptability.
 
 **"When 'Safe' Becomes 'Unsafe': The Dangers of Over-Reliance on Security Automation"**: Examine the potential pitfalls of over-relying on security automation, including decreased human oversight and decision-making.
 
+
+- The Importance of Password Management
+- Cybersecurity Best Practices for Small Businesses
+- The Impact of AI on Cybersecurity
 
 Category changes?
 -----------------
