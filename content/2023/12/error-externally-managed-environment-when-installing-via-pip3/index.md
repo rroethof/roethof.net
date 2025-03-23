@@ -3,12 +3,20 @@ date: '2023-12-07T09:30:29+01:00'
 draft: false
 title: 'Error: externally-managed-environment when installing via pip3'
 tags: 
+  - 'pip3' 
+  - 'environment management'
+  - 'package installation'
   - 'python'
-  - 'errors'
+  - 'linux'
+  - 'command line'
 categories:
-  - 'python'
-  - 'errors'
-  - 'tips'
+  - 'Python'
+  - 'pip (Package Installer)'
+  - 'Environment Management'
+  - 'Package Installation'
+  - 'Error Messages'
+  - 'Linux'
+  - 'Command Line'
 ---
 
 On new Debian 12 Bookworm installs, when I try running pip3 install something (whether that’s Ansible or some other Python tool), I get the following error message:

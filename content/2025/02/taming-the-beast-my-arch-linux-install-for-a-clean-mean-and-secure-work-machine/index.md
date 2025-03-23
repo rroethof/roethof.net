@@ -3,18 +3,22 @@ date: '2025-02-24T07:12:32+01:00'
 draft: false
 title: 'Taming the Beast: My Arch Linux Install for a Clean, Mean, and Secure Work Machine'
 tags:
-  - 'arch linux'
-  - 'secure boot'
-  - 'btrfs'
-  - 'tpm2'
-  - 'luks'
-  - 'arch'
-  - 'linux'
+  - 'Arch Linux'
+  - 'system installation'
   - 'security'
+  - 'configuration'
+  - 'setup guides'
+  - 'productivity'
+  - 'clean install'
+  - 'mean machine'
 categories:
-  - 'tutorials'
-  - 'arch linux'
-  - 'security'
+  - 'Linux'
+  - 'Arch Linux'
+  - 'System Installation'
+  - 'Security'
+  - 'Configuration'
+  - 'Setup Guides'
+  - 'Productivity'
 ---
 
 So, I've done it again. I've decided to ditch Windows on my company laptop (for the, uh, nth time). I briefly flirted with FreeBSD (it was okay, but let's just say my other laptop wasn't playing nice with it), and I really wanted a consistent setup across both machines.

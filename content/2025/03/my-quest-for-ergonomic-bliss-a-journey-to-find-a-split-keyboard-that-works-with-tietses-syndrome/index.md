@@ -3,15 +3,18 @@ title: "My Quest for Ergonomic Bliss: A Journey to Find a Split Keyboard that Wo
 date: 2025-03-01
 draft: false
 tags:
-  - ergonomickeyboards
-  - TietsesSyndrome
-  - health
-  - RSI
+  - 'ergonomic design' 
+  - 'split keyboards'
+  - 'tietses syndrome'
+  - 'ergonomic keyboarding'
+  - 'health and wellness'
 categories:
-  - ergonomickeyboards
-  - TietsesSyndrome
-  - health
-  - RSI
+  - 'Ergonomics'
+  - 'Keyboards'
+  - 'Split Keyboards'
+  - 'Health and Wellness'
+  - 'Productivity'
+  - 'Technology'
 ---
 
 My recent heart attack in September 2024 was a wake-up call, forcing me to re-evaluate my priorities and make significant changes to my daily life. While I'm grateful to have survived, the aftermath has been a journey of self-discovery and adaptation. 

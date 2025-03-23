@@ -3,16 +3,21 @@ date: '2025-02-25T08:13:02+01:00'
 draft: false
 title: 'Taming Virtual Machines on Arch Linux: A QEMU-KVM Adventure'
 tags: 
-  - 'arch linux'
   - 'virtualization'
-  - 'kvm'
-  - 'quemu'
-  - 'arch'
-  - 'linux'
-categories:
-  - 'tutorials'
   - 'arch linux'
-  - 'security'
+  - 'qemu'
+  - 'kvm'
+  - 'virtual machines'
+  - 'system administration'
+  - 'arch-kvm'
+categories:
+  - 'Linux'
+  - 'Arch Linux'
+  - 'Virtualization'
+  - 'QEMU'
+  - 'KVM (Kernel-based Virtual Machine)'
+  - 'Virtual Machines'
+  - 'System Administration'
 ---
 
 So, you're ready to dive into the world of virtualization on Arch Linux? Awesome!  This guide will walk you through setting up QEMU-KVM, turning your machine into a virtual playground.  We'll keep things simple and focus on the essentials.

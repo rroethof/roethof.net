@@ -3,9 +3,21 @@ date: '2011-11-18T09:23:29+01:00'
 draft: false
 title: 'How to monitor Bind with Munin'
 tags: 
-  - 'monitoring'
+  - 'Virtualization'
+  - 'System Administration'
+  - 'Linux'
+  - 'Munin'
+  - 'Bind'
+  - 'Monitoring'
+  - 'IT Infrastructure'
 categories:
-  - 'monitoring'
+  - 'Virtualization'
+  - 'System Administration'
+  - 'Linux'
+  - 'Munin'
+  - 'Bind'
+  - 'Monitoring'
+  - 'IT Infrastructure'
 ---
 
 Munin does have some limitations.

@@ -55,7 +55,7 @@ We believe in clear and honest communication, especially regarding data. When re
 
 We are open to receiving review units and products that align with our focus on Linux and FOSS. If you have a product you believe our audience would be interested in, we would be happy to consider testing and reviewing it.
 
-## Important Considerations for Product Reviews:
+## ✅ Important Considerations for Product Reviews:
 
 * **Relevance:** Please ensure your product has a clear connection to Linux, open-source software, or related technologies. We are less likely to review products outside of this scope.
 * **Verification:** **Please contact us before sending any products.** We receive numerous requests and want to ensure we have the capacity and interest to provide a meaningful review. Unsolicited products may not be reviewed or returned.
@@ -63,7 +63,7 @@ We are open to receiving review units and products that align with our focus on 
 * **Gift Policy:** Please note that **all products sent to us for review are considered gifts.** We are under no obligation to return review units unless explicitly agreed upon beforehand.
 * **Content Ownership:** While we appreciate the opportunity to review your product, the content we create (articles, videos, etc.) remains the property of Roethof.net.
 
-## How to Partner With Us
+## 	👔 How to Partner With Us
 
 We are open to various forms of partnerships that align with our values and benefit our audience. This could include:
 
@@ -80,7 +80,7 @@ If you are interested in exploring a partnership, please reach out to us with de
 [Insert Postal Code and City Here]
 [Insert Country Here (e.g., Netherlands)] -->
 
-## Contact Us to Discuss Partnerships or Product Reviews:
+## 💬 Contact Us to Discuss Partnerships or Product Reviews:
 
 [Ronny Roethof](mailto:ronny@roethof.net).
 

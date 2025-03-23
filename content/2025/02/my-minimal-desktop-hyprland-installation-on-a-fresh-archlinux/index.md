@@ -3,16 +3,21 @@ date: '2025-02-25T12:25:32+01:00'
 draft: false
 title: 'My minimal desktop (Hyprland) installation on a fresh Archlinux'
 tags:
-  - 'arch linux'
-  - 'desktop'
-  - 'wayland'
+  - 'Arch Linux'
+  - 'HyprLand'
+  - 'desktop environments'
+  - 'minimalist setup'
+  - 'system installation'
+  - 'command line'
   - 'hyprland'
-  - 'arch'
-  - 'linux'
 categories:
-  - 'tutorials'
-  - 'arch linux'
-  - 'hyprland'
+  - 'Linux'
+  - 'Arch Linux'
+  - 'HyprLand'
+  - 'Desktop Environments'
+  - 'Minimalist Setup'
+  - 'System Installation'
+  - 'Command Line'
 ---
 
 ## We Tamed the Beast! Arch Linux + Hyprland = 🔥

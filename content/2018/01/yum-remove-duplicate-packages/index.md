@@ -3,9 +3,21 @@ date: '2018-01-27T09:30:29+01:00'
 draft: false
 title: 'Yum Remove duplicate packages'
 tags:
-  - 'tips'
+  - 'YUM'
+  - 'Linux'
+  - 'Package Management'
+  - 'Duplicate Packages'
+  - 'System Administration'
+  - 'Command Line'
+  - 'package management'
+  - 'system cleanup'
 categories:
-  - 'tips'
+  - 'Linux'
+  - 'YUM'
+  - 'Package Management'
+  - 'Duplicate Packages'
+  - 'System Administration'
+  - 'Command Line'
 ---
 
 During mayor upgrades on several systems I came along the bad situation with duplicate packages..

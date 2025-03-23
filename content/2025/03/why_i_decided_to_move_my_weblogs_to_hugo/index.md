@@ -3,15 +3,19 @@ date: '2025-03-20'
 draft: false
 title: 'Why I Decided to Move My Weblogs to Hugo'
 tags: 
-  - 'hugo'
-  - 'wordpress'
-  - 'blog'
-  - 'techblog'
+  - 'Web Development'
+  - 'Blogging'
+  - 'Hugo'
+  - 'Static Site Generation (SSG)'
+  - 'Content Management'
+  - 'Productivity'
 categories:
-  - 'hugo'
-  - 'wordpress'
-  - 'blog'
-  - 'techblog'
+  - 'Web Development'
+  - 'Blogging'
+  - 'Hugo'
+  - 'Static Site Generation (SSG)'
+  - 'Content Management'
+  - 'Productivity'
 ---
 
 For years, I've been passionate about sharing my technical findings, ponderings, and open-source insights through a weblog. My journey started with hand-crafted HTML, evolved into a PHP-powered custom database solution, and eventually landed me with WordPress. While each approach had its merits, they all shared a common Achilles' heel: maintenance.

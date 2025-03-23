@@ -3,13 +3,23 @@ date: '2011-11-18T09:30:29+01:00'
 draft: false
 title: 'Converting kvm guests from lvm to qcow2, base images and snapshots'
 tags: 
-  - 'kvm'
-  - 'qcow'
-  - 'qcow2'
-  - 'images'
-  - 'virtualization'
+  - 'KVM'
+  - 'QEMU'
+  - 'Virtualization'
+  - 'Linux'
+  - 'LVM'
+  - 'Qcow2'
+  - 'Snapshotting'
+  - 'Image conversion'
+  - 'Guest management'
+  - 'System administration'
+  - 'Performance optimization'
+  - 'Storage management'
 categories:
-  - 'kvm'
+  - 'Virtualization and Cloud Computing'
+  - 'System Administration'
+  - 'Linux'
+  - 'IT Infrastructure'
 ---
 lvm based kvm guests are fast but you lose some flexibility, playing with kvm on my desktop I prefer to use file based images. Converting from lvm images to qcow2 isn’t hard but the documentation is sparse.
 

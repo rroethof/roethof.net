@@ -3,10 +3,20 @@ date: '2011-11-18T09:31:29+01:00'
 draft: false
 title: 'Migrate IMAP accounts from server A to server B'
 tags: 
-  - 'mail'
+  - 'Imap'
+  - 'Email Migration'
+  - 'Server Migration'
+  - 'Linux'
+  - 'System Administration'
+  - 'Email Clients'
+  - 'IMAP Accounts'
 categories:
-  - 'mail'
-  - 'tips'
+  - 'System Administration'
+  - 'Linux'
+  - 'Email'
+  - 'Imap'
+  - 'Server Migration'
+  - 'IT Infrastructure'
 ---
 
 There is a easy to use tool that facilitates the quick’n dirty move of the content of one IMAP account to a new server. Its name is *imapsync*. 

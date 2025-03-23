@@ -3,14 +3,21 @@ date: '2011-11-18T09:32:29+01:00'
 draft: false
 title: 'Postfix IPv6 capable + RBL + BIND9 as DNSBL'
 tags:
-  - 'security'
-  - 'dns'
-  - 'ipv6'
+  - 'Postfix'
+  - 'IPv6'
+  - 'DNSBL'
+  - 'BIND 9'
+  - 'RBLs'
+  - 'Email Security'
+  - 'Spam Filtering'
 categories:
-  - 'tutorials'
-  - 'security'
-  - 'dns'
-  - 'ipv6'
+  - 'Linux'
+  - 'Postfix'
+  - 'IPv6'
+  - 'DNSBL'
+  - 'BIND 9'
+  - 'RBLs'
+  - 'Email Servers'
 ---
 
 Here we go again…

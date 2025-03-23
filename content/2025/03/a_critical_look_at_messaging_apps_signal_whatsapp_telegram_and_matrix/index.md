@@ -1,15 +1,25 @@
 --- 
 title: 'A Critical Look at Messaging Apps: Signal, WhatsApp, Telegram and Matrix'
 tags: 
-  - 'communication platforms'
-  - 'telegram'
-  - 'whatsapp'
-  - 'signal'
-  - 'matrix'
+  - 'Linux'
+  - 'Messaging Apps'
+  - 'Signal'
+  - 'WhatsApp'
+  - 'Telegram'
+  - 'Matrix'
+  - 'Communication Tools'
+  - 'Security'
+  - 'Productivity'
 categories: 
-  - 'tech'
-  - 'security'
-  - 'communication'
+  - 'Linux'
+  - 'Messaging Apps'
+  - 'Signal'
+  - 'WhatsApp'
+  - 'Telegram'
+  - 'Matrix'
+  - 'Communication Tools'
+  - 'Security'
+  - 'Productivity'
 date: 2025-03-21
 draft: false
 ---

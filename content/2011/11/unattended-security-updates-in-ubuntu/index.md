@@ -3,9 +3,27 @@ date: '2011-11-18T09:30:29+01:00'
 draft: false
 title: 'Unattended Security Updates in Ubuntu'
 tags:
-  - 'ubuntu'
+  - 'Ubuntu'
+  - 'Linux'
+  - 'Security Updates'
+  - 'Unattended Upgrades'
+  - 'System Maintenance'
+  - 'Automation'
+  - 'Scripting'
+  - 'Shell Scripting'
+  - 'Debian'
+  - 'Package Management'
 categories:
-  - 'ubuntu'
+  - 'Linux'
+  - 'Ubuntu'
+  - 'Security'
+  - 'Automation'
+  - 'Scripting'
+  - 'System Administration'
+  - 'Command Line'
+  - 'Shell Scripting'
+  - 'Debian'
+  - 'Linux Distribution'
 ---
 
 In order to have automatic and unattended security updates in Ubuntu, one needs to install the according package:
