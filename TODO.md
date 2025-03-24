@@ -4,30 +4,30 @@ POSSIBLE TODO ITEMS
 ~~**"The Sleep-Deprived Sysadmin: How Lack of Sleep Affects Performance and Productivity"**~~
 ~~Discuss the consequences of sleep deprivation in tech careers and offer tips for improving sleep quality.~~
 
-**"The Hidden Dangers of Screen Time: How Prolonged Staring at Screens Affects Your Vision"**: Discuss the risks of prolonged screen time on eye health, offering tips for reducing strain.
+~~**"The Paradox of Excessive Security Measures: When Does 'Safer' Become 'Overkill'?"**~~
+~~Explore the tension between over-protection and the need for flexibility and adaptability in security measures.~~
 
-**"The Impact of Sedentary Work on Your Physical Health: Tips for Staying Active in Tech Careers"**: Discuss the risks of sedentary work and offer strategies for incorporating physical activity into a busy tech schedule.
+~~**"The Dark Side of Tech: How Burnout Affects Sysadmins/Network Engineers and What Can Be Done About It"**~~
+~~Discuss burnout risks and strategies for mental well-being.~~
 
- **"Vitamin D Deficiency in Tech Careers: Why You Should Be Aware of the Risks"**: Explore the connection between vitamin D deficiency and tech careers, offering tips on how to maintain adequate levels.
+**"Why Security is Not Just About Compliance: The Real Threats to Your Organization"**: Emphasize the need for proactive security measures beyond just meeting regulatory requirements.
 
- **"The Dark Side of Tech: How Burnout Affects Sysadmins/Network Engineers and What Can Be Done About It"**: Discuss the risks of burnout in tech careers and offer strategies for maintaining mental well-being.
+**"The Hidden Dangers of Screen Time: How Prolonged Staring at Screens Affects Your Vision"**: Discuss screen time risks and tips.
 
- **"10 Essential Tools Every Sysadmin/Network Engineer Should Know"**: Share a list of must-have tools for efficient system administration and network management.
+**"The Impact of Sedentary Work on Your Physical Health: Tips for Staying Active in Tech Careers"**: Discuss sedentary work risks and activity strategies.
 
- **"Why Security is Not Just About Compliance: The Real Threats to Your Organization"**: Emphasize the need for proactive security measures beyond just meeting regulatory 
-requirements.
+**"Vitamin D Deficiency in Tech Careers: Why You Should Be Aware of the Risks"**: Explore the connection between vitamin D deficiency and tech careers.
 
-~~**"The Paradox of Excessive Security Measures: When Does 'Safer' Become 'Overkill'?"**: Explore the tension between over-protection and the need for flexibility and 
-adaptability in security measures.~~
+**"The Rise of 'Secure by Design': How Unintentional Confinement Can Lead to Insecurity"**: Discuss the risks of overly restrictive access controls.
 
-**"The Rise of 'Secure by Design': How Unintentional Confinement Can Lead to Insecurity"**: Discuss the risks of designing systems with overly restrictive access catcontrols, limiting flexibility and adaptability.
+**"When 'Safe' Becomes 'Unsafe': The Dangers of Over-Reliance on Security Automation"**: Examine the pitfalls of over-relying on security automation.
 
-**"When 'Safe' Becomes 'Unsafe': The Dangers of Over-Reliance on Security Automation"**: Examine the potential pitfalls of over-relying on security automation, including decreased human oversight and decision-making.
+**"The Importance of Password Management"**: Discuss the basics of password security.
 
+**"Cybersecurity Best Practices for Small Businesses"**: Provide essential security tips for small businesses.
 
-- The Importance of Password Management
-- Cybersecurity Best Practices for Small Businesses
-- The Impact of AI on Cybersecurity
+**"The Impact of AI on Cybersecurity"**: Explore how AI affects the cybersecurity landscape.
+
 
 Category changes?
 -----------------
