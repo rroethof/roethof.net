@@ -41,7 +41,7 @@ Here's a summary of [the license](https://creativecommons.org/licenses/by-nd/4.0
 
 If you wish to use the content in this blog (which you are free to do in any medium or format as dictated by [the license](https://creativecommons.org/licenses/by-nd/4.0/deed.en)) you must:
 
-- Attribute me as the original author, and not shoveled away at the bottom of a description page, make it obvious (in the video, podcast, or text itself).
+- Attribute me as the original author and not shoveled away at the bottom of a description page, make it obvious (in the video, podcast, or text itself).
 
 - You may not apply legal terms or technological measures that legally or practically restrict others from doing anything [the license](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en) permits.
 
@@ -59,7 +59,7 @@ My content is 100% human-written and will always be that way. As a testament to 
 
 ![notbyai](notbyai-black-2x.png)
 
-To learn more, and get this badge for yourself, visit [**notbyai**](https://notbyai.fyi/).
+To learn more and get this badge for yourself, visit [**notbyai**](https://notbyai.fyi/).
 
 I also do not want AI to use my work. AI cannot write with passion, as it has no intelligence. It just plays word games and creates unoriginal content.
 

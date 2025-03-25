@@ -1,7 +1,7 @@
 ---
 date: '2025-02-24T07:12:32+01:00'
 draft: false
-title: 'Taming the Beast: My Arch Linux Install for a Clean, Mean, and Secure Work Machine'
+title: 'Taming the Beast: My Arch Linux Install for a Clean, Mean and Secure Work Machine'
 tags:
   - 'Arch Linux'
   - 'system installation'
@@ -21,7 +21,7 @@ categories:
   - 'Productivity'
 ---
 
-So, I've done it again. I've decided to ditch Windows on my company laptop (for the, uh, nth time). I briefly flirted with FreeBSD (it was okay, but let's just say my other laptop wasn't playing nice with it), and I really wanted a consistent setup across both machines.
+So, I've done it again. I've decided to ditch Windows on my company laptop (for the, uh, nth time). I briefly flirted with FreeBSD (it was okay, but let's just say my other laptop wasn't playing nice with it) and I really wanted a consistent setup across both machines.
 
 Normally, my server go-to is Debian.  Rock solid, reliable, the workhorse of the internet. But for this project, I felt the pull of the Arch.  
 
@@ -31,15 +31,15 @@ A few key reasons:
 
  * Lightweight: Arch is lean and mean. It lets you build up your system exactly how you want it, without any bloat. Perfect for squeezing every ounce of performance out of your hardware.
  * Customizable: Want a system tailored just for you? Arch's the answer. From the kernel to the desktop environment, you're in control.
- * Community Driven: The Arch community is amazing. Super active, incredibly helpful, and a treasure trove of information. Stuck? Someone's probably already solved it (and documented it).
+ * Community Driven: The Arch community is amazing. Super active, incredibly helpful and a treasure trove of information. Stuck? Someone's probably already solved it (and documented it).
  * Surprisingly Simple (for Linux veterans): Okay, "simple" is relative.  Arch's process is actually quite elegant. It's a hands-on experience, but that's part of the fun!
 
 
 This isn't just any Arch install, though.  We're going all the way:
 
  * Clean Base: We're starting from scratch, building a pristine system.
- * Btrfs Filesystem: Modern, flexible, and perfect for snapshots (because who doesn't love snapshots?).
- * Unified Kernel Images (UKIs) with mkinitcpio: For a faster and more secure boot process. UKIs combine the kernel, initramfs, and other necessary components into a single, easily manageable file.
+ * Btrfs Filesystem: Modern, flexible and perfect for snapshots (because who doesn't love snapshots?).
+ * Unified Kernel Images (UKIs) with mkinitcpio: For a faster and more secure boot process. UKIs combine the kernel, initramfs and other necessary components into a single, easily manageable file.
  * Secure Boot with sbctl: Locking down the boot process to prevent any nasty surprises. sbctl makes managing Secure Boot keys a breeze.
  * TPM-Backed Encryption: Using your Trusted Platform Module for secure and automatic unlocking of your encrypted drives. Think of it as Fort Knox for your data.
  * Your DE of Choice: The beauty of Arch! You get to pick your favorite Desktop Environment. *But that is for a next blogpost.*
@@ -280,7 +280,7 @@ sed -i -e "/^#"en_US.UTF-8"/s/^#//" /mnt/etc/locale.gen
 systemd-firstboot --root /mnt --prompt
 ```
 
-This interactive prompt will guide you through setting the keymap, timezone, and hostname.  For example:
+This interactive prompt will guide you through setting the keymap, timezone and hostname.  For example:
 
 ```
     Welcome to your new installation of Arch Linux!
@@ -396,7 +396,7 @@ ls -lR /mnt/efi
 
 ## Services and Boot Loader
 
-OK, we're just about done in the archiso, we just need to enable some services, and install our bootloader:
+OK, we're just about done in the archiso, we just need to enable some services and install our bootloader:
 ```
 systemctl --root /mnt enable systemd-resolved systemd-timesyncd NetworkManager
 systemctl --root /mnt mask systemd-networkd

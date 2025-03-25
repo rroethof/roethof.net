@@ -22,7 +22,7 @@ My recent heart attack in September 2024 was a wake-up call, forcing me to re-ev
 One unexpected challenge I've faced is managing the chronic pain associated with Tietze's syndrome, a condition that affects the joints of my shoulder blade and collarbone. As I navigate this new reality, I've discovered the importance of finding comfort and relief at my desk – and that's where ergonomic split keyboards come in.
 
 ## Understanding Tietze's Syndrome
-For those who may not be familiar, Tietze's syndrome is characterized by inflammation of the soft tissues surrounding the joints of the scapula (shoulder blade) and clavicle (collarbone). This can lead to pain, stiffness, and limited mobility in the chest, neck, shoulders, and arms.
+For those who may not be familiar, Tietze's syndrome is characterized by inflammation of the soft tissues surrounding the joints of the scapula (shoulder blade) and clavicle (collarbone). This can lead to pain, stiffness and limited mobility in the chest, neck, shoulders and arms.
 
 ## The Origins of My Journey
 As someone who's struggling with the chronic pain and stiffness associated with Tietze's syndrome, I knew I needed a solution that would allow me to work comfortably for hours on end without exacerbating my symptoms. 
@@ -42,7 +42,7 @@ I have compiled a list of top-rated split keyboards that I believe could be suit
 productivity and employee well-being.
 
 ### My Initial Affection for the ZSA Moonlander and Glove 80
-I was initially smitten with the ZSA Moonlander and the Glove 80. The Glove 80's unique design and ergonomic features truly caught my eye, and I appreciated its focus on comfort and style. However, as I delved deeper into research, I began to consider a few factors that would impact my decision.
+I was initially smitten with the ZSA Moonlander and the Glove 80. The Glove 80's unique design and ergonomic features truly caught my eye and I appreciated its focus on comfort and style. However, as I delved deeper into research, I began to consider a few factors that would impact my decision.
 
 ### Why I Chose the ZSA Voyager
 While the Glove 80 is a beautiful and well-designed keyboard, its large size and plastic construction didn't quite fit with my personal preferences. I was looking for a more compact option that would be easier to take on the go, while still providing excellent ergonomic benefits. 

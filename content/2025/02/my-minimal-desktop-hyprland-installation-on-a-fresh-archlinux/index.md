@@ -22,10 +22,10 @@ categories:
 
 ## We Tamed the Beast! Arch Linux + Hyprland = 🔥
 
-Okay, folks, the deed is done! We finally wrestled Arch Linux onto our metal monster (aka "the beast").  It was a bit of a marathon, but we emerged victorious. Now, the real fun begins: crafting a minimal, sleek desktop experience.  Our weapon of choice? Wayland, naturally, and the star of the show: Hyprland.
+Okay, folks, the deed is done! We finally wrestled Arch Linux onto our metal monster (aka "the beast").  It was a bit of a marathon, but we emerged victorious. Now, the real fun begins: crafting a minimal, sleek desktop experience.  Our weapon of choice? Wayland, naturally and the star of the show: Hyprland.
 
 ## Hyprland: What's the Hype?
-If you haven't heard of Hyprland, you're missing out.  It's a Wayland compositor (think of it as the brains behind your desktop visuals) written in C++ that's making waves.  Why?  Because it's dynamic.  We're talking smooth animations that'll make your eyes happy, tiling that adapts to your workflow like a chameleon, and, yes, rounded corners because who doesn't love rounded corners? It's like the cool kid on the Wayland block.
+If you haven't heard of Hyprland, you're missing out.  It's a Wayland compositor (think of it as the brains behind your desktop visuals) written in C++ that's making waves.  Why?  Because it's dynamic.  We're talking smooth animations that'll make your eyes happy, tiling that adapts to your workflow like a chameleon and, yes, rounded corners because who doesn't love rounded corners? It's like the cool kid on the Wayland block.
 
 ## Getting Our Hands Dirty: Installing yay
 First things first, we need to talk about the AUR (Arch User Repository). It's like a treasure trove of packages that aren't in the official Arch repos. To access this goldmine, we need an AUR helper.  Our go-to? _yay_.
@@ -37,7 +37,7 @@ Think of _yay_ as your friendly neighborhood package manager for the AUR. It mak
     cd yay
     makepkg -si
 
-Basically, we're grabbing the _yay_ source code, compiling it, and installing it. Easy peasy.
+Basically, we're grabbing the _yay_ source code, compiling it and installing it. Easy peasy.
 
 Lets update the _yay_ packages
 

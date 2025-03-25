@@ -35,7 +35,7 @@ Before diving into Arch, it's worth highlighting why FreeBSD resonated with me s
 
 Debian's release cycle, while ensuring stability, can leave you feeling a version or two behind. This is especially noticeable with developer tools and desktop environments. I've found myself frequently resorting to backports or third-party repositories to get the latest features.
 
-Arch's rolling release model addresses this directly. I crave the immediacy of updated packages, the latest kernel features, and the freshest desktop environment improvements. While this comes with the inherent risk of occasional breakage, I'm willing to trade a bit of stability for the cutting edge.
+Arch's rolling release model addresses this directly. I crave the immediacy of updated packages, the latest kernel features and the freshest desktop environment improvements. While this comes with the inherent risk of occasional breakage, I'm willing to trade a bit of stability for the cutting edge.
 
 ### Customization and Control:
 
@@ -49,9 +49,9 @@ Debian, while customizable, provides a pre-configured experience. Arch, on the o
 
 My laptop, while relatively modern, could benefit from more optimized configurations. With Arch, I can fine-tune every aspect of the system to maximize performance and battery life. While Debian offers a good level of hardware configuration, Arch's granular control and the AUR provide even greater flexibility. FreeBSD, while robust, is generally less flexible in terms of hardware customization, especially for newer or less common hardware.
 
-* **Kernel Parameters:** Experimenting with kernel parameters can lead to significant improvements in power management and performance. Arch makes this particularly easy, and Debian allows for this also. FreeBSD, while allowing for kernel tuning, is less flexible in this area.
+* **Kernel Parameters:** Experimenting with kernel parameters can lead to significant improvements in power management and performance. Arch makes this particularly easy and Debian allows for this also. FreeBSD, while allowing for kernel tuning, is less flexible in this area.
 * **Driver Selection:** I can carefully select and configure drivers for my specific hardware, ensuring optimal compatibility. Arch and Debian offer extensive driver support, whereas FreeBSD's hardware support can be more limited.
-* **Lightweight Environment:** Building a lightweight desktop environment with minimal dependencies can reduce resource consumption. Arch excels at this, and Debian allows for this, while FreeBSD is less designed for a desktop environment.
+* **Lightweight Environment:** Building a lightweight desktop environment with minimal dependencies can reduce resource consumption. Arch excels at this and Debian allows for this, while FreeBSD is less designed for a desktop environment.
 
 ### Unexpectedly Smooth Installation and Initial Impressions:
 
@@ -60,8 +60,8 @@ Having spent considerable time with both Debian and, before that, FreeBSD, I app
 * **Clear Documentation:** Each step is clearly explained, with detailed instructions and examples. This made the process much less daunting than I anticipated.
 * **Logical Progression:** The guide follows a logical progression, building the system step-by-step. This allowed me to understand the underlying mechanisms at each stage.
 * **Minimalist Approach:** The minimalist approach of Arch, where you build the system from the ground up, actually simplifies the installation process in some ways. There's less pre-configured bloat to contend with.
-* **Responsiveness and Cleanliness:** My initial findings with Arch are extremely positive. The system is remarkably responsive, and the clean, minimalist base provides an excellent foundation.
-* **Near-Perfect Desktop Experience:** The desktop experience I've achieved so far is near perfect. The system feels snappy, and the level of customization is unparalleled.
+* **Responsiveness and Cleanliness:** My initial findings with Arch are extremely positive. The system is remarkably responsive and the clean, minimalist base provides an excellent foundation.
+* **Near-Perfect Desktop Experience:** The desktop experience I've achieved so far is near perfect. The system feels snappy and the level of customization is unparalleled.
 
 ### The Power of the Arch Community:
 
@@ -69,7 +69,7 @@ One of the most impressive aspects of Arch Linux is the strength and helpfulness
 
 * **The Arch Wiki:** The Arch Wiki is an invaluable resource, providing detailed documentation on virtually every aspect of the system. It's a testament to the collective knowledge of the Arch community.
 * **Active Forums and Communities:** When I encountered minor issues, a quick search on the Arch forums and Reddit communities yielded helpful solutions. The community is incredibly responsive and supportive.
-* **AUR and Community Packages:** The Arch User Repository (AUR) is another example of the community's contributions. The amount of packages available is astounding, and the PKGBUILD system is quite easy to learn.
+* **AUR and Community Packages:** The Arch User Repository (AUR) is another example of the community's contributions. The amount of packages available is astounding and the PKGBUILD system is quite easy to learn.
 
 ### Addressing the Concerns:
 
@@ -77,9 +77,9 @@ Yes, I'm aware of the potential downsides. Instability is a real concern. Howeve
 
 ### Reflections on Debian and FreeBSD:
 
-My experience with Arch has only reinforced my appreciation for Debian's stability and FreeBSD's robust design. I remain a huge fan of both. However, I'm finding that Arch offers a unique blend of customization, cutting-edge software, and a vibrant community. This experiment with Arch is a way to broaden my knowledge and explore a different approach to Linux, while still remembering the secure and unique nature of FreeBSD.
+My experience with Arch has only reinforced my appreciation for Debian's stability and FreeBSD's robust design. I remain a huge fan of both. However, I'm finding that Arch offers a unique blend of customization, cutting-edge software and a vibrant community. This experiment with Arch is a way to broaden my knowledge and explore a different approach to Linux, while still remembering the secure and unique nature of FreeBSD.
 
 ### Next Steps:
 
-Now that the base system is installed, I'll be focusing on configuring my desktop environment and installing the necessary applications. I'll continue to document my journey and share any interesting discoveries along the way. I will also be posting tips and tricks, findings, and any other relevant information on this blog.
+Now that the base system is installed, I'll be focusing on configuring my desktop environment and installing the necessary applications. I'll continue to document my journey and share any interesting discoveries along the way. I will also be posting tips and tricks, findings and any other relevant information on this blog.
 

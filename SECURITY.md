@@ -35,6 +35,6 @@ In most cases this will be a workaround/mitigation first, followed by a fix and 
 - We will keep you informed of the progress towards resolving the problem.
 - In the public information concerning the reported problem, we will give your name as the discoverer of the problem (unless you desire otherwise).
 
-We strive to resolve all problems as quickly as possible, and we would like to play an active role in the ultimate publication on the problem after it is resolved.
+We strive to resolve all problems as quickly as possible and we would like to play an active role in the ultimate publication on the problem after it is resolved.
 
 *This Responsible Disclosure policy is based on an example written by Floor Terra and the [Responsible Disclosure Guideline of the NCSC](https://english.ncsc.nl/publications/publications/2019/juni/01/coordinated-vulnerability-disclosure-the-guideline).*

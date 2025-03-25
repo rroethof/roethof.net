@@ -73,7 +73,7 @@ Remove old package version from rpm db:
 for i in $(cat yum-fix_dupe2.txt);do rpm -e --justdb --nodeps $i;done 
 ```
 
-Remove last 2 columns from output, and put on same line:
+Remove last 2 columns from output and put on same line:
 ```
 cat yum-fix_dupe2.txt | awk -F"-[0-9]" '{print $1}' |tr '\n' ' ' > yum-fix_dupe2-reinstall.txt 
 ```

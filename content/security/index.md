@@ -69,7 +69,7 @@ In most cases this will be a workaround/mitigation first, followed by a fix and 
 - We will keep you informed of the progress towards resolving the problem.
 - In the public information concerning the reported problem, we will give your name as the discoverer of the problem (unless you desire otherwise).
 
-We strive to resolve all problems as quickly as possible, and we would like to play an active role in the ultimate publication on the problem after it is resolved.
+We strive to resolve all problems as quickly as possible and we would like to play an active role in the ultimate publication on the problem after it is resolved.
 
 ## Hall of fame
 

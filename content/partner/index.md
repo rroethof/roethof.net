@@ -71,7 +71,7 @@ We are open to various forms of partnerships that align with our values and bene
 * Collaborative projects focused on Linux and FOSS.
 * Opportunities to highlight innovative open-source solutions.
 
-If you are interested in exploring a partnership, please reach out to us with details about your company, your product or service, and your partnership proposal. We are eager to discuss opportunities that are a good fit for both parties.
+If you are interested in exploring a partnership, please reach out to us with details about your company, your product or service and your partnership proposal. We are eager to discuss opportunities that are a good fit for both parties.
 
 <!-- ## Shipping Address for Review Units (Please Verify Before Sending):
 

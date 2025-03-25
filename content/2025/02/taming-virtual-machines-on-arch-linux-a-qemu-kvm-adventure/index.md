@@ -150,7 +150,7 @@ This gives your user appropriate permissions.
 
 TODO:
 
-The _libvirt_ Group:  Adding a user to the _libvirt_ group is the most crucial step.  This grants the user the necessary permissions to interact with libvirt, which underlies QEMU, virt-manager, and virt-viewer.
+The _libvirt_ Group:  Adding a user to the _libvirt_ group is the most crucial step.  This grants the user the necessary permissions to interact with libvirt, which underlies QEMU, virt-manager and virt-viewer.
 
     sudo usermod -aG libvirt $USER
 
@@ -169,7 +169,7 @@ Group Membership, the following command should list libvirt.
  
 Libvirt URI: virsh uri should output qemu:///system.
 Image Directory Permissions: getfacl /var/lib/libvirt/images/ should show your user with rwx permissions.
-Using virt-manager and virt-viewer: Once the above is set up correctly, the user should be able to launch virt-manager and virt-viewer without any issues.  They will be able to create, manage, and view VMs.
+Using virt-manager and virt-viewer: Once the above is set up correctly, the user should be able to launch virt-manager and virt-viewer without any issues.  They will be able to create, manage and view VMs.
 
 yay -S virtio-win
 

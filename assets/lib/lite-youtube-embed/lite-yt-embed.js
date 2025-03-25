@@ -30,7 +30,7 @@ class LiteYTEmbed extends HTMLElement {
           this.upgradePosterImage();
         }
 
-        // Set up play button, and its visually hidden label
+        // Set up play button and its visually hidden label
         if (!playBtnEl) {
             playBtnEl = document.createElement('button');
             playBtnEl.type = 'button';

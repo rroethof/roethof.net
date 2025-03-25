@@ -33,10 +33,10 @@ Telegram, Signal and Matrix, helping you decide if they're right for you.
 
 ### **Signal**
 #### A Simple yet Secure Option
-I've heard a lot of hype about Signal's end-to-end encryption, and while it's true that the app offers strong security features, Signal is easy to use and requires minimal setup, making it an attractive option for users who value security and privacy.
+I've heard a lot of hype about Signal's end-to-end encryption and while it's true that the app offers strong security features, Signal is easy to use and requires minimal setup, making it an attractive option for users who value security and privacy.
 
 #### Security
-Signal's end-to-end encryption is a major selling point, and the app's commitment to transparency and user control is admirable. The app's reliance on open-source software and decentralized architecture also raises significant security concerns for potential users.
+Signal's end-to-end encryption is a major selling point and the app's commitment to transparency and user control is admirable. The app's reliance on open-source software and decentralized architecture also raises significant security concerns for potential users.
 
 #### Features
 Signal offers a range of features that make it an attractive option for users who value simplicity and ease of use. The app's minimalistic UI and straightforward features make it easy to navigate and use, even for those who aren't tech-savvy.
@@ -57,7 +57,7 @@ As someone who values transparency and honesty, I think we need to be critical o
 
 ### **WhatsApp**
 #### A Familiar but Flawed Option
-I've been using WhatsApp for years, and while it's a familiar and convenient option, I've come to realize that its limitations are significant. The app's massive user base can be both a blessing and a curse.
+I've been using WhatsApp for years and while it's a familiar and convenient option, I've come to realize that its limitations are significant. The app's massive user base can be both a blessing and a curse.
 
 On the one hand, having most of my friends and acquaintances on WhatsApp makes it easy to stay connected and communicate with them. However, this also means that I'm tied to an app that has a questionable ownership structure and lack of transparency when it comes to user data.
 
@@ -78,7 +78,7 @@ The ownership of WhatsApp by Meta has led some security analysts and privacy adv
 #### Security
 Telegram uses end-to-end encryption for messages, but it relies on a third-party service for key management. This has raised concerns about potential data breaches or surveillance activities.
 #### Features
-Telegram is known for its high-performance and speed, making it an attractive option for users who value rapid communication. Its features include file sharing, group chats, and voice and video calls.
+Telegram is known for its high-performance and speed, making it an attractive option for users who value rapid communication. Its features include file sharing, group chats and voice and video calls.
 #### Ownership
 As a privately-owned company, Telegram's motivations are harder to discern than those of Signal or Matrix. However, its commitment to user security is still a topic of debate among experts.
 #### Connections or Influences from Russia to Telegram
@@ -92,15 +92,15 @@ Telegram has been criticized for its ties to Russia and concerns over user data.
 
 ### **Matrix**
 #### Security
-Matrix uses end-to-end encryption for messages, and its architecture is designed to provide high levels of security and privacy. However, its reliance on a network of servers raises concerns about potential data breaches or surveillance activities.
+Matrix uses end-to-end encryption for messages and its architecture is designed to provide high levels of security and privacy. However, its reliance on a network of servers raises concerns about potential data breaches or surveillance activities.
 #### Features
-Matrix offers a range of features that make it an attractive option for users who value their security and privacy. These include file sharing, group chats, voice and video calls, and a range of customization options.
+Matrix offers a range of features that make it an attractive option for users who value their security and privacy. These include file sharing, group chats, voice and video calls and a range of customization options.
 #### Ownership
 As an open-source project developed by the Matrix.org community, Matrix's ownership is distributed among its contributors. This approach to governance provides transparency and accountability, but it also raises questions about the platform's ability to adapt to changing user needs.
 
 ---
 
 ## Conclusion
-Each of these messaging apps has its strengths and weaknesses, and the right choice for you will depend on your specific needs and priorities. Whether you're looking for simplicity, security, or flexibility, there's an app out there that's right for you. As always, I'll be keeping a close eye on each of these platforms and updating my reviews as new features and developments emerge.
+Each of these messaging apps has its strengths and weaknesses and the right choice for you will depend on your specific needs and priorities. Whether you're looking for simplicity, security, or flexibility, there's an app out there that's right for you. As always, I'll be keeping a close eye on each of these platforms and updating my reviews as new features and developments emerge.
 
 Ultimately, it's up to each individual to weigh the pros and cons of using different messaging apps and make an informed decision based on their priorities and values.
