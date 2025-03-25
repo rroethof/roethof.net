@@ -50,6 +50,7 @@ Search your favourite key server for the fingerprint above, or download directly
 
 * [https://roethof.net/rroethof.asc](https://roethof.net/rroethof.asc)
 * [https://keys.openpgp.org](https://keys.openpgp.org/search?q=E5C427DD2F2AEF51E35610173C20AD5E4FF1B301)
+* [https://keybase.io/rroethof/pgp_keys.asc](https://keybase.io/rroethof/pgp_keys.asc)
 
 
 ## Proof of identity
@@ -59,6 +60,11 @@ I have uploaded a signed proof here so you can verify my key.
 1) Install my public key.
 ```
 curl -s https://roethof.net/rroethof.asc | gpg --import
+curl -s https://keybase.io/rroethof/pgp_keys.asc | gpg --import
+```
+or use keybase 
+```
+keybase pgp pull rroethof
 ```
 
 2) Download my proof and signature to verify. 
@@ -74,3 +80,5 @@ gpg: Signature made Thu 20 Mar 2025 06:44:43 PM CET
 gpg:                using EDDSA key E5C427DD2F2AEF51E35610173C20AD5E4FF1B301
 gpg: Good signature from "Ronny Roethof <ronny@roethof.net>" [ultimate]
 ```
+
+
