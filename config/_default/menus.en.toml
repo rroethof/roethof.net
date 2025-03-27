@@ -11,35 +11,42 @@
 # ordered by weight from lowest to highest.
 
 [[main]]
-  pre = "briefcase"
+  pre = "layer-group"
   name = "Categories"
   weight = 10
   url = "/categories/"
 
-[[main]]
-  name = "Tutorials"
-  parent = "Categories"
-  weight = 11
-  url = "/categories/tutorials/"
+#[[main]]
+#  name = "Tutorials"
+#  parent = "Categories"
+#  weight = 11
+#  url = "/categories/tutorials/"
+#
+#[[main]]
+#  name = "Arch Linux"
+#  parent = "Categories"
+#  weight = 12
+#  url = "/categories/arch-linux/"
+#
+#[[main]]
+#  name = "Security"
+#  parent = "Categories"
+#  weight = 13
+#  url = "/categories/security/"
+#
+#[[main]]
+#  name = "Tips"
+#  parent = "Categories"
+#  weight = 14
+#  url = "/categories/tips/"
 
 [[main]]
-  name = "Arch Linux"
-  parent = "Categories"
-  weight = 12
-  url = "/categories/arch-linux/"
+  pre = "adress-card"
+  name = "About"
+  pageRef = "about"
+  weight = 15
 
-[[main]]
-  name = "Security"
-  parent = "Categories"
-  weight = 13
-  url = "/categories/security/"
 
-[[main]]
-  name = "Tips"
-  parent = "Categories"
-  weight = 14
-  url = "/categories/tips/"
-  
 [[main]]
   pre = "briefcase"
   name = "Resume"
@@ -82,22 +89,33 @@
 # the copyright notice. Configure as per the main menu above.
 
 [[footer]]
-  name = "Partner"
-  pageRef = "partner"
-  weight = 10
+  name              = "Partner"
+  pageRef           = "partner"
+  weight            = 10
 
 [[footer]]
-  name = "Privacy"
-  pageRef = "privacy"
-  weight = 30
+  name              = "About"
+  pageRef           = "about"
+  weight            = 20
 
 [[footer]]
-  name = "Security"
-  pageRef = "security"
-  weight = 40
+  name              = "GPG"
+  pageRef           = "gpg"
+  weight            = 30
 
 [[footer]]
   name              = "RSS"
-  identifier        = "subscribe"
+  identifier        = "Subscribe"
   url               = "https://roethof.net/index.xml"
-  weight = 20
+  weight            = 40
+
+[[footer]]
+  name              = "Privacy"
+  pageRef           = "privacy"
+  weight            = 50
+
+[[footer]]
+  name              = "Security"
+  pageRef           = "security"
+  weight            = 60
+
