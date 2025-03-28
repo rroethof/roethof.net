@@ -10,6 +10,7 @@ bin-release/
 /public
 /node_modules
 /resources
+/resources/_gen/
 
 # Other files and folders
 .settings/

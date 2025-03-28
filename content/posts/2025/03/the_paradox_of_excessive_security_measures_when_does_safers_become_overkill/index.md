@@ -12,7 +12,7 @@ categories:
   - 'security'
 ---
 
-I'm a CISO, Security engineer, a sysadmin, a nerd and a stuborn human. How do we, as companies, strike a balance between a secure IT environment and respecting the human element? This post explores how excessive security can hinder productivity and trust.
+I'm a Security Officer, Pentester, a SysAdmin, a nerd and a stuborn human. How do we, as companies, strike a balance between a secure IT environment and respecting the human element? This post explores how excessive security can hinder productivity and trust.
 
 ## The Risks of Over-Security
 In an effort to stay one step ahead of threats, many organizations are implementing overly aggressive security protocols. While these measures may seem effective in theory, I believe they often lead to:

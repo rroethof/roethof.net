@@ -41,7 +41,7 @@ Hey, I’m the Nerd Behind Roethof.net!
 Hey there! Ask me what I do, and I’ll tell you I work with computers—the nerdy way. I’m a Linux admin for our company’s internal IT, with a passion for solving problems and automating the heck out of everything. This is my spot to geek out, share fixes, and chase the perfect setup.
 
 ### What I Do
-I keep our company’s systems chugging along, mostly on Arch Linux now (after cracking my brain on FreeBSD and Debian). I’ve got a knack for unraveling tech messes—think scripting quick wins or automating workflows with Ansible to dodge the grind. Security’s in my wheelhouse too (I double as CISO and pentester), but I’m happiest knee-deep in a terminal, not a boardroom. This site is where I dump my brainfarts—uh, I mean, share my solutions—hoping it spares you some grief.
+I keep our company’s systems chugging along, mostly on Arch Linux now (after cracking my brain on FreeBSD and Debian). I’ve got a knack for unraveling tech messes—think scripting quick wins or automating workflows with Ansible to dodge the grind. Security’s in my wheelhouse too (I double as Security Officer, SysAdmin and pentester), but I’m happiest knee-deep in a terminal, not a boardroom. This site is where I dump my brainfarts—uh, I mean, share my solutions—hoping it spares you some grief.
 
 ### Why Open Source?
 Open source is my fuel. It’s freedom to tweak, trust, and build—perfect for a guy who’d rather script than sleep. Arch, Ansible, Bash—you name it, I’m all in. This site’s my way to toss those solutions back into the wild for anyone who needs them.

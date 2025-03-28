@@ -1,9 +1,12 @@
 theme = "blowfish"
 baseURL = "https://roethof.net/"
 
+timeZone = "Europe/Amsterdam"
 defaultContentLanguage = "en"
+languageCode = "en-us"
 timeout = "180s"
 
+enableGitInfo = true
 enableRobotsTXT = true
 summaryLength = 0
 

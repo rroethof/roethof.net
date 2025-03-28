@@ -8,15 +8,15 @@ categories: ["security philosophy", "operating systems", "personal computing", "
 ---
 
 ## Alright, let's talk company laptops. 
-As a Security Engineer or CISO – you can call me whatever flavor of paranoia fits my day – a pentester who's seen some truly horrifying stuff lurking in the digital shadows and a Linux sysadmin who likes things *just so* and under *my* control, you'd think I'd be the poster child for lockdown and draconian policies. And professionally? Yeah, a big part of me absolutely is. Gotta keep the bad guys out, the data safe and the company breathing. It's the core of what I do.
+As a Security Engineer or Security Engineer – you can call me whatever flavor of paranoia fits my day – a pentester who's seen some truly horrifying stuff lurking in the digital shadows and a Linux sysadmin who likes things *just so* and under *my* control, you'd think I'd be the poster child for lockdown and draconian policies. And professionally? Yeah, a big part of me absolutely is. Gotta keep the bad guys out, the data safe and the company breathing. It's the core of what I do.
 
 But here's the thing that often gets lost in the policy documents: I'm also human. A stubborn one, you might hear whispered around the office. I work hard, often putting in the hours to keep the digital wolves at bay and when I'm not knee-deep in logs trying to break into our own systems (legally, of course!) to find the holes before the bad guys do, I like to unwind. And guess what? That company-issued laptop, with its decent specs and familiar environment, is often right there with me. It's powerful, it's got the screen real estate that my aging eyes appreciate and frankly, sometimes it's just the most convenient, readily available device around.
 
 So, where does that leave us with security policies that often paint personal use as the digital equivalent of opening Pandora's Box? This is where the head (the security professional in me) and the heart (the practical human being) and maybe a bit of that stubborn streak that refuses to accept overly simplistic solutions, really clash.
 
-## The Security Engineer or CISO in Me Screams Lockdown (Then Takes a Deep Breath)
+## The Security Officer in Me Screams Lockdown (Then Takes a Deep Breath)
 
-The professional in me sees the threat landscape in stark detail. Every piece of personal browsing, every non-sanctioned software install, every connection to an untrusted public Wi-Fi network is a potential vulnerability, a crack in the armor. The CISO wants a pristine, locked-down environment. No personal use. Limited, carefully vetted software. Whitelisted websites only, with extreme prejudice. It's the safest approach, theoretically, in a perfect, non-human world.
+The professional in me sees the threat landscape in stark detail. Every piece of personal browsing, every non-sanctioned software install, every connection to an untrusted public Wi-Fi network is a potential vulnerability, a crack in the armor. The Security Officer wants a pristine, locked-down environment. No personal use. Limited, carefully vetted software. Whitelisted websites only, with extreme prejudice. It's the safest approach, theoretically, in a perfect, non-human world.
 
 ## The Human (and Linux Admin) in Me Rebels Against Inefficiency
 
