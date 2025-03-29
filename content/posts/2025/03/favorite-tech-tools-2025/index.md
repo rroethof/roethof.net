@@ -46,17 +46,17 @@ My smartphone is the **Xiaomi Redmi Note 13 Pro 5G**, a more budget-friendly (su
 
 ## Software Standouts
 
-### My Daily Driver OS: Arch Linux
+### My Daily Driver OS: Arch Linux with hyprland
 
 As mentioned with my Dell XPS, **Arch Linux** is my operating system of choice for my laptop. Its rolling-release nature ensures I always have access to the latest software, and the high level of customization allows me to tailor the system precisely to my needs and preferences.
 
-### My Server OS: Debian 12
+### My Server OS: Debian
 
 When it comes to my servers, I like things stable and secure, which is why I run Debian 12. Let's be honest, it's often called the daddy of Linux for a reason! This fantastic Linux-based OS is all about Free Software – meaning it's completely free to use, modify, and share. The Debian project is super dedicated to this, which I really appreciate. Plus, it's known for being rock-solid and getting regular security updates, so I can trust it to keep my server stuff running smoothly.
 
 ### The Automation Powerhouse: Ansible
 
-It should come as no surprise that Ansible continues to be my automation powerhouse of choice. Whether I'm managing my home lab, setting up new virtual machines, or ensuring consistent configurations across systems, Ansible's agentless architecture and declarative language make it incredibly efficient and easy to use. I've been particularly reliant on it this year for [mention a specific project or recurring task].
+It should come as no surprise that Ansible continues to be my automation powerhouse of choice. Whether I'm managing my home lab, setting up new virtual machines, or ensuring consistent configurations across systems, Ansible's agentless architecture and declarative language make it incredibly efficient and easy to use. 
 
 ### The Terminal Workhorse: Zsh with Oh My Zsh
 
