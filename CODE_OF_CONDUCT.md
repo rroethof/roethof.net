@@ -1,6 +1,6 @@
 ## Code of Conduct
 
-We're thrilled to have you join our community of contributors! As contributors, we strive to create an inclusive and supportive environment for sharing knowledge and expertise. We expect all members to adhere to this code of conduct.
+We're thrilled to have you join our community of contributors! As contributors, we strive to create an inclusive and supportive environment for sharing knowledge and expertise, drawing inspiration from resources like the [Open Source Guides](https://opensource.guide/). We expect all members to adhere to this code of conduct.
 
 ## Scope
 
@@ -16,17 +16,17 @@ It also extends to our online presence, including our website and blog content.
 
 ## Core Principles
 
-1.  **Respect and Inclusivity**: Treat others with kindness, respect and empathy. Recognize that everyone has different backgrounds, experiences and perspectives.
-2.  **Professionalism**: Maintain a professional demeanor in all interactions, both online and offline. This includes being punctual, responsive and considerate of others' time and opinions.
-3.  **Open-Mindedness**: Be willing to listen, learn and adapt. Encourage constructive feedback and be open to new ideas and perspectives.
-4.  **Communication Clarity**: Clearly express your thoughts, opinions and intentions. Avoid ambiguity, miscommunication, or unnecessary complexity.
+1.  **Respect and Inclusivity**: Treat others with kindness, respect, and empathy. Recognize that everyone has different backgrounds, experiences, and perspectives. You can find more detailed guidance on fostering inclusive communities in resources like the [Open Source Guides](https://opensource.guide/how-to-build-welcoming-communities/).
+2.  **Professionalism**: Maintain a professional demeanor in all interactions, both online and offline. This includes being punctual, responsive, and considerate of others' time and opinions.
+3.  **Open-Mindedness**: Be willing to listen, learn, and adapt. Encourage constructive feedback and be open to new ideas and perspectives.
+4.  **Communication Clarity**: Clearly express your thoughts, opinions, and intentions. Avoid ambiguity, miscommunication, or unnecessary complexity.
 
 ## Guiding Behaviors
 
 1.  **Be Positive and Constructive**: Focus on finding solutions rather than placing blame. Encourage positive discussion and debate.
-2.  **Avoid Harassment and Bullying**: Refrain from using language that is derogatory, inflammatory, or intimidating. Be mindful of power dynamics and avoid exploiting them for personal gain.
+2.  **Avoid Harassment and Bullying**: Refrain from using language that is derogatory, inflammatory, or intimidating. Be mindful of power dynamics and avoid exploiting them for personal gain. The [Open Source Guides' section on Code of Conducts](https://opensource.guide/code-of-conduct/) offers valuable insights into creating safe and respectful environments.
 3.  **Use Proper Language**: Avoid using technical jargon or overly complex terminology to alienate others. Use clear, concise language that's accessible to all.
-4.  **Be Transparent and Accountable**: Be honest in your words and actions. Acknowledge mistakes, take responsibility for errors and be willing to learn from them.
+4.  **Be Transparent and Accountable**: Be honest in your words and actions. Acknowledge mistakes, take responsibility for errors, and be willing to learn from them.
 
 ## Consequences of Misbehavior
 
@@ -48,4 +48,8 @@ We take all allegations of misconduct seriously and will investigate them prompt
 2.  **Open Discussion**: Encourage open discussion about concerns or issues related to our code of conduct.
 3.  **Constructive Feedback**: Offer specific, actionable feedback that helps individuals grow and improve.
 
-By following this code of conduct, we aim to create a safe, inclusive and supportive environment for our community to thrive. Let's work together to build a positive and productive space where everyone can share their expertise and passion for technical topics!
+## Further Resources
+
+We encourage all contributors to explore the [Open Source Guides](https://opensource.guide/) for a wealth of information on open source best practices.
+
+By following this code of conduct, we aim to create a safe, inclusive, and supportive environment for our community to thrive. Let's work together to build a positive and productive space where everyone can share their expertise and passion for technical topics!
