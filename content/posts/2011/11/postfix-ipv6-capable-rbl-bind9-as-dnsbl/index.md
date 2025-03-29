@@ -11,13 +11,11 @@ tags:
   - 'Email Security'
   - 'Spam Filtering'
 categories:
-  - 'Linux'
-  - 'Postfix'
-  - 'IPv6'
-  - 'DNSBL'
-  - 'BIND 9'
-  - 'RBLs'
-  - 'Email Servers'
+  - Linux & Open Source
+  - Infrastructure & Servers
+  - System Management
+  - Networking
+  - Security & Privacy
 ---
 
 Here we go again…

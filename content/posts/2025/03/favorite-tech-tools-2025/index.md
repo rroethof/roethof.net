@@ -5,9 +5,28 @@ description: "A look at the hardware and software tools I've found most indispen
 slug: "favorite-tech-tools-2025"
 draft: false # Set to false to publish
 categories:
-  - Tech
-  - Productivity
-  - Linux
+  - AI & Machine Learning
+  - Automation & Scripting
+  - Blogging & Content Management
+  - Communication & Collaboration
+  - Ergonomics & Health
+  - Infrastructure & Servers
+  - Keyboards & Input Devices
+  - Learning & Growth
+  - Linux & Open Source
+  - Personal Computing & Productivity
+  - Personal Reflections
+  - Career & Professional Development
+  - Security & Privacy
+  - System Management
+  - Tech & Industry Insights
+  - Virtualization & Cloud
+  - Monitoring & Observability
+  - Networking
+  - Community & Culture
+  - Hardware Reviews
+  - Self-Hosting
+  - Command Line Tools
 tags:
   - 2025
   - Favorite Tools

@@ -10,12 +10,10 @@ tags:
   - 'Content Management'
   - 'Productivity'
 categories:
-  - 'Web Development'
-  - 'Blogging'
-  - 'Hugo'
-  - 'Static Site Generation (SSG)'
-  - 'Content Management'
-  - 'Productivity'
+  - Blogging & Content Management
+  - Linux & Open Source
+  - Personal Computing & Productivity
+  - Tech & Industry Insights
 ---
 
 For years, I've been passionate about sharing my technical findings, ponderings and open-source insights through a weblog. My journey started with hand-crafted HTML, evolved into a PHP-powered custom database solution and eventually landed me with WordPress. While each approach had its merits, they all shared a common Achilles' heel: maintenance.

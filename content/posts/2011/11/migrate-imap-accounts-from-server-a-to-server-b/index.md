@@ -11,12 +11,9 @@ tags:
   - 'Email Clients'
   - 'IMAP Accounts'
 categories:
-  - 'System Administration'
-  - 'Linux'
-  - 'Email'
-  - 'Imap'
-  - 'Server Migration'
-  - 'IT Infrastructure'
+  - System Management
+  - Linux & Open Source
+  - Networking
 ---
 
 There is a easy to use tool that facilitates the quick’n dirty move of the content of one IMAP account to a new server. Its name is *imapsync*. 

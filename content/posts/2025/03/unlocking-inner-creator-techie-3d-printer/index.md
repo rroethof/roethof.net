@@ -3,6 +3,14 @@ title: "Unlocking Your Inner Creator: Why Every Techie Needs a 3D Printer (and W
 date: 2025-03-26T17:54:00+01:00
 draft: false
 tags: ["3D Printing", "Tech", "Maker", "Klipper", "Ender 3 Pro", "Sovol SV06", "DIY", "Linux", "Open Source"]
+categories:
+  - Hardware Reviews
+  - Linux & Open Source
+  - Personal Computing & Productivity
+  - Tech & Industry Insights
+  - 3D Printing
+  - DIY Tech
+  - Maker Culture
 ---
 
 ## My Peripheral Vision and the Allure of 3D Printing

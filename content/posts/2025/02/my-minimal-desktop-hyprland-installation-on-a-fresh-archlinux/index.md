@@ -11,13 +11,12 @@ tags:
   - 'command line'
   - 'hyprland'
 categories:
-  - 'Linux'
-  - 'Arch Linux'
-  - 'HyprLand'
-  - 'Desktop Environments'
-  - 'Minimalist Setup'
-  - 'System Installation'
-  - 'Command Line'
+- Linux & Open Source
+- Personal Computing & Productivity
+- System Management
+- Keyboards & Input Devices
+- Learning & Growth
+- Desktop Customization
 ---
 
 ## We Tamed the Beast! Arch Linux + Hyprland = 🔥

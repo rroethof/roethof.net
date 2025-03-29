@@ -12,13 +12,12 @@ tags:
   - 'clean install'
   - 'mean machine'
 categories:
-  - 'Linux'
-  - 'Arch Linux'
-  - 'System Installation'
-  - 'Security'
-  - 'Configuration'
-  - 'Setup Guides'
-  - 'Productivity'
+  - Linux & Open Source
+  - Security & Privacy
+  - System Management
+  - Automation & Scripting
+  - Learning & Growth
+  - System Hardening
 ---
 
 So, I've done it again. I've decided to ditch Windows on my company laptop (for the, uh, nth time). I briefly flirted with FreeBSD (it was okay, but let's just say my other laptop wasn't playing nice with it) and I really wanted a consistent setup across both machines.

@@ -12,12 +12,8 @@ tags:
   - 'package management'
   - 'system cleanup'
 categories:
-  - 'Linux'
-  - 'YUM'
-  - 'Package Management'
-  - 'Duplicate Packages'
-  - 'System Administration'
-  - 'Command Line'
+  - Linux & Open Source
+  - System Management
 ---
 
 During mayor upgrades on several systems I came along the bad situation with duplicate packages..

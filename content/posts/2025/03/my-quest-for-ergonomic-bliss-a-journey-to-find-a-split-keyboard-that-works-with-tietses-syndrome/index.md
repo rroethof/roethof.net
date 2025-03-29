@@ -9,12 +9,14 @@ tags:
   - 'ergonomic keyboarding'
   - 'health and wellness'
 categories:
-  - 'Ergonomics'
-  - 'Keyboards'
-  - 'Split Keyboards'
-  - 'Health and Wellness'
-  - 'Productivity'
-  - 'Technology'
+  - Ergonomics & Health
+  - Keyboards & Input Devices
+  - Split Keyboards
+  - Personal Reflections
+  - Personal Computing & Productivity
+  - Health Conditions & Technology
+  - Assistive Technology
+  - Product Reviews
 ---
 
 My recent heart attack in September 2024 was a wake-up call, forcing me to re-evaluate my priorities and make significant changes to my daily life. While I'm grateful to have survived, the aftermath has been a journey of self-discovery and adaptation. 

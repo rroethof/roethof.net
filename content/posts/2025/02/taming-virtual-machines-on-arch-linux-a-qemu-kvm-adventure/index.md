@@ -11,13 +11,10 @@ tags:
   - 'system administration'
   - 'arch-kvm'
 categories:
-  - 'Linux'
-  - 'Arch Linux'
-  - 'Virtualization'
-  - 'QEMU'
-  - 'KVM (Kernel-based Virtual Machine)'
-  - 'Virtual Machines'
-  - 'System Administration'
+  - Linux & Open Source
+  - Arch Linux
+  - Virtualization & Cloud
+  - System Management
 ---
 
 So, you're ready to dive into the world of virtualization on Arch Linux? Awesome!  This guide will walk you through setting up QEMU-KVM, turning your machine into a virtual playground.  We'll keep things simple and focus on the essentials.
