@@ -4,6 +4,29 @@ date: "2025-03-29T06:52:00+02:00" # Adjusted time for Lelystad
 description: "A look at the hardware and software tools I've found most indispensable in my daily tech life in 2025."
 slug: "favorite-tech-tools-2025"
 draft: false # Set to false to publish
+categories:
+  - Tech
+  - Productivity
+  - Linux
+tags:
+  - 2025
+  - Favorite Tools
+  - Hardware
+  - Software
+  - Dell XPS 15
+  - Arch Linux
+  - Hyprland
+  - Debian 12
+  - Ansible
+  - Zsh
+  - Visual Studio Code
+  - Proxmox VE
+  - GitHub
+  - Docker
+  - Bitwarden
+  - Nextcloud
+  - Calibre
+  - Obsidian
 ---
 
 Hello tech community! The days are getting longer, the air is getting warmer, and I'm feeling energized by the possibilities of the year ahead in my ongoing adventure with technology. To kick things off with a fresh perspective this spring, I wanted to share the tech tools that have become my favorites in the first part of 2025, helping me manage my systems, enhance security, and automate the tasks that would otherwise drive me nuts – all with renewed vigor.
