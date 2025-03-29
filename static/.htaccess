@@ -1,0 +1,11 @@
+<IfModule mod_headers.c>
+# X-XSS-Protection
+	Header set X-XSS-Protection "1; mode=block"
+	Header set X-Frame-Options "SAMEORIGIN"
+	Header set X-Content-Type-Options "nosniff"
+	Header always set Strict-Transport-Security "max-age=63072000;"
+	Header set Referrer-Policy "same-origin"
+	Header set Content-Security-Policy "Content-Security-Policy: default-src 'self' data: 'unsafe-inline' www.gstatic.com www.googletagmanager.com;"
+</IfModule>
+
+ErrorDocument 404 /404.html
