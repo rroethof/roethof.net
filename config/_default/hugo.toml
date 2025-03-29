@@ -5,7 +5,6 @@ enableEmoji = true
 enableGitInfo = true
 enableRobotsTXT = true
 footnoteReturnLinkContents = "^"
-languageCode = "en-us"
 linenos = true
 
 timeZone = "Europe/Amsterdam"
