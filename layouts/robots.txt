@@ -4,21 +4,5 @@ Allow: /
 Disallow: /cgi-bin/
 Disallow: /cdn-cgi/
 
-# No AI crawlers >:(
-# See https://roethof.net/copyright/#generative-ai-chatgpt for more info
-
-User-agent: GPTBot
-Disallow: /
-
-User-agent: Google-Extended
-Disallow: /
-
-User-agent: ClaudeBot
-Disallow: /
-
-User-agent: SKYNET
-Disallow: /connor
-
 # It's dangerous to go alone, take this:
-
 Sitemap: {{ "/sitemap.xml" | absURL }}

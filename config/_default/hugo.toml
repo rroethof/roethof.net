@@ -1,19 +1,21 @@
 theme = "blowfish"
 baseURL = "https://roethof.net/"
 
+enableEmoji = true
+enableGitInfo = true
+enableRobotsTXT = true
+footnoteReturnLinkContents = "^"
+linenos = true
+
 timeZone = "Europe/Amsterdam"
 defaultContentLanguage = "en"
 languageCode = "en-us"
 timeout = "180s"
 
-enableGitInfo = true
-enableRobotsTXT = true
 summaryLength = 0
 
 buildDrafts = false
 buildFuture = true
-
-enableEmoji = true
 
 googleAnalytics = "G-CZKZHB3R90"
 
