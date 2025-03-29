@@ -8,8 +8,15 @@ tags:
   - 'usability'
   - 'risk assessment'
 categories:
-  - 'technology'
-  - 'security'
+  - Security & Privacy
+  - Career & Professional Development
+  - Tech & Industry Insights
+  - Personal Reflections
+  - Community & Culture
+  - Security Policy & Management
+  - Human Factors in Security
+  - Risk Management
+  - Usability in Security
 ---
 
 I'm a Security Officer, Pentester, a SysAdmin, a nerd and a stuborn human. How do we, as companies, strike a balance between a secure IT environment and respecting the human element? This post explores how excessive security can hinder productivity and trust.

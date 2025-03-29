@@ -1,5 +1,0 @@
-# custom header fields
-["*"]
-    cache-control = "max-age=3600"
-    referrer-policy = "no-referrer"
-    

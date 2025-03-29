@@ -4,7 +4,17 @@ date: 2025-03-25T19:10:00+01:00
 draft: false
 author: "Ronny Roethof"
 tags: ["security", "privacy", "policies", "linux", "freebsd", "work hard play hard", "control", "autonomy", "realism"]
-categories: ["security philosophy", "operating systems", "personal computing", "workplace technology", "individualism", "security practices"]
+categories: 
+  - Security & Privacy
+  - Personal Reflections
+  - Career & Professional Development
+  - Linux & Open Source
+  - Personal Computing & Productivity
+  - Tech & Industry Insights
+  - Community & Culture
+  - Security Policy & Management
+  - Work-Life Balance
+  - Human Factors in Security
 ---
 
 ## Alright, let's talk company laptops. 

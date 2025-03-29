@@ -1,0 +1,51 @@
+- AI & Machine Learning
+- Automation & Scripting
+- Blogging & Content Management
+- Communication & Collaboration
+- Ergonomics & Health
+- Infrastructure & Servers
+- Keyboards & Input Devices
+- Learning & Growth
+- Linux & Open Source
+- Personal Computing & Productivity
+- Personal Reflections
+- Career & Professional Development
+- Security & Privacy
+- System Management
+- Tech & Industry Insights
+- Virtualization & Cloud
+- Monitoring & Observability
+- Networking
+- Community & Culture
+- Storage Management
+- Desktop Customization
+- System Hardening
+- Privacy-Focused Software
+- Online Communication
+- Security Policy & Management
+- Work-Life Balance
+- Human Factors in Security
+- Hardware Reviews
+- Self-Hosting
+- Command Line Tools
+- Health Conditions & Technology
+- Assistive Technology
+- Product Reviews
+- Personal Computing & Productivity
+- Large Language Models
+- Docker
+- Web Interfaces
+- Security Policy & Management
+- Human Factors in Security
+- Risk Management
+- Usability in Security
+- Burnout Prevention & Recovery
+- Work-Life Balance
+- Sleep Science & Hygiene
+- Personal Health Journeys
+- Sysadmin Life
+- IT Health & Well-being
+- Productivity Strategies for Tech Professionals
+- 3D Printing
+- DIY Tech
+- Maker Culture

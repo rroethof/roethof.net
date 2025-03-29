@@ -12,11 +12,16 @@ tags:
   - 'tech-wellbeing'
   - 'career-advice'
 categories:
-  - 'blog'
-  - 'sysadmin-spotlight'
-  - 'careers-and-productivity'
-  - 'digital-health'
-  - 'tech-industry-insights'
+  - Burnout Prevention & Recovery
+  - Career & Professional Development
+  - Ergonomics & Health
+  - Personal Health Journeys
+  - Personal Reflections
+  - Sleep Science & Hygiene
+  - Work-Life Balance
+  - Sysadmin Life
+  - IT Health & Well-being
+  - Productivity Strategies for Tech Professionals
 ---
 
 ## Introduction: The Silent Struggle of a Sysadmin

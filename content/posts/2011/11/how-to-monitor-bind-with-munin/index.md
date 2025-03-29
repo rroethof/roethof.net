@@ -11,13 +11,11 @@ tags:
   - 'Monitoring'
   - 'IT Infrastructure'
 categories:
-  - 'Virtualization'
-  - 'System Administration'
-  - 'Linux'
-  - 'Munin'
-  - 'Bind'
-  - 'Monitoring'
-  - 'IT Infrastructure'
+  - Linux & Open Source
+  - Infrastructure & Servers
+  - System Management
+  - Monitoring & Observability
+  - Networking
 ---
 
 Munin does have some limitations.

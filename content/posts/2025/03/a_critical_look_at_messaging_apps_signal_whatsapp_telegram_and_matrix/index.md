@@ -11,15 +11,13 @@ tags:
   - 'Security'
   - 'Productivity'
 categories: 
-  - 'Linux'
-  - 'Messaging Apps'
-  - 'Signal'
-  - 'WhatsApp'
-  - 'Telegram'
-  - 'Matrix'
-  - 'Communication Tools'
-  - 'Security'
-  - 'Productivity'
+  - Linux & Open Source
+  - Communication & Collaboration
+  - Security & Privacy
+  - Tech & Industry Insights
+  - Personal Computing & Productivity
+  - Privacy-Focused Software
+  - Online Communication
 date: 2025-03-21
 draft: false
 ---

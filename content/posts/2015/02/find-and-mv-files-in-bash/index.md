@@ -13,12 +13,10 @@ tags:
   - 'file management'
   - 'scripting basics'
 categories:
-  - 'Linux'
-  - 'Bash'
-  - 'File Management'
-  - 'Scripting'
-  - 'Command Line'
-  - 'Unix/Linux'
+  - Linux & Open Source
+  - Automation & Scripting
+  - System Management
+  - Personal Computing & Productivity
 ---
 
 Today I was working on an oldskool backup script and needed to move (not delete) old files, playing arround with find a bit and I thought I would document this shell command for posterity’s sake.

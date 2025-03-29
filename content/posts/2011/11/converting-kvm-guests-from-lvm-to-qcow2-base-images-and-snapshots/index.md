@@ -16,10 +16,13 @@ tags:
   - 'Performance optimization'
   - 'Storage management'
 categories:
-  - 'Virtualization and Cloud Computing'
-  - 'System Administration'
-  - 'Linux'
-  - 'IT Infrastructure'
+  - Virtualization & Cloud
+  - Linux & Open Source
+  - Infrastructure & Servers
+  - System Management
+  - Automation & Scripting
+  - Tech & Industry Insights
+  - Storage Management
 ---
 lvm based kvm guests are fast but you lose some flexibility, playing with kvm on my desktop I prefer to use file based images. Converting from lvm images to qcow2 isn’t hard but the documentation is sparse.
 

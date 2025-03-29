@@ -14,16 +14,10 @@ tags:
   - 'Debian'
   - 'Package Management'
 categories:
-  - 'Linux'
-  - 'Ubuntu'
-  - 'Security'
-  - 'Automation'
-  - 'Scripting'
-  - 'System Administration'
-  - 'Command Line'
-  - 'Shell Scripting'
-  - 'Debian'
-  - 'Linux Distribution'
+  - Linux & Open Source
+  - Security & Privacy
+  - Automation & Scripting
+  - System Management
 ---
 
 In order to have automatic and unattended security updates in Ubuntu, one needs to install the according package:

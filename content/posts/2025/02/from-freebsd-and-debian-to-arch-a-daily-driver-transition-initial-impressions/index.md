@@ -12,14 +12,10 @@ tags:
   - 'command line'
   - 'transition'
 categories:
-  - 'Linux'
-  - 'Arch Linux'
-  - 'BSD'
-  - 'Debian'
-  - 'Distro Migration'
-  - 'Daily Driver'
-  - 'System Administration'
-  - 'Command Line'
+  - Linux & Open Source
+  - Personal Computing & Productivity
+  - System Management
+  - Learning & Growth
 ---
 
 For years, Debian has been my rock. A bastion of stability, it served me faithfully on servers and even as a daily driver. Before Debian, I spent a significant amount of time with FreeBSD, which I admire for its robust design. However, lately, I've felt a growing itch for something more... dynamic. So, I'm making the leap: I'm switching my daily driver laptop to Arch Linux. Here's a breakdown of my reasoning and initial impressions:

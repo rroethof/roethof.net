@@ -10,13 +10,10 @@ tags:
   - 'linux'
   - 'command line'
 categories:
-  - 'Python'
-  - 'pip (Package Installer)'
-  - 'Environment Management'
-  - 'Package Installation'
-  - 'Error Messages'
-  - 'Linux'
-  - 'Command Line'
+  - Linux & Open Source
+  - Personal Computing & Productivity
+  - Automation & Scripting
+  - System Management
 ---
 
 On new Debian 12 Bookworm installs, when I try running pip3 install something (whether that’s Ansible or some other Python tool), I get the following error message:
