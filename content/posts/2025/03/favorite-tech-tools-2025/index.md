@@ -54,7 +54,11 @@ Hello tech community! The days are getting longer, the air is getting warmer, an
 
 ### My Trusty Daily Driver: The Dell XPS 9530
 
-My current daily driver is the **Dell XPS 9530**. Powering it all is **Arch Linux** with the dynamic tiling window manager **Hyprland**. This combination provides a highly customizable and efficient environment for my tasks, which often include running virtual machines and software development. The Intel Core i9 processor and 32GB of RAM ensure smooth performance, and the 15.6-inch OLED display offers a high-resolution and vibrant visual workspace. When I'm working from my home or office, this setup expands into a highly productive triple-display configuration, which is incredibly beneficial for managing multiple applications and workflows simultaneously.
+My current daily driver is the **Dell XPS 9530**. Powering it all is **Arch Linux** with the dynamic tiling window manager **Hyprland**. This combination provides a highly customizable and efficient environment for my tasks, which often include running virtual machines and software development.
+
+Under the hood, this machine packs a punch with a **Intel Core i9-12900HK processor** (featuring 14 cores for excellent multitasking) and **32 GB DDR5 memory**. For graphics-intensive tasks and the occasional gaming session, it's equipped with an **NVIDIA GeForce RTX 4070 Laptop GPU**.
+
+The visual experience is fantastic thanks to the **15.6-inch OLED InfinityEdge display** with a crisp resolution of **3456 x 2160**. The touch functionality and vibrant colors (100% DCI-P3 color gamut) make it a joy to work on. Storage is handled by **two 1TB M.2 NVMe SSDs**, providing ample space and lightning-fast data access. When I'm working from my home or office, this setup expands into a highly productive triple-display configuration, which is incredibly beneficial for managing multiple applications and workflows simultaneously.
 
 ### My Mobile Workhorse: The Microsoft Surface Pro 6
 For on-the-go tasks and situations where portability is key, I rely on my **Microsoft Surface Pro 6**. Its compact form factor and versatility as both a tablet and a laptop make it ideal for quick mobility, taking notes with the stylus during meetings, efficiently signing documents, and handling quick meetings where a full laptop might be cumbersome. While it might not have the raw power of my XPS, it strikes a great balance between size and functionality for mobile productivity in these scenarios.
