@@ -22,15 +22,13 @@ tags:
 ---
 Hey tech folks! If you're anything like me, you probably use open-source software every single day. Think about the operating system you use, the tools you rely on for work or personal projects – chances are, many of them are open source. For those of us who work with tools like **Ansible**, we see firsthand the power of collaborative, open development.
 
-### The Power of Open Source: Caring, Sharing, and Collaboration
+### The Power of Open Source: Caring, Sharing and Collaboration
 
-Open source isn't just about getting free software; it's about something much bigger. It's about **caring** enough to want to improve the tools we all use, **sharing** our knowledge and skills, and **working together** with colleagues, friends, and even folks on the other side of the planet who share the same passion for creating better products. The vast open-source **community**, encompassing projects of all kinds, truly embodies this spirit.
+Open source isn't just about getting free software; it's about something much bigger. It's about **caring** enough to want to improve the tools we all use, **sharing** our knowledge and skills and **working together** with colleagues, friends and even folks on the other side of the planet who share the same passion for creating better products. The vast open-source **community**, encompassing projects of all kinds, truly embodies this spirit.
 
-Think about the countless individuals who dedicate their time to building and maintaining the software that powers so much of our digital world. From the core components of Linux to popular programming languages and essential utilities, these projects thrive on the contributions of people like you and me. Just as prominent figures in specific communities like Ansible (think of folks like Jeff Geerling, Bas Meijer, and Michael Heap) inspire others, the entire open-source landscape is driven by a desire to create and share.
+Think about the countless individuals who dedicate their time to building and maintaining the software that powers so much of our digital world. From the core components of Linux to popular programming languages and essential utilities, these projects thrive on the contributions of people like you and me. Just as prominent figures in specific communities like Ansible (think of folks like Jeff Geerling, Bas Meijer and Michael Heap) inspire others, the entire open-source landscape is driven by a desire to create and share.
 
 Inspired by this vibrant spirit of collaboration and sharing within the broader open-source **community**, I wanted to chat about why jumping in and contributing is so awesome.
-
-
 
 ## Why Getting Involved in Open Source Rocks
 
@@ -62,7 +60,7 @@ The beauty of open source is that there's a spot for everyone, no matter your sk
 * **Help Others Out:** Jump into forums, chats, or mailing lists and answer questions from other users.
 * **Make it Look Good:** If you have design skills, you can help improve the user interface and experience of open-source applications.
 * **Speak Their Language:** Translating the software or its documentation opens it up to a wider global audience.
-* **Be a **Community** Rockstar:** Help organize events, keep discussions friendly, and build a welcoming **community**.
+* **Be a **Community** Rockstar:** Help organize events, keep discussions friendly and build a welcoming **community**.
 * **Spread the Word:** If you love a project, tell others! Write blog posts, share on social media, or talk about it at meetups.
 
 ## Your First Step into the Open Source World
@@ -76,12 +74,12 @@ Excited to get started? Here's a simple plan:
 5. **Be Kind and Work Together:** Open source thrives on collaboration. Be open to feedback and work well with others.
 6. **Don't Be Shy to Ask for Help:** Everyone starts somewhere. Most open-source maintainers are happy to guide new **contributors**.
 
-Contributing to open source is a fantastic way to learn, connect, and build something amazing with **people** from all walks of life and all corners of the world. It's about caring, sharing, and working together to create better tech for everyone.
+Contributing to open source is a fantastic way to learn, connect and build something amazing with **people** from all walks of life and all corners of the world. It's about caring, sharing and working together to create better tech for everyone.
 
 **What open-source projects do you love? Have you ever thought about contributing? Share your thoughts and experiences in the comments below – let's inspire each other!**
 
 **References:**
 
 * **Ansible for DevOps by Jeff Geerling:** [https://leanpub.com/ansible-for-devops](https://leanpub.com/ansible-for-devops)
-* **Ansible Up and Running by Bas Meijer, Lorin Hochstein, and René Moser:** [https://www.oreilly.com/library/view/ansible-up-and/9781098109141/](https://www.oreilly.com/library/view/ansible-up-and/9781098109141/)
+* **Ansible Up and Running by Bas Meijer, Lorin Hochstein and René Moser:** [https://www.oreilly.com/library/view/ansible-up-and/9781098109141/](https://www.oreilly.com/library/view/ansible-up-and/9781098109141/)
 * **Ansible From Beginner to Pro by Michael Heap:** [https://www.amazon.nl/-/en/Michael-Heap/dp/1484216601](https://www.amazon.nl/-/en/Michael-Heap/dp/1484216601)
