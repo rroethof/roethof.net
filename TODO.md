@@ -24,4 +24,4 @@
 "Multi-Factor Authentication (MFA): Why It's No Longer Optional": Advocate for the adoption of MFA and explain its importance in protecting accounts.
 "My Top 5 Ansible Modules for Everyday SysAdmin Tasks": A practical guide showcasing specific Ansible modules you find most useful and how you apply them (without revealing sensitive playbooks).
 "My Favorite Open Source Alternatives to Proprietary Software": Share your preferred open-source tools for various tasks, highlighting their benefits.
-"Contributing to Open Source: Why It Matters and How to Get Involved": Encourage readers to participate in the open-source community.
+"Contributing to Open Source: Why It Matters and How to Get Involved": Encourage readers to participate in the open-source community. {cm:2025-03-31} {h}
