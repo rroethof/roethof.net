@@ -39,6 +39,9 @@ For individuals with Tietze's syndrome, split keyboards can be particularly bene
 
 I am eager to experience this relief firsthand.
 
+![Voyager Keyboard](/images/voyager-opening.jpeg)
+
+
 ## My Research and Recommendations
 I have compiled a list of top-rated split keyboards that I believe could be suitable for my needs. After conducting thorough research, I am confident that one of these keyboards could be the perfect solution for me. Specifically, I am requesting consideration for a ZSA Voyager from my employer, citing the benefits not only for my health but also for the company's 
 productivity and employee well-being.
