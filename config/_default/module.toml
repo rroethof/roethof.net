@@ -1,3 +1,11 @@
 [hugoVersion]
   extended = false
   min = "0.87.0"
+
+[[module.mounts]]
+source = 'static'
+target = 'static'
+
+[[module.mounts]]
+source = 'images'
+target = 'static/images'

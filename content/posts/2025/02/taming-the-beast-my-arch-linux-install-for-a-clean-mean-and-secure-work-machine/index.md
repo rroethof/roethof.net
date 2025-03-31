@@ -505,4 +505,4 @@ Reboot and test the TPM unlocking.  If everything is configured correctly, your 
 
 Congratulations! You now have a secure and customized Arch Linux installation with Secure Boot and TPM2 unlocking.  You can now install your preferred Desktop Environment and further customize your system.
 
-![The beast running Arch Linux](/image/neofetch.png)
+![The beast running Arch Linux](/images/neofetch.png)
