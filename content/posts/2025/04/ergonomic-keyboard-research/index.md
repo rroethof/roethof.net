@@ -72,6 +72,8 @@ In evaluating these options for workplace implementation, practicality, cost (in
 
 Among the researched keyboards, the **ZSA Voyager** and the **Keebio Iris CE** stand out as my preferred options. The Voyager strikes a compelling balance between a modern aesthetic and functional ergonomics. The Iris CE is also a beautifully designed board with a well-regarded ergonomic layout and a more substantial thumb cluster that appeals to my anticipated needs for modifier key access.
 
+![Iris CE](/images/iris-ce.webp "The Iris CE")
+
 ### Awaiting the Company's Response
 
 Having completed this research into the ergonomic benefits and costs of various split keyboards, while also considering their manufacturing locations, I have now provided this information to my employer. Given the significant investment these specialized keyboards represent – a cost that isn't easily absorbed personally – I am hopeful for a positive response that will enable me to work more comfortably and productively while better managing my Tietze's syndrome. I eagerly await the company's decision on how we can best move forward.
