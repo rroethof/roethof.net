@@ -257,3 +257,333 @@ We'll configure automatic security updates.
         mode: 0644
       when: ansible_os_family == "RedHat"
 ```
+
+## 3.3 Security Essentials
+This section covers core security configurations.
+
+### Host Access Control
+We'll configure `hosts.allow` and `hosts.deny`.
+
+```
+- name: Host Access Control
+  become: true
+  block:
+    - name: Configure hosts.allow
+      ansible.builtin.template:
+        src: hosts.allow.j2
+        dest: /etc/hosts.allow
+        owner: root
+        group: root
+        mode: 0644
+
+    - name: Configure hosts.deny
+      ansible.builtin.template:
+        src: hosts.deny.j2
+        dest: /etc/hosts.deny
+        owner: root
+        group: root
+        mode: 0644
+```
+
+### Login Limits
+We'll configure `login.defs` and `limits.conf`.
+```
+- name: Login Limits
+  become: true
+  block:
+    - name: Configure login.defs
+      ansible.builtin.template:
+        src: login.defs.j2
+        dest: /etc/login.defs
+        owner: root
+        group: root
+        mode: 0644
+
+    - name: Configure limits.conf
+      ansible.builtin.template:
+        src: limits.conf.j2
+        dest: /etc/security/limits.conf
+        owner: root
+        group: root
+        mode: 0644
+```
+
+Core Dumps
+We'll configure core dump handling and disable `kdump`.
+
+```
+- name: Core Dumps
+  become: true
+  block:
+    - name: Configure coredump.conf
+      ansible.builtin.template:
+        src: coredump.conf.j2
+        dest: /etc/systemd/coredump.conf
+        owner: root
+        group: root
+        mode: 0644
+
+    - name: Disable kdump
+      ansible.builtin.service:
+        name: kdump
+        state: absent # Or 'stopped' and 'disabled'
+        enabled: false
+```
+
+* `ansible.builtin.service`: This module manages systemd services.
+
+### PAM Configuration
+We'll configure PAM files for strong authentication.
+
+```
+- name: PAM Configuration
+  become: true
+  block:
+    - name: Configure PAM common-auth
+      ansible.builtin.template:
+        src: common-auth.j2
+        dest: /etc/pam.d/common-auth
+        owner: root
+        group: root
+        mode: 0644
+
+    - name: Configure PAM common-password
+      ansible.builtin.template:
+        src: common-password.j2
+        dest: /etc/pam.d/common-password
+        owner: root
+        group: root
+        mode: 0644
+
+    # ... other PAM configurations ...
+```
+
+### SSH Hardening
+We'll configure the SSH server for security.
+
+```
+- name: SSH Hardening
+  become: true
+  block:
+    - name: Configure sshd_config
+      ansible.builtin.template:
+        src: sshd_config.j2
+        dest: /etc/ssh/sshd_config
+        owner: root
+        group: root
+        mode: 0644
+      notify: Restart sshd
+
+    # ... other SSH hardening tasks (keys, firewall rules, etc.) ...
+```
+
+### Filesystem Mounts
+We'll configure filesystem mount options for security.
+
+```
+- name: Filesystem Mounts
+  become: true
+  block:
+    - name: Mount /tmp with noexec
+      ansible.posix.mount:
+        path: /tmp
+        opts: rw,noexec,nosuid,nodev
+        state: mounted
+        fstype: tmpfs
+
+    - name: Mount /var with nodev,nosuid
+      ansible.posix.mount:
+        path: /var
+        opts: rw,nodev,nosuid
+        state: mounted
+        fstype: ext4 # Or whatever your /var filesystem is
+```
+
+* `ansible.posix.mount`: This module manages mount points.
+
+## 3.4 Logging and Time
+This section configures logging and time synchronization.
+
+### Log Rotation
+We'll configure logrotate.
+
+```
+- name: Log Rotation
+  become: true
+  block:
+    - name: Configure logrotate
+      ansible.builtin.template:
+        src: logrotate.conf.j2
+        dest: /etc/logrotate.conf
+        owner: root
+        group: root
+        mode: 0644
+
+    # ... other logrotate configurations ...
+```
+
+### System Logging
+We'll configure `rsyslog`.
+
+```
+- name: System Logging
+  become: true
+  block:
+    - name: Configure rsyslog
+      ansible.builtin.template:
+        src: rsyslog.conf.j2
+        dest: /etc/rsyslog.conf
+        owner: root
+        group: root
+        mode: 0644
+
+    # ... other rsyslog configurations ...
+```
+
+### Time Synchronization
+We'll configure `systemd-timesyncd`.
+
+```
+- name: Time Synchronization
+  become: true
+  block:
+    - name: Ensure systemd-timesyncd is installed
+      ansible.builtin.package:
+        name: systemd-timesyncd
+        state: present
+
+    - name: Enable and start systemd-timesyncd
+      ansible.builtin.service:
+        name: systemd-timesyncd
+        enabled: true
+        state: started
+
+    - name: Configure systemd-timesyncd
+      ansible.builtin.template:
+        src: timesyncd.conf.j2
+        dest: /etc/systemd/timesyncd.conf
+        owner: root
+        group: root
+        mode: 0644
+
+    # ... other timesyncd configurations ...
+```
+
+## 4. Handlers: Reacting to Changes (`handlers/main.yml`)
+
+Handlers are special tasks that are only executed when notified by other tasks. They are used to perform actions that should only occur after a change has been made, such as restarting a service.
+
+Here are the handlers we'll use in our role:
+
+```yaml
+# roles/linux-hardening/handlers/main.yml
+- name: Restart systemd
+  ansible.builtin.systemd:
+    name: systemd
+    state: restarted
+
+- name: Restart systemd-journald
+  ansible.builtin.systemd:
+    name: systemd-journald
+    state: restarted
+
+- name: Update GRUB
+  ansible.builtin.command:
+    cmd: update-grub
+  when: ansible_os_family == "Debian"
+
+- name: Restart sshd
+  ansible.builtin.service:
+    name: sshd
+    state: restarted
+```
+
+* `ansible.builtin.systemd`: This module manages systemd services.
+* `ansible.builtin.command`: This module executes a shell command.
+* The `Update GRUB` handler is specific to Debian/Ubuntu, as Red Hat/Fedora uses `grubby`.
+
+## 5. Templates: Configuring Files Dynamically (`templates/`)
+Jinja2 templates allow us to create configuration files dynamically, using variables defined in our role. This makes the configuration flexible and adaptable.
+
+Here are examples of some of the template files we'll use:
+`sshd_config.j2`
+
+```
+# roles/linux-hardening/templates/sshd_config.j2
+Port 22
+Protocol 2
+PermitRootLogin {{ sshd_permit_root_login }}
+PasswordAuthentication {{ sshd_password_authentication }}
+# ... other SSH settings ...
+```
+
+* `{{ sshd_permit_root_login }}` and `{{ sshd_password_authentication }}` are variables that will be replaced with the values defined in `vars/main.yml`.
+
+`login.defs.j2`
+
+```
+# roles/linux-hardening/templates/login.defs.j2
+PASS_MAX_DAYS   90
+PASS_WARN_AGE   7
+# ... other login.defs settings ...
+```
+
+`limits.conf.j2`
+```
+# roles/linux-hardening/templates/limits.conf.j2
+* soft    nofile          65536
+* hard    nofile          65536
+# ... other limits.conf settings ...
+```
+
+`sysctl.conf.j2 (or individual files)`
+```
+# roles/linux-hardening/templates/sysctl.conf.j2
+net.ipv4.tcp_syncookies = 1
+net.ipv4.conf.all.accept_redirects = 0
+# ... other sysctl settings ...
+```
+
+## Other Templates
+We'll also need templates for:
+
+* `rsyslog.conf`
+* `logrotate.conf`
+* `unattended-upgrades` (Debian)
+* `dnf-automatic` (Red Hat)
+* `coredump.conf`
+* PAM configuration files (`common-auth`, `common-password`, etc.)
+
+*Note*: The content of these templates will vary depending on your specific hardening requirements.
+
+## 6. Using the Role: A Playbook Example
+To use our `linux-hardening` role, we need to include it in an Ansible playbook.
+
+Here's an example playbook:
+```
+- hosts: all
+  become: true
+  roles:
+    - role: linux-hardening
+      disable_ipv6: true
+      firewall_enabled: true
+      sshd_permit_root_login: "no"
+```
+
+* `hosts: all`: This indicates that the playbook will run on all hosts in the inventory.
+* `become: true`: This enables privilege escalation (sudo).
+* `roles:`: This section includes the linux-hardening role.
+* We can also set role variables directly in the playbook, as shown in the example.
+
+## 7. Further Improvements: Expanding the Role
+Our basic hardening role provides a solid foundation, but there are many ways to expand and improve it:
+
+* *Firewall Management*: Integrate with a dedicated firewall role for more advanced firewall configuration.
+* *Compliance Checks*: Implement tasks to check for compliance with security benchmarks like CIS (Center for Internet Security) benchmarks.
+* *Automated Patching*: Add tasks to automate the patching process.
+* *More Granular Control*: Provide more variables for fine-grained control over various settings.
+
+## 8. Conclusion
+Ansible is a powerful tool for automating Linux security hardening. By building this role, we've created a reusable and consistent way to apply essential security measures. Remember to adapt and expand this role to meet your specific security requirements.
+
+Automating these tasks not only saves time but also reduces the risk of human error, leading to more secure and reliable systems.
