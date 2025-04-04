@@ -49,3 +49,7 @@
 - 3D Printing
 - DIY Tech
 - Maker Culture
+- Ansible Automation
+- Configuration Management
+- Security Best Practices
+- DevSecOps
