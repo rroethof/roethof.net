@@ -16,6 +16,7 @@ In this post, let's work together to create an Ansible role that automates a lot
 
 Ansible roles provide a structured way to organize and reuse automation code. A typical role has the following directory layout:
 
+```
 roles/
 └── linux-hardening/  # Our role's directory
 ├── tasks/
@@ -30,7 +31,7 @@ roles/
 │   └── ...
 └── meta/
 └── main.yml  # Role metadata (optional)
-
+```
 
 *   `roles/`: Top-level directory for roles.
 *   `linux-hardening/`: Directory for our hardening role.
@@ -42,7 +43,7 @@ roles/
 
 To make our role configurable, we'll use Ansible variables. This allows us to customize the role's behavior without modifying task files. Example variables in `vars/main.yml`:
 
-```yaml
+```
 # roles/linux-hardening/vars/main.yml
 disable_ipv6: true
 allow_vsyscall: false
@@ -835,9 +836,3 @@ Our basic hardening role provides a solid foundation, but there are many ways to
 Ansible is a powerful tool for automating Linux security hardening. By building this role, we've created a reusable and consistent way to apply essential security measures. Remember to adapt and expand this role to meet your specific security requirements.
 
 Automating these tasks not only saves time but also reduces the risk of human error, leading to more secure and reliable systems.
-
-```
-sed -i 's/\[CODE_BLOCK_START\]/```/g' index.md
-sed -i 's/\[CODE_BLOCK_END\]/```/g' index.md
-sed -i 's/\[CODE_BLOCK_YAML_START\]/```yaml/g' index.md
-```
