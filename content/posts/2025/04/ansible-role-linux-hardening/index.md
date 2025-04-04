@@ -8,19 +8,14 @@ categories: ["Automation & Scripting", "Linux & Open Source", "Security & Privac
 description: "Join me as we build an Ansible role to automate basic Linux security hardening. We'll walk through the key tasks and configurations to secure a fresh system."
 ---
 
-Alright, let's talk security hardening. It's one of the first, if not *the* first, steps we should take on any new Linux system. But let's be real, doing it all manually gets old fast, especially when we're managing more than a couple of servers. That's where Ansible comes in!
+Alright, let's talk security hardening. It's one of the first, if not *the* first, steps we should take on any new Linux system. Doing it all manually gets old fast, especially when we're managing more than a couple of servers. That's where Ansible comes in!
 
-In this post, let's work together to create an Ansible role that automates a lot of the basic hardening. We want to make sure those essential security practices get applied consistently and without us having to remember every single step.
+In this post, let's work together to create an Ansible role that automates a lot of the basic hardening, ensuring those essential security practices get applied consistently. This role will work for both Debian/Ubuntu and Red Hat/Fedora. It's about getting the basics *right*.
 
-This role we'll build will work for both Debian/Ubuntu and Red Hat/Fedora, which is a lifesaver. It's not about being fancy, it's about getting the basics *right*.
+## Building a Linux Hardening Role with Ansible
 
-## 1. Role Structure: Organizing Our Hardening Logic
+Ansible roles provide a structured way to organize and reuse automation code. A typical role has the following directory layout:
 
-Ansible roles provide a structured way to organize and reuse automation code. Understanding the standard role directory structure is crucial for building and maintaining our hardening role.
-
-A typical Ansible role has the following directory layout:
-
-```
 roles/
 └── linux-hardening/  # Our role's directory
 ├── tasks/
@@ -35,47 +30,40 @@ roles/
 │   └── ...
 └── meta/
 └── main.yml  # Role metadata (optional)
-```
 
-* `roles/`: This is the top-level directory where all your roles are stored.
-* `linux-hardening/`: This is the directory for our specific hardening role. You can name it according to your preferences.
-* `tasks/main.yml`: This is the main task file, containing the sequence of actions that Ansible will execute when the role is applied.
-* `vars/main.yml`: This file defines variables that can be used within the role, making it configurable.
-* `handlers/main.yml`: This file contains handlers, which are special tasks that are only executed when notified by other tasks.
-* `templates/`: This directory stores Jinja2 templates for configuration files, allowing for dynamic configuration.
-* `meta/main.yml`: This file contains metadata about the role, such as its author, dependencies, and supported platforms.
 
-## 2. Variables: Making Our Role Configurable (`vars/main.yml`)
+*   `roles/`: Top-level directory for roles.
+*   `linux-hardening/`: Directory for our hardening role.
+*   `tasks/main.yml`: Main task file with the sequence of actions.
+*   `vars/main.yml`: Defines variables for role configuration.
+*   `handlers/main.yml`: Contains handlers, special tasks executed when notified.
+*   `templates/`: Stores Jinja2 templates for dynamic configuration files.
+*   `meta/main.yml`: Metadata about the role (author, dependencies, platforms).
 
-Ansible variables allow us to customize the behavior of our role without directly modifying the task files. This makes the role more flexible and reusable.
+To make our role configurable, we'll use Ansible variables. This allows us to customize the role's behavior without modifying task files. Example variables in `vars/main.yml`:
 
-Here are some example variables we'll use in our hardening role:
-
-```yaml
+[CODE_BLOCK_YAML_START]
 # roles/linux-hardening/vars/main.yml
 disable_ipv6: true
 allow_vsyscall: false
 firewall_enabled: true
 sshd_permit_root_login: "no"
 sshd_password_authentication: "no"
-```
+[CODE_BLOCK_END]
 
-* `disable_ipv6`: A boolean variable to control whether IPv6 is disabled.
-* `allow_vsyscall`: A boolean variable to control whether vsyscall is allowed (for compatibility reasons, but generally not recommended).
-* `firewall_enabled`: A boolean variable to enable or disable the firewall.
-* `sshd_permit_root_login`: A string variable to configure whether root login is allowed via SSH.
-* `sshd_password_authentication`: A string variable to configure whether password authentication is allowed for SSH.
+*   `disable_ipv6`: Boolean to control IPv6 disabling.
+*   `allow_vsyscall`: Boolean to control vsyscall allowance.
+*   `firewall_enabled`: Boolean to enable/disable the firewall.
+*   `sshd_permit_root_login`: String to configure root login via SSH.
+*   `sshd_password_authentication`: String to configure SSH password authentication.
 
-## 3. Tasks: Automating the Hardening Steps (`tasks/main.yml`)
-The `tasks/main.yml` file contains the core logic of our role. We'll break down the tasks into logical sections for better organization.
+The core logic of our role resides in the `tasks/main.yml` file. Let's break down the key tasks.
 
-### 3.1 System Tuning
-This section focuses on optimizing kernel parameters and systemd settings.
+### System Tuning
 
-### Kernel Tweaks
-We'll use `sysctl` to adjust kernel parameters and GRUB to modify kernel boot options.
+We'll start by optimizing kernel parameters and systemd settings. This involves using `sysctl` to adjust kernel parameters and GRUB to modify kernel boot options.
 
-```
+[CODE_BLOCK_START]
 # roles/linux-hardening/tasks/main.yml
 - name: Kernel Tweaks
   become: true
@@ -89,13 +77,13 @@ We'll use `sysctl` to adjust kernel parameters and GRUB to modify kernel boot op
         - { key: net.ipv4.tcp_syncookies, value: '1' }
         - { key: net.ipv4.conf.all.accept_redirects, value: '0' }
         # ... other sysctl settings ...
-```
+[CODE_BLOCK_END]
 
-* `ansible.builtin.sysctl`: This module is used to manage sysctl parameters.
-* `loop`: This directive allows us to apply the same task to multiple items.
-* `become`: true: This indicates that the task requires elevated privileges (root).
+*   `ansible.builtin.sysctl`: Manages sysctl parameters.
+*   `loop`: Applies the same task to multiple items.
+*   `become: true`: Requires elevated privileges (root).
 
-```
+[CODE_BLOCK_START]
 - name: Disable vsyscall (Debian/Ubuntu)
   ansible.builtin.lineinfile:
     path: /etc/default/grub
@@ -109,13 +97,14 @@ We'll use `sysctl` to adjust kernel parameters and GRUB to modify kernel boot op
     cmd: grubby --update-kernel=ALL --args="vsyscall=none"
   when: ansible_os_family == "RedHat"
   notify: Update GRUB
-```
-* `ansible.builtin.lineinfile`: This module ensures a line is present in a file.
-* `ansible_os_family`: This is a built-in Ansible fact that tells us the OS family (Debian or RedHat).
-* `ansible.builtin.command`: This module executes a shell command.
-* `notify: Update GRUB`: This triggers the `Update GRUB` handler (defined later) if the task changes the system.
+[CODE_BLOCK_END]
 
-```
+*   `ansible.builtin.lineinfile`: Ensures a line is present in a file.
+*   `ansible_os_family`: Built-in Ansible fact for OS family.
+*   `ansible.builtin.command`: Executes a shell command.
+*   `notify: Update GRUB`: Triggers the `Update GRUB` handler if the task changes the system.
+
+[CODE_BLOCK_START]
 - name: Disable IPv6
   ansible.builtin.sysctl:
     name: net.ipv6.conf.all.disable_ipv6
@@ -123,14 +112,13 @@ We'll use `sysctl` to adjust kernel parameters and GRUB to modify kernel boot op
     state: present
   when: disable_ipv6
   # ... (rest of kernel tweaks) ...
-```
+[CODE_BLOCK_END]
 
-* `when: disable_ipv6`: This task only runs if the `disable_ipv6` variable is set to `true`.
+*   `when: disable_ipv6`: Runs only if `disable_ipv6` is `true`.
 
-### Systemd Setup
-We'll configure systemd settings for improved security and logging.
+Next, we'll configure systemd settings for improved security and logging.
 
-```
+[CODE_BLOCK_START]
 - name: Systemd Configuration
   become: true
   block:
@@ -159,18 +147,16 @@ We'll configure systemd settings for improved security and logging.
         group: root
         mode: 0644
       notify: Restart systemd-journald
-```
+[CODE_BLOCK_END]
 
-* `ansible.builtin.template`: This module deploys files from Jinja2 templates, allowing for variable substitution.
-* `owner`, `group`, `mode`: These parameters set the file ownership and permissions.
+*   `ansible.builtin.template`: Deploys files from Jinja2 templates.
+*   `owner`, `group`, `mode`: Sets file ownership and permissions.
 
-### 3.2 Package Management
-This section covers installing and configuring security-related packages.
+### Package Management
 
-#### USBGuard
-We'll install and configure USBGuard to control USB device access.
+Now, let's move on to installing and configuring security-related packages. We'll start by installing and configuring USBGuard to control USB device access.
 
-```
+[CODE_BLOCK_START]
 - name: USBGuard
   become: true
   block:
@@ -184,16 +170,15 @@ We'll install and configure USBGuard to control USB device access.
         path: /etc/usbguard/rules.conf
         line: 'allow id * serial "*" name "Trusted USB Drive" hash "*" parent-id "" via-port "" with-interface { 03:00:00 }'
         create: true
-```
+[CODE_BLOCK_END]
 
-* `ansible.builtin.package`: This module manages packages.
-* `create: true`: This parameter creates the file if it doesn't exist.
-* *Important*: The USBGuard rule provided is an example. You'll need to research and create rules specific to your environment.
+*   `ansible.builtin.package`: Manages packages.
+*   `create: true`: Creates the file if it doesn't exist.
+*   *Important*: The USBGuard rule is an example; research and create rules specific to your environment.
 
-#### Package Installations
-We'll install essential security tools like fail2ban and a firewall.
+We'll also install essential security tools like fail2ban and a firewall.
 
-```
+[CODE_BLOCK_START]
 - name: Install Essential Packages
   become: true
   block:
@@ -214,16 +199,15 @@ We'll install essential security tools like fail2ban and a firewall.
         state: present
         update_cache: true
       when: ansible_os_family == "RedHat"
-```
+[CODE_BLOCK_END]
 
-* `ansible.builtin.apt`: This module manages packages on Debian/Ubuntu systems.
-* `ansible.builtin.dnf`: This module manages packages on Red Hat/Fedora systems.
-* `update_cache: true`: This updates the package cache before installing.
+*   `ansible.builtin.apt`: Manages packages on Debian/Ubuntu.
+*   `ansible.builtin.dnf`: Manages packages on Red Hat/Fedora.
+*   `update_cache: true`: Updates the package cache before installing.
 
-### Auto-Updates
-We'll configure automatic security updates.
+To keep our system secure, we'll configure automatic security updates.
 
-```
+[CODE_BLOCK_START]
 - name: Auto-Updates
   become: true
   block:
@@ -256,15 +240,13 @@ We'll configure automatic security updates.
         group: root
         mode: 0644
       when: ansible_os_family == "RedHat"
-```
+[CODE_BLOCK_END]
 
-## 3.3 Security Essentials
-This section covers core security configurations.
+### Security Essentials
 
-### Host Access Control
-We'll configure `hosts.allow` and `hosts.deny`.
+Let's configure some core security settings, starting with `hosts.allow` and `hosts.deny`.
 
-```
+[CODE_BLOCK_START]
 - name: Host Access Control
   become: true
   block:
@@ -283,11 +265,11 @@ We'll configure `hosts.allow` and `hosts.deny`.
         owner: root
         group: root
         mode: 0644
-```
+[CODE_BLOCK_END]
 
-### Login Limits
-We'll configure `login.defs` and `limits.conf`.
-```
+Next, we'll configure `login.defs` and `limits.conf`.
+
+[CODE_BLOCK_START]
 - name: Login Limits
   become: true
   block:
@@ -306,12 +288,11 @@ We'll configure `login.defs` and `limits.conf`.
         owner: root
         group: root
         mode: 0644
-```
+[CODE_BLOCK_END]
 
-Core Dumps
-We'll configure core dump handling and disable `kdump`.
+To manage core dumps, we'll configure core dump handling and disable `kdump`.
 
-```
+[CODE_BLOCK_START]
 - name: Core Dumps
   become: true
   block:
@@ -328,14 +309,13 @@ We'll configure core dump handling and disable `kdump`.
         name: kdump
         state: absent # Or 'stopped' and 'disabled'
         enabled: false
-```
+[CODE_BLOCK_END]
 
-* `ansible.builtin.service`: This module manages systemd services.
+*   `ansible.builtin.service`: Manages systemd services.
 
-### PAM Configuration
-We'll configure PAM files for strong authentication.
+For strong authentication, we'll configure PAM files.
 
-```
+[CODE_BLOCK_START]
 - name: PAM Configuration
   become: true
   block:
@@ -356,12 +336,11 @@ We'll configure PAM files for strong authentication.
         mode: 0644
 
     # ... other PAM configurations ...
-```
+[CODE_BLOCK_END]
 
-### SSH Hardening
-We'll configure the SSH server for security.
+SSH is a critical entry point, so we'll configure the SSH server for security.
 
-```
+[CODE_BLOCK_START]
 - name: SSH Hardening
   become: true
   block:
@@ -375,12 +354,11 @@ We'll configure the SSH server for security.
       notify: Restart sshd
 
     # ... other SSH hardening tasks (keys, firewall rules, etc.) ...
-```
+[CODE_BLOCK_END]
 
-### Filesystem Mounts
-We'll configure filesystem mount options for security.
+Finally, we'll configure filesystem mount options for security.
 
-```
+[CODE_BLOCK_START]
 - name: Filesystem Mounts
   become: true
   block:
@@ -397,17 +375,15 @@ We'll configure filesystem mount options for security.
         opts: rw,nodev,nosuid
         state: mounted
         fstype: ext4 # Or whatever your /var filesystem is
-```
+[CODE_BLOCK_END]
 
-* `ansible.posix.mount`: This module manages mount points.
+*   `ansible.posix.mount`: Manages mount points.
 
-## 3.4 Logging and Time
-This section configures logging and time synchronization.
+### Logging and Time
 
-### Log Rotation
-We'll configure logrotate.
+To ensure proper logging and time synchronization, we'll configure logrotate, `rsyslog`, and `systemd-timesyncd`.
 
-```
+[CODE_BLOCK_START]
 - name: Log Rotation
   become: true
   block:
@@ -420,12 +396,9 @@ We'll configure logrotate.
         mode: 0644
 
     # ... other logrotate configurations ...
-```
+[CODE_BLOCK_END]
 
-### System Logging
-We'll configure `rsyslog`.
-
-```
+[CODE_BLOCK_START]
 - name: System Logging
   become: true
   block:
@@ -438,12 +411,9 @@ We'll configure `rsyslog`.
         mode: 0644
 
     # ... other rsyslog configurations ...
-```
+[CODE_BLOCK_END]
 
-### Time Synchronization
-We'll configure `systemd-timesyncd`.
-
-```
+[CODE_BLOCK_START]
 - name: Time Synchronization
   become: true
   block:
@@ -467,15 +437,361 @@ We'll configure `systemd-timesyncd`.
         mode: 0644
 
     # ... other timesyncd configurations ...
-```
+[CODE_BLOCK_END]
 
-## 4. Handlers: Reacting to Changes (`handlers/main.yml`)
+### Ensuring System Integrity and Security
 
-Handlers are special tasks that are only executed when notified by other tasks. They are used to perform actions that should only occur after a change has been made, such as restarting a service.
+To detect tampering and maintain system integrity, we'll use AIDE (Advanced Intrusion Detection Environment). AIDE creates a database of file attributes and compares the current state to detect changes.
 
-Here are the handlers we'll use in our role:
+[CODE_BLOCK_YAML_START]
+- name: Integrity Checking (AIDE)
+  become: true
+  block:
+    - name: Install AIDE
+      ansible.builtin.package:
+        name: aide
+        state: present
 
-```yaml
+    - name: Configure AIDE
+      ansible.builtin.template:
+        src: aide.conf.j2
+        dest: /etc/aide/aide.conf
+        owner: root
+        group: root
+        mode: 0644
+
+    - name: Initialize AIDE database
+      ansible.builtin.command:
+        cmd: aide --init
+      creates: /var/lib/aide/aide.db.new
+
+    - name: Copy AIDE database
+      ansible.builtin.command:
+        cmd: cp /var/lib/aide/aide.db.new /var/lib/aide/aide.db
+      when: not aide_init_skip
+
+    - name: Schedule AIDE check (systemd timer)
+      ansible.builtin.template:
+        src: aide.timer.j2
+        dest: /etc/systemd/system/aide.timer
+        owner: root
+        group: root
+        mode: 0644
+      notify: Reload systemd
+
+    - name: Enable and start AIDE timer
+      ansible.builtin.service:
+        name: aide.timer
+        enabled: true
+        state: started
+[CODE_BLOCK_END]
+
+*   `ansible.builtin.package`: Installs the AIDE package.
+*   `ansible.builtin.template`: Configures AIDE using a Jinja2 template (`aide.conf.j2`).
+*   `ansible.builtin.command`: Initializes and updates the AIDE database.
+*   `creates: /var/lib/aide/aide.db.new`: Ensures `aide --init` runs only if the database file doesn't exist.
+*   `when: not aide_init_skip`: Skips the database copy if needed.
+*   `ansible.builtin.service`: Enables and starts the systemd timer.
+
+*Example* `aide.conf.j2`:
+
+[CODE_BLOCK_START]
+# roles/linux-hardening/templates/aide.conf.j2
+@@define DBDIR /var/lib/aide
+database=file:@@{DBDIR}/aide.db.new
+database_out=file:@@{DBDIR}/aide.db
+
+# These are the default rules, you might want to adjust them
+/etc p+i+n+u+g+s+m+c+sha256
+/usr/bin p+i+n+u+g+s+m+c+sha256
+/usr/sbin p+i+n+u+g+s+m+c+sha256
+/bin p+i+n+u+g+s+m+c+sha256
+/sbin p+i+n+u+g+s+m+c+sha256
+# ... other directories and rules ...
+[CODE_BLOCK_END]
+
+To monitor system activity and detect security breaches, we'll use `auditd`, the user-space auditing daemon.
+
+[CODE_BLOCK_YAML_START]
+- name: System Auditing (auditd)
+  become: true
+  block:
+    - name: Install auditd
+      ansible.builtin.package:
+        name: auditd
+        state: present
+
+    - name: Configure auditd rules
+      ansible.builtin.template:
+        src: audit.rules.j2
+        dest: /etc/audit/audit.rules
+        owner: root
+        group: root
+        mode: 0644
+      notify: Restart auditd
+
+    - name: Ensure auditd service is running
+      ansible.builtin.service:
+        name: auditd
+        enabled: true
+        state: started
+[CODE_BLOCK_END]
+
+*   `ansible.builtin.package`: Installs the auditd package.
+*   `ansible.builtin.template`: Configures auditd rules using a Jinja2 template (`audit.rules.j2`).
+*   `ansible.builtin.service`: Ensures the auditd service is enabled and running.
+
+*Example* `audit.rules.j2`:
+
+[CODE_BLOCK_START]
+# roles/linux-hardening/templates/audit.rules.j2
+# Log all modifications to /etc
+-w /etc -p wa -k config-changes
+
+# Log all executions of /usr/bin/passwd
+-a always,exit -F path=/usr/bin/passwd -F perm=x -F auid>=1000 -F auid!=4294967295 -k passwd-changes
+
+# Log all login/logout events
+-w /var/run/utmp -p wa -k session
+-w /var/log/wtmp -p wa -k session
+-w /var/log/btmp -p wa -k session
+
+# ... other audit rules ...
+[CODE_BLOCK_END]
+
+To enforce strong cryptography, ensure compatibility, and meet compliance requirements, we'll configure cryptographic policies.
+
+[CODE_BLOCK_YAML_START]
+- name: Cryptographic Policies
+  become: true
+  block:
+    - name: Set cryptographic policy (Red Hat/Fedora)
+      ansible.builtin.command:
+        cmd: update-crypto-policies --set DEFAULT # Or 'FUTURE', 'FIPS', etc.
+      when: ansible_os_family == "RedHat"
+      notify: Reboot
+
+    # Add similar tasks for other distributions if applicable
+    # (Debian/Ubuntu might involve configuring specific packages)
+[CODE_BLOCK_END]
+
+To reduce the attack surface, we'll blacklist unnecessary kernel modules.
+
+[CODE_BLOCK_YAML_START]
+- name: Blacklist kernel file system modules
+  become: true
+  ansible.builtin.lineinfile:
+    path: /etc/modprobe.d/disablefs.conf
+    line: "blacklist {{ item }}"
+    create: true
+    mode: "0644"
+    owner: root
+    group: root
+  loop: "{{ fs_modules_blocklist }}"
+  when: fs_modules_blocklist is defined
+[CODE_BLOCK_END]
+
+To enhance system security, we'll configure security-focused mount options for `/tmp` and `/run/shm`.
+
+[CODE_BLOCK_YAML_START]
+- name: Mount security-focused tmp
+  ansible.posix.mount:
+    path: /tmp
+    src: tmpfs
+    fstype: tmpfs
+    opts: rw,nosuid,nodev,noexec
+  when: mount_tmp
+  tags:
+    - configuration
+    - mount
+    - tmp
+[CODE_BLOCK_END]
+
+[CODE_BLOCK_YAML_START]
+- name: Mount security-focused /run/shm
+  ansible.posix.mount:
+    path: /run/shm
+    src: tmpfs
+    fstype: tmpfs
+    opts: rw,nosuid,nodev,noexec
+  when: mount_run_shm
+  tags:
+    - configuration
+    - mount
+    - run
+    - shm
+[CODE_BLOCK_END]
+
+To maintain accurate time, which is crucial for system security, we'll configure `systemd-timesyncd`.
+
+[CODE_BLOCK_START]
+- name: Install and configure systemd timesyncd
+  become: true
+  block:
+    - name: Install systemd timesyncd
+      ansible.builtin.package:
+        name: systemd-timesyncd
+        state: present
+
+    - name: Configure systemd timesyncd
+      ansible.builtin.template:
+        src: "etc/systemd/timesyncd.conf.j2"
+        dest: /etc/systemd/timesyncd.conf
+        backup: true
+        mode: "0644"
+        owner: root
+        group: root
+      notify:
+        - Reload systemd
+
+    - name: Start timesyncd
+      ansible.builtin.systemd:
+        name: systemd-timesyncd
+        enabled: true
+        masked: false
+        state: started
+      register: timesyncd_start
+      changed_when:
+        - not timesyncd_start.enabled == true
+        - not timesyncd_start.state == 'started'
+
+    - name: Stat timesyncd status
+      ansible.builtin.command:
+        cmd: systemctl status systemd-timesyncd
+      register: timesyncd_status
+      changed_when: false
+      failed_when: timesyncd_status.rc != 0
+
+    - name: Stat timedatectl show
+      ansible.builtin.command:
+        cmd: timedatectl show
+      register: timedatectl_show
+      changed_when: false
+      failed_when: timedatectl_show.rc != 0
+
+    - name: Run timedatectl set-ntp
+      ansible.builtin.command:
+        cmd: timedatectl set-ntp true
+      changed_when: false
+      when:
+        - timedatectl_show.stdout.find('NTP=yes') != -1
+        - timesyncd_status.rc == 0
+[CODE_BLOCK_END]
+
+To detect rootkits, backdoors, and local exploits, we'll use `rkhunter`.
+
+[CODE_BLOCK_YAML_START]
+    - name: Install rkhunter
+      ansible.builtin.package:
+        name: rkhunter
+        state: present
+
+    - name: Initialize rkhunter database
+      ansible.builtin.command:
+        cmd: rkhunter --propupd
+      become: true
+
+    - name: Schedule rkhunter check (systemd timer or cron)
+      # Example using cron:
+      ansible.builtin.cron:
+        name: "Run rkhunter check"
+        job: "rkhunter --check | mail -s 'rkhunter check results' root"
+        schedule: "daily"
+      become: true
+[CODE_BLOCK_END]
+
+To prevent unauthorized access, we'll harden SSH access by properly configuring `sshd`.
+
+[CODE_BLOCK_YAML_START]
+    - name: Set sshd_listen_address fact
+      ansible.builtin.set_fact:
+        sshd_listen_address: "{{ sshd_listen_address_list | join(',') }}"
+      when: sshd_listen_address_list is defined
+
+    - name: Set sshd_allowed_users fact
+      ansible.builtin.set_fact:
+        sshd_allowed_users: "{{ sshd_allowed_users_list | join(',') }}"
+      when: sshd_allowed_users_list is defined
+
+    - name: Set sshd_allowed_groups fact
+      ansible.builtin.set_fact:
+        sshd_allowed_groups: "{{ sshd_allowed_groups_list | join(',') }}"
+      when: sshd_allowed_groups_list is defined
+
+    - name: Set sshd_denied_users fact
+      ansible.builtin.set_fact:
+        sshd_denied_users: "{{ sshd_denied_users_list | join(',') }}"
+      when: sshd_denied_users_list is defined
+
+    - name: Set sshd_denied_groups fact
+      ansible.builtin.set_fact:
+        sshd_denied_groups: "{{ sshd_denied_groups_list | join(',') }}"
+      when: sshd_denied_groups_list is defined
+[CODE_BLOCK_END]
+
+[CODE_BLOCK_START]
+- name: Install openssh-server
+  ansible.builtin.package:
+    name: openssh-server
+    state: present
+  tags:
+    - configuration
+    - sshd
+    - openssh-server
+[CODE_BLOCK_END]
+
+[CODE_BLOCK_START]
+ - name: Configure /etc/ssh/sshd_config
+  ansible.builtin.template:
+    src: "etc/ssh/sshd_config.j2"
+    dest: /etc/ssh/sshd_config
+    backup: true
+    mode: "0600"
+    owner: root
+    group: root
+  notify:
+    - restart sshd
+  tags:
+    - configuration
+    - sshd
+    - sshd_config
+[CODE_BLOCK_END]
+
+[CODE_BLOCK_START]
+- name: Set correct permissions for authorized_keys
+  ansible.builtin.file:
+    path: "{{ item }}"
+    mode: "0600"
+    owner: root
+    group: root
+  with_items:
+    - /root/.ssh/authorized_keys
+  when: configure_sshd_keys
+  tags:
+    - configuration
+    - sshd
+    - sshd_keys
+
+- name: Copy ssh keys
+  ansible.builtin.copy:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    mode: "0600"
+    owner: root
+    group: root
+  with_items: "{{ ssh_keys }}"
+  when: configure_sshd_keys and ssh_keys is defined
+  tags:
+    - configuration
+    - sshd
+    - sshd_keys
+[CODE_BLOCK_END]
+
+Finally, to mitigate risks associated with compromised build tools, we'll consider compiler security.
+
+To handle changes, we'll use handlers, which are special tasks that are only executed when notified by other tasks.
+
+[CODE_BLOCK_YAML_START]
 # roles/linux-hardening/handlers/main.yml
 - name: Restart systemd
   ansible.builtin.systemd:
@@ -496,71 +812,13 @@ Here are the handlers we'll use in our role:
   ansible.builtin.service:
     name: sshd
     state: restarted
-```
+[CODE_BLOCK_END]
 
-* `ansible.builtin.systemd`: This module manages systemd services.
-* `ansible.builtin.command`: This module executes a shell command.
-* The `Update GRUB` handler is specific to Debian/Ubuntu, as Red Hat/Fedora uses `grubby`.
+To configure files dynamically, we'll use Jinja2 templates.
 
-## 5. Templates: Configuring Files Dynamically (`templates/`)
-Jinja2 templates allow us to create configuration files dynamically, using variables defined in our role. This makes the configuration flexible and adaptable.
-
-Here are examples of some of the template files we'll use:
-`sshd_config.j2`
-
-```
-# roles/linux-hardening/templates/sshd_config.j2
-Port 22
-Protocol 2
-PermitRootLogin {{ sshd_permit_root_login }}
-PasswordAuthentication {{ sshd_password_authentication }}
-# ... other SSH settings ...
-```
-
-* `{{ sshd_permit_root_login }}` and `{{ sshd_password_authentication }}` are variables that will be replaced with the values defined in `vars/main.yml`.
-
-`login.defs.j2`
-
-```
-# roles/linux-hardening/templates/login.defs.j2
-PASS_MAX_DAYS   90
-PASS_WARN_AGE   7
-# ... other login.defs settings ...
-```
-
-`limits.conf.j2`
-```
-# roles/linux-hardening/templates/limits.conf.j2
-* soft    nofile          65536
-* hard    nofile          65536
-# ... other limits.conf settings ...
-```
-
-`sysctl.conf.j2 (or individual files)`
-```
-# roles/linux-hardening/templates/sysctl.conf.j2
-net.ipv4.tcp_syncookies = 1
-net.ipv4.conf.all.accept_redirects = 0
-# ... other sysctl settings ...
-```
-
-## Other Templates
-We'll also need templates for:
-
-* `rsyslog.conf`
-* `logrotate.conf`
-* `unattended-upgrades` (Debian)
-* `dnf-automatic` (Red Hat)
-* `coredump.conf`
-* PAM configuration files (`common-auth`, `common-password`, etc.)
-
-*Note*: The content of these templates will vary depending on your specific hardening requirements.
-
-## 6. Using the Role: A Playbook Example
 To use our `linux-hardening` role, we need to include it in an Ansible playbook.
 
-Here's an example playbook:
-```
+[CODE_BLOCK_START]
 - hosts: all
   become: true
   roles:
@@ -568,22 +826,18 @@ Here's an example playbook:
       disable_ipv6: true
       firewall_enabled: true
       sshd_permit_root_login: "no"
-```
+[CODE_BLOCK_END]
 
-* `hosts: all`: This indicates that the playbook will run on all hosts in the inventory.
-* `become: true`: This enables privilege escalation (sudo).
-* `roles:`: This section includes the linux-hardening role.
-* We can also set role variables directly in the playbook, as shown in the example.
+Our basic hardening role provides a solid foundation, but there are many ways to expand and improve it.
 
-## 7. Further Improvements: Expanding the Role
-Our basic hardening role provides a solid foundation, but there are many ways to expand and improve it:
+## Conclusion
 
-* *Firewall Management*: Integrate with a dedicated firewall role for more advanced firewall configuration.
-* *Compliance Checks*: Implement tasks to check for compliance with security benchmarks like CIS (Center for Internet Security) benchmarks.
-* *Automated Patching*: Add tasks to automate the patching process.
-* *More Granular Control*: Provide more variables for fine-grained control over various settings.
-
-## 8. Conclusion
 Ansible is a powerful tool for automating Linux security hardening. By building this role, we've created a reusable and consistent way to apply essential security measures. Remember to adapt and expand this role to meet your specific security requirements.
 
 Automating these tasks not only saves time but also reduces the risk of human error, leading to more secure and reliable systems.
+
+```
+sed -i 's/\[CODE_BLOCK_START\]/```/g' index.md
+sed -i 's/\[CODE_BLOCK_END\]/```/g' index.md
+sed -i 's/\[CODE_BLOCK_YAML_START\]/```yaml/g' index.md
+```
