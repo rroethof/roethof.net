@@ -41,7 +41,7 @@ Among the higher-end contenders were the [Dygma Defy](https://dygma.com/products
 
 ## Discovering More Accessible Alternatives and a Local Vendor
 
-To explore more budget-friendly options and support local businesses, I investigated vendors within the Netherlands. This led me to [splitkb.com/](https://splitkb.com/), based in Hardenberg. This Dutch company offers a wide array of split keyboard parts and kits, catering to the DIY community. While splitkb.com is a valuable resource for components and building projects, they do not typically sell fully assembled keyboards like the Iris CE.
+To explore more budget-friendly options and support local businesses, I investigated vendors within the Netherlands. This led me to [splitkb.com](https://splitkb.com/), based in Hardenberg. This Dutch company offers a wide array of split keyboard parts and kits, catering to the DIY community. While splitkb.com is a valuable resource for components and building projects, they do not typically sell fully assembled keyboards like the Iris CE.
 
 ## The DIY Route: Keyboard Kits and Their Practicality
 
