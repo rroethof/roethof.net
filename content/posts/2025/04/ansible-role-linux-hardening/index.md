@@ -4,7 +4,7 @@ date: 2025-04-02
 draft: false
 slug: ansible-role-linux-hardening
 tags: ["Ansible", "Linux", "Security", "Automation", "System Hardening", "Ansible Role", "Tutorial"]
-categories: ["Automation & Scripting", "Linux & Open Source", "Security & Privacy", "System Management", "System Hardening", "Sysadmin Life"]
+categories: ["System Management", "System Hardening", "Sysadmin Life"]
 description: "Join me as we build an Ansible role to automate basic Linux security hardening. We'll walk through the key tasks and configurations to secure a fresh system."
 ---
 
