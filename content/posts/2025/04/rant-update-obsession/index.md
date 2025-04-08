@@ -28,10 +28,10 @@ While I agree that patching vulnerabilities is crucial, this kind of oversimplif
 Here's the thing: updates aren't always sunshine and rainbows. Yes, they often contain vital security fixes, but they can also introduce a whole host of problems.  We're not talking about theoretical risks here; we're talking about real-world incidents that have impacted countless users, businesses, and even critical infrastructure. Consider these recent examples:
 
 *   **Windows 11 BSOD Bonanza:**  Lately, Windows 11 updates have been notorious for causing Blue Screens of Death (BSODs). Users have reported system crashes, data loss, and hours of troubleshooting, all thanks to updates that were supposed to make their systems *more* secure and stable.
-*   **February 2025: Denon DRA-800H Firmware Update:**  It's not just enterprise systems that are affected. A firmware update for the Denon DRA-800H audio receiver in February 2025 caused problems for many users, demonstrating that even consumer devices are susceptible to update-related issues.
+*   **July 2024: CrowdStrike Falcon Sensor Update Issues:**  Even security software isn't immune to update failures. In July 2024, a CrowdStrike Falcon Sensor update caused significant disruptions for many users, highlighting the risks of blindly trusting even trusted security vendors' automatic updates.
 *   **March 2024: McDonald's Point-of-Sale System Failure:**  A major update to McDonald's point-of-sale (POS) systems in March 2024 resulted in widespread outages, impacting numerous restaurants and causing significant financial losses. This wasn't an isolated incident, as similar POS issues were reported around the same time.
 *   **March 2024: Other Point-of-Sale System Failures:** Following the McDonald's incident, multiple other businesses experienced similar POS system failures due to updates, showing a pattern of update-related disruptions in this critical area.
-*   **July 2024: CrowdStrike Falcon Sensor Update Issues:**  Even security software isn't immune to update failures. In July 2024, a CrowdStrike Falcon Sensor update caused significant disruptions for many users, highlighting the risks of blindly trusting even trusted security vendors' automatic updates.
+*   **February 2025: Denon DRA-800H Firmware Update:**  It's not just enterprise systems that are affected. A firmware update for the Denon DRA-800H audio receiver in February 2025 caused problems for many users, demonstrating that even consumer devices are susceptible to update-related issues.
 
 These aren't isolated incidents. They're part of a larger pattern of updates causing more harm than good.  Beyond these high-profile examples, updates can also introduce:
 
@@ -42,7 +42,7 @@ These aren't isolated incidents. They're part of a larger pattern of updates cau
 
 **The Human Factor**
 
-The "update immediately or face doom" narrative also ignores the human factor. We're not robots. We have lives, deadlines and limited time. Demanding that everyone drop everything to install every update the moment it's released is unrealistic and frankly, a recipe for burnout.
+The "update immediately or face doom" narrative also ignores the human factor. We're not robots. We have lives, deadlines, and limited time. Demanding that everyone drop everything to install every update the moment it's released is unrealistic and, frankly, a recipe for burnout.
 
 Furthermore, this kind of messaging can lead to:
 
@@ -79,14 +79,3 @@ Of course, there are exceptions. **High-security patches** that address critical
 Yes, updates are important. But they're not the be-all and end-all of security.  Let's move away from the simplistic "update or die" mentality and embrace a more nuanced, risk-aware approach.  Let's empower users to make informed decisions, rather than scaring them into blind compliance. And let's acknowledge that sometimes, waiting a bit before updating is the *smart* thing to do.
 
 What are your thoughts on this? Are you an immediate updater, or do you prefer to wait and see? Let me know in the comments!
-
----
-
-**Further Reading:**
-
-* [The Importance of Patch Management: A SysAdmin's Perspective](/the-importance-of-patch-management)
-* [When 'Safe' Becomes 'Unsafe': The Dangers of Over-Reliance on Security Automation](/when-safe-becomes-unsafe)
-* [Why Security is Not Just About Compliance: The Real Threats to Your Organization](/why-security-is-not-just-about-compliance)
-* [Multi-Factor Authentication (MFA): Why It's No Longer Optional](/multi-factor-authentication)
-* [The Rise of 'Secure by Design': How Unintentional Confinement Can Lead to Insecurity](/the-rise-of-secure-by-design)
-
