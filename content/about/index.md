@@ -21,13 +21,15 @@ seriesOpened: false
 showPagination: false
 invertPagination: false
 showReadingTime: false
-showTableOfContents: true
+showTableOfContents: false
 showTaxonomies: false
 showAuthorsBadges: false
 showWordCount: false
 showSummary: false
 sharingLinks: false
 showRelatedContent: false
+disableComments: true
+
 ---
 
 {{< typeit
