@@ -1,6 +1,6 @@
 ---
 title: "My Top Ansible Modules for Everyday SysAdmin Tasks"
-date: 2025-04-10 09:00
+date: 2025-04-10
 draft: false
 slug: top-ansible-modules-sysadmin
 categories:
