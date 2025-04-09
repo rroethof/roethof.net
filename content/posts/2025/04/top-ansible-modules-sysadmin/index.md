@@ -10,7 +10,6 @@ categories:
   - Automation & Scripting
   - Sysadmin Life
 ---
-# {Insert: New Intro}
 Tired of repetitive IT tasks? Ansible modules are your answer. They're the building blocks for automating infrastructure management, deployments, and all that manual work we sysadmins love to hate.
 
 If you're in DevOps, system administration, or cloud, mastering these modules is a game-changer. This guide cuts to the chase, showing you what they are, how they work, and why you need them.
