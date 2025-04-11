@@ -1,4 +1,4 @@
-name: 🔧 Build and Test Hugo ${{ vars.ftp_website }}
+name: 🔧 Build and Test Hugo
 # Will trigger the workflow on each push to the main branch
 on:
   push:
