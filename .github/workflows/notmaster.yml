@@ -3,6 +3,9 @@ name: 🚀 Deploy to prod
 # Will trigger the workflow on each push to the main branch
 on:
   push:
+    branches-ignore:
+      - master
+  pull_request:
     branches:
       - master
 
@@ -10,7 +13,7 @@ on:
 
 jobs:
   build:
-    name: 🔧 Build and Deploy Hugo ${{ vars.ftp_website }}
+    name: 🔧 Build and Test Hugo ${{ vars.ftp_website }}
     runs-on: ubuntu-latest
     steps:
 
@@ -35,17 +38,3 @@ jobs:
           directory: "./public"
           arguments: --only-4xx --check-favicon --check-html --assume-extension --empty-alt-ignore --disable-external
         continue-on-error: true
-
-      - name: Connect
-        id: connect
-        uses: danhendrickson/sftp-transfer-action@v1.23
-        with:
-          server: ${{ vars.ftp_server }}
-          user: ${{ vars.ftp_username }}
-          pass: ${{ secrets.ftp_password }}
-          port: ${{ vars.ftp_port }}
-          local-path: './public'
-          remote-path: 'domains/${{ vars.ftp_website }}/public_html/'
-    
-      - name: Transfer Status
-        run: echo "Transfer Status - ${{ steps.connect.outputs.transferStatus }}"
