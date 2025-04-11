@@ -1,5 +1,4 @@
-name: 🚀 Deploy to prod
-
+name: 🚀 Build, Test and Deploy Hugo ${{ vars.ftp_website }}
 # Will trigger the workflow on each push to the main branch
 on:
   push:
@@ -10,7 +9,7 @@ on:
 
 jobs:
   build:
-    name: 🔧 Build and Deploy Hugo ${{ vars.ftp_website }}
+    name: 🚀 Build, Test and Deploy Hugo ${{ vars.ftp_website }}
     runs-on: ubuntu-latest
     steps:
 
