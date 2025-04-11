@@ -16,5 +16,4 @@
 "When 'Safe' Becomes 'Unsafe': The Dangers of Over-Reliance on Security Automation" - Examine the pitfalls of over-relying on security automation.
 "Why Security is Not Just About Compliance: The Real Threats to Your Organization" - Emphasize the need for proactive security measures beyond just meeting regulatory requirements.
 "Multi-Factor Authentication (MFA): Why It's No Longer Optional": Advocate for the adoption of MFA and explain its importance in protecting accounts.
-"My Top 5 Ansible Modules for Everyday SysAdmin Tasks": A practical guide showcasing specific Ansible modules you find most useful and how you apply them (without revealing sensitive playbooks).
 "My Favorite Open Source Alternatives to Proprietary Software": Share your preferred open-source tools for various tasks, highlighting their benefits.
