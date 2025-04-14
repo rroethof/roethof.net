@@ -77,3 +77,9 @@ This section will publicly acknowledge individuals who have responsibly disclose
 For further information on security best practices in open source projects, I recommend consulting the [Open Source Guides](https://opensource.guide/security/).
 
 *This Responsible Disclosure policy is based on an example written by Floor Terra and the [Responsible Disclosure Guideline of the NCSC](https://english.ncsc.nl/publications/publications/2019/juni/01/coordinated-vulnerability-disclosure-the-guideline).*
+
+<div style="text-align: center;">
+    <a href="https://www.abuseipdb.com/user/52719" title="AbuseIPDB is an IP address blacklist for webmasters and sysadmins to report IP addresses engaging in abusive behavior on their networks">
+        <img src="https://www.abuseipdb.com/contributor/52719.svg" alt="AbuseIPDB Contributor Badge" style="width: 401px;">
+    </a>
+</div>
