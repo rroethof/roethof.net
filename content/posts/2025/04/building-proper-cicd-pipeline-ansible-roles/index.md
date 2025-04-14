@@ -1,6 +1,6 @@
 ---
 title: "Building a Proper CI/CD Pipeline for Ansible Roles (Because Manual Testing is for Suckers)"
-date: 2025-04-15
+date: 2025-04-13
 draft: false
 slug: "building-proper-cicd-pipeline-ansible-roles"
 tags:
