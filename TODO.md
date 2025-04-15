@@ -17,4 +17,38 @@
 "Why Security is Not Just About Compliance: The Real Threats to Your Organization" - Emphasize the need for proactive security measures beyond just meeting regulatory requirements.
 "Multi-Factor Authentication (MFA): Why It's No Longer Optional": Advocate for the adoption of MFA and explain its importance in protecting accounts.
 "My Favorite Open Source Alternatives to Proprietary Software": Share your preferred open-source tools for various tasks, highlighting their benefits.
-.
+
+
+Open Source Threat Intelligence Platforms
+
+MISP, OpenCTI, or IntelMQ: how to collect, share, and act on threat intel.
+Incident Response & Automation
+
+TheHive, Cortex, and how to automate response with Ansible or custom scripts.
+Open Source Monitoring & Observability
+
+Deep dives into Zabbix, Prometheus, Grafana, Loki, or ELK/OpenSearch for security and ops.
+Network Security & IDS/IPS
+
+Suricata, Zeek, pfSense/OPNsense: practical deployment and integration.
+Self-Hosting & Digital Sovereignty
+
+Nextcloud, Matrix, Mastodon, Bitwarden/Vaultwarden: privacy-respecting alternatives and how to run them.
+Endpoint Security & Hardening
+
+Wazuh, ClamAV, OSQuery, and Linux hardening with real-world configs.
+Honeypots & Deception
+
+Cowrie, T-Pot, OpenCanary: what you learn from running them and how to use the data.
+Open Source Email Security Gateways
+
+Rspamd, MailScanner, Proxmox Mail Gateway: anti-spam/anti-virus for self-hosters.
+Automation for Security
+
+Ansible playbooks for deploying and maintaining security tools.
+Vulnerability Management
+
+OpenVAS/GVM, Trivy, or custom scanning pipelines.
+
+Community-driven DNSBLs and running your own
+
