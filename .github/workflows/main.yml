@@ -35,16 +35,13 @@ jobs:
           arguments: --only-4xx --check-favicon --check-html --assume-extension --empty-alt-ignore --disable-external
         continue-on-error: true
 
-      - name: Connect
-        id: connect
-        uses: danhendrickson/sftp-transfer-action@v1.23
+      - name: Deploy with Password
+        uses: wlixcc/SFTP-Deploy-Action@v1.2.6
         with:
+          username: ${{ vars.ftp_username }}
           server: ${{ vars.ftp_server }}
-          user: ${{ vars.ftp_username }}
-          pass: ${{ secrets.ftp_password }}
           port: ${{ vars.ftp_port }}
-          local-path: './public'
-          remote-path: 'domains/${{ vars.ftp_website }}/public_html/'
-    
-      - name: Transfer Status
-        run: echo "Transfer Status - ${{ steps.connect.outputs.transferStatus }}"
+          local_path: './public/*'
+          remote_path: 'domains/${{ vars.ftp_website }}/public_html/'
+          sftp_only: true
+          password: ${{ secrets.ftp_password }}
