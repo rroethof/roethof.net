@@ -11,41 +11,22 @@
 # ordered by weight from lowest to highest.
 
 [[main]]
-  pre = "layer-group"
+  pre = "list"
   name = "Categories"
   weight = 10
   url = "/categories/"
 
-#[[main]]
-#  name = "Tutorials"
-#  parent = "Categories"
-#  weight = 11
-#  url = "/categories/tutorials/"
-#
-#[[main]]
-#  name = "Arch Linux"
-#  parent = "Categories"
-#  weight = 12
-#  url = "/categories/arch-linux/"
-#
-#[[main]]
-#  name = "Security"
-#  parent = "Categories"
-#  weight = 13
-#  url = "/categories/security/"
-#
-#[[main]]
-#  name = "Tips"
-#  parent = "Categories"
-#  weight = 14
-#  url = "/categories/tips/"
+[[main]]
+  pre = "cloud-music"
+  name = "Music"
+  weight = 11
+  url = "/music/"
 
 [[main]]
-  pre = "adress-card"
+  pre = "address-card"
   name = "About"
   pageRef = "about"
   weight = 15
-
 
 [[main]]
   pre = "briefcase"
