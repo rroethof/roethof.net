@@ -52,3 +52,33 @@ OpenVAS/GVM, Trivy, or custom scanning pipelines.
 
 Community-driven DNSBLs and running your own
 
+
+
+
+
+10 Signs of a Bad Manager! Are You Working with One?
+
+
+Identifying poor leadership can be crucial for your career growth and workplace happiness. 
+
+Here are 10 key signs to look out for: 
+
+1 hashtag#Micromanagement: Constantly checking in on employees and not allowing autonomy. 
+
+2 hashtag#Poor hashtag#Communication: Fails to provide clear instructions or feedback. 
+
+3 hashtag#Lack hashtag#of hashtag#Empathy: Shows no understanding or concern for employees' personal issues. 
+
+4 hashtag#Takes hashtag#Credit hashtag#for hashtag#Others' Work: Does not acknowledge team contributions. 
+
+5 hashtag#Unapproachable: Creates an environment where employees feel they cannot voice concerns. 
+
+6 hashtag#Inconsistent: Changes decisions frequently and unpredictably. 
+
+7 hashtag#Lacks hashtag#Vision: Does not have a clear direction or goals for the team. 
+
+8 hashtag#Plays hashtag#Favorites: Gives preferential treatment to certain employees. 
+
+9 hashtag#Avoids hashtag#Responsibility: Blames others for their own mistakes. 
+
+10 hashtag#Resists hashtag#Change: Unwilling to adapt to new ideas or improvements🎯
