@@ -11,37 +11,49 @@ jobs:
   build:
     name: 🚀 Build, Test and Deploy Hugo ${{ vars.ftp_website }}
     runs-on: ubuntu-latest
+    env:
+      FIREBASE_APIKEY: ${{ secrets.FIREBASE_APIKEY }}
+      FIREBASE_AUTHDOMAIN: ${{ secrets.FIREBASE_AUTHDOMAIN }}
+      FIREBASE_PROJECTID: ${{ secrets.FIREBASE_PROJECTID }}
+      FIREBASE_STORAGEBUCKET: ${{ secrets.FIREBASE_STORAGEBUCKET }}
+      FIREBASE_MESSAGINGSENDERID: ${{ secrets.FIREBASE_MESSAGINGSENDERID }}
+      FIREBASE_APPID: ${{ secrets.FIREBASE_APPID }}
+      FIREBASE_MEASUREMENTID: ${{ secrets.FIREBASE_MEASUREMENTID }}
+
     steps:
 
-      - name: Checkout
-        uses: actions/checkout@v4
+      - name: 🧾 Checkout repository
+        uses: actions/checkout@v5
         with:
           submodules: recursive
           fetch-depth: 0
 
-      - name: Setup Hugo
+      - name: ⚙️ Setup Hugo
         uses: peaceiris/actions-hugo@v3
         with:
           hugo-version: '0.145.0' #latest is broken
           extended: true
 
-      - name: Build site with Hugo
+      - name: 🏗️ Build site with Hugo
         run: hugo --minify
 
-      - name: Check HTML
+      - name: ✅ Check HTML
         uses: chabad360/htmlproofer@master
         with:
           directory: "./public"
           arguments: --only-4xx --check-favicon --check-html --assume-extension --empty-alt-ignore --disable-external
         continue-on-error: true
 
-      - name: Deploy with Password
-        uses: wlixcc/SFTP-Deploy-Action@v1.2.6
+      - name: 🔐 Install SSH Key
+        uses: shimataro/ssh-key-action@v2
         with:
-          username: ${{ vars.ftp_username }}
-          server: ${{ vars.ftp_server }}
-          port: ${{ vars.ftp_port }}
-          local_path: './public/*'
-          remote_path: 'domains/${{ vars.ftp_website }}/public_html/'
-          sftp_only: true
-          password: ${{ secrets.ftp_password }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          known_hosts: 'just-a-placeholder-so-we-dont-get-errors'
+          
+      - name: 🧱 Add Known Hosts
+        run: ssh-keyscan -H ${{ vars.ftp_server }} >> ~/.ssh/known_hosts
+        
+      - name: 🚚 Deploy with rsync
+        run: rsync -avz ./public/ ${{ vars.ftp_username }}@${{ vars.ftp_server }}:domains/${{ vars.ftp_website }}/public_html/
+
+

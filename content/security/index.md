@@ -1,7 +1,6 @@
 ---
 date: '2025-02-20T16:34:09+01:00'
 draft: false
-
 showDate: false
 showViews: false
 showLikes: false

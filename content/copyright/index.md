@@ -1,7 +1,6 @@
 ---
 date: '2025-03-18T00:00:00+00:00'
 draft: false
-
 showDateOnlyInArticle : false
 showHeadingAnchors : false
 layoutBackgroundHeaderSpace: false

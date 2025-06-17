@@ -5,47 +5,24 @@ description: "A look at the hardware and software tools I've found most indispen
 slug: "favorite-tech-tools-2025"
 draft: false # Set to false to publish
 categories:
-  - AI & Machine Learning
   - Automation & Scripting
   - Blogging & Content Management
-  - Communication & Collaboration
-  - Ergonomics & Health
-  - Infrastructure & Servers
-  - Keyboards & Input Devices
+  - Community & Culture
+  - DevOps & Infrastructure
   - Learning & Growth
   - Linux & Open Source
+  - Monitoring & Observability
+  - My Perspective
   - Personal Computing & Productivity
-  - Personal Reflections
-  - Career & Professional Development
   - Security & Privacy
   - System Management
   - Tech & Industry Insights
   - Virtualization & Cloud
-  - Monitoring & Observability
-  - Networking
-  - Community & Culture
-  - Hardware Reviews
-  - Self-Hosting
-  - Command Line Tools
+  - Well-being
 tags:
-  - 2025
-  - Favorite Tools
-  - Hardware
-  - Software
-  - Dell XPS 15
-  - Arch Linux
-  - Hyprland
-  - Debian 12
   - Ansible
-  - Zsh
-  - Visual Studio Code
-  - Proxmox VE
-  - GitHub
-  - Docker
-  - Bitwarden
-  - Nextcloud
-  - Calibre
-  - Obsidian
+  - Arch Linux
+  - Proxmox
 ---
 
 Hello tech community! The days are getting longer, the air is getting warmer, and I'm feeling energized by the possibilities of the year ahead in my ongoing adventure with technology. To kick things off with a fresh perspective this spring, I wanted to share the tech tools that have become my favorites in the first part of 2025, helping me manage my systems, enhance security, and automate the tasks that would otherwise drive me nuts – all with renewed vigor.
@@ -152,9 +129,3 @@ For managing my extensive ebook library, converting formats, and syncing with my
 ## Looking Ahead
 
 Of course, the tech landscape is constantly evolving, and I'm always on the lookout for new tools that can enhance my workflow. What are some of your favorite tech tools of 2025 so far? I'd love to hear your recommendations in the comments below!
-
-
-
-
-
-

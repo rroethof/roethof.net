@@ -47,7 +47,7 @@ forgejoDefaultServer = "https://v8.next.forgejo.org"
   layout = "background" # valid options: page, profile, hero, card, background, custom
   homepageImage = "bg.jpg" # used in: hero and card
   showRecent = true
-  showRecentItems = 12
+  showRecentItems = 30
   showMoreLink = true
   showMoreLinkDest = "/posts/"
   cardView = true
@@ -56,8 +56,8 @@ forgejoDefaultServer = "https://v8.next.forgejo.org"
 
 [article]
   showDate = true
-  showViews = true
-  showLikes = true
+  showViews = false
+  showLikes = false
   showDateOnlyInArticle = false
   showDateUpdated = false
   showAuthor = true
@@ -75,7 +75,7 @@ forgejoDefaultServer = "https://v8.next.forgejo.org"
   showHeadingAnchors = true
   showPagination = true
   invertPagination = false
-  showReadingTime = true
+  showReadingTime = false
   showTableOfContents = true
   showRelatedContent = true
   relatedContentLimit = 3
@@ -127,14 +127,6 @@ forgejoDefaultServer = "https://v8.next.forgejo.org"
   cardView = false
   cardViewScreenWidth = false
 
-[firebase]
-  apiKey = "AIzaSyBnWi84PEtmjqfjMItSnMEox7inRsKisJA"
-  authDomain = "techblog-3e988.firebaseapp.com"
-  projectId = "techblog-3e988"
-  storageBucket = "techblog-3e988.firebasestorage.app"
-  messagingSenderId = "650662805824"
-  appId = "1:650662805824:web:779164a3032ec84fa3baa5"
-  measurementId = "G-CZKZHB3R90"
 
 [fathomAnalytics]
   # site = "ABC12345"
@@ -168,3 +160,4 @@ forgejoDefaultServer = "https://v8.next.forgejo.org"
   globalWidgetMessage = ""
   globalWidgetColor = "#FFDD00"
   globalWidgetPosition = "Right"
+
