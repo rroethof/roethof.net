@@ -14,10 +14,13 @@ jobs:
   build:
     name: 🔧 Build and Test Hugo ${{ vars.ftp_website }}
     runs-on: ubuntu-latest
+    # env:
+    #   FIREBASE_API_KEY: ${{ secrets.FIREBASE_API_KEY }}   # 🔑 hier komt je secret in de env
+
     steps:
 
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           submodules: recursive
           fetch-depth: 0

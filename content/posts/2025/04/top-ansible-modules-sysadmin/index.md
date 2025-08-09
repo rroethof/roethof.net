@@ -4,10 +4,10 @@ date: 2025-04-10
 draft: false
 slug: top-ansible-modules-sysadmin
 categories:
-  - Ansible Automation
+  - Ansible
+  - Automation & Scripting
   - Configuration Management
   - System Management
-  - Automation & Scripting
   - Sysadmin Life
 ---
 Tired of repetitive IT tasks? Ansible modules are your answer. They're the building blocks for automating infrastructure management, deployments, and all that manual work we sysadmins love to hate.

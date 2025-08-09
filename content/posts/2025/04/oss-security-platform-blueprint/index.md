@@ -10,22 +10,13 @@ categories:
   - DevOps & Infrastructure
   - System Hardening
 tags:
-  - Open Source
-  - Security
-  - Wazuh
-  - ELK
-  - OpenSearch
   - Ansible
   - Digital Sovereignty
-  - Architecture
-  - SMB
+  - Open Source
+  - OpenSearch
+  - Security
   - Self-Hosting
-  - pfSense
-  - OPNsense
-  - Suricata
-  - TheHive
-  - MISP
-  - Rant
+  - Wazuh
 description: "An opinionated blueprint for building a cohesive, effective, and manageable open-source security platform focused on digital sovereignty, primarily for SMBs."
 ---
 

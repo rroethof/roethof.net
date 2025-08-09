@@ -17,12 +17,6 @@
   url = "/categories/"
 
 [[main]]
-  pre = "cloud-music"
-  name = "Music"
-  weight = 11
-  url = "/music/"
-
-[[main]]
   pre = "address-card"
   name = "About"
   pageRef = "about"
