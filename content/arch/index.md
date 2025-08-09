@@ -7,7 +7,7 @@ showDateOnlyInArticle : false
 showHeadingAnchors : false
 layoutBackgroundHeaderSpace: false
 showDate: false
-showViews: false: false
+showViews: false
 showLikes: false
 showDateUpdated: false
 showAuthor: false
