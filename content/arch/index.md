@@ -34,10 +34,10 @@ disableComments: true
 {{< typeit
 tag=h1
 lifeLike=true >}}
-Arch Linux Installatie: Beveiliging en Snelheid op Dell XPS 9530
+Arch Linux Installatie: Beveiliging zonder verlies van snelheid of gemak op mijn Dell XPS 9530
 {{< /typeit >}}
 
-Tijd voor de **ultieme Arch Linux installatie** op je Dell XPS 9530. Geen gezeur geen onnodige extra's. We bouwen een **strakke base** met focus op **maximale beveiliging** en **bloedsnelle prestaties**. Dit is wat je krijgt:
+Tijd voor een **veiligere Arch Linux installatie** op je Dell XPS 9530. Geen gezeur geen onnodige extra's. We bouwen een **strakke base** met focus op **maximale beveiliging** en **snelle prestaties**. Dit is wat je krijgt:
 
 * **Partitionering en formatteren**: De fundering goed geregeld.
 * **LUKS2 setup met TPM2**: Volledige schijfencryptie hardware-gestuurd.
@@ -774,3 +774,294 @@ Inhoud:
 
 ```bash
 %wheel ALL=(ALL:ALL) NOPASSWD: ALL
+```
+
+---
+## 31. makepkg Configuratie (Compilatie Optimalisatie)
+
+Optimaliseer `makepkg` om je CPU optimaal te benutten en de tijdelijke bestanden in het geheugen te bewaren. Dit versnelt het compileren van pakketten aanzienlijk.
+
+Bewerk de vlaggen van `makepkg` voor je specifieke architectuur en gebruik `/tmp` voor de builds.
+
+```bash
+nano -w /etc/makepkg.conf
+```
+
+Inhoud:
+
+```bash
+CFLAGS="-march=native -O2 -pipe -fstack-protector-strong -fno-plt"
+CXXFLAGS="${CFLAGS}"
+RUSTFLAGS="-C opt-level=2 -C target-cpu=native"
+LDFLAGS="-Wl,-O1,--sort-common,--as-needed,-z,relro,-z,now"
+BUILDDIR=/tmp/makepkg
+```
+
+Maak een aparte configuratie voor Rust om er zeker van te zijn dat de vlaggen correct worden toegepast.
+
+```bash
+nano -w /etc/makepkg.conf.d/rust.conf
+```
+
+Inhoud:
+
+```bash
+RUSTFLAGS="-C opt-level=2 -C target-cpu=native"
+```
+
+---
+## 32. Root Wachtwoord Instellen
+
+Stel het wachtwoord in voor de **root-gebruiker**.
+
+```bash
+passwd
+```
+
+---
+## 33. Chroot verlaten en Herstarten
+
+Verlaat de chroot-omgeving en herstart de machine. Start direct in het UEFI/BIOS om te controleren of Secure Boot is ingeschakeld.
+
+```bash
+exit
+umount -R /mnt
+systemctl reboot --firmware-setup
+```
+
+---
+## 34. Snapper Configureren (Na Herstart)
+
+Nu je weer in je nieuwe systeem zit, configureer je Snapper voor snapshots.
+
+```bash
+# Verwijder de standaard Snapper-subvolume om conflicten te vermijden
+umount /.snapshots
+rm -r /.snapshots
+
+# Initialiseer Snapper voor het root-bestandssysteem
+snapper -c root create-config /
+
+# Verwijder het subvolume dat Snapper zojuist heeft gemaakt
+btrfs subvolume delete /.snapshots
+
+# Hercreëer het mount point en mount het
+mkdir /.snapshots
+mount /.snapshots
+```
+
+---
+## 35. Snapper Snapshots Beveiligen en Instellen
+
+Beveilig de Snapper-directory en pas de snapshot-instellingen aan.
+
+```bash
+chmod 750 /.snapshots
+```
+
+Configureer de snapshot-instellingen voor automatische snapshots op je root-subvolume.
+
+```bash
+nano -w /etc/snapper/configs/root
+```
+
+Inhoud:
+
+```bash
+TIMELINE_CREATE="yes"
+TIMELINE_CLEANUP="yes"
+
+NUMBER_MIN_AGE="1800"
+NUMBER_LIMIT="10"
+NUMBER_LIMIT_IMPORTANT="10"
+
+TIMELINE_MIN_AGE="1800"
+TIMELINE_LIMIT_HOURLY="5"
+TIMELINE_LIMIT_DAILY="7"
+TIMELINE_LIMIT_WEEKLY="0"
+TIMELINE_LIMIT_MONTHLY="0"
+TIMELINE_LIMIT_YEARLY="0"
+```
+
+---
+## 36. Custom Pacman Hook voor /efi Backup
+
+Maak een Pacman-hook die een backup maakt van de `/efi`-directory vóór een belangrijke systeemupdate.
+
+```bash
+# Maak de hook aan
+nano -w /etc/pacman.d/hooks/10-efi_backup.hook
+```
+
+Inhoud:
+```bash
+## PACMAN EFI BACKUP HOOK
+## /etc/pacman.d/hooks/10-efi_backup.hook
+
+[Trigger]
+Type = Path
+Operation = Install
+Operation = Upgrade
+Operation = Remove
+Target = usr/lib/initcpio/*
+Target = usr/lib/firmware/*
+Target = usr/lib/modules/*/extramodules/
+Target = usr/lib/modules/*/vmlinuz
+Target = usr/src/*/dkms.conf
+
+[Trigger]
+Type = Package
+Operation = Install
+Operation = Upgrade
+Operation = Remove
+Target = mkinitcpio
+Target = mkinitcpio-git
+
+[Action]
+Description = Backing up /efi...
+When = PreTransaction
+Exec = /usr/local/sbin/efi_backup.sh
+```
+
+```bash
+# Maak het backup-script aan
+nano -w /usr/local/sbin/efi_backup.sh
+```
+
+Inhoud:
+```bash
+#!/bin/bash
+## SCRIPT EFI BACKUP
+## /usr/local/sbin/efi_backup.sh
+
+tar -czf "/.efibackup/efi-$(date +%Y%m%d-%H%M%S).tar.gz" -C / efi
+ls -1t /.efibackup/efi-*.tar.gz | tail -n +4 | xargs -r rm --
+```
+
+---
+## 37. Finaliseren van /efi Backup Hook en fstrim
+
+Nu we het script hebben aangemaakt, maken we het uitvoerbaar en beperken we `fstrim` tot alleen de `/efi`-partitie.
+
+```bash
+# Maak het script uitvoerbaar
+chmod +x /usr/local/sbin/efi_backup.sh
+```bash
+# Override de standaard `fstrim` service om alleen `/efi` te trimmen
+systemctl edit fstrim.service
+```
+
+Voeg de volgende content toe en sla het bestand op:
+
+```bash
+[Service]
+ExecStart=
+ExecStart=/usr/sbin/fstrim -v /efi
+```
+
+---
+## 38. Onderhoudstimers Inschakelen
+
+Schakel de benodigde timers in voor automatisch onderhoud.
+
+```bash
+# Activeer de TRIM-timer voor wekelijks onderhoud op /efi
+systemctl enable fstrim.timer
+```bash
+# Activeer de Snapper-timeline timer voor periodieke snapshots
+systemctl enable snapper-timeline.timer
+```bash
+# Activeer de Snapper-cleanup timer voor het opruimen van oude snapshots
+systemctl enable snapper-cleanup.timer
+```
+
+---
+## 39. Pacman-transactie Snapshots Inschakelen
+
+Installeer `snap-pac` om automatisch snapshots te maken vóór en na elke pacman-operatie. Dit is essentieel voor het veilig herstellen van je systeem.
+
+```bash
+pacman -S snap-pac
+```
+
+---
+## 40. Snapper Initiële Snapshots Opschonen
+
+Snapper heeft mogelijk snapshots gemaakt tijdens de installatie. Het is het beste om deze te verwijderen en te beginnen met een schone lei.
+
+```bash
+# Toon de huidige lijst van snapshots
+snapper -c root list
+```bash
+# Verwijder een reeks snapshots (bijv. 1 tot 2)
+snapper -c root delete 1-2
+```
+
+---
+## 41. Eerste Systeem Snapshot Maken
+
+Maak handmatig de allereerste "schone" snapshot van je zojuist geïnstalleerde systeem. Dit is je herstelpunt.
+
+```bash
+# Creëer een handmatige snapshot met een beschrijving
+snapper -c root create -d "init"
+```
+
+---
+## 42. Arch Linux Post Installatie
+De basis staat, maar je bent er nog niet. Tijd om het systeem te perfectioneren.
+
+### 42.1. Microcode & Drivers
+Installeer de microcode voor je Intel CPU en de drivers voor de geïntegreerde Intel GPU en de discrete NVIDIA GPU. Dit zorgt voor optimale prestaties en stabiliteit.
+```bash
+pacman -S intel-ucode
+pacman -S mesa vulkan-intel intel-media-driver libva-utils vulkan-tools
+pacman -S nvidia-open-dkms nvidia-utils nvidia-settings opencl-nvidia
+```
+
+### 42.2. TLP voor Batterijduur
+Installeer TLP. Dit is een energiebeheertool die de batterijduur aanzienlijk kan verbeteren. Activeer de service direct na installatie.
+```bash
+pacman -S tlp
+systemctl start tlp.service
+systemctl enable tlp.service
+```
+
+### 42.3. Gebruiker toevoegen
+Maak je eigen gebruiker aan. Je wilt niet alles als `root` doen. Geef de gebruiker de juiste groepen, inclusief `wheel` voor sudo-rechten.
+```bash
+useradd -m -g users -G wheel,storage,power rroethof
+passwd rroethof
+EDITOR=nano -w visudo
+```
+
+Voeg deze regel toe aan de `visudo` editor om de `wheel` groep sudo-rechten te geven.
+```bash
+%wheel ALL=(ALL:ALL) NOPASSWD: ALL
+```
+
+---
+## 43. Hyprland Installatie
+Nu de drivers en optimalisaties gereed zijn, is het tijd voor de Hyprland desktop. Met het installatiescript van JaKooLit kun je snel een volledig geconfigureerde Hyprland-omgeving opzetten.
+
+```bash
+git clone --depth=1 https://github.com/JaKooLit/Arch-Hyprland.git ~/Arch-Hyprland
+cd ~/Arch-Hyprland
+chmod +x install.sh
+./install.sh
+```
+
+
+
+
+---
+
+## Veelgestelde Vragen
+
+### Waarom geen bootloader?
+
+Omdat **UKI** het mogelijk maakt de kernel direct vanaf de EFI-partitie op te starten. GRUB of systemd-boot zijn niet nodig.
+
+### Kan ik dit op mijn laptop gebruiken?
+
+Ja - dit is ideaal voor moderne laptops met TPM2 en Secure Boot ingeschakeld.
