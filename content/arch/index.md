@@ -21,7 +21,7 @@ seriesOpened: false
 showPagination: false
 invertPagination: false
 showReadingTime: false
-showTableOfContents: false
+showTableOfContents: true
 showTaxonomies: false
 showAuthorsBadges: false
 showWordCount: false
@@ -34,414 +34,209 @@ disableComments: true
 {{< typeit
   tag=h1
   lifeLike=true >}}
-Arch Linux Installatie: Fort Knox Editie met TPM2, UKI en Hyprland 🚀
+Arch Linux Installatie: Beveiliging en Snelheid op Dell XPS 9530
 {{< /typeit >}}
 
-Hier vind je een **ultieme stap-voor-stap handleiding** om Arch Linux te installeren op je **Dell XPS 9530**. De focus ligt op een **clean base** met verhoogde beveiliging en performance: **UEFI**, geoptimaliseerd **Btrfs**, **Unified Kernel Images (UKI)**, **Secure Boot**, en **TPM2-gebaseerde automatische encryptie**. Afgesloten met een naadloze **Hyprland** desktop en **snelle data recovery** via rclone.
+Hier vind je mijn stap-voor-stap handleiding voor Arch Linux op je Dell XPS 9530. We focussen op een clean base met maximale beveiliging en prestaties. Denk aan:
+
+ * Partitioning & formatting: De fundering.
+ * LUKS2 setup with TPM2: Volledige schijfencryptie, hardware-verankerd.
+ * Mounting and subvolume layout: Geoptimaliseerd Btrfs voor veerkracht en snelheid.
+ * Base system installation: Alleen wat nodig is, geen ballast.
+ * Chroot configuration: De basis goed neerzetten.
+ * UKI creation and signing: Unified Kernel Images en Secure Boot voor veiligheid.
+ * EFI setup: Jouw systeem direct klaar voor actie.
+ * Snapper configuration: Snelle data recovery via rclone wordt kinderspel.
+ * Swap and zswap activation: Efficiënt geheugenbeheer.
+
+En als klap op de vuurpijl sluiten we af met een naadloze Hyprland desktop.
+
+> [!NOTE]
+> Dit is voor gevorderde gebruikers of voor educatieve doeleinden.
+
 
 ---
 
 ## 1. Voorbereiding
 - Arch Linux ISO (laatste release) op USB-stick (`dd` of `Rufus`)
 - UEFI geactiveerd in BIOS
-- Secure Boot tijdelijk **uit** in BIOS (schakelen we straks weer in)
-- TPM 2.0 ingeschakeld in BIOS
-- Internetverbinding
+- TPM 2.0 ingeschakeld in BIOS.
+- SATA/NVMe Operation: **AHCI** (in plaats van "RAID On").
+- Secure Boot moet in de BIOS/UEFI op "Setup Mode" worden gezet **vóór** de installatie. Dit is vereist om je eigen Secure Boot-sleutels te kunnen registreren met `sbctl`.
 
-Controleer connectiviteit:
+## 2. Opstarten en Initiële Setup
+
+### 2.1. Opstarten vanaf USB
+
+1.  Plaats de Arch Linux USB-stick in de laptop.
+2.  Start de laptop en druk herhaaldelijk op **F12** om het bootmenu te openen.
+3.  Selecteer de USB-stick als opstartapparaat.
+
+### 2.2. Beep uitzetten: Rust voor de ziel.
 ```bash
-ping archlinux.org
+rmmod pcspkr
 ```
 
----
+### 2.3. Wi-Fi verbinden (met iwctl)
 
-## 2. Boot & Basisinstellingen
-Toetsenbordlayout instellen:
 ```bash
-loadkeys us           # of 'nl'
-```
-
-Tijd synchroniseren:
-```bash
-timedatectl set-ntp true
-```
-
-Controleer UEFI boot:
-```bash
-ls /sys/firmware/efi/efivars
-```
-
----
-
-## 3. Schijfindeling (Btrfs + LUKS2)
-We maken **twee partities**: een kleine EFI en de rest voor de geëncrypteerde root.
-Voorbeeld schijf: `/dev/nvme0n1`.
-
-Partitioner:
-```bash
-gdisk /dev/nvme0n1
-# Druk op 'n' voor nieuwe partitie
-# Eerste partitie: +512M, type EF00 (EFI System Partition)
-# Druk op 'n' voor nieuwe partitie
-# Tweede partitie: Gebruik de rest, type 8300 (Linux filesystem)
-# Druk op 'w' om wijzigingen weg te schrijven
-```
-
-Formatteren EFI partitie:
-```bash
-mkfs.fat -F32 /dev/nvme0n1p1
-```
-
-LUKS2 encryptie op root partitie (stel een **sterk passphrase** in!):
-```bash
-cryptsetup luksFormat --type luks2 /dev/nvme0n1p2
-```
-
-Ontgrendel de root partitie:
-```bash
-cryptsetup open /dev/nvme0n1p2 cryptroot
-```
-
-Creëer Btrfs bestandssysteem:
-```bash
-mkfs.btrfs /dev/mapper/cryptroot
-```
-
----
-
-## 4. Btrfs Subvolumes
-Mount de Btrfs root en maak subvolumes:
-```bash
-mount /dev/mapper/cryptroot /mnt
-btrfs subvolume create /mnt/@
-btrfs subvolume create /mnt/@home
-btrfs subvolume create /mnt/@snapshots
-umount /mnt
-```
-
-Mount de subvolumes met optimale Btrfs opties:
-```bash
-mount -o subvol=@,compress=zstd:3,noatime,ssd,space_cache=v2,discard=async /dev/mapper/cryptroot /mnt
-mkdir -p /mnt/{boot,home,.snapshots}
-mount -o subvol=@home,compress=zstd:3,noatime,ssd,space_cache=v2,discard=async /dev/mapper/cryptroot /mnt/home
-mount -o subvol=@snapshots,compress=zstd:3,noatime,ssd,space_cache=v2,discard=async /dev/mapper/cryptroot /mnt/.snapshots
-mount /dev/nvme0n1p1 /mnt/boot
-```
-
----
-
-## 5. Basisinstallatie
-Installeer essentiële pakketten:
-```bash
-pacstrap /mnt base linux linux-firmware btrfs-progs vim networkmanager git openssh
-```
-
-Genereer fstab:
-```bash
-genfstab -U /mnt >> /mnt/etc/fstab
-```
-
-Change root naar nieuwe systeem:
-```bash
-arch-chroot /mnt
-```
-
----
-
-## 6. Systeemconfiguratie
-Tijdzone instellen:
-```bash
-ln -sf /usr/share/zoneinfo/Europe/Amsterdam /etc/localtime
-hwclock --systohc
-```
-
-Locale instellen (pas aan naar wens, UTF-8 is standaard):
-```bash
-echo "LANG=en_US.UTF-8" > /etc/locale.conf
-locale-gen
-```
-
-Hostnaam instellen:
-```bash
-echo "xps" > /etc/hostname
-```
-
-Wachtwoord root gebruiker:
-```bash
-passwd
-```
-
-Creëer een normale gebruiker:
-```bash
-useradd -m -g users -G wheel,storage,power -s /bin/bash rroethof
-passwd rroethof
-```
-
----
-
-## 7. Sudo Configuratie: Veiligheid of Gemak?
-Kies je pad: beveiliging óf gemak.
-
-### Optie 1: Met Wachtwoord (Standaard Beveiligd)
-Gebruikers in de wheel groep typen hun wachtwoord in bij elk sudo commando. Extra check, minder snel.
-```bash
-echo "%wheel ALL=(ALL:ALL) ALL" | sudo tee /etc/sudoers.d/wheel_sudo > /dev/null
-```
-
-### Optie 2: Zonder Wachtwoord (Snel en Risicovol)
-Gebruikers in wheel voeren sudo commando's uit zonder wachtwoord. Snel, maar minder veilig.
-```bash
-echo "%wheel ALL=(ALL:ALL) NOPASSWD: ALL" | sudo tee /etc/sudoers.d/wheel_sudo > /dev/null
-```
-
-**Let op:** Wijzig `sudoers` altijd met `visudo`. Dit voorkomt fouten. Bovenstaande commando's zijn voor een snelle setup, maar wees je bewust van de risico's.
-
----
-
-## 8. UKI + mkinitcpio
-Installeer vereisten voor UKI:
-```bash
-pacman -S systemd mkinitcpio mkinitcpio-systemd-tools
-```
-
-Pas `/etc/mkinitcpio.conf` aan. Voeg NVIDIA modules toe voor je 4070 en de benodigde hooks:
-```bash
-vim /etc/mkinitcpio.conf
-```
-
-`MODULES=(i915 nvidia nvidia_modeset nvidia_uvm nvidia_drm)`
-`HOOKS=(systemd autodetect keyboard sd-vconsole modconf block sd-encrypt filesystems)`
-
-Maak UKI buildconfig `/etc/mkinitcpio.d/linux.preset`. Deze zorgt dat UKI's in EFI-partitie komen:
-```bash
-vim /etc/mkinitcpio.d/linux.preset
-```
-
-`PRESETS=('default')`
-`default_uki="/efi/EFI/Linux/arch.efi"`
-
-Bouw de Unified Kernel Image:
-```bash
-mkinitcpio -P
-```
-
----
-
-## 9. Secure Boot met sbctl
-Installeer sbctl:
-```bash
-pacman -S sbctl
-```
-
-Genereer Secure Boot sleutels:
-```bash
-sbctl create-keys
-```
-
-Enroleer Microsoft sleutels voor compatibiliteit (optioneel, maar aanbevolen):
-```bash
-sbctl enroll-keys --microsoft
-```
-
-Signeer je UKI en EFI binaries:
-```bash
-sbctl sign -s /efi/EFI/Linux/arch.efi
-sbctl sign -s /boot/EFI/systemd/systemd-bootx64.efi
-```
-
----
-
-## 10. TPM Auto-Decrypt
-Installeer tools:
-```bash
-pacman -S systemd-cryptenroll tpm2-tools
-```
-
-Koppel LUKS key slot aan TPM2 module. **BELANGRIJK:** Gebruik het apparaat (`/dev/nvme0n1p2`), niet de mapper (`/dev/mapper/cryptroot`):
-```bash
-systemd-cryptenroll --tpm2-device=auto /dev/nvme0n1p2
-```
-
-Voeg TPM2 device toe aan `crypttab.initramfs` voor automatische ontgrendeling. Dit bestand wordt gebruikt door de initramfs:
-```bash
-echo "cryptroot /dev/nvme0n1p2 none tpm2-device=auto" > /etc/crypttab.initramfs
-```
-
-**Herbouw mkinitcpio** om de TPM2 configuratie in de initramfs op te nemen:
-```bash
-mkinitcpio -P
-```
-
----
-
-## 11. Bootloader (systemd-boot)
-Installeer systemd-boot:
-```bash
-bootctl install
-```
-
-Configureer `/boot/loader/loader.conf`. **Voeg Kernel Lockdown Mode toe:**
-```bash
-vim /boot/loader/loader.conf
-```
-
-`default arch`
-`timeout 0`
-`console-mode max`
-`editor no`
-`options lockdown=integrity`
-
-**Let op**: Voor UKI's hoef je geen specifieke `.conf` entry te maken in `/boot/loader/entries/`. `systemd-boot` vindt de `arch.efi` UKI automatisch.
-
----
-
-## 12. Secure Boot Heractiveren
-Na test dat systeem correct opstart met TPM2 unlock:
-- **Herstart** en ga naar je **BIOS/UEFI-instellingen**.
-- Schakel **Secure Boot** in.
-- Sla instellingen op en start opnieuw.
-Controleer na boot de status:
-```bash
-sbctl verify
-```
-
----
-
-## 13. Eerste Reboot
-Verlaat de chroot omgeving:
-```bash
+iwctl
+station wlan0 scan
+station wlan0 get-networks
+station wlan0 connect <SSID>
 exit
 ```
 
-Unmount alle partities:
 ```bash
-umount -R /mnt
+ping 1.1.1.1 -c 4
 ```
 
-Reboot het systeem:
+### 2.4. SSH Remote Installatie (optioneel): Werk op afstand.
 ```bash
-reboot
+passwd
+ip addr
+systemctl start sshd
+screen -S share-screen
 ```
 
----
-
-## 14. Hyprland Auto-Install (via JaKooLit/Arch-Hyprland)
-**Voer dit uit ná de eerste reboot en login als je normale gebruiker.** Dit automatiseert de Wayland desktop setup.
-Installeer Git:
+SSH naar je machine:
 ```bash
-sudo pacman -S git
+ssh root@192.168.2.10
+screen -x share-screen
 ```
 
-Clone en voer het script uit:
+## 3. Pre-Installatie Setup
+Voordat we dieper graven, een paar belangrijke stappen.
+
+### 3.1. Clean bestaande EFI entries indien nodig.
+Weg met de rommel. Vervang X met het juiste nummer.
+
 ```bash
-git clone https://github.com/JaKooLit/Arch-Hyprland.git
-cd Arch-Hyprland
-./install.sh
+efibootmgr
+efibootmgr -b X -B
 ```
 
-Voordeel: Direct een complete Wayland-setup met Hyprland, Waybar, Kitty en geoptimaliseerde configuratie.
+### 3.2. Update GPG keys vanaf de live omgeving.
+Dit is een slimme zet vóór de installatie.
 
-**NVIDIA Wayland fix (voor Hyprland)**: Voeg deze toe aan je kernel command line in `/etc/kernel/cmdline` of via je bootloader config.
 ```bash
-nvidia_drm.modeset=1
+pacman -Sy archlinux-keyring
 ```
 
-En in je environment (bijvoorbeeld in `~/.bashrc` of `/etc/environment`):
+## 4. Disk Partitioning (GPT)
+Tijd om de schijf op te delen. We maken een EFI partitie en de rest gaat naar een LUKS root.
+
+Partitioneer de schijf: EFI (500MB) en de rest van de schijf voor LUKS root.
+
 ```bash
-WLR_NO_HARDWARE_CURSORS=1
+sgdisk --clear --align-end \
+  --new=1:0:+500M --typecode=1:ef00 --change-name=1:"EFI system partition" \
+  --new=2:0:0 --typecode=2:8309 --change-name=2:"Linux LUKS" \
+  /dev/nvme0n1
 ```
 
----
+## 5. Filesystem Creation
+Formatteer de EFI partitie. Geoptimaliseerd voor NVMe 4K sectorgrootte
 
-## 15. Rclone Installatie
 ```bash
-sudo pacman -S rclone
+mkfs.vfat -F 32 -n "SYSTEM" -S 4096 -s 1 /dev/nvme0n1p1
 ```
 
----
-
-## 16. Google Drive Configuratie
-Start de configuratie wizard:
+### 5.1. Creëer een LUKS2 versleutelde container.
+Optie 1. Sterke encryptie is de norm.
 ```bash
-rclone config
+cryptsetup --type luks2 \
+  --cipher aes-xts-plain64 \
+  --hash sha512 \
+  --iter-time 5000 \
+  --key-size 512 \
+  --pbkdf argon2id \
+  --label "Linux LUKS" \
+  --sector-size 4096 \
+  --use-urandom \
+  --verify-passphrase \
+  luksFormat /dev/nvme0n1p2
 ```
 
-- Kies `n` voor nieuwe remote.
-- Geef een naam, bijvoorbeeld `gdrive`.
-- Kies het nummer voor Google Drive (meestal `13`).
-- Beantwoord de vragen (laat `client_id` en `client_secret` leeg, tenzij je eigen API keys hebt).
-- Kies `1` voor volledige toegang (`Full access all files`).
-- Laat `advanced config` leeg.
-- Kies `auto config` als je een browser hebt, anders volg de instructies voor handmatige authenticatie (token kopiëren).
-- Sla de configuratie op en verlaat (`q`).
-
----
-
-## 17. Data Recovery (Snelle modus)
-Maak een herstelmap aan:
+Optie 2. Een iets vriendelijkere maar nog steeds zeer sterke versie.
 ```bash
-mkdir -p ~/recovery
+cryptsetup --type luks2 \
+  --cipher aes-xts-plain64 \
+  --hash sha512 \
+  --iter-time 2000 \
+  --key-size 512 \
+  --pbkdf argon2id \
+  --label "Linux LUKS" \
+  --sector-size 4096 \
+  --use-urandom \
+  --verify-passphrase \
+  luksFormat /dev/nvme0n1p2
 ```
 
-Download je Google Drive data. Deze commando's zorgen voor optimale snelheid (hoge transfers, checkers, grotere chunks):
+Verschil:
+
+--iter-time 2000 i.p.v. 5000 → nog steeds zwaar genoeg voor brute force, maar opent 2,5× sneller.
+
+Rest is identiek, dus je behoudt AES-XTS 512-bit, Argon2id, 4K sectoren.
+
+Waarom dit slim is
+
+Veiligheid: Argon2id is geheugenhard, dus 2 seconden op jouw CPU kost een aanvaller ook 2 seconden per gok, en vaak nog meer op GPU’s.
+
+Praktisch: Als je je laptop meerdere keren per dag opent, scheelt dit veel wachttijd.
+
+
+### 5.2. Open de LUKS container. 
+We noemen hem cryptarch.
+
 ```bash
-rclone copy gdrive:/pad/naar/backups ~/recovery --progress --transfers=16 --checkers=16 --drive-chunk-size=64M --fast-list
+cryptsetup --allow-discards --persistent open --type luks2 \
+  /dev/nvme0n1p2 cryptarch
 ```
 
-**Optioneel: Google Drive direct mounten** (voor directe toegang zonder kopiëren):
+Formatteer het ontgrendelde LUKS volume met BTRFS. Ook in 4K. 
 ```bash
-mkdir ~/GDrive
-rclone mount gdrive:/ ~/GDrive --vfs-cache-mode=writes &
+mkfs.btrfs -L "Arch Linux" -s 4096 /dev/mapper/cryptarch
+```
+## 6. Filesystem Subvolumes en Mounten
+Tijd om BTRFS subvolumes aan te maken en ze netjes te mounten. Dit geeft je flexibiliteit en maakt snapshots mogelijk.
+```bash
+Maak de BTRFS subvolumes aan. Alles op zijn plek.
+btrfs subvolume create /mnt/@
+btrfs subvolume create /mnt/@home
+btrfs subvolume create /mnt/@log
+btrfs subvolume create /mnt/@opt
+btrfs subvolume create /mnt/@.snapshots
+btrfs subvolume create /mnt/@srv
+btrfs subvolume create /mnt/@tmp
+btrfs subvolume create /mnt/@var_abs
+btrfs subvolume create /mnt/@var_cache
+btrfs subvolume create /mnt/@var_log
 ```
 
-Dit mount je Google Drive als een lokale map.
-
----
-
-## 18. Robuustheid & Herstel
-
-### Btrfs Periodieke Controles
-Voeg `systemd` timers toe voor periodieke `btrfs scrub` (data-integriteit) en `btrfs balance` (gelijkmatige dataverdeling):
+Ontkoppel het hoofdvolume. Klaar voor de echte mount.
 ```bash
-sudo systemctl enable btrfs-scrub@-.timer
-sudo systemctl start btrfs-scrub@-.timer
-sudo systemctl enable btrfs-balance@-.timer
-sudo systemctl start btrfs-balance@-.timer
+umount /mnt
 ```
 
-### TPM2 Fallback Passphrase
-Voeg een fallback passphrase toe aan LUKS voor het geval TPM2 om welke reden dan ook faalt (bijv. BIOS/firmware update):
+Koppel de subvolumes met de juiste opties. Maximale prestaties.
 ```bash
-sudo cryptsetup luksAddKey /dev/nvme0n1p2
+mount -o noatime,compress=zstd,space_cache=v2,ssd,discard=async,subvol=@ /dev/mapper/cryptarch /mnt
+mkdir -p /mnt/{boot,home,var/log,var/cache,var/abs,opt,srv,.snapshots,tmp}
+mount -o noatime,compress=zstd,space_cache=v2,ssd,discard=async,subvol=@home /dev/mapper/cryptarch /mnt/home
+mount -o noatime,compress=zstd,space_cache=v2,ssd,discard=async,subvol=@log /dev/mapper/cryptarch /mnt/var/log
+mount -o noatime,compress=zstd,space_cache=v2,ssd,discard=async,subvol=@opt /dev/mapper/cryptarch /mnt/opt
+mount -o noatime,compress=zstd,space_cache=v2,ssd,discard=async,subvol=@.snapshots /dev/mapper/cryptarch /mnt/.snapshots
+mount -o noatime,compress=zstd,space_cache=v2,ssd,discard=async,subvol=@srv /dev/mapper/cryptarch /mnt/srv
+mount -o noatime,compress=zstd,space_cache=v2,ssd,discard=async,subvol=@tmp /dev/mapper/cryptarch /mnt/tmp
+mount -o noatime,compress=zstd,space_cache=v2,ssd,discard=async,subvol=@var_abs /dev/mapper/cryptarch /mnt/var/abs
+mount -o noatime,compress=zstd,space_cache=v2,ssd,discard=async,subvol=@var_cache /dev/mapper/cryptarch /mnt/var/cache
+mount -o noatime,compress=zstd,space_cache=v2,ssd,discard=async,subvol=@var_log /dev/mapper/cryptarch /mnt/var/log
+mount -o umask=0077 /dev/nvme0n1p1 /mnt/boot
 ```
 
-Volg de instructies.
-
-### Automatische UKI en Secure Boot Signing Hook
-Maak een `pacman` hook die automatisch een nieuwe UKI bouwt en signeert na elke kernelupdate. Creëer `/etc/pacman.d/hooks/90-uki-secureboot.hook`:
+Controleer de gemounte bestandsystemen. Alles correct? Check dit.
 ```bash
-[Trigger]
-Operation = Install
-Operation = Upgrade
-Operation = Remove
-Type = Package
-Target = linux
-[Action]
-Description = Rebuilding UKI and signing with sbctl...
-When = PostTransaction
-Exec = /usr/bin/bash -c "mkinitcpio -P && sbctl sign -s /efi/EFI/Linux/arch.efi"
+lsblk
+df -h
 ```
-
-### Snapshot Automatiseren (voor rollback)
-Installeer `snapper` en configureer het voor automatische snapshots bij `pacman` transacties:
-```bash
-sudo pacman -S snapper
-sudo btrfs subvolume create /.snapshots
-sudo mount -o subvol=/.snapshots,compress=zstd:3,noatime,ssd,space_cache=v2,discard=async /dev/mapper/cryptroot /.snapshots
-sudo umount /.snapshots
-sudo snapper -c root create-config /
-```
-
-Configureer vervolgens `/etc/snapper/configs/root` voor automatische pre- en post-installatie snapshots.
-
----
