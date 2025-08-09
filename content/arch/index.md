@@ -26,7 +26,7 @@ showTaxonomies: false
 showAuthorsBadges: false
 showWordCount: false
 showSummary: false
-sharingLinks: true
+sharingLinks: false
 disableComments: true
 ---
 {{< typeit
