@@ -223,7 +223,6 @@ rclone config
 - Laat advanced config leeg
 - Kies **auto config** als je een browser hebt, anders handmatig via token kopiëren
 - Sla op en verlaat (`q`)
-```
 
 ---
 
