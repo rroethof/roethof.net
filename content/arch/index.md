@@ -37,19 +37,19 @@ disableComments: true
 Arch Linux Installatie: Beveiliging en Snelheid op Dell XPS 9530
 {{< /typeit >}}
 
-Hier vind je mijn stap-voor-stap handleiding voor Arch Linux op je Dell XPS 9530. We focussen op een clean base met maximale beveiliging en prestaties. Denk aan:
+Tijd voor mijn Arch Linux installatie op mijn Dell XPS 9530. Geen gezeur geen onnodige extra's. We bouwen een strakke base met focus op maximale beveiliging en prestaties. Dit is wat je krijgt:
 
- * Partitioning & formatting: De fundering.
- * LUKS2 setup with TPM2: Volledige schijfencryptie, hardware-verankerd.
- * Mounting and subvolume layout: Geoptimaliseerd Btrfs voor veerkracht en snelheid.
- * Base system installation: Alleen wat nodig is, geen ballast.
- * Chroot configuration: De basis goed neerzetten.
- * UKI creation and signing: Unified Kernel Images en Secure Boot voor veiligheid.
- * EFI setup: Jouw systeem direct klaar voor actie.
- * Snapper configuration: Snelle data recovery via rclone wordt kinderspel.
- * Swap and zswap activation: Efficiënt geheugenbeheer.
+ * Partitionering en formatteren: De fundering goed geregeld.
+ * LUKS2 setup met TPM2: Volledige schijfencryptie hardware-gestuurd.
+ * Mounten en subvolume layout: Btrfs geoptimaliseerd.
+ * Base system installatie: Alleen het noodzakelijke.
+ * Chroot configuratie: De fundamenten. Sterk en stabiel.
+ * UKI creatie en signing: Unified Kernel Images en Secure Boot.
+ * EFI setup: Je systeem start direct, geen gedoe.
+ * Snapper configuratie: Data recovery met rclone.
+ * Swap en zswap activatie: Geheugenbeheer
 
-En als klap op de vuurpijl sluiten we af met een naadloze Hyprland desktop.
+Daarna? Een naadloze Hyprland desktop. Pure klasse.
 
 > [!NOTE]
 > Dit is voor gevorderde gebruikers of voor educatieve doeleinden.
@@ -143,7 +143,8 @@ mkfs.vfat -F 32 -n "SYSTEM" -S 4096 -s 1 /dev/nvme0n1p1
 ```
 
 ### 5.1. Creëer een LUKS2 versleutelde container.
-Optie 1. Sterke encryptie is de norm.
+#### Optie 1. Sterke encryptie is de norm.
+De strengste optie. Superveilig maar opent iets langzamer.
 ```bash
 cryptsetup --type luks2 \
   --cipher aes-xts-plain64 \
@@ -158,7 +159,8 @@ cryptsetup --type luks2 \
   luksFormat /dev/nvme0n1p2
 ```
 
-Optie 2. Een iets vriendelijkere maar nog steeds zeer sterke versie.
+#### Optie 2. Slimme Balans
+Iets sneller maar nog steeds supersterk. Ideaal voor dagelijks gebruik. Het verschil met optie 1 zit in --iter-time 2000. Dit opent 2,5× sneller.
 ```bash
 cryptsetup --type luks2 \
   --cipher aes-xts-plain64 \
@@ -173,20 +175,25 @@ cryptsetup --type luks2 \
   luksFormat /dev/nvme0n1p2
 ```
 
-Verschil:
+#### Optie 3. Maximale Compatibiliteit
+Veiligheid en werkt overal. Gebruikt een minder geavanceerde PBKDF maar blijft sterk. De perfecte keuze als je zeker wilt zijn dat het overal werkt inclusief oude kernels.
+```bash
+cryptsetup --type luks2 \
+  --cipher aes-xts-plain64 \
+  --hash sha256 \
+  --iter-time 2000 \
+  --key-size 512 \
+  --pbkdf pbkdf2 \
+  --label "Linux LUKS" \
+  --sector-size 512 \
+  --use-urandom \
+  --verify-passphrase \
+  luksFormat /dev/nvme0n1p2
+```
 
---iter-time 2000 i.p.v. 5000 → nog steeds zwaar genoeg voor brute force, maar opent 2,5× sneller.
+⚠️ Nadeel: PBKDF2 is gevoeliger voor GPU-aanvallen dan Argon2id.
 
-Rest is identiek, dus je behoudt AES-XTS 512-bit, Argon2id, 4K sectoren.
-
-Waarom dit slim is
-
-Veiligheid: Argon2id is geheugenhard, dus 2 seconden op jouw CPU kost een aanvaller ook 2 seconden per gok, en vaak nog meer op GPU’s.
-
-Praktisch: Als je je laptop meerdere keren per dag opent, scheelt dit veel wachttijd.
-
-
-### 5.2. Open de LUKS container. 
+### 5.2. Open de LUKS container.
 We noemen hem cryptarch.
 
 ```bash
