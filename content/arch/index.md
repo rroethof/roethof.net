@@ -95,7 +95,6 @@ Voor de luie techneut. Installeer via SSH.
 ```bash
 passwd
 ip addr
-systemctl start sshd
 screen -S share-screen
 ```
 SSH naar je machine:
@@ -127,9 +126,9 @@ Tijd om de schijf op te delen. We maken een EFI partitie en de rest gaat naar ee
 Partitioneer de schijf: **EFI** (500MB) en de rest van de schijf voor **LUKS root**.
 ```bash
 sgdisk --clear --align-end \
-  --new=1:0:+500M --typecode=1:ef00 --change-name=1:"EFI system partition" \
-  --new=2:0:0 --typecode=2:8309 --change-name=2:"Linux LUKS" \
-  /dev/nvme0n1
+ --new=1:0:+500M --typecode=1:ef00 --change-name=1:"EFI system partition" \
+ --new=2:0:0 --typecode=2:8309 --change-name=2:"Linux LUKS" \
+ /dev/nvme0n1
 ```
 
 ---
@@ -145,48 +144,48 @@ mkfs.vfat -F 32 -n "SYSTEM" -S 4096 -s 1 /dev/nvme0n1p1
 De strengste optie. Superveilig maar opent iets langzamer.
 ```bash
 cryptsetup --type luks2 \
-  --cipher aes-xts-plain64 \
-  --hash sha512 \
-  --iter-time 5000 \
-  --key-size 512 \
-  --pbkdf argon2id \
-  --label "Linux LUKS" \
-  --sector-size 4096 \
-  --use-urandom \
-  --verify-passphrase \
-  luksFormat /dev/nvme0n1p2
+ --cipher aes-xts-plain64 \
+ --hash sha512 \
+ --iter-time 5000 \
+ --key-size 512 \
+ --pbkdf argon2id \
+ --label "Linux LUKS" \
+ --sector-size 4096 \
+ --use-urandom \
+ --verify-passphrase \
+ luksFormat /dev/nvme0n1p2
 ```
 
 #### Optie 2. Slimme Balans
 Iets sneller maar nog steeds supersterk. Ideaal voor dagelijks gebruik. Het verschil met optie 1 zit in `--iter-time 2000`. Dit opent 2,5× sneller.
 ```bash
 cryptsetup --type luks2 \
-  --cipher aes-xts-plain64 \
-  --hash sha512 \
-  --iter-time 2000 \
-  --key-size 512 \
-  --pbkdf argon2id \
-  --label "Linux LUKS" \
-  --sector-size 4096 \
-  --use-urandom \
-  --verify-passphrase \
-  luksFormat /dev/nvme0n1p2
+ --cipher aes-xts-plain64 \
+ --hash sha512 \
+ --iter-time 2000 \
+ --key-size 512 \
+ --pbkdf argon2id \
+ --label "Linux LUKS" \
+ --sector-size 4096 \
+ --use-urandom \
+ --verify-passphrase \
+ luksFormat /dev/nvme0n1p2
 ```
 
 #### Optie 3. Maximale Compatibiliteit
 Veiligheid en werkt overal. Gebruikt een minder geavanceerde PBKDF maar blijft sterk. De perfecte keuze als je zeker wilt zijn dat het overal werkt inclusief oude kernels.
 ```bash
 cryptsetup --type luks2 \
-  --cipher aes-xts-plain64 \
-  --hash sha256 \
-  --iter-time 2000 \
-  --key-size 512 \
-  --pbkdf pbkdf2 \
-  --label "Linux LUKS" \
-  --sector-size 512 \
-  --use-urandom \
-  --verify-passphrase \
-  luksFormat /dev/nvme0n1p2
+ --cipher aes-xts-plain64 \
+ --hash sha256 \
+ --iter-time 2000 \
+ --key-size 512 \
+ --pbkdf pbkdf2 \
+ --label "Linux LUKS" \
+ --sector-size 512 \
+ --use-urandom \
+ --verify-passphrase \
+ luksFormat /dev/nvme0n1p2
 ```
 Nadeel: PBKDF2 is gevoeliger voor GPU-aanvallen dan Argon2id.
 
@@ -194,7 +193,7 @@ Nadeel: PBKDF2 is gevoeliger voor GPU-aanvallen dan Argon2id.
 We noemen hem cryptarch.
 ```bash
 cryptsetup --allow-discards --persistent open --type luks2 \
-  /dev/nvme0n1p2 cryptarch
+ /dev/nvme0n1p2 cryptarch
 ```
 
 ### 5.3. Formatteer het ontgrendelde LUKS volume met BTRFS. Ook in 4K.
@@ -233,7 +232,7 @@ umount /mnt
 Mount root subvolume.
 ```bash
 mount -o rw,noatime,nodiratime,compress=zstd:3,ssd,discard=async,space_cache=v2,commit=120,subvol=@ \
-  /dev/mapper/cryptarch /mnt
+ /dev/mapper/cryptarch /mnt
 ```
 Creëer de benodigde mount points.
 ```bash
@@ -242,7 +241,7 @@ mkdir -p /mnt/{efi,.swap,.snapshots,.efibackup,var/{log,tmp,cache/pacman/pkg,lib
 Mount de EFI system partition. (read-only, noexec voor veiligheid)
 ```bash
 mount -o rw,noatime,nodiratime,nodev,nosuid,noexec,fmask=0022,dmask=0022 \
-  /dev/nvme0n1p1 /mnt/efi
+ /dev/nvme0n1p1 /mnt/efi
 ```
 Mount de andere BTRFS subvolumes.
 ```bash
@@ -278,8 +277,8 @@ De fundering van je systeem. Dit installeert het broodnodige.
 Installeer basispakketten, firmware, EFI tools, BTRFS-ondersteuning, nano en secure boot tools.
 ```bash
 pacstrap /mnt \
-  base base-devel linux linux-firmware intel-ucode \
-  nano efibootmgr btrfs-progs sbctl nvidia iwd
+ base base-devel linux linux-firmware intel-ucode \
+ nano efibootmgr btrfs-progs sbctl nvidia iwd terminus-font
 ```
 
 ---
@@ -309,14 +308,14 @@ arch-chroot /mnt
 ---
 ## 11. Stel Taal en Toetsenbord in
 Stel de taal en toetsenbordindeling in.
-Stel het virtuele consoletoetsenbord in op US.
+Stel het virtuele consoletoetsenbord in op US en gebruik een groter font.
 ```bash
 nano -w /etc/vconsole.conf
 ```
 Inhoud:
 ```bash
 KEYMAP=us
-FONT=lat9w-16
+FONT=ter-v24n
 ```
 Stel de systeembrede locale in.
 ```bash
@@ -463,7 +462,7 @@ mkinitcpio -p linux
 Registreer UKI bij UEFI firmware.
 ```bash
 efibootmgr --create --disk /dev/nvme0n1 --part 1 \
-  --label "Arch Linux" --loader /EFI/Linux/arch-linux.efi --unicode
+ --label "Arch Linux" --loader /EFI/Linux/arch-linux.efi --unicode
 ```
 
 ---
@@ -492,7 +491,7 @@ nano -w /etc/crypttab
 ```
 Inhoud:
 ```bash
-swap      /.swap/swapfile         /dev/urandom          swap,cipher=aes-xts-plain64,sector-size=4096
+swap        /.swap/swapfile          /dev/urandom          swap,cipher=aes-xts-plain64,sector-size=4096
 ```
 Voeg swap toe aan fstab.
 ```bash
@@ -501,7 +500,7 @@ nano -w /etc/fstab
 Inhoud:
 ```bash
 # /.swap/swapfile       CRYPTED SWAPFILE
-/dev/mapper/swap      none      swap      defaults      0 0
+/dev/mapper/swap      none          swap          defaults          0 0
 ```
 
 ---
@@ -672,33 +671,11 @@ Oké, je hebt opnieuw opgestart. Het systeem is nog niet volledig geautomatiseer
 ### 35.1. Log In
 Voer de passphrase van je LUKS-volume in als daarom wordt gevraagd. Dit is normaal op de eerste boot. Log vervolgens in met je aangemaakte gebruiker.
 
-### 35.2. Connecteer met Wi-Fi
-NetworkManager is ingeschakeld, maar mogelijk nog niet actief. Fix dit handmatig.
+### 35.2. Wi-Fi activeren met nmtui
+Geen overbodige onzin. Start `nmtui` en activeer je verbinding. Je krijgt een grafische interface in de terminal. Simpel.
 ```bash
-# Gebruik iwctl om de verbinding te herstellen
-iwctl
-station wlan0 scan
-station wlan0 get-networks
-station wlan0 connect <SSID>
-exit
+nmtui
 ```
-Controleer daarna of je een IP-adres hebt en verbinding met internet.
-```bash
-ip addr show wlan0
-ping 1.1.1.1 -c 4
-```
-
-### 35.3. Controleer NetworkManager Status
-Als je verbinding hebt, check dan of de service draait:
-```bash
-systemctl status NetworkManager
-```
-Als de status niet `active (running)` is, start je de service handmatig:
-```bash
-sudo systemctl start NetworkManager
-```
-> \[!NOTE]
-> Je hebt een NetworkManager applet nodig voor een grafische interface. Dit wordt later geregeld. Je kunt NetworkManager ook direct configureren met `nmtui`.
 
 ---
 ## 36. Snapper Configureren (Na Herstart)
@@ -722,10 +699,13 @@ Beveilig de Snapper-directory en pas de snapshot-instellingen aan.
 ```bash
 chmod 750 /.snapshots
 ```
+
 Configureer de snapshot-instellingen voor automatische snapshots op je root-subvolume.
 ```bash
+cp  /etc/snapper/configs/root /etc/snapper/configs/root.bak
 nano -w /etc/snapper/configs/root
 ```
+
 Inhoud:
 ```bash
 TIMELINE_CREATE="yes"
@@ -748,6 +728,7 @@ Maak een Pacman-hook die een backup maakt van de `/efi`-directory vóór een bel
 # Maak de hook aan
 nano -w /etc/pacman.d/hooks/10-efi_backup.hook
 ```
+
 Inhoud:
 ```bash
 ## PACMAN EFI BACKUP HOOK
@@ -773,10 +754,13 @@ Target = mkinitcpio-git
 Description = Backing up /efi...
 When = PreTransaction
 Exec = /usr/local/sbin/efi_backup.sh
+```
+
 ```bash
 # Maak het backup-script aan
 nano -w /usr/local/sbin/efi_backup.sh
 ```
+
 Inhoud:
 ```bash
 #!/bin/bash
@@ -792,10 +776,13 @@ Nu we het script hebben aangemaakt, maken we het uitvoerbaar en beperken we `fst
 ```bash
 # Maak het script uitvoerbaar
 chmod +x /usr/local/sbin/efi_backup.sh
+```
+
 ```bash
 # Override de standaard `fstrim` service om alleen `/efi` te trimmen
 systemctl edit fstrim.service
 ```
+
 Voeg de volgende content toe en sla het bestand op:
 ```bash
 [Service]
@@ -809,9 +796,13 @@ Schakel de benodigde timers in voor automatisch onderhoud.
 ```bash
 # Activeer de TRIM-timer voor wekelijks onderhoud op /efi
 systemctl enable fstrim.timer
+```
+
 ```bash
 # Activeer de Snapper-timeline timer voor periodieke snapshots
 systemctl enable snapper-timeline.timer
+```
+
 ```bash
 # Activeer de Snapper-cleanup timer voor het opruimen van oude snapshots
 systemctl enable snapper-cleanup.timer
@@ -830,6 +821,8 @@ Snapper heeft mogelijk snapshots gemaakt tijdens de installatie. Het is het best
 ```bash
 # Toon de huidige lijst van snapshots
 snapper -c root list
+```
+
 ```bash
 # Verwijder een reeks snapshots (bijv. 1 tot 2)
 snapper -c root delete 1-2
@@ -842,8 +835,7 @@ Maak handmatig de allereerste "schone" snapshot van je zojuist geïnstalleerde s
 # Creëer een handmatige snapshot met een beschrijving
 snapper -c root create -d "init"
 ```
- 
-
+  
 ---
 ## 44. Arch Linux Post Installatie
 De basis staat, maar je bent er nog niet. Tijd om het systeem te perfectioneren.
@@ -868,8 +860,11 @@ systemctl enable tlp.service
 ## 45. Hyprland Installatie
 Nu de drivers en optimalisaties gereed zijn, is het tijd voor de Hyprland desktop. Met het installatiescript van JaKooLit kun je snel een volledig geconfigureerde Hyprland-omgeving opzetten.
 
+> \[!NOTE]
+> De Dell XPS heeft een high-DPI scherm. Kies in het menu van het installatiescript de optie voor een resolutie hoger dan 1440p. Anders wordt de desktop erg klein en lastig te gebruiken.
+
 ```bash
-git clone --depth=1 [https://github.com/JaKooLit/Arch-Hyprland.git](https://github.com/JaKooLit/Arch-Hyprland.git) ~/Arch-Hyprland
+git clone --depth=1 https://github.com/JaKooLit/Arch-Hyprland.git ~/Arch-Hyprland
 cd ~/Arch-Hyprland
 chmod +x install.sh
 ./install.sh
@@ -881,4 +876,4 @@ chmod +x install.sh
 Omdat **UKI** het mogelijk maakt de kernel direct vanaf de EFI-partitie op te starten. GRUB of systemd-boot zijn niet nodig.
 
 ### Kan ik dit op mijn laptop gebruiken?
-Ja - dit is ideaal voor moderne laptops met TPM2 en Secure Boot ingeschakeld.
+Ja, dit is ideaal voor moderne laptops met TPM2 en Secure Boot ingeschakeld.
