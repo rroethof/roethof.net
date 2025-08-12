@@ -35,13 +35,28 @@ jobs:
           arguments: --only-4xx --check-favicon --check-html --assume-extension --empty-alt-ignore --disable-external
         continue-on-error: true
 
-      - name: Deploy with Password
-        uses: wlixcc/SFTP-Deploy-Action@v1.2.6
+#      - name: Deploy with Password
+#        uses: wlixcc/SFTP-Deploy-Action@v1.2.6
+#        with:
+#          username: ${{ vars.ftp_username }}
+#          server: ${{ vars.ftp_server }}
+#          port: ${{ vars.ftp_port }}
+#          local_path: './public/*'
+#          remote_path: 'domains/${{ vars.ftp_website }}/public_html/'
+#          sftp_only: true
+#          password: ${{ secrets.ftp_password }}
+#
+      # NIEUWE DEPLOYMENT STAP: Rsync via SSH
+      - name: Deploy with Rsync over SSH
+        uses: appleboy/ssh-action@master
         with:
+          host: ${{ vars.ftp_server }}
           username: ${{ vars.ftp_username }}
-          server: ${{ vars.ftp_server }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ vars.ftp_port }}
-          local_path: './public/*'
-          remote_path: 'domains/${{ vars.ftp_website }}/public_html/'
-          sftp_only: true
-          password: ${{ secrets.ftp_password }}
+          script: |
+            rsync -avz -e "ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null" ./public/ ${SSH_USERNAME}@${SSH_HOST}:${SSH_REMOTE_PATH}
+        env:
+          SSH_USERNAME: ${{ vars.ftp_username }}
+          SSH_HOST: ${{ vars.ftp_server }}
+          SSH_REMOTE_PATH: 'domains/${{ vars.ftp_website }}/public_html/'
