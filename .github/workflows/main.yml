@@ -46,17 +46,18 @@ jobs:
 #          sftp_only: true
 #          password: ${{ secrets.ftp_password }}
 #
-      # NIEUWE DEPLOYMENT STAP: Rsync via SSH
-      - name: Deploy with Rsync over SSH
-        uses: appleboy/ssh-action@master
+      # Adding the Private key to a Github Actions Workflow
+      - name: Install SSH Key
+        uses: shimataro/ssh-key-action@v2
         with:
-          host: ${{ vars.ftp_server }}
-          username: ${{ vars.ftp_username }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          port: ${{ vars.ftp_port }}
-          script: |
-            rsync -avz -e "ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null" ./public/ ${SSH_USERNAME}@${SSH_HOST}:${SSH_REMOTE_PATH}
-        env:
-          SSH_USERNAME: ${{ vars.ftp_username }}
-          SSH_HOST: ${{ vars.ftp_server }}
-          SSH_REMOTE_PATH: 'domains/${{ vars.ftp_website }}/public_html/'
+          known_hosts: 'just-a-placeholder-so-we-dont-get-errors'
+          
+      - name: Adding Known Hosts
+        run: ssh-keyscan -H ${{ vars.ftp_server }} >> ~/.ssh/known_hosts
+        
+      # NIEUWE DEPLOYMENT STAP: Rsync via SSH
+      - name: Deploy with rsync
+        run: rsync -avz ./public/ ${{ vars.ftp_username }}@${{ vars.ftp_server }}:domains/${{ vars.ftp_website }}/public_html/
+
+            
