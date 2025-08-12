@@ -2,8 +2,17 @@
 title: "The Human in Cybersecurity: Liability or Asset? My Take."
 date: 2025-04-20
 draft: false
-tags: ["Cybersecurity", "Human Factor", "Security Culture", "Behavioral Design", "Resilience", "Human Error", "Insider Risk", "Weakest Link", "Security Policy", "User Training"] # Added User Training tag
-categories: ["Security Insights", "My Perspective"]
+tags:
+  - Behavioral Design
+  - Cybersecurity
+  - Human Error
+  - Human Factor
+  - Resilience
+  - User Training
+  - Weakest Link
+categories:
+  - My Perspective
+  - Security & Privacy
 description: "My perspective challenging the 'weakest link' narrative, illustrated by how even simple, targeted training can empower users to become valuable security allies." # Updated description
 ---
 
@@ -52,4 +61,3 @@ Look, the idea that humans are just a liability in cybersecurity feels outdated 
 I genuinely believe that by shifting our mindset – fostering trust, designing better systems, using respectful language, and providing meaningful, *targeted* support – we can turn our people from a perceived problem into our most valuable security asset. They have the potential to be vigilant, adaptable, and insightful in ways technology alone can never be.
 
 So, my plea is this: let's stop treating our colleagues like the biggest risk factor. Let's start empowering them with the right knowledge and tools to be part of the solution. It might just be the smartest security investment we can make.
-

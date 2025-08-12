@@ -1,8 +1,8 @@
 ---
-title: "The Stubborn Human's Code / Digital Sovereign / Bare Metal Heart (Version 4)"
+title: "The Stubborn Human's Code / Digital Sovereign / Bare Metal Heart (Version 3)"
 date: 2025-05-09 # Or a more specific date for the song
-description: "Fourth AI-generated track based on the blog: death metal, driving rhythm, powerful determined male vocals (version 4)."
-slug: "music-stubborn-human-code-v4"
+description: "Second AI-generated track based on the blog: death metal, driving rhythm, powerful determined male vocals (version 3)."
+slug: "music/stubborn-human-code-v3"
 draft: false
 showDateOnlyInArticle : false
 showHeadingAnchors : true
@@ -29,11 +29,11 @@ showRelatedContent: false
 disableComments: true
 ---
 
-This is the fourth AI-generated track based on the blog.
+This is the third AI-generated track based on the blog.
 
-**Style:** death metal, driving rhythm, powerful determined male vocals (version 4)
+**Style:** death metal, driving rhythm, powerful determined male vocals (version 3)
 
-<iframe src="https://suno.com/embed/80ad3214-f5a1-4186-a0cd-b4058020ee18" width="760" height="240"><a href="https://suno.com/song/80ad3214-f5a1-4186-a0cd-b4058020ee18">Listen on Suno</a></iframe>
+<iframe src="https://suno.com/embed/1ec5f368-8f49-4a1d-b33c-33cad0bce03a" width="760" height="240"><a href="https://suno.com/song/1ec5f368-8f49-4a1d-b33c-33cad0bce03a">Listen on Suno</a></iframe>
 
 ## Lyrics
 [Verse]  

@@ -6,7 +6,6 @@ tags:
   - 'Web Development'
   - 'Blogging'
   - 'Hugo'
-  - 'Static Site Generation (SSG)'
   - 'Content Management'
   - 'Productivity'
 categories:

@@ -4,41 +4,18 @@ date: "2025-04-06T16:03:00+02:00"
 draft: false
 slug: "bare-metal-vs-cloud-my-perspective"
 tags:
-  - cloud
-  - aws
-  - azure
-  - gcp
-  - digitalocean
-  - hetzner
-  - transip
-  - tilaa
-  - versio
-  - leaseweb
-  - colocation
-  - bare metal
-  - privacy
-  - linux
-  - devops
-  - sovereignty
-  - dutch cloud
-  - self-hosting
-  - matrix
-  - mastodon
-  - nextcloud
-  - security
-  - sysadmin
-  - open source
-  - fisa
-  - nsa
-  - personal experience
-  - serverius
-  - pentesting
-  - security officer
+  - Bare Metal
+  - DevOps
+  - Digital Sovereignty
+  - Linux
+  - Open Source
+  - Security
+  - Self-Hosting
 categories:
   - DevOps & Infrastructure
+  - My Perspective
   - Security & Privacy
   - System Management
-  - Personal Reflections
 ---
 
 ## Cloud vs. Bare Metal: My Hard-Won Wisdom

@@ -42,14 +42,14 @@ Here are some AI-generated tracks based on the ramblings and themes from Roethof
 
 ## The Songs
 
-*   **[The Stubborn Human's Code / Digital Sovereign / Bare Metal Heart (Version 1)](/music-stubborn-human-code-v1/)**
+*   **[The Stubborn Human's Code / Digital Sovereign / Bare Metal Heart (Version 1)](/music/stubborn-human-code-v1/)**
     *   *The first AI-generated track based on the blog. Anthemic Industrial Rock, driving rhythm, powerful determined male vocals.*
 
-*   **[The Stubborn Human's Code / Digital Sovereign / Bare Metal Heart (Version 2)](/music-stubborn-human-code-v2/)**
+*   **[The Stubborn Human's Code / Digital Sovereign / Bare Metal Heart (Version 2)](/music/stubborn-human-code-v2/)**
     *   *The second AI-generated track. Anthemic Industrial Rock, driving rhythm, powerful determined male vocals.*
 
-*   **[The Stubborn Human's Code / Digital Sovereign / Bare Metal Heart (Version 3)](/music-stubborn-human-code-v3/)**
+*   **[The Stubborn Human's Code / Digital Sovereign / Bare Metal Heart (Version 3)](/music/stubborn-human-code-v3/)**
     *   *The third AI-generated track based on the blog. death metal, driving rhythm, powerful determined male vocals.*
 
-*   **[The Stubborn Human's Code / Digital Sovereign / Bare Metal Heart (Version 4)](/music-stubborn-human-code-v4/)**
+*   **[The Stubborn Human's Code / Digital Sovereign / Bare Metal Heart (Version 4)](/music/stubborn-human-code-v4/)**
     *   *The fourth AI-generated track based on the blog. death metal, driving rhythm, powerful determined male vocals.*
