@@ -2,7 +2,7 @@
 title: "The Stubborn Human's Code / Digital Sovereign / Bare Metal Heart (Version 4)"
 date: 2025-05-09 # Or a more specific date for the song
 description: "Fourth AI-generated track based on the blog: death metal, driving rhythm, powerful determined male vocals (version 4)."
-slug: "music/stubborn-human-code-v4"
+slug: "stubborn-human-code-v4"
 draft: false
 showDateOnlyInArticle : false
 showHeadingAnchors : true

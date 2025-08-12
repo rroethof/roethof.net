@@ -9,3 +9,6 @@
 </IfModule>
 
 ErrorDocument 404 /404.html
+
+RewriteEngine On
+RewriteRule ^arch-linux-installatie/$ /arch/installatie/ [R=301,L]

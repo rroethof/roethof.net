@@ -1,7 +1,7 @@
 ---
 date: 2025-08-09
 description: "Complete Arch Linux installatiehandleiding met Btrfs, UKI, Secure Boot, TPM2 encryptie en Hyprland op mijn Dell XPS 9530. Inclusief geavanceerde optimalisaties en rclone datarecovery."
-slug: "arch/installatie"
+slug: "installatie"
 draft: false
 showDateOnlyInArticle : false
 showHeadingAnchors : false
