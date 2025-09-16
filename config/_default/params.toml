@@ -127,14 +127,6 @@ forgejoDefaultServer = "https://v8.next.forgejo.org"
   cardView = false
   cardViewScreenWidth = false
 
-[firebase]
-  apiKey = "{{ getenv "FIREBASE_API_KEY" }}"
-  authDomain = "techblog-3e988.firebaseapp.com"
-  projectId = "techblog-3e988"
-  storageBucket = "techblog-3e988.firebasestorage.app"
-  messagingSenderId = "650662805824"
-  appId = "1:650662805824:web:779164a3032ec84fa3baa5"
-  measurementId = "G-CZKZHB3R90"
 
 [fathomAnalytics]
   # site = "ABC12345"

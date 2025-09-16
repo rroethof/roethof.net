@@ -14,8 +14,8 @@ jobs:
   build:
     name: 🔧 Build and Test Hugo ${{ vars.ftp_website }}
     runs-on: ubuntu-latest
-    env:
-      FIREBASE_API_KEY: ${{ secrets.FIREBASE_API_KEY }}   # 🔑 hier komt je secret in de env
+    # env:
+    #   FIREBASE_API_KEY: ${{ secrets.FIREBASE_API_KEY }}   # 🔑 hier komt je secret in de env
 
     steps:
 
