@@ -128,7 +128,7 @@ forgejoDefaultServer = "https://v8.next.forgejo.org"
   cardViewScreenWidth = false
 
 [firebase]
-  apiKey = "AIzaSyBnWi84PEtmjqfjMItSnMEox7inRsKisJA"
+  apiKey = "{{ getenv "FIREBASE_API_KEY" }}"
   authDomain = "techblog-3e988.firebaseapp.com"
   projectId = "techblog-3e988"
   storageBucket = "techblog-3e988.firebasestorage.app"

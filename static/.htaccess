@@ -1,14 +1,44 @@
+# ----------------------------------------
+# Security Headers
+# ----------------------------------------
 <IfModule mod_headers.c>
-# X-XSS-Protection
-	Header set X-XSS-Protection "1; mode=block"
-	Header set X-Frame-Options "SAMEORIGIN"
-	Header set X-Content-Type-Options "nosniff"
-	Header always set Strict-Transport-Security "max-age=63072000;"
-	Header set Referrer-Policy "same-origin"
-	Header set Content-Security-Policy "Content-Security-Policy: default-src 'self' data: 'unsafe-inline' www.gstatic.com www.googletagmanager.com;"
+    # XSS protection
+    Header set X-XSS-Protection "1; mode=block"
+    
+    # Clickjacking protection
+    Header set X-Frame-Options "SAMEORIGIN"
+    
+    # MIME type sniffing protection
+    Header set X-Content-Type-Options "nosniff"
+    
+    # HSTS (HTTPS enforcement) - only main domain
+    Header always set Strict-Transport-Security "max-age=63072000"
+    
+    # Referrer policy
+    Header set Referrer-Policy "same-origin"
+    
+    # Content Security Policy
+    Header set Content-Security-Policy "default-src 'self' data: 'unsafe-inline' www.gstatic.com www.googletagmanager.com;"
 </IfModule>
 
+# ----------------------------------------
+# Compression (Deflate) - safe for BREACH
+# ----------------------------------------
+<IfModule mod_deflate.c>
+    # Compress common text-based content types
+    AddOutputFilterByType DEFLATE text/plain text/html text/xml text/css application/xml application/xhtml+xml application/rss+xml application/javascript application/x-javascript application/json
+</IfModule>
+
+# Optional: prevent BREACH attack
+# Only compress if not sensitive (avoid compressing responses with CSRF tokens)
+
+# ----------------------------------------
+# Custom 404 page
+# ----------------------------------------
 ErrorDocument 404 /404.html
 
+# ----------------------------------------
+# URL Rewrites / Redirects
+# ----------------------------------------
 RewriteEngine On
 RewriteRule ^arch-linux-installatie/$ /arch/installatie/ [R=301,L]

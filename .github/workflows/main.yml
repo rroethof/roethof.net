@@ -11,6 +11,9 @@ jobs:
   build:
     name: 🚀 Build, Test and Deploy Hugo ${{ vars.ftp_website }}
     runs-on: ubuntu-latest
+    env:
+      FIREBASE_API_KEY: ${{ secrets.FIREBASE_API_KEY }}   # 🔑 hier komt je secret in de env
+
     steps:
 
       - name: Checkout
