@@ -7,7 +7,7 @@ slug: "the-systemic-trap-when-corporate-pressure-turns-deadly"
 draft: false
 ---
 
-**Core Message:** Burnout is not a personal failure or a passing 'winter dip'; it is a fatal symptom of a toxic, systemically flawed work culture that values output over human life. Don’t wait for your body to break before demanding change — or walking away.
+**Core Message:** Burnout is not a personal failure or a passing 'winter dip'; it is a fatal symptom of a toxic, systemically flawed work culture that values output over human life. Don’t wait for your body to break before demanding change or walking away.
 
 My story is one of a systemic failure, not a personal one.
 
@@ -21,7 +21,7 @@ I was the troubleshooter, the passionate tech expert who handled crisis. The rea
 
 The cycle after every burnout was brutal: I was told to "take it easy," quickly cleared by the occupational health service, and immediately thrown back into the deep end. There was never room for sustainable recovery; the structural conditions for healthy functioning were always missing.
 
-I didn’t become 'cynical' — I was hollowed out by the structural conflict between my inability to say 'no' and the inhumane expectations placed upon me, especially during crucial, high-pressure IT projects (including projects related to CISO governance and the national QR verification system).
+I didn’t become 'cynical'. I was hollowed out by the structural conflict between my inability to say 'no' and the inhumane expectations placed upon me, especially during crucial, high-pressure IT projects (including projects related to CISO governance and the national QR verification system).
 
 ---
 
@@ -33,11 +33,13 @@ In September 2024, the inevitable happened: a heart attack that required stents.
 
 It was the undeniable proof that years of unaddressed stress and relentless pressure had physically broken me. This wasn’t a mental health issue anymore; it was a medical emergency — the direct result of an unforgiving work environment compounded by chronic conditions like obesity and Type 2 diabetes.
 
+This wasn’t a mental health issue anymore; it was a medical emergency, the direct result of an unforgiving work environment compounded by chronic conditions like obesity and Type 2 diabetes.
+
 ---
 
 ## The Cost of the Relentless Cycle
 
-**No Reintegration:** After the heart attack, I was quickly pushed back to work without a proper reintegration plan — just a return to the fire.
+**No Reintegration:** After the heart attack, I was quickly pushed back to work without a proper reintegration plan, just a return to the fire.
 
 **Cognitive Collapse:** I desperately wanted to work, but my brain refused. I jumped relentlessly from task to task, desperate to make progress, yet even the simplest duty was impossible to complete. This inability to concentrate is a constant, grinding failure.
 
@@ -53,4 +55,4 @@ The result of this constant attrition? Irritation, guilt, and a deep, existentia
 
 My body now carries the evidence of multiple burnouts over ten years, a heart attack, and chronic pain. It speaks a language of absolute necessity. This is not about 'overthinking' or being 'lazy.' This is about a system that failed to protect an employee who was giving too much.
 
-If you feel that nagging anxiety or overwhelming exhaustion, listen to it. Don’t wait for the ultimate breaking point. Your life is not a fair price for quarterly profits or project deadlines. Waiting is self-inflicted torture — and in my case, it was nearly fatal. Seek specialised help immediately.
+If you feel that nagging anxiety or overwhelming exhaustion, listen to it. Don’t wait for the ultimate breaking point. Your life is not a fair price for quarterly profits or project deadlines. Waiting is self-inflicted torture, and in my case, it was nearly fatal. Seek specialised help immediately.
