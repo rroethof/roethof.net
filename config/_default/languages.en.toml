@@ -29,3 +29,6 @@ title = "Roethof.Net"
     { spotify = "https://open.spotify.com/user/rroethof78" },
     { twitter = "https://twitter.com/rroethof" }
   ]
+
+[params.meta]
+  favicon = false
