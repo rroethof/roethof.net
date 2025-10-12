@@ -7,9 +7,14 @@ slug: "the-systemic-trap-when-corporate-pressure-turns-deadly"
 draft: false
 ---
 
-**Core Message:** Burnout is not a personal failure or a passing 'winter dip'; it is a fatal symptom of a toxic, systemically flawed work culture that values output over human life. Don’t wait for your body to break before demanding change or walking away.
+> ⚠️ Content Note: This post discusses burnout, medical emergency (heart attack), chronic illness, and existential stress.
 
-My story is one of a systemic failure, not a personal one.
+
+**Core Message:** Burnout is not a personal failure. It’s the body’s revolt against a toxic system that values productivity over people.
+
+My story is one of systemic failure, not personal weakness.
+
+### How It Started
 
 For years, my professional life, spanning critical roles from Linux/Ansible specialist and internal CISO to area product owner across various high-stakes public sector agencies and corporations, was a relentless, high-stakes sprint.
 
@@ -19,7 +24,7 @@ I was the troubleshooter, the passionate tech expert who handled crisis. The rea
 - **Ignored Warnings:** Reports on process, workflow, and security risks were systematically dismissed.  
 - **Broken Promises:** Agreed actions and support were consistently abandoned.  
 
-The cycle after every burnout was brutal: I was told to "take it easy," quickly cleared by the occupational health service, and immediately thrown back into the deep end. There was never room for sustainable recovery; the structural conditions for healthy functioning were always missing.
+The cycle after every burnout was brutal: I was told to "take it easy," quickly cleared by the occupational health service, and immediately thrown back into the deep end. There was never space for sustainable recovery — the structure itself made health impossible.
 
 I didn’t become 'cynical'. I was hollowed out by the structural conflict between my inability to say 'no' and the inhumane expectations placed upon me, especially during crucial, high-pressure IT projects (including projects related to CISO governance and the national QR verification system).
 
@@ -31,9 +36,7 @@ The first symptoms weren’t just memory loss or poor concentration. They were t
 
 In September 2024, the inevitable happened: a heart attack that required stents.
 
-It was the undeniable proof that years of unaddressed stress and relentless pressure had physically broken me. This wasn’t a mental health issue anymore; it was a medical emergency — the direct result of an unforgiving work environment compounded by chronic conditions like obesity and Type 2 diabetes.
-
-This wasn’t a mental health issue anymore; it was a medical emergency, the direct result of an unforgiving work environment compounded by chronic conditions like obesity and Type 2 diabetes.
+It was the undeniable proof that years of unaddressed stress and relentless pressure had physically broken me. This wasn’t a mental health issue anymore; it was a medical emergency, the direct result of an unforgiving work environment compounded by chronic conditions like obesity and Type 2 diabetes.
 
 ---
 
@@ -55,4 +58,15 @@ The result of this constant attrition? Irritation, guilt, and a deep, existentia
 
 My body now carries the evidence of multiple burnouts over ten years, a heart attack, and chronic pain. It speaks a language of absolute necessity. This is not about 'overthinking' or being 'lazy.' This is about a system that failed to protect an employee who was giving too much.
 
-If you feel that nagging anxiety or overwhelming exhaustion, listen to it. Don’t wait for the ultimate breaking point. Your life is not a fair price for quarterly profits or project deadlines. Waiting is self-inflicted torture, and in my case, it was nearly fatal. Seek specialised help immediately.
+---
+
+This is where my story stands now. An open ending, because the journey isn't over. There will be days of silence, but also moments of clarity. On such a day, when I find the peace to reflect on health and systems, I will continue this log with a new post. For now, it's about survival, one day at a time.
+
+If you feel that nagging anxiety or overwhelming exhaustion, listen to it. Don’t wait for the ultimate breaking point. Your life is not a fair price for quarterly profits or project deadlines. Waiting is self-inflicted torture, and in my case, it was nearly fatal. **Seek specialised help immediately.**
+
+> If you’re experiencing signs of burnout or are in severe distress:
+>
+> - Immediate medical emergency (chest pain, fainting, difficulty breathing or loss of consciousness): call emergency services now — in the Netherlands dial 112.
+> - Mental-health crisis or risk of self-harm: in the Netherlands call 113 (0800‑0113) or visit https://113.nl. If you are outside the Netherlands, contact your local suicide-prevention or crisis line or your emergency services.
+> - For non-urgent support: contact your GP (huisarts) or your occupational health service (bedrijfsarts). They can advise on next steps, referrals, and workplace reintegration plans.
+> - Unsure where to start? Your GP is a good first contact; occupational health can also liaise with your employer.
