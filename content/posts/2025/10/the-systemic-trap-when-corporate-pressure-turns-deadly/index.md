@@ -23,8 +23,8 @@ I was the troubleshooter, the passionate tech expert who handled crisis. The rea
 - **Chronic Overtime and Extreme Pressure:** The baseline was always unsustainable.  
 - **Ignored Warnings:** Reports on process, workflow, and security risks were systematically dismissed.  
 - **Broken Promises:** Agreed actions and support were consistently abandoned.  
-
-The cycle after every burnout was brutal: I was told to "take it easy," quickly cleared by the occupational health service, and immediately thrown back into the deep end. There was never space for sustainable recovery — the structure itself made health impossible.
+  
+The cycle after every burnout was brutal: I was told to "take it easy," quickly cleared by the occupational health service (Arbo / bedrijfsarts), and immediately thrown back into the deep end. There was never space for sustainable recovery. The structure itself made health impossible.
 
 I didn’t become 'cynical'. I was hollowed out by the structural conflict between my inability to say 'no' and the inhumane expectations placed upon me, especially during crucial, high-pressure IT projects (including projects related to CISO governance and the national QR verification system).
 
@@ -42,13 +42,13 @@ It was the undeniable proof that years of unaddressed stress and relentless pres
 
 ## The Cost of the Relentless Cycle
 
-**No Reintegration:** After the heart attack, I was quickly pushed back to work without a proper reintegration plan, just a return to the fire.
+**No Reintegration:** After earlier burnouts I was usually told to take a few weeks (at most a couple of months) and sent back into work. After the heart attack the Arbo (occupational health service / bedrijfsarts) assessed me as fit for reduced duties: I was able to work at about 50% after roughly two months and returned to full-time within six months, but there was no proper, structured reintegration plan to support that transition. It was effectively a return to the fire with ad-hoc adjustments.
 
 **Cognitive Collapse:** I desperately wanted to work, but my brain refused. I jumped relentlessly from task to task, desperate to make progress, yet even the simplest duty was impossible to complete. This inability to concentrate is a constant, grinding failure.
 
 **Constant Pain and Exhaustion:** Sleep, even with a CPAP machine for sleep apnea, offered no relief. I woke up exhausted every morning, with chronic chest pain (Tietze/Costochondritis) that made every movement heavy.
 
-**Home as a Zero-Sum Game:** As the sole breadwinner, recovery was not an option. My partner has Multiple Sclerosis (MS) and cannot work or drive, and we have an autistic son. Every doctor’s appointment now requires a 30+ km drive to Almere or Harderwijk — public transport or taxis are technically possible, but financially untenable. Recovery is impossible when you are the only one who can drive.
+**Home as a Zero-Sum Game:** As the sole breadwinner, recovery was not an option. My partner has Multiple Sclerosis (MS) and cannot work or drive, and we have an autistic son. Every doctor’s appointment now requires a 30+ km drive to Almere or Harderwijk; public transport or taxis are technically possible, but financially untenable. Recovery is impossible when you are the only one who can drive.
 
 The result of this constant attrition? Irritation, guilt, and a deep, existential fear: How long can my heart hold out? What if I’m not here for my family?
 
@@ -66,7 +66,7 @@ If you feel that nagging anxiety or overwhelming exhaustion, listen to it. Don�
 
 > If you’re experiencing signs of burnout or are in severe distress:
 >
-> - Immediate medical emergency (chest pain, fainting, difficulty breathing or loss of consciousness): call emergency services now — in the Netherlands dial 112.
+> - Immediate medical emergency (chest pain, fainting, difficulty breathing or loss of consciousness): call emergency services now. In the Netherlands dial 112.
 > - Mental-health crisis or risk of self-harm: in the Netherlands call 113 (0800‑0113) or visit https://113.nl. If you are outside the Netherlands, contact your local suicide-prevention or crisis line or your emergency services.
 > - For non-urgent support: contact your GP (huisarts) or your occupational health service (bedrijfsarts). They can advise on next steps, referrals, and workplace reintegration plans.
 > - Unsure where to start? Your GP is a good first contact; occupational health can also liaise with your employer.
