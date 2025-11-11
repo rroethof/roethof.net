@@ -4,7 +4,6 @@ date: 2025-11-11
 draft: false
 tags: ["ownership", "duty of care", "education", "BYOD", "privacy", "security", "open source", "linux"]
 description: "A critical look at the responsibility for student laptops. Who is really in charge of a device paid for by parents?"
-summary: "When schools demand control over privately purchased student laptops, they blur the line between responsibility and ownership. Here's why that’s a problem and why Linux still matters."
 keywords: ["student laptops", "BYOD", "digital autonomy", "GDPR", "education policy", "open source", "Linux", "privacy", "school devices"]
 slug: "ownership-is-ownership-duty-of-care-is-not-a-free-pass"
 ---
