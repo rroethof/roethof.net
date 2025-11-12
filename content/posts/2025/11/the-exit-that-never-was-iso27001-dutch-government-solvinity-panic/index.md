@@ -20,7 +20,7 @@ This post follows my earlier analysis, [“The Dutch Kill Switch: Kyndryl, Solvi
 
 The recent acquisition of Dutch cloud provider **Solvinity** by the American company **Kyndryl** has triggered panic in government circles, headlines about “sovereignty at risk,” and heated public debate. And yet, here’s the kicker: the Dutch government demands strict compliance with ISO27001, NEN standards, BIO, and other frameworks from every supplier standards that explicitly **require an exit strategy**.  
 
-Based on media coverage and public reporting—including an article by *RTL Z* titled [*“‘Persoonlijk bedonderd’: Justitie en Amsterdam ‘onaangenaam verrast’: Nederlands cloudbedrijf in Amerikaanse handen”*](https://www.rtl.nl/nieuws/economie/artikel/5538468/zorgen-bij-ministerie-en-gemeente-amsterdam-over-amerikaanse) it is highly implausible that a fully tested and operational exit strategy exists for critical services such as **DigiD**, **MijnOverheid**, or the **AIVD cloud hosting**.  
+Based on media coverage and public reporting, including an article by *RTL Z* titled [*“‘Persoonlijk bedonderd’: Justitie en Amsterdam ‘onaangenaam verrast’: Nederlands cloudbedrijf in Amerikaanse handen”*](https://www.rtl.nl/nieuws/economie/artikel/5538468/zorgen-bij-ministerie-en-gemeente-amsterdam-over-amerikaanse) it is highly implausible that a fully tested and operational exit strategy exists for critical services such as **DigiD**, **MijnOverheid**, or the **AIVD cloud hosting**.  
 
 Time to **practice what you preach**. ISO27001 compliance is not a badge. It’s a blueprint. And the blueprint has not been followed internally. Compliance on paper does not equal operational resilience.
 
@@ -44,7 +44,7 @@ This is **not optional**. Yet, based on public signals, it appears **the governm
 The issue is systemic:
 
 - **Monoculture dependency:** multiple critical services rely on a single cloud provider.
-- **No tested exit procedure:** contracts may include legal clauses, audits may exist, but operational execution—data migration, fallback procedures, disaster recovery & business continuity's ignored.
+- **No tested exit procedure:** contracts may include legal clauses, audits may exist, but operational execution, data migration, fallback procedures, disaster recovery & business continuity's ignored.
 - **Compliance vs. reality:** being “ISO27001 compliant” on paper does not prevent a governance or operational crisis when ownership changes.
 
 Result: panic. And rightly so. But the crisis **could have been avoided** if basic standards were actually implemented. The government lectures suppliers on exit planning while sitting on a ticking dependency bomb.
@@ -63,7 +63,7 @@ A truly operational exit strategy includes:
 
 - **Lead by example:** ISO27001 requires it. Test it, don’t just document it.
 - **Don’t panic after the fact:** proactive exit planning prevents operational and reputational disasters.
-- **Rethink “sovereignty”:** it’s not marketing—true digital sovereignty is operational and contractual, not just a label.
+- **Rethink “sovereignty”:** it’s not marketing, true digital sovereignty is operational and contractual, not just a label.
 
 The **Solvinity/Kyndryl** case is a warning, not a surprise. It’s a **self-inflicted risk** for anyone who thought compliance equals resilience.  
 
