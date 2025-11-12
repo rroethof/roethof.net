@@ -8,7 +8,7 @@ keywords: ["student laptops", "BYOD", "digital autonomy", "GDPR", "education pol
 slug: "ownership-is-ownership-duty-of-care-is-not-a-free-pass"
 ---
 
-Digitalization in education brings great opportunities, but it also creates new tensions between privacy, control and cost. This is highlighted once again in the e-book [“Who is responsible for student devices?”](https://ossewold.net/wie-is-verantwoordelijk-voor-leerlingdevices/){target="_blank"} by Paul Ossewold. Schools have a duty of care and parents understand that. But when that duty quietly extends into control over privately purchased devices, something essential gets lost: ownership.
+Digitalization in education brings great opportunities, but it also creates new tensions between privacy, control and cost. This is highlighted once again in the e-book [“Who is responsible for student devices?”](https://ossewold.net/wie-is-verantwoordelijk-voor-leerlingdevices/) by Paul Ossewold. Schools have a duty of care and parents understand that. But when that duty quietly extends into control over privately purchased devices, something essential gets lost: ownership.
 
 And that's where I check out.
 
