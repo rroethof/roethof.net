@@ -27,11 +27,11 @@ Think of it this way: you wouldn't just buy a high-performance engine and expect
 
 Let's dive into the services that, in my experience, are absolutely essential for anyone running Proxmox VE.
 
-Proxmox VE is a workhorse. It’s open source, it’s powerful, and it just works. But if you think spinning up a few VMs is all it takes, you’re missing the point. The real magic happens when you bolt on the right tools—otherwise, you’re flying blind and hoping for the best.
+Proxmox VE is a workhorse. It’s open source, it’s powerful, and it just works. But if you think spinning up a few VMs is all it takes, you’re missing the point. The real magic happens when you bolt on the right tools, otherwise, you’re flying blind and hoping for the best.
 
 Here’s my no-nonsense list of what you actually need to run Proxmox like a pro. No fluff, just the stuff that keeps your setup alive and kicking.
 
-### 1. Proxmox Backup Server (PBS): Don’t Be an Idiot—Back Up
+### 1. Proxmox Backup Server (PBS): Don’t Be an Idiot, Back Up
 
 If you're running any kind of critical workload, whether it's a personal media server or a production database, backups are not optional. They are the single most important line of defense against data loss, hardware failure, or, let's be honest, your own screw-ups.
 

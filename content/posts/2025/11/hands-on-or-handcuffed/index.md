@@ -34,7 +34,7 @@ But that’s the crux of it: engineering integrity doesn’t always fit neatly i
 
 I am not a checklist-clipper. I am not a man of corporate obligation. My motivation is technology, freedom to build and secure; principles clashing daily with the new direction.
 
-Since a big megacorp took over, our lean MSP became a small cog in their massive bureaucratic wheel. The focus shifted to the public sector—governments, semi-governments, and the rule-enforcers who thrive on control.
+Since a big megacorp took over, our lean MSP became a small cog in their massive bureaucratic wheel. The focus shifted to the public sector, governments, semi-governments, and the rule-enforcers who thrive on control.
 
 Management now seems to think anyone can maintain the platform. Give the guy a Zabbix training and apparently a monkey can run it. Sure,have fun rebuilding Galera with your monkey when replication breaks at 3 a.m. (No offense Bas 😏)
 

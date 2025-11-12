@@ -23,13 +23,13 @@ These aren’t pretexts, they’re smokescreens for absolute control and the dem
 
  * The Stark Reality: This is the death knell for financial anonymity. A CBDC gives central banks and politicians a god-mode view into every single transaction. Cash, the last bastion of freedom, gets stabbed in the back.
 
- * The Real Danger: Programmable money—funds with expiry dates, spending restrictions, political strings attached. Think the government dislikes your politics? Poof, your money doesn’t work at the protest. This isn’t convenience; it’s total control.
+ * The Real Danger: Programmable money, funds with expiry dates, spending restrictions, political strings attached. Think the government dislikes your politics? Poof, your money doesn’t work at the protest. This isn’t convenience; it’s total control.
 
 ### Chat Control: ‘Protecting the Children’ to Spy on Everyone
 
  * The Sales Pitch: Mandatory scanning of private messages across platforms to combat child sexual abuse material (CSAM) and terrorism.
 
- * The Stark Reality: An all-access backdoor into your private life, designed to destroy end-to-end encryption—the one thing keeping our digital lives private.
+ * The Stark Reality: An all-access backdoor into your private life, designed to destroy end-to-end encryption, the one thing keeping our digital lives private.
 
  * The Mechanism: Every message, photo, and video must be pre-scanned before encryption. Everyone is a suspect; every chat is potential evidence for the state.
 
@@ -57,9 +57,9 @@ This isn't just political grandstanding; this is the structural nightmare that l
 
  * Compliance Burden & Technical Debt: We are tasked with implementing flawed, highly intrusive monitoring systems (Chat Control) and financially sensitive centralized architectures (CBDC) that are fundamentally incompatible with secure, privacy-by-design principles. This directly translates into high, non-productive workload and immense technical debt.
 
- * Ignored Warnings & Burnout Fuel: The political decision completely ignores the mountain of risk assessments and security warnings from cryptographers and security bodies. We are forced to build systems we *know* are dangerous—a perfect recipe for structural burnout among security teams.
+ * Ignored Warnings & Burnout Fuel: The political decision completely ignores the mountain of risk assessments and security warnings from cryptographers and security bodies. We are forced to build systems we *know* are dangerous, a perfect recipe for structural burnout among security teams.
 
- * The Digital Chains: This is the core of the problem: we're being ordered to forge our own digital chains—implementing and maintaining inherently insecure and complex systems because the political establishment prioritizes control over fundamental rights.
+ * The Digital Chains: This is the core of the problem: we're being ordered to forge our own digital chains, implementing and maintaining inherently insecure and complex systems because the political establishment prioritizes control over fundamental rights.
 
 For Citizens: This is not about progress or safety. It's about constructing the digital infrastructure for total control. Cash and E2EE are our last remaining bastions of digital freedom. The EU is actively dismantling them, brick by digital brick.
 

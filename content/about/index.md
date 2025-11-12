@@ -47,12 +47,12 @@ Professionally, I work as an IT specialist, bringing my expertise to various rol
 Open source is the backbone of my tech philosophy. The freedom to inspect, modify and distribute software aligns perfectly with my desire to understand and control the systems I work with. It fosters collaboration, transparency, and a sense of shared progress that closed systems just can’t match.
 
 ### About This Site
-Roethof.net is my unfiltered tech diary and technical outlet. Here, you can expect a mix of practical solutions and philosophical musings on technology. Yes, there will be the occasional rant about the state of the industry, privacy, EU policy, and security—because someone has to say it.
+Roethof.net is my unfiltered tech diary and technical outlet. Here, you can expect a mix of practical solutions and philosophical musings on technology. Yes, there will be the occasional rant about the state of the industry, privacy, EU policy, and security, because someone has to say it.
 
 ### A Bit More About Me
 I’m always chasing the next puzzle, whether it’s streamlining a messy workflow, outsmarting a security snag, or finding the ultimate setup that doesn’t fight me back. Call it a nerd’s endless quest for efficiency.
 
-- **Tech Stack**: Arch Linux, Ansible, Bash, with FreeBSD and Debian scars—or should I say servers. 
+- **Tech Stack**: Arch Linux, Ansible, Bash, with FreeBSD and Debian scars, or should I say servers. 
 - **Drive**: Solving problems and automating *everything*, manual (IT) work is for suckers.
 - **Family**: I'm the proud father of an 11-year-old son, who constantly reminds me there's a world outside of the terminal, and the lucky fiancé of an amazing partner who somehow manages to keep me sane.
 - **My Epic Quest (Still Loading...)**: It's a continuous, often frustrating, but ultimately rewarding journey of leveling up my tech skills, diving headfirst into new and exciting (and sometimes terrifying) projects.
@@ -60,7 +60,7 @@ I’m always chasing the next puzzle, whether it’s streamlining a messy workfl
 
 ### Disclaimer
 
-Everything you read here is my personal take—my opinions, my technical perspectives, and my rants. This is not the official view of my employer (past or present) or any organization I work with.  
+Everything you read here is my personal take, my opinions, my technical perspectives, and my rants. This is not the official view of my employer (past or present) or any organization I work with.  
 Yes, I do office politics when necessary, but what I write here is just for me. What I actually do at work may differ, depending on what’s allowed, required, or makes sense in the office.
 
 ### Get in Touch

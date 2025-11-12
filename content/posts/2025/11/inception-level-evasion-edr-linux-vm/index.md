@@ -14,7 +14,7 @@ Pro-Russian threat actors are nesting lightweight Linux Virtual Machines (VMs) i
 
 This isn't *living off the land* anymore; this is *living off another OS*. The "Curly COMrades" group (a suspected pro-Russian threat group) deploys tiny, Alpine Linux-based VMs (just 120MB) using the host's legitimate Hyper-V role. They then run their custom reverse shell, *CurlyShell* and traffic manager, *CurlCat*, entirely within this concealed environment.
  
-Why is this an architectural nightmare for the CISO? Who expects a penguin party under a Windows roof? We’re effectively dealing with an OS inside an OS inside an OS — a hall-of-mirrors design where visibility fades with each layer. Like the dream layers in *Inception*, defenders can easily lose track of what’s real. You need a totem just to know which layer you're defending.
+Why is this an architectural nightmare for the CISO? Who expects a penguin party under a Windows roof? We’re effectively dealing with an OS inside an OS inside an OS ,  a hall-of-mirrors design where visibility fades with each layer. Like the dream layers in *Inception*, defenders can easily lose track of what’s real. You need a totem just to know which layer you're defending.
 
 ## The Blind Spot is the Strategy
 
@@ -26,7 +26,7 @@ The lesson is brutal: an over-reliance on a single, expensive layer of security 
 
 ## The CISO's Perpetual Warning, Now Realized
 
-This advanced evasion technique isn't a technical novelty; it's the inevitable outcome of systemic organizational failure that CISOs constantly warn about. For a CISO, this isn’t just a technical blind spot—it’s an insurance, compliance and reputation time bomb.
+This advanced evasion technique isn't a technical novelty; it's the inevitable outcome of systemic organizational failure that CISOs constantly warn about. For a CISO, this isn’t just a technical blind spot, it’s an insurance, compliance and reputation time bomb.
 
 1.  **The Neglect of the Hypervisor / WSL:** Developers and consultants have long used WSL as their "secret workaround" for corporate "Windows-only" policies. WSL was built for convenience, not for containment. When your "secret workaround" and a threat actor's "persistence mechanism" look identical, you have a massive problem. The abuse of these virtualization features proves that proactive hardening is being ignored in favor of reactive detection.
 

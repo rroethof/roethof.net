@@ -51,6 +51,6 @@ So the solution for Debian 12, at least, is to delete the *EXTERNALLY-MANAGED* f
 ```
 sudo rm -rf /usr/lib/python3.11/EXTERNALLY-MANAGED
 ```
-Note that the python3.11 version number should match whatever you have installed—it was 3.11 at the time of this blog post’s writing.
+Note that the python3.11 version number should match whatever you have installed, it was 3.11 at the time of this blog post’s writing.
 
 See this answer on [Stack Overflow](https://stackoverflow.com/a/75722775/100134) for more. Another interesting option is to install and use [pipx](https://pypa.github.io/pipx/), which does the grunt work of managing the venvs for you.

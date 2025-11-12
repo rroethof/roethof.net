@@ -51,7 +51,7 @@ Some company owners "hate it," emphasizing that their teams will do the work reg
 
 Security professionals are quick to point out the obvious GDPR compliance issues and the broader implications for "Consent and Surveillance Laws" and "Workplace Surveillance Acts" in various regions. The idea that Microsoft and Apple "give a sh** about YOUR Privacy and Security, it is just marketing" resonates deeply.
 
-Some tried to find a silver lining, suggesting it could be useful for "evacuation lists" or "predefined networks," but these are niche cases that don't justify the broader privacy invasion. The core issue, as one person noted, is that "the next frontier for hybrid work isn’t automation — it’s trust architecture."
+Some tried to find a silver lining, suggesting it could be useful for "evacuation lists" or "predefined networks," but these are niche cases that don't justify the broader privacy invasion. The core issue, as one person noted, is that "the next frontier for hybrid work isn’t automation ,  it’s trust architecture."
 
 Microsoft's approach also shows a disconnect with real-world IT. As Gert Jürgensen highlighted, many larger companies use the same SSID roaming name across locations, making simple Wi-Fi mapping problematic. Furthermore, the system can "integrate with peripherals like monitors or docking stations, further refining location accuracy through predefined mappings." This isn't just Wi-Fi; it's a full-spectrum attempt at physical presence detection.
 

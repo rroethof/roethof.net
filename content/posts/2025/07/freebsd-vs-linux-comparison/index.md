@@ -21,7 +21,7 @@ In the vast and often passionate world of open-source operating systems, few deb
 
 This isn't just a technical comparison; it's a look at two distinct philosophies of building an operating system. So, let's cut through the noise and explore what sets these titans apart.
 
-Let’s be honest: the FreeBSD vs. Linux debate is the open-source world’s version of “tabs vs. spaces”—endless, passionate, and usually missing the point. Both are rock-solid, both are free, both are everywhere. But if you think they’re interchangeable, you haven’t been paying attention. Under the hood, these two take wildly different approaches to what an OS should be, who it’s for, and how much control you actually have.
+Let’s be honest: the FreeBSD vs. Linux debate is the open-source world’s version of “tabs vs. spaces”, endless, passionate, and usually missing the point. Both are rock-solid, both are free, both are everywhere. But if you think they’re interchangeable, you haven’t been paying attention. Under the hood, these two take wildly different approaches to what an OS should be, who it’s for, and how much control you actually have.
 
 This isn’t a dry technical checklist. It’s about philosophy, real-world tradeoffs, and what actually matters when you’re the one on the hook for uptime, security, or just getting your damn code to compile.
 
@@ -37,7 +37,7 @@ This licensing difference isn't just legal jargon; it reflects a fundamental phi
 
 Here’s the real split:
 
-- **Linux** is a kernel with a thousand faces. Every distro is a remix. It’s fast, flexible, and sometimes a total mess. The GPL license means if you change it, you share it—great for open-source purists, less so if you want to keep your tweaks to yourself.
+- **Linux** is a kernel with a thousand faces. Every distro is a remix. It’s fast, flexible, and sometimes a total mess. The GPL license means if you change it, you share it, great for open-source purists, less so if you want to keep your tweaks to yourself.
 - **FreeBSD** is a full OS, built as one piece. The BSD license? Do whatever you want. Build a product, close the source, sell it, or just tinker in your basement. No one’s going to chase you down. It’s about maximum freedom for the developer, not just the user.
 
 This isn’t just legalese. It’s a worldview: Linux is about keeping code open; BSD is about letting you do whatever the hell you want with it.
@@ -112,8 +112,8 @@ Bottom line: use the right tool for the job, not just the one with the loudest f
 
 ### My Journey: Why I Still Run Both
 
-I’ve been in this game since Slackware 3.0, when getting X11 to work was a weekend project and “dependency hell” was just called “Tuesday.” I’ve distro-hopped through Red Hat, SuSE, Gentoo, and lived through the Debian Potato/Woody/Sarge era. For servers, I switched to FreeBSD 4 and never looked back—until work forced me onto Red Hat and CentOS. If I get to choose? It’s Debian or FreeBSD, every time.
+I’ve been in this game since Slackware 3.0, when getting X11 to work was a weekend project and “dependency hell” was just called “Tuesday.” I’ve distro-hopped through Red Hat, SuSE, Gentoo, and lived through the Debian Potato/Woody/Sarge era. For servers, I switched to FreeBSD 4 and never looked back, until work forced me onto Red Hat and CentOS. If I get to choose? It’s Debian or FreeBSD, every time.
 
 These days, my laptop runs Arch (because I like pain and control), but my servers? Debian for the boring stuff, FreeBSD for anything that needs to be bulletproof or have a clean, understandable codebase. Both are open, both are powerful, and both are a hell of a lot better than anything proprietary.
 
-So, should you use FreeBSD or Linux? Here’s the only honest answer: it depends. But at least now you know what actually matters—and what’s just noise from the peanut gallery.
+So, should you use FreeBSD or Linux? Here’s the only honest answer: it depends. But at least now you know what actually matters, and what’s just noise from the peanut gallery.

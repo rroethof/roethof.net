@@ -20,7 +20,7 @@ categories:
 
 ## Cloud vs. Bare Metal: My Hard-Won Wisdom
 
-Let's be honest: the cloud isn't always the convenient solution it's made out to be. Years of building and securing systems have taught me that the supposed "convenience" often masks hidden costs and a serious lack of control. I've seen those crazy invoices—it's like dark magic! My friends at [Technative](https://technative.eu/) help companies navigate this, but I've seen the downsides firsthand.
+Let's be honest: the cloud isn't always the convenient solution it's made out to be. Years of building and securing systems have taught me that the supposed "convenience" often masks hidden costs and a serious lack of control. I've seen those crazy invoices, it's like dark magic! My friends at [Technative](https://technative.eu/) help companies navigate this, but I've seen the downsides firsthand.
 
 ### The Illusion of Convenience: Control and Sovereignty
 
@@ -28,15 +28,15 @@ It's about more than just money; it's about *control*. When we use the cloud, we
 
 Articles like [this one](https://berthub.eu/articles/posts/mailen-en-communiceren-zonder-musk-en-trump-cloud-kootwijk/) about escaping big tech only reinforce this point. It's not just about the price tag; it's about *who* controls your data. And I've learned a fundamental truth: if you didn't build it, you don't control it.
 
-This lack of control extends beyond simple cost considerations. It delves into the realm of data sovereignty and the potential for government surveillance. The Foreign Intelligence Surveillance Act (FISA), specifically Section 702, grants the NSA direct access to data held by cloud providers—a chilling reality. ([More on FISA 702](https://en.wikipedia.org/wiki/Section_702_of_the_FISA_Amendments_Act_of_2008)).
+This lack of control extends beyond simple cost considerations. It delves into the realm of data sovereignty and the potential for government surveillance. The Foreign Intelligence Surveillance Act (FISA), specifically Section 702, grants the NSA direct access to data held by cloud providers, a chilling reality. ([More on FISA 702](https://en.wikipedia.org/wiki/Section_702_of_the_FISA_Amendments_Act_of_2008)).
 
-A friend of mine put it perfectly: **"Building a sovereign cloud in an American data center is like putting a safe in the FBI's living room — you might have the key, but they own the house."** 
+A friend of mine put it perfectly: **"Building a sovereign cloud in an American data center is like putting a safe in the FBI's living room, you might have the key, but they own the house."** 
 
-He also wisely pointed out: **"Building a sovereign cloud on American software is like building a fortress on American foundations — no matter how European the walls are, the gate remains out of your control."**
+He also wisely pointed out: **"Building a sovereign cloud on American software is like building a fortress on American foundations, no matter how European the walls are, the gate remains out of your control."**
 
 ### My VPS Experiences: A Costly Lesson in Scalability
 
-I've used smaller VPS providers (Tilaa, Versio, Hetzner)—they're great for simple projects like a personal blog. But for my work—DNS, mail, multiple web servers—the costs quickly spiraled out of control. Three DNS servers at €10/month each? It adds up fast. Managing them all became a nightmare.
+I've used smaller VPS providers (Tilaa, Versio, Hetzner), they're great for simple projects like a personal blog. But for my work, DNS, mail, multiple web servers, the costs quickly spiraled out of control. Three DNS servers at €10/month each? It adds up fast. Managing them all became a nightmare.
 
 My experience as a pentester and security officer only made the risks even clearer. This experience underscored the limitations of relying on multiple VPS providers for complex infrastructure. The management overhead and escalating costs ultimately led me to seek a more sustainable and controlled solution.
 

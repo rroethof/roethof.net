@@ -17,7 +17,7 @@ categories:
 
 For years, I've been passionate about sharing my technical findings, ponderings and open-source insights through a weblog. My journey started with hand-crafted HTML, evolved into a PHP-powered custom database solution and eventually landed me with WordPress. While each approach had its merits, they all shared a common Achilles' heel: maintenance.
 
-In the early days, painstakingly writing HTML was a labor of love, but quickly became tedious. As my site grew, managing updates and content became a nightmare. Then came my foray into PHP and a custom database—a step up in terms of dynamic content, but a significant leap in complexity. Debugging database queries and ensuring security were constant headaches.
+In the early days, painstakingly writing HTML was a labor of love, but quickly became tedious. As my site grew, managing updates and content became a nightmare. Then came my foray into PHP and a custom database, a step up in terms of dynamic content, but a significant leap in complexity. Debugging database queries and ensuring security were constant headaches.
 
 WordPress seemed like the perfect solution at first. Its ease of use and vast plugin ecosystem were incredibly appealing. However, the honeymoon phase didn't last. The endless cycle of plugin updates, theme compatibility issues and the constant fear of PHP version conflicts turned maintenance into a full-time job. Each PHP update felt like playing Russian roulette with my site and the security vulnerabilities were a constant worry.
 

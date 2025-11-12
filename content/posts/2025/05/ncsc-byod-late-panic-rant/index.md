@@ -8,7 +8,7 @@ categories: ["Security", "Rant"]
 tags: ["BYOD", "Session Cookies", "Security Theatre", "Endpoint Security", "Policy Failures", "Zero Trust"]
 ---
 
-Let me set the scene: The Dutch NCSC just dropped an “urgent” advisory about the horrifying risk of letting people access company resources on their own devices — you know, **BYOD**. And the terrifying threat they’ve identified? Wait for it...
+Let me set the scene: The Dutch NCSC just dropped an “urgent” advisory about the horrifying risk of letting people access company resources on their own devices ,  you know, **BYOD**. And the terrifying threat they’ve identified? Wait for it...
 ([NCSC adviseert tegen Bring-Your-Own-Device, voor beheer van sessiecookies](https://www.security.nl/posting/889778/NCSC+adviseert+tegen+Bring-Your-Own-Device%2C+voor+beheer+van+sessiecookies))
 
 **Session. Fucking. Cookies.**
@@ -20,7 +20,7 @@ Welcome to cybersecurity, circa 2006.
 Apparently, using your own phone or laptop, the one you also use for doomscrolling, torrenting obscure anime, and paying bills, **might** have security implications when it’s also used to access corporate systems. Wow. Groundbreaking stuff. Someone alert DARPA.
 The real kicker? Their "mitigations" are a highlight reel of useless bullshit that completely ignores how actual IT operates. Spoiler alert: none of it tackles the real threats. Instead, it all shoves responsibility back onto end-users, just so management can pat themselves on the back for "doing something."
 
-## BYOD: Not The Enemy — Unless You’re Clueless
+## BYOD: Not The Enemy ,  Unless You’re Clueless
 
 Let's be clear: **BYOD isn’t the enemy.** Stupid, inflexible and frankly, insulting policies are. There's a Grand Canyon of difference between giving some clueless intern full, unrestricted network access on their malware-infested Windows laptop, and allowing seasoned sysadmins, SREs, security engineers, and developers the goddamn flexibility to use their own meticulously maintained, often far superior, equipment.
 
@@ -62,7 +62,7 @@ Worse, these corporate "gifts" often come pre-infested with 'endpoint detection 
 
 Most of us – the techies in your midst – don’t want your locked-down, corporate-imaged machines, even if they come with a modern processor and a decent amount of RAM. If we can't configure our own shit, install the tools we actually need, or escape your mandated, bloated OS build, it's still a gilded cage that stifles productivity and treats us like we don't know how to manage a system. And they *are* walking. I've seen it: skilled engineers, tired of being infantilized and hamstrung by policies that hinder more than they help, are leaving in droves. Competitors who value talent and offer sensible, flexible working conditions are welcoming them with open arms and, crucially, more open policies.
 
-We want hardware we control. We want tools that *actually* work. We demand the freedom to configure our environments the way we need to — because, newsflash, **that’s how we keep your goddamn systems running.**
+We want hardware we control. We want tools that *actually* work. We demand the freedom to configure our environments the way we need to ,  because, newsflash, **that’s how we keep your goddamn systems running.**
 
 You think shackling a senior engineer's machine makes you secure? Think again. It just makes your most valuable technical staff despise you and view "security" as the enemy – a bureaucratic boot stamping on their neck. And trust me, they *will* find a dozen ingenious ways to slip those chains and bypass your idiotic, counterproductive policies just to do their fucking jobs. That "shadow IT" you're so terrified of? You're practically breeding it with every new layer of restrictive, poorly understood and insulting security crap you roll out. This is the beautiful paradox of your control-freak security: the tighter you try to pull the chains, the more creative (and often, hilariously, less secure in the grand scheme) the escape routes become.
 
@@ -86,4 +86,4 @@ So before you start waving policy papers around like holy scripture, ask yoursel
 
 **Are you protecting your data, or just creating the illusion of control?**
 
-If your answer is the latter, then congratulations — you’ve successfully turned security into a pathetic stage play. Now please, for the love of God, step aside and let the actual professionals work.
+If your answer is the latter, then congratulations ,  you’ve successfully turned security into a pathetic stage play. Now please, for the love of God, step aside and let the actual professionals work.
