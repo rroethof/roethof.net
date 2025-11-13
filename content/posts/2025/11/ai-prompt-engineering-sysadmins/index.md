@@ -17,9 +17,8 @@ keywords:
 description: "Practical AI prompt frameworks and examples for sysadmins and tech professionals to generate actionable, repeatable results."
 ---
 
-# Hands-On AI Prompt Engineering for Sysadmins
 
-AI can do a lot—but only if you tell it exactly what you want. Vague prompts = vague results. For sysadmins, engineers, and devs, **structured prompts save time and produce repeatable, actionable outputs**.  
+AI can do a lot, but only if you tell it exactly what you want. Vague prompts = vague results. For sysadmins, engineers, and devs, **structured prompts save time and produce repeatable, actionable outputs**.  
 
 Below are my go-to frameworks and examples for tackling real tech scenarios efficiently.
 
@@ -135,7 +134,7 @@ Deliverables: YAML manifests + cheat sheet
 
 ## Combining Frameworks: Real Tech Example
 
-**Why:** Complex tasks often require AI to multi-task—analyze logs, diagnose issues, and produce scripts simultaneously.  
+**Why:** Complex tasks often require AI to multi-task, analyze logs, diagnose issues, and produce scripts simultaneously.  
 
 **Prompt Example:**
 
@@ -183,7 +182,7 @@ Think of AI as a powerful tool for generating a first draft, not a final, produc
 
 ## Takeaway
 
-Structured prompts turn AI into a **true tech assistant**, not just a text generator. Use R-A-I-N, C-L-A-R, F-L-O-W, P-I-V-O, and S-E-E-D for **consistent, actionable results**. Keep examples and outputs handy—future you will thank you.  
+Structured prompts turn AI into a **true tech assistant**, not just a text generator. Use R-A-I-N, C-L-A-R, F-L-O-W, P-I-V-O, and S-E-E-D for **consistent, actionable results**. Keep examples and outputs handy, future you will thank you.  
 
 **Concluding Thought:**  
 The power of AI in sysadmin work isn’t just automation, it’s amplification. By crafting precise, structured prompts, you transform repetitive tasks into repeatable, measurable outcomes, freeing up time for strategy, learning, and innovation.
