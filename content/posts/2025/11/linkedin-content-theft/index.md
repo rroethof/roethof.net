@@ -1,6 +1,6 @@
 ---
 title: "Content Theft on LinkedIn: A Professional Problem Worth Addressing"
-date: 2025-11-18
+date: 2025-11-17
 draft: false
 slug: "linkedin-content-theft"
 categories:
