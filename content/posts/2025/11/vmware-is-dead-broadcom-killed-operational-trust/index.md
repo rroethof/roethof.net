@@ -41,8 +41,6 @@ Broadcom’s strategy is a hostile, short-term financial play. The goal is to ag
 
 **The Compliance Trap**: Uncertain roadmaps and unstable licensing structures pose serious governance and compliance risks. CISO offices must now classify VMware as a high-risk vendor.
 
-The Audit Nightmare: CISO's must now factor the Broadcom instability into their BCP/DR plans. Auditors will ask: 'What is the risk of an unapproved, sudden licensing change rendering your critical infrastructure non-compliant or non-operational?' The answer is no longer 'low.' The answer is 'maximal, by vendor design.' Accepting this risk shifts financial and operational liability directly to the IT leadership. This is negligence.
-
 **The Audit Nightmare**: CISOs must now factor the Broadcom instability into their BCP/DR plans. Auditors will ask: 'What is the risk of an unapproved, sudden licensing change rendering your critical infrastructure non-compliant or non-operational?' The answer is no longer 'low.' The answer is 'maximal, by vendor design.' Accepting this risk shifts financial and operational liability directly to the IT leadership. This is negligence.
 
 **Consequence**: This is not a business negotiation. This is a hostile extraction of technical debt. Any IT leader who chooses to remain is knowingly accepting maximum financial exposure and operational instability.
