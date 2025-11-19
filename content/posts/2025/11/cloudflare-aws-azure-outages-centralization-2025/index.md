@@ -1,5 +1,5 @@
 ---
-title: "Cloudflare Fell Over — And Everyone Built on Top of It Too"
+title: "Cloudflare Fell Over And Everyone Built on Top of It Too"
 slug: "cloudflare-aws-azure-outages-centralization-2025"
 date: 2025-11-19
 description: "Cloudflare sneezed, AWS and Azure wobbled, and once again we learned that 'distributed' often means 'we stuffed everything behind one vendor and hoped for the best'."
@@ -134,7 +134,7 @@ Even perfect engineering cannot fight gravity, Murphy’s Law, or a little bit o
 ## The Irony Department
 
 
-Before anyone points it out — yes, this weblog is also behind Cloudflare.  
+Before anyone points it out, yes, this weblog is also behind Cloudflare.  
 Meaning that when Cloudflare had a bad day, *you* probably couldn’t read my previous posts about why centralizing everything behind one vendor is a terrible idea.  
 
 Delicious irony.  
