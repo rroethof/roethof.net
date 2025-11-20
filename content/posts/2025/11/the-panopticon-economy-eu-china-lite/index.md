@@ -6,6 +6,8 @@ description: "The EU is trading digital freedom for perceived security and econo
 categories:
   - Tech Policy
   - Security
+  -1
+  - Europe
 tags:
   - EU
   - AI
