@@ -47,7 +47,7 @@ Every few months, a new proposal surfaces, often disguised as CSAM protection. I
 
 The goal is unchanged: Client-Side Scanning. Your device becomes the state’s spy. It’s a technical absurdity that fundamentally breaks modern communication security.  
 
-WhatsApp and Threema were right: this undermines end-to-end encryption. Yes, I made the same mistake—I believed regulators would respect basic cryptography. Twice.  
+WhatsApp and Threema were right: this undermines end-to-end encryption. Yes, I made the same mistake, I believed regulators would respect basic cryptography. Twice.  
 
 If the EU successfully forces backdoors, it’s not just bad actors who lose privacy. Everyone loses security. Operational neglect disguised as compliance.  
 
@@ -58,19 +58,19 @@ The AI Act was supposed to be the great firewall against bad algorithms. Now, th
 - **Problem:** The EU wants to invest heavily in European AI (defense and health).  
 - **Solution:** Relax rules and centralize oversight to favor state-backed or state-chosen players.  
 
-This is the productivity vs. security paradox in sharp focus. Economic productivity—building 'European Champions'—is prioritized over systemic security. The focus shifts from preventing harm to managing it after the fact, under central state authority. Less Silicon Valley regulation, more Beijing with better PR.  
+This is the productivity vs. security paradox in sharp focus. Economic productivity, building 'European Champions', is prioritized over systemic security. The focus shifts from preventing harm to managing it after the fact, under central state authority. Less Silicon Valley regulation, more Beijing with better PR.  
 
 ## The AP vs. The EU-Hof: Checkmate
 
 Even national privacy watchdogs run into the brick wall of EU centralization.  
 
-The AP and the tennis bond stopped their lawsuit after an EU Court of Justice (EU-Hof) ruling—a stark reminder of who holds the ultimate judicial lever. National data protection authorities are now structurally subordinate to a central court.  
+The AP and the tennis bond stopped their lawsuit after an EU Court of Justice (EU-Hof) ruling, a stark reminder of who holds the ultimate judicial lever. National data protection authorities are now structurally subordinate to a central court.  
 
 The AP’s call for stricter rules for government enforcement research using public sources illustrates the same mechanism. They seek guardrails because the state’s monitoring power has already expanded.  
 
 ## Sharp Conclusion
 
-The pattern is not subtle. The EU is building a centrally-controlled digital infrastructure: unified ID, state-sponsored AI, and persistent legal mechanisms to break encryption. This is technological authoritarianism—China’s governance model in a softer, democratic-sounding package.  
+The pattern is not subtle. The EU is building a centrally-controlled digital infrastructure: unified ID, state-sponsored AI, and persistent legal mechanisms to break encryption. This is technological authoritarianism, China’s governance model in a softer, democratic-sounding package.  
 
 ### Lessons
 
