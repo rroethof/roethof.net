@@ -18,8 +18,6 @@ Europe’s response? Moral outrage. NATO solidarity statements. Threats to close
 
 It’s a bluff. Europe is threatening physical retaliation while running on digital infrastructure it doesn’t control.
 
----
-
 ### The Hyperscaler Trap
 
 Europe doesn’t have escalation dominance. Washington does.
@@ -35,8 +33,6 @@ Retaliation won’t be an explosion. It will be:
 
 Systems stay up. You just can’t log in.
 
----
-
 ### We Have Seen This Before
 
 This isn’t theory.
@@ -45,8 +41,6 @@ When **Cloudflare, AWS, or Azure** go down, the economy stops. Not because of bo
 When **Broadcom** bought VMware, we saw how fast "enterprise trust" dies when ownership changes.
 
 Centralization is leverage. Jurisdiction is power.
-
----
 
 ### Denmark’s Bunker: Why NixOS Matters
 
@@ -70,8 +64,6 @@ If the US applies pressure, you don’t negotiate. You redeploy to hardware you 
 #### 3. Rollbacks Neutralize Weapons
 Updates can be weaponized to break compliance or add backdoors.
 In NixOS, every change is atomic. If an update is hostile, you revert instantly.
-
----
 
 ### The Verdict
 
