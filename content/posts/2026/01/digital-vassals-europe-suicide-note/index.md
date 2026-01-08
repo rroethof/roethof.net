@@ -13,6 +13,7 @@ tags: [nixos, cloud-act, sovereignty, usa, denmark, nato, geopolitics, greenland
 It’s January 2026, and the post-war fantasy is officially dead.
 
 Trump isn’t “floating ideas” anymore. He has openly threatened Greenland, appointed a *Special Envoy*, and after Venezuela, nobody sane can claim this is just rhetoric. The United States has demonstrated it is willing to **rewrite sovereignty with force**.
+Trump isn’t “floating ideas” anymore. He has openly threatened Greenland, appointed a *Special Envoy*, and after Venezuela, nobody sane can claim this is just rhetoric. The United States has demonstrated it is willing to rewrite sovereignty with force.
 
 And then there’s Europe.
 
@@ -20,7 +21,7 @@ NATO and EU leaders have lined up behind Denmark, stating that Greenland’s sov
 
 It’s delusion.
 
-They are talking about physical retaliation while standing **inside infrastructure they do not control**.
+They are talking about physical retaliation while standing inside infrastructure they do not control.
 
 ---
 
@@ -29,7 +30,7 @@ They are talking about physical retaliation while standing **inside infrastructu
 Europe does not hold escalation dominance. Washington does, without firing a shot.
 
 The real leverage isn’t military.  
-It’s **jurisdiction over the digital infrastructure**.
+It’s jurisdiction over the digital infrastructure.
 
 Through the US CLOUD Act, American law reaches into identity systems, key management, control planes, and support channels of nearly every critical European service.
 
@@ -40,7 +41,7 @@ This does not require a dramatic blackout. What it looks like instead:
 - “Support is unavailable due to US compliance requirements.”
 
 Systems keep running.  
-**Humans lose control.**
+Humans lose control.
 
 That’s not an outage.  
 That’s administrative paralysis.
@@ -53,9 +54,9 @@ This is not speculative.
 
 We already know what happens when centralized control fails, accidentally or otherwise.
 
-When **Cloudflare, AWS, and Azure** experienced major outages, entire sectors froze simultaneously. Governments, logistics, payments, healthcare, all stalled because too much of the world shares the same choke points.
+When Cloudflare, AWS, and Azure experienced major outages, entire sectors froze simultaneously. Governments, logistics, payments, healthcare, all stalled because too much of the world shares the same choke points.
 
-And when **Broadcom gutted VMware**, it became clear how quickly “enterprise trust” evaporates when ownership and incentives change overnight.
+And when Broadcom gutted VMware, it became clear how quickly “enterprise trust” evaporates when ownership and incentives change overnight.
 
 Centralization creates leverage.  
 Jurisdiction turns that leverage into power.
@@ -64,12 +65,12 @@ Jurisdiction turns that leverage into power.
 
 ### Denmark’s Bunker: What NixOS Actually Changes
 
-Against this backdrop, Denmark’s Road Traffic Authority moving to **NixOS (SIA Open)** is not a curiosity.
+Against this backdrop, Denmark’s Road Traffic Authority moving to NixOS (SIA Open) is not a curiosity.
 
-It is the **first credible act of digital self-defense by a European state**.
+It is the first credible act of digital self-defense by a European state.
 
 This matters because NixOS doesn’t just replace Windows or Linux distributions.  
-It **changes who holds power over the system**.
+It changes who holds power over the system.
 
 Here’s why this is strategically different, and why others must follow.
 
@@ -90,7 +91,7 @@ A sovereign state can:
 - Reproduce it independently
 - Verify what is running and why
 
-That is **operational sovereignty**, not branding.
+That is operational sovereignty, not branding.
 
 ---
 
@@ -102,7 +103,7 @@ Traditional systems rely on *trust*:
 - Trust the license server
 - Trust the support contract
 
-NixOS relies on **reproducibility**:
+NixOS relies on reproducibility:
 - Same inputs → same system
 - Anywhere
 - Anytime
@@ -131,7 +132,7 @@ In NixOS:
 
 If an update turns hostile — legally, politically, or operationally — you revert.
 
-That single capability **kills the leverage of remote coercion**.
+That single capability kills the leverage of remote coercion.
 
 ---
 
@@ -147,7 +148,7 @@ NixOS doesn’t magically solve identity — but it allows states to:
 - host it on infrastructure they control
 - decouple authentication from foreign ToS and courts
 
-Without this step, **Article 5 can’t authenticate itself**.
+Without this step, Article 5 can’t authenticate itself.
 
 ---
 
@@ -165,7 +166,7 @@ NixOS is:
 - already auditable
 
 The real barrier is not technology.  
-It’s **institutional cowardice**.
+It’s institutional cowardice.
 
 Denmark proved that:
 - you can start
@@ -186,7 +187,7 @@ Every threat is typed on US-controlled systems, authenticated by US-controlled i
 
 After Greenland and Venezuela, the belief that “the US wouldn’t dare” is dead.
 
-But even if intent never changes, **dependency is already defeat**.
+But even if intent never changes, dependency is already defeat.
 
 ---
 
@@ -198,7 +199,7 @@ The EU responded by discovering it doesn’t own the keys to its own house.
 
 Denmark noticed first.
 
-In 2026, **sovereignty starts at the operating system**.  
+In 2026, sovereignty starts at the operating system.  
 Not at summits.  
 Not in treaties.  
 Not in press statements.
@@ -217,4 +218,4 @@ The rest of Europe is still arguing about flags.
 
 And when the cloud says *“we are legally unable to comply”*, only one kind of system will still boot:
 
-**The one you actually own.**
+The one you actually own.
