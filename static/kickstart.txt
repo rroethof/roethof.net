@@ -1,0 +1,280 @@
+#version=RHEL9
+# Rocky Linux 9 Kickstart File with DISA STIG Profile
+# 2026 Security Standards & Best Practices Implementation
+#
+# Author: Ronny Roethof
+# Production-ready hardened image
+#
+# Minimal attack surface, STIG compliant, monitoring-ready
+
+#-------------------------------------------------------
+# AUTHENTICATION CONFIGURATION
+#-------------------------------------------------------
+auth --enableshadow --passalgo=sha512
+text
+
+#-------------------------------------------------------
+# INSTALLATION SOURCE
+#-------------------------------------------------------
+url --url="https://mirror.nl.leaseweb.net/rockylinux/9/BaseOS/x86_64/os/"
+repo --name="AppStream" --baseurl="https://mirror.nl.leaseweb.net/rockylinux/9/AppStream/x86_64/os/"
+repo --name="extras" --baseurl="https://mirror.nl.leaseweb.net/rockylinux/9/extras/x86_64/os/"
+
+#-------------------------------------------------------
+# SYSTEM LANGUAGE / KEYBOARD
+#-------------------------------------------------------
+keyboard --vckeymap=us --xlayouts='us'
+lang en_US.UTF-8
+
+#-------------------------------------------------------
+# NETWORK CONFIGURATION
+#-------------------------------------------------------
+network --bootproto=dhcp --device=link --ipv6=auto --activate
+network --hostname=rocky9-cis
+
+#-------------------------------------------------------
+# SECURITY BASELINE
+#-------------------------------------------------------
+selinux --enforcing
+firewall --enabled --ssh --service=cockpit
+rootpw --lock
+
+#-------------------------------------------------------
+# SYSTEM SERVICES
+#-------------------------------------------------------
+services --enabled="chronyd,sshd,cockpit.socket,auditd,firewalld,rsyslog,usbguard,osqueryd,zabbix-agent2" \
+         --disabled="bluetooth,avahi-daemon"
+
+#-------------------------------------------------------
+# TIMEZONE
+#-------------------------------------------------------
+timezone Europe/Amsterdam --utc
+
+#-------------------------------------------------------
+# ADMIN USER
+#-------------------------------------------------------
+user --name=rroethof --groups=wheel \
+     --gecos="Ronny Roethof" \
+     --password=$y$j9T$TzNnH9jQpBaQ6gOEdIVz2/$yQr/MaO5tpNlscUVfbUZEr6DFTqG5p5RGOQoAZuw4C1 \
+     --iscrypted
+
+#-------------------------------------------------------
+# DISK PARTITIONING
+#-------------------------------------------------------
+ignoredisk --only-use=sda
+clearpart --drives=sda --initlabel
+
+part /boot/efi --fstype="efi" --size=512 --fsoptions="umask=0077"
+part /boot --fstype="xfs" --size=1024
+
+part pv.01 --fstype="lvmpv" --size=1 --grow
+volgroup rhel --pesize=4096 pv.01
+
+logvol /tmp --vgname=rhel --size=2048 --fstype="xfs" --name=tmp --fsoptions="nodev,nosuid,noexec"
+logvol /var --vgname=rhel --size=8192 --fstype="xfs" --name=var --fsoptions="nodev"
+logvol /var/log --vgname=rhel --size=8192 --fstype="xfs" --name=var_log --fsoptions="nodev,nosuid"
+logvol /var/log/audit --vgname=rhel --size=8192 --fstype="xfs" --name=var_log_audit --fsoptions="nodev,nosuid"
+logvol /var/tmp --vgname=rhel --size=2048 --fstype="xfs" --name=var_tmp --fsoptions="nodev,nosuid,noexec"
+logvol /home --vgname=rhel --size=4096 --fstype="xfs" --name=home --fsoptions="nodev,nosuid"
+logvol / --vgname=rhel --size=10240 --fstype="xfs" --name=root
+
+#-------------------------------------------------------
+# BOOTLOADER HARDENING
+#-------------------------------------------------------
+bootloader --location=boot --timeout=5 \
+--append="audit=1 audit_backlog_limit=8192 page_poison=1 vsyscall=none slub_debug=P"
+
+#-------------------------------------------------------
+# APPLY DISA STIG PROFILE
+#-------------------------------------------------------
+%addon org_fedora_oscap
+content-type = scap-security-guide
+profile = xccdf_org.ssgproject.content_profile_stig
+%end
+
+#-------------------------------------------------------
+# PACKAGE SELECTION
+#-------------------------------------------------------
+%packages --excludedocs --instLangs=en_US.utf8
+@^minimal-environment
+
+# Core system
+kernel
+kernel-tools
+microcode_ctl
+
+# Security baseline
+openscap-scanner
+scap-security-guide
+aide
+audit
+chrony
+rsyslog
+fapolicyd
+usbguard
+osquery
+
+# Infrastructure tooling
+ansible-core
+
+# Python ecosystem
+python3
+python3-pip
+python3-netaddr
+python3-jmespath
+
+# Management interface
+cockpit
+cockpit-system
+cockpit-networkmanager
+cockpit-selinux
+
+# Security tools
+lynis
+chkrootkit
+clamav
+rkhunter
+
+# Monitoring
+zabbix-agent2
+
+# Admin tools
+git
+curl
+wget
+vim-enhanced
+tmux
+htop
+tree
+%end
+
+#-------------------------------------------------------
+# POST INSTALL CONFIGURATION
+#-------------------------------------------------------
+%post --log=/var/log/kickstart.log
+#!/bin/bash
+exec 1> >(tee -a /var/log/kickstart.log)
+exec 2>&1
+
+echo "Starting post-install hardening..."
+
+# Enable EPEL
+dnf install -y epel-release
+
+#-------------------------------------------------------
+# CHRONY HARDENING
+#-------------------------------------------------------
+cat > /etc/chrony.conf <<EOF
+server 0.nl.pool.ntp.org iburst
+server 1.nl.pool.ntp.org iburst
+driftfile /var/lib/chrony/drift
+makestep 1.0 3
+rtcsync
+bindcmdaddress 127.0.0.1
+cmdallow 127.0.0.1
+EOF
+
+#-------------------------------------------------------
+# LOAD AUDIT RULES
+#-------------------------------------------------------
+augenrules --load
+
+#-------------------------------------------------------
+# SSH HARDENING
+#-------------------------------------------------------
+cp /etc/ssh/sshd_config /etc/ssh/sshd_config.backup
+cat >> /etc/ssh/sshd_config <<EOF
+PermitRootLogin no
+MaxAuthTries 3
+PasswordAuthentication no
+AllowAgentForwarding no
+AllowTcpForwarding no
+X11Forwarding no
+ClientAliveInterval 300
+ClientAliveCountMax 0
+EOF
+
+#-------------------------------------------------------
+# DISABLE USB STORAGE (legacy)
+#-------------------------------------------------------
+echo "install usb-storage /bin/false" > /etc/modprobe.d/usb-storage.conf
+
+#-------------------------------------------------------
+# AIDE FILE INTEGRITY
+#-------------------------------------------------------
+aide --init
+mv /var/lib/aide/aide.db.new.gz /var/lib/aide/aide.db.gz
+echo "0 3 * * * root /usr/sbin/aide --check" > /etc/cron.d/aide
+
+#-------------------------------------------------------
+# IMMUTABLE AUDIT LOGS
+#-------------------------------------------------------
+chattr +a /var/log/audit/audit.log
+
+#-------------------------------------------------------
+# KERNEL HARDENING
+#-------------------------------------------------------
+cat > /etc/sysctl.d/99-security.conf <<EOF
+net.ipv4.ip_forward=0
+net.ipv4.conf.all.accept_redirects=0
+net.ipv4.conf.all.send_redirects=0
+net.ipv4.conf.all.accept_source_route=0
+net.ipv4.tcp_syncookies=1
+net.ipv4.icmp_echo_ignore_broadcasts=1
+net.ipv4.conf.all.log_martians=1
+net.ipv4.conf.default.rp_filter=1
+
+kernel.randomize_va_space=2
+kernel.kptr_restrict=2
+kernel.dmesg_restrict=1
+
+fs.suid_dumpable=0
+EOF
+
+sysctl --system
+
+#-------------------------------------------------------
+# FINAL PERMISSIONS
+#-------------------------------------------------------
+chmod 0644 /etc/passwd
+chmod 0644 /etc/group
+chmod 640 /etc/shadow
+chmod 640 /etc/gshadow
+chown root:shadow /etc/shadow
+chown root:shadow /etc/gshadow
+chmod 0600 /etc/ssh/sshd_config
+
+#-------------------------------------------------------
+# USBGUARD
+#-------------------------------------------------------
+systemctl enable usbguard
+systemctl start usbguard
+
+#-------------------------------------------------------
+# OSQUERY
+#-------------------------------------------------------
+systemctl enable osqueryd
+systemctl start osqueryd
+
+#-------------------------------------------------------
+# ZABBIX AGENT 2
+#-------------------------------------------------------
+systemctl enable zabbix-agent2
+systemctl start zabbix-agent2
+
+#-------------------------------------------------------
+# WAZUH READINESS (firewall)
+#-------------------------------------------------------
+firewall-cmd --permanent --add-port=1514/tcp
+firewall-cmd --permanent --add-port=1515/tcp
+firewall-cmd --reload
+
+#-------------------------------------------------------
+# ENABLE SERVICES
+#-------------------------------------------------------
+systemctl enable auditd chronyd firewalld cockpit.socket fapolicyd
+
+echo "Kickstart hardening complete"
+%end
+
+reboot
