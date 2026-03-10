@@ -29,11 +29,18 @@ showRelatedContent: false
 disableComments: true
 ---
 
-{{< typeit
-  tag=h1
-  lifeLike=true >}}
-Partnership and Product Review Opportunities at Roethof.net
-{{< /typeit >}}
+<h1 id="partnership-text">
+  Partnership and Product Review Opportunities at Roethof.net
+</h1>
+
+<script src="https://unpkg.com/typeit@8.8.7/dist/index.umd.js"></script>
+<script>
+  new TypeIt("#partnership-text", {
+    speed: 50,
+    cursor: true,
+    lifeLike: true
+  }).go();
+</script>
 
 Thank you for your interest in partnering with Roethof.net or having us test and review your products. We are always excited to explore collaborations that align with our values and provide valuable content to our audience.
 

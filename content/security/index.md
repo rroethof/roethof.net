@@ -26,11 +26,18 @@ showRelatedContent: false
 disableComments: true
 ---
 
-{{< typeit
-  tag=h1
-  lifeLike=true >}}
-Responsible Disclosure Statement and Security Policy
-{{< /typeit >}}
+<h1 id="security-policy-text">
+  Responsible Disclosure Statement and Security Policy
+</h1>
+
+<script src="https://unpkg.com/typeit@8.8.7/dist/index.umd.js"></script>
+<script>
+  new TypeIt("#security-policy-text", {
+    speed: 50,
+    cursor: true,
+    lifeLike: true
+  }).go();
+</script>
 
 The security of my systems is a top priority. No matter how much effort I put into system security, there might be vulnerabilities present. If you discover a vulnerability, I would like to know about it so I can take steps to address it. I would like to ask you to help me protect my users and my systems, aligning with the principles of responsible open source security practices, as discussed in resources like the [Open Source Guides](https://opensource.guide/security/).
 

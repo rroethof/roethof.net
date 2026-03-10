@@ -29,11 +29,18 @@ showSummary: false
 sharingLinks: false
 disableComments: true
 ---
-{{< typeit
-tag=h1
-lifeLike=true >}}
-Arch Linux Installatie: Beveiliging zonder verlies van snelheid of gemak op mijn Dell XPS 9530
-{{< /typeit >}}
+<h1 id="intro-text">
+  Arch Linux Installatie: Beveiliging zonder verlies van snelheid of gemak op mijn Dell XPS 9530
+</h1>
+
+<script src="https://unpkg.com/typeit@8.8.7/dist/index.umd.js"></script>
+<script>
+  new TypeIt("#intro-text", {
+    speed: 50,
+    cursor: true,
+    lifeLike: true
+  }).go();
+</script>
 
 Tijd voor een **veiligere Arch Linux installatie** op je Dell XPS 9530. Geen gezeur geen onnodige extra's. We bouwen een **strakke base** met focus op **maximale beveiliging** en **snelle prestaties**. Dit is wat je krijgt:
 

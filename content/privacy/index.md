@@ -29,11 +29,18 @@ showRelatedContent: false
 disableComments: true
 ---
 
-{{< typeit
-  tag=h1
-  lifeLike=true >}}
-Privacy Policy for Roethof.net
-{{< /typeit >}}
+<h1 id="privacy-text">
+  Privacy Policy for Roethof.net
+</h1>
+
+<script src="https://unpkg.com/typeit@8.8.7/dist/index.umd.js"></script>
+<script>
+  new TypeIt("#privacy-text", {
+    speed: 50,
+    cursor: true,
+    lifeLike: true
+  }).go();
+</script>
 
 **Last Updated:** March 23, 2025
 

@@ -29,11 +29,18 @@ showRelatedContent: false
 disableComments: true
 ---
 
-{{< typeit
-  tag=h1
-  lifeLike=true >}}
-GPG Public Key Information
-{{< /typeit >}}
+<h1 id="gpg-key-text">
+  GPG Public Key Information
+</h1>
+
+<script src="https://unpkg.com/typeit@8.8.7/dist/index.umd.js"></script>
+<script>
+  new TypeIt("#gpg-key-text", {
+    speed: 50,
+    cursor: true,
+    lifeLike: true
+  }).go();
+</script>
 
 This document explains how to obtain and verify my GPG public key. I use this key to sign my git commits and emails, ensuring my authenticity.
 

@@ -28,11 +28,18 @@ sharingLinks: false
 showRelatedContent: false
 ---
 
-{{< typeit
-  tag=h1
-  lifeLike=true >}}
-Copyright Information
-{{< /typeit >}}
+<h1 id="copyright-text">
+  Copyright Information
+</h1>
+
+<script src="https://unpkg.com/typeit@8.8.7/dist/index.umd.js"></script>
+<script>
+  new TypeIt("#copyright-text", {
+    speed: 50,
+    cursor: true,
+    lifeLike: true
+  }).go();
+</script>
 
 ![by-nd](by-nd.svg "My content is under [CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0/deed.en).")
 
