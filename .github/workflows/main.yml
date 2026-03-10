@@ -1,4 +1,6 @@
 name: 🚀 Build, Test and Deploy Hugo
+permissions:
+  contents: read
 # Will trigger the workflow on each push to the main branch
 on:
   push:
