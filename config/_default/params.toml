@@ -9,6 +9,9 @@ colorScheme = "blowfish"
 defaultAppearance = "dark" # valid options: light or dark
 autoSwitchAppearance = true
 
+Logo = "apple-touch-icon.png"
+SecondaryLogo = "apple-touch-icon.png" # als je geen verschil wilt dark/light
+
 enableSearch = true
 enableCodeCopy = true
 showComments = true
