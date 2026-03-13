@@ -1,0 +1,42 @@
+name: 🔧 Build and Test Hugo
+# Will trigger the workflow on each push to the main branch
+on:
+  push:
+    branches-ignore:
+      - master
+  pull_request:
+    branches:
+      - master
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: 🔧 Build and Test Hugo ${{ vars.ftp_website }}
+    runs-on: ubuntu-latest
+    # env:
+    #   FIREBASE_API_KEY: ${{ secrets.FIREBASE_API_KEY }}   # 🔑 hier komt je secret in de env
+
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          submodules: recursive
+          fetch-depth: 0
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: '0.145.0' #latest is broken
+          extended: true
+
+      - name: Build site with Hugo
+        run: hugo --minify
+
+      - name: Check HTML
+        uses: chabad360/htmlproofer@master
+        with:
+          directory: "./public"
+          arguments: --only-4xx --check-favicon --check-html --assume-extension --empty-alt-ignore --disable-external
+        continue-on-error: true

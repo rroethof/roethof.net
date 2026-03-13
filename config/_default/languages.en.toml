@@ -1,0 +1,35 @@
+disabled = false
+languageCode = "en"
+languageName = "English"
+weight = 1
+title = "Roethof.Net"
+
+[params]
+  displayName = "EN"
+  isoCode = "en"
+  rtl = false
+  dateFormat = "2 January 2006"
+  description = "roethof.net: a dossier of a hands-on enterprise IT practitioner. Raw, honest, and confronting issues like legacy systems, security debts, mismanagement, and staff exploitation."
+  socialDescription = "roethof.net is not a casual IT blog. A dossier of a front-line IT practitioner with deep technical analyses and philosophical reflections on productivity, work pressure, security, and mismanagement. A must-read for professionals."
+  #copyright = "&copy; Ronny Roethof, All rights reserved."
+  #keywords = "SystemAdmin,SecurityOfficer,GeneralNerd,Nerd,Father,Linux,Tips,Tutorials,Techblog"
+
+[params.author]
+  name = "Ronny Roethof"
+  email = "ronny@roethof.net"
+  image = "img/avatar.png"
+  imageQuality = 96
+  headline = "I'm only human"
+  bio = "A security-minded sysadmin who fights corporate BS with open source weapons and sarcasm"
+  links = [
+    { email = "mailto:ronny@roethof.net" },
+    { github = "https://github.com/rroethof" },
+    { instagram = "https://www.instagram.com/ronny.roethof/" },
+    { keybase = "https://keybase.io/rroethof" },
+    { linkedin = "https://www.linkedin.com/in/rroethof/" },
+    { spotify = "https://open.spotify.com/user/rroethof78" },
+    { twitter = "https://twitter.com/rroethof" }
+  ]
+
+[params.meta]
+  favicon = false
