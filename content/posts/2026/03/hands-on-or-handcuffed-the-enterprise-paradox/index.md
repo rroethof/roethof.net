@@ -60,7 +60,7 @@ The reward? A penalty.
 Leadership expresses surprise when senior talent departs en masse.  
 They watch a workforce evaporate in a matter of years,  
 failing to connect systemic neglect with burnout, stress, and real health impact  
-(see related [Burnout in Cybersecurity: The Crisis We're Still Ignoring](/posts/2025/04/what-cybersecurity-burnout-means/) and [*Hands‑on or Handcuffed*](/posts/2025/11/hands-on-or-handcuffed/)).
+(see related [Burnout in Cybersecurity: The Crisis We're Still Ignoring](/posts/2025/04/burnout-cybersecurity-crisis-still-ignored/) and [*Hands‑on or Handcuffed*](/posts/2025/11/hands-on-or-handcuffed/)).
 
 The enterprise demands senior accountability but offers entry‑level respect.  
 It expects the expert to be *hands‑on* in a crisis, yet keeps them *handcuffed* by bureaucracy when it comes to compensation.
