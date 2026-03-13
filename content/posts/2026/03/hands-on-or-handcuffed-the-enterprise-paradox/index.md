@@ -20,7 +20,7 @@ summary: "Exploring the hidden workload, compliance mirages and burnout risks fa
 description: "A deep dive into how enterprise IT policies, ISO27001 compliance and management practices create a Senior Specialist’s Tax and increase burnout risk."
 ---
 Enterprise IT is obsessed with “efficiency.”  
-In management‑speak, that usually means cutting costs until the structure creaks.  
+In management-speak, that usually means cutting costs until the structure starts to creak.
 When the foundation fractures, leadership looks for a senior specialist to hold the beams up.
 
 This is an update to my previous analysis on [*Hands‑on or Handcuffed*](/posts/2025/11/hands-on-or-handcuffed/).
