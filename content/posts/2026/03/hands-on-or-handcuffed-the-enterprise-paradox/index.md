@@ -28,7 +28,7 @@ This is an update to my previous analysis on [*Hands‑on or Handcuffed*](/posts
 ## The Invisible Load
 
 When key personnel leave, the workload doesn’t disappear.  
-It simply lands on those who stay—the ones who actually understand how the systems function.  
+It simply lands on those who stay, the ones who actually understand how the systems function.  
 This is the **Senior Specialist’s Tax**.
 
 Job titles are polite fictions.  
@@ -48,7 +48,7 @@ The logs tell a different story (see also [The Dutch Kill Switch: Kyndryl, Solvi
 
 Management sees these risks as abstract numbers on a dashboard.  
 The specialist sees a ticking time bomb.  
-When leadership fails to act on basic hygiene—like deprovisioning access—it’s not a lack of time.  
+When leadership fails to act on basic hygiene, like deprovisioning access, it’s not a lack of time.  
 It’s **operational negligence**.
 
 ## Weaponized KPIs
