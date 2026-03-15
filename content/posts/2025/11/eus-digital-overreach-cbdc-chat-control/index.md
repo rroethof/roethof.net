@@ -1,24 +1,22 @@
 ---
-title: "The EU's Digital Overreach: CBDC & Chat Control - Convenience for Whom?"
+title: 'The EU''s Digital Overreach: CBDC & Chat Control - Convenience for Whom?'
 slug: eus-digital-overreach-cbdc-chat-control
 date: 2025-11-01
 lastmod: 2025-11-01
 draft: false
-author: "Ronny Roethof"
-
+author: Ronny Roethof
 categories:
-- geopolitics
-
+- digital-sovereignty
 tags:
 - cbdc
 - chat-control
 - eu-policy
 - privacy
 - it-security
-- workload
-
-summary: "The EU's digital initiatives like CBDC and Chat Control raise questions about privacy, control, and IT workload."
-description: "The EU is a parasite, imposing its laws while aiming for total control. CBDC and Chat Control are its next digital line of attack."
+summary: The EU's digital initiatives like CBDC and Chat Control raise questions about
+  privacy, control, and IT workload.
+description: The EU is a parasite, imposing its laws while aiming for total control.
+  CBDC and Chat Control are its next digital line of attack.
 ---
 
 You thought the Digital Driver's License was the limit? Think again. The European Union, a totalitarian dictator in disguise, is now pushing full throttle for the Central Bank Digital Currency (CBDC) and the deeply controversial Chat Control legislation.

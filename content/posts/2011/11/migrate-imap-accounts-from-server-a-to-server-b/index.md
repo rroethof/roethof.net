@@ -1,21 +1,24 @@
 ---
-date: '2011-11-18T09:31:29+01:00'
+title: Migrate IMAP Accounts from Server A to Server B
+slug: migrate-imap-accounts-from-server-a-to-server-b
+date: 2011-11-18
+lastmod: 2011-11-18
 draft: false
-title: 'Migrate IMAP accounts from server A to server B'
-tags: 
-  - 'Imap'
-  - 'Email Migration'
-  - 'Server Migration'
-  - 'Linux'
-  - 'System Administration'
-  - 'Email Clients'
-  - 'IMAP Accounts'
+author: Ronny Roethof
 categories:
-  - System Management
-  - Linux & Open Source
-  - Networking
+- system-management
+tags:
+- imap
+- email-migration
+- server-migration
+- linux
+- system-administration
+cover: posts/2011/11/migrate-imap-accounts-from-server-a-to-server-b/cover.png
+summary: Guide for migrating IMAP accounts from one server to another using imapsync,
+  including authentication and folder setup.
+description: Step-by-step instructions to move IMAP accounts between servers efficiently
+  with imapsync, handling passwords, folders, and authentication.
 ---
-
 There is a easy to use tool that facilitates the quick’n dirty move of the content of one IMAP account to a new server. Its name is *imapsync*. 
 In Ubuntu, you may install it as this:
 

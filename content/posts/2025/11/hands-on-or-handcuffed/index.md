@@ -1,23 +1,21 @@
 ---
-title: "Hands-On or Handcuffed: An Engineer's Choice"
+title: 'Hands-On or Handcuffed: An Engineer''s Choice'
 slug: hands-on-or-handcuffed
 date: 2025-11-04
 lastmod: 2025-11-04
 draft: false
-author: "Ronny Roethof"
-
+author: Ronny Roethof
 categories:
-- tech
-
+- linux-open-source
 tags:
 - admin
 - open-source
-- linux
 - bureaucracy
 - career
-
-summary: "A reflection on engineering integrity versus corporate bureaucracy and the commitment to remain hands-on."
-description: "A reflection on the clash between engineering integrity and corporate bureaucracy, and the commitment to remain a hands-on problem-solver."
+summary: A reflection on engineering integrity versus corporate bureaucracy and the
+  commitment to remain hands-on.
+description: A reflection on the clash between engineering integrity and corporate
+  bureaucracy, and the commitment to remain a hands-on problem-solver.
 ---
 
 **Hands-On or Handcuffed: An Engineer's Choice**

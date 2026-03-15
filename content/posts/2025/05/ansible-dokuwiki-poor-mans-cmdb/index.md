@@ -1,11 +1,19 @@
 ---
-title: "My 'Poor Man's CMDB': An Ansible Throwback and a Modern Refresh"
+title: 'My ''Poor Man''s CMDB'': An Ansible Throwback and a Modern Refresh'
 date: 2025-05-09
 draft: false
-slug: "ansible-dokuwiki-poor-mans-cmdb"
-description: "A look back at a 10-year-old Ansible playbook for a DokuWiki-based CMDB, and an introduction to its updated task list for modern server documentation."
-categories: ["Ansible", "Automation", "DevOps", "SysAdmin"]
-tags: ["Ansible", "CMDB", "DokuWiki", "Automation", "InfrastructureAsCode", "LegacyCode", "ServerDocumentation"]
+slug: ansible-dokuwiki-poor-mans-cmdb
+description: A look back at a 10-year-old Ansible playbook for a DokuWiki-based CMDB,
+  and an introduction to its updated task list for modern server documentation.
+categories:
+- devops-infrastructure
+- career-sysadmin
+tags:
+- ansible
+- cmdb
+- dokuwiki
+- automation
+- infrastructureascode
 ---
 
 It's always a bit of a trip to look back at old projects. About a decade ago, I cobbled together an Ansible playbook designed to create a very basic, what I affectionately called, "Poor Man's CMDB" using DokuWiki. The idea was simple: use Ansible to gather information about servers and automatically generate wiki pages for them. No fancy databases, no complex frontends – just a straightforward way to get essential server data into an easily accessible format.

@@ -1,22 +1,12 @@
 ---
-title: "The Update Obsession: Are We Really Opening the Front Door to Cybercriminals?"
+title: 'The Update Obsession: Are We Really Opening the Front Door to Cybercriminals?'
 date: 2025-04-09
 draft: false
 slug: rant-update-obsession
 categories:
-  - Security & Privacy
-  - System Management
-  - Tech & Industry Insights
-  - System Hardening
-  - Security Best Practices
-  - Risk Management
-  - Usability in Security
-  - Human Factors in Security
-  - Sysadmin Life
-  - IT Health & Well-being
-  - Personal Reflections
-  - Burnout Prevention & Recovery
-  - Work-Life Balance
+- security-privacy
+- devops-infrastructure
+tags: []
 ---
 
 Okay, let's talk about updates. Specifically, the relentless, fear-mongering narrative that if you *dare* to postpone an update, you're basically rolling out the red carpet for cybercriminals. I recently stumbled upon a Dutch text (from the Digital Trust Center, no less!) that perfectly encapsulates this sentiment: "By postponing your updates, you're opening the front door for cybercriminals."  Really? Is it that black and white?

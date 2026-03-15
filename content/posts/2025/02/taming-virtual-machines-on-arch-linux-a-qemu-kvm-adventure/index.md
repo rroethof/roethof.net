@@ -1,25 +1,21 @@
 ---
-title: "Taming Virtual Machines on Arch Linux: A QEMU-KVM Adventure"
+title: 'Taming Virtual Machines on Arch Linux: A QEMU-KVM Adventure'
 slug: taming-virtual-machines-on-arch-linux-a-qemu-kvm-adventure
 date: 2025-02-25
 lastmod: 2025-02-25
 draft: false
-author: "Ronny Roethof"
-
+author: Ronny Roethof
 categories:
-- linux
-
+- linux-open-source
 tags:
 - virtualization
 - arch-linux
 - qemu
 - kvm
 - virtual-machines
-- system-administration
-- arch-kvm
-
-summary: "A hands-on exploration of virtualization on Arch Linux using QEMU-KVM."
-description: "Step-by-step adventure installing and managing virtual machines on Arch Linux with QEMU-KVM, covering configuration and workflow tips."
+summary: A hands-on exploration of virtualization on Arch Linux using QEMU-KVM.
+description: Step-by-step adventure installing and managing virtual machines on Arch
+  Linux with QEMU-KVM, covering configuration and workflow tips.
 ---
 
 So, you're ready to dive into the world of virtualization on Arch Linux? Awesome!  This guide will walk you through setting up QEMU-KVM, turning your machine into a virtual playground.  We'll keep things simple and focus on the essentials.

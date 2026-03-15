@@ -1,26 +1,22 @@
 ---
-title: "From FreeBSD and Debian to Arch: A Daily Driver Transition - Initial Impressions"
+title: 'From FreeBSD and Debian to Arch: A Daily Driver Transition - Initial Impressions'
 slug: from-freebsd-and-debian-to-arch-a-daily-driver-transition-initial-impressions
 date: 2025-02-01
 lastmod: 2025-02-01
 draft: false
-author: "Ronny Roethof"
-
+author: Ronny Roethof
 categories:
-- linux
-
+- linux-open-source
 tags:
 - arch-linux
 - bsd
 - debian
 - distro-migration
 - daily-driver
-- system-administration
-- command-line
-- transition
-
-summary: "My initial impressions transitioning from FreeBSD and Debian to Arch Linux as a daily driver."
-description: "A firsthand account of moving from FreeBSD and Debian to Arch Linux, covering workflow, system administration, and command-line experiences."
+summary: My initial impressions transitioning from FreeBSD and Debian to Arch Linux
+  as a daily driver.
+description: A firsthand account of moving from FreeBSD and Debian to Arch Linux,
+  covering workflow, system administration, and command-line experiences.
 ---
 
 For years, Debian has been my rock. A bastion of stability, it served me faithfully on servers and even as a daily driver. Before Debian, I spent a significant amount of time with FreeBSD, which I admire for its robust design. However, lately, I've felt a growing itch for something more... dynamic. So, I'm making the leap: I'm switching my daily driver laptop to Arch Linux. Here's a breakdown of my reasoning and initial impressions:

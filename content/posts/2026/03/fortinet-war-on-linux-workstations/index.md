@@ -1,24 +1,21 @@
 ---
-title: "Fortinet’s Quiet War on Linux Workstations"
-slug: "fortinet-war-on-linux-workstations"
+title: Fortinet’s Quiet War on Linux Workstations
+slug: fortinet-war-on-linux-workstations
 date: 2026-03-12
-author: "Ronny Roethof"
+author: Ronny Roethof
 draft: false
-
 categories:
-- security
-
+- security-privacy
 tags:
 - linux
 - fortinet
 - enterprise-it
 - sysadmin
 - infosec
-- vendor-lock-in
-- it-strategy
-
-summary: "How Fortinet’s licensing changes force Linux engineers into costly VPN workarounds, creating operational risk."
-description: "Fortinet removes SSL VPN tunnel mode in FortiOS 7.6.3, forcing Linux users into costly workarounds and increasing operational risk."
+summary: How Fortinet’s licensing changes force Linux engineers into costly VPN workarounds,
+  creating operational risk.
+description: Fortinet removes SSL VPN tunnel mode in FortiOS 7.6.3, forcing Linux
+  users into costly workarounds and increasing operational risk.
 ---
 
 ## Fortinet’s Quiet War on Linux Workstations

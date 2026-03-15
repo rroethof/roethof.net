@@ -1,11 +1,21 @@
 ---
-title: "EU Sells Out 450 Million Citizens: Israel Gets OUR Data While Fining TikTok for the SAME THING? What the Actual Fuck?"
+title: 'EU Sells Out 450 Million Citizens: Israel Gets OUR Data While Fining TikTok
+  for the SAME THING? What the Actual Fuck?'
 date: 2025-05-04
 draft: false
-tags: ["EU", "Israel", "Data Sharing", "Privacy", "Government Failure", "Sovereignty", "Citizen Rights", "Netherlands", "Referendum 2005", "EURODAC", "Betrayal", "Data Breach", "GDPR", "Hypocrisy", "TikTok"]
-categories: ["Security & Privacy", "Politics & Government", "Personal Reflections"]
-description: "The EU, an entity I explicitly voted against, just handed over ALL EU citizens' data to Israel while fining TikTok €530M for sending data to China. This isn't governance; it's treasonous hypocrisy."
-slug: "eu-gives-citizen-data-to-israel-fuck-our-privacy"
+tags:
+- eu
+- israel
+- data sharing
+- privacy
+- government failure
+categories:
+- security-privacy
+- digital-sovereignty
+description: The EU, an entity I explicitly voted against, just handed over ALL EU
+  citizens' data to Israel while fining TikTok €530M for sending data to China. This
+  isn't governance; it's treasonous hypocrisy.
+slug: eu-gives-citizen-data-to-israel-fuck-our-privacy
 ---
 
 ## Introduction: So Much for Sovereignty, The EU Just Pissed on Our Rights (And Our Wallets)

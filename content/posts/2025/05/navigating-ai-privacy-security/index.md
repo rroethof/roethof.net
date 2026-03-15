@@ -1,11 +1,19 @@
 ---
-title: "Beyond the Hype: Navigating AI's Power and the Critical Privacy Line"
+title: 'Beyond the Hype: Navigating AI''s Power and the Critical Privacy Line'
 date: 2025-05-05
 draft: false
-slug: "navigating-ai-privacy-security"
-description: "AI is incredibly useful, but where is the fine line on privacy and security, especially with GDPR? Let's explore the risks and responsible use."
-categories: ["AI", "Cybersecurity", "Privacy"]
-tags: ["AI", "Automation", "Privacy", "Security", "GDPR", "Compliance", "Responsible AI"]
+slug: navigating-ai-privacy-security
+description: AI is incredibly useful, but where is the fine line on privacy and security,
+  especially with GDPR? Let's explore the risks and responsible use.
+categories:
+- ai-tech-insights
+- security-privacy
+tags:
+- ai
+- automation
+- privacy
+- gdpr
+- compliance
 ---
 
 ## AI: Acknowledging the Power

@@ -1,25 +1,22 @@
 ---
-title: "The State of SSH: Neglect Disguised as Stability"
+title: 'The State of SSH: Neglect Disguised as Stability'
 slug: state-of-ssh-neglect-disguised-as-stability
 date: 2026-01-22
 lastmod: 2026-01-22
 draft: false
-author: "Ronny Roethof"
-
+author: Ronny Roethof
 categories:
-- security
-
+- security-privacy
 tags:
 - ssh
-- security
 - devops
 - ed25519
 - certificates
 - identity
-- access-control
-
-summary: "SSH infrastructure is often treated as stable, but neglect can create hidden vulnerabilities in enterprise environments."
-description: "A deep dive into SSH security practices, infrastructure oversight, and why neglecting access controls risks system compromise."
+summary: SSH infrastructure is often treated as stable, but neglect can create hidden
+  vulnerabilities in enterprise environments.
+description: A deep dive into SSH security practices, infrastructure oversight, and
+  why neglecting access controls risks system compromise.
 ---
 
 ### The State of SSH: Neglect Disguised as Stability

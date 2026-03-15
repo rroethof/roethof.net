@@ -1,28 +1,19 @@
 ---
-title: "Burnout in Cybersecurity: The Crisis We're Still Ignoring (Now With Data)"
+title: 'Burnout in Cybersecurity: The Crisis We''re Still Ignoring (Now With Data)'
 date: 2025-04-23
 draft: false
 tags:
-  - Burnout
-  - CISO
-  - Cybersecurity
-  - Forrester
-  - Human Factor
-  - IT Health
-  - Mental Health
-  - Personal Cost
-  - Sleep Deprivation
-  - Stress
-  - Sysadmin Life
-  - Well-being
-  - Workload
+- burnout
+- ciso
+- cybersecurity
+- forrester
+- human factor
 categories:
-  - Industry Trends
-  - My Perspective
-  - Personal Story
-  - Well-being
-description: "Revisiting the burnout crisis with shocking new data from Forrester and the harsh reality of my own health consequences. It's worse than we thought."
-slug: "burnout-cybersecurity-crisis-still-ignored" # Updated slug
+- health-ergonomics
+- opinion-reflections
+description: Revisiting the burnout crisis with shocking new data from Forrester and
+  the harsh reality of my own health consequences. It's worse than we thought.
+slug: burnout-cybersecurity-crisis-still-ignored
 ---
 
 Let's cut the usual cybersecurity bullshit about tech for a minute. Forget the zero-trust frameworks, the AI-powered threat detection, all of it. Let's talk about the *people*. The ones pulling the insane hours, living under constant pressure, the ones treated like disposable cogs in the machine until they shatter.

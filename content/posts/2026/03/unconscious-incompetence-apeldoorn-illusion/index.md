@@ -1,24 +1,22 @@
 ---
-title: "The Apeldoorn Illusion: A Post-Mortem of Dutch Digital Sovereignty"
+title: 'The Apeldoorn Illusion: A Post-Mortem of Dutch Digital Sovereignty'
 slug: unconscious-incompetence-apeldoorn-illusion-deep-dive
 date: 2026-03-06
 lastmod: 2026-03-06
 draft: false
-author: "Ronny Roethof"
-
+author: Ronny Roethof
 categories:
-- security
-
+- security-privacy
 tags:
 - enterprise
 - systemic-failure
 - it
 - ciso
 - accountability
-- digital-sovereignty
-
-summary: "A post-mortem of Dutch digital sovereignty failures, exploring enterprise and systemic IT accountability."
-description: "Exploring how Dutch digital sovereignty initiatives fail in practice and what enterprise IT can learn from systemic governance issues."
+summary: A post-mortem of Dutch digital sovereignty failures, exploring enterprise
+  and systemic IT accountability.
+description: Exploring how Dutch digital sovereignty initiatives fail in practice
+  and what enterprise IT can learn from systemic governance issues.
 ---
 
 The Dutch government has developed a new strategy for managing critical infrastructure, which I personally call **the digital fuckups**. The recent decision to hand the core of the Netherlands' VAT collection system to the American firm Fast Enterprises is not a strategic partnership. It is a structural collapse of governance, driven by high workload pressure and profound, "unconscious incompetence" at the highest levels of the state.

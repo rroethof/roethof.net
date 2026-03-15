@@ -1,11 +1,20 @@
 ---
-title: "That Cybersecurity Alarm Bell? It's Ringing for All of Us in the Netherlands."
+title: That Cybersecurity Alarm Bell? It's Ringing for All of Us in the Netherlands.
 date: 2025-06-17
 draft: false
-slug: "digital-security-nl-political-urgency"
-description: "The CISO Platform Nederland's urgent call for political action on cybersecurity isn't just noise – it's a critical signal. Here's why it matters to me, to us in tech, and to the future of our digital nation."
-categories: ["Technology", "Security", "Netherlands"]
-tags: ["Cybersecurity", "Politics", "Digital Transformation", "Tech Community", "National Security"]
+slug: digital-security-nl-political-urgency
+description: The CISO Platform Nederland's urgent call for political action on cybersecurity
+  isn't just noise – it's a critical signal. Here's why it matters to me, to us in
+  tech, and to the future of our digital nation.
+categories:
+- ai-tech-insights
+- security-privacy
+tags:
+- cybersecurity
+- politics
+- digital transformation
+- tech community
+- national security
 ---
 
 The recent alarm bell from CISO Platform Nederland didn't just catch my eye; it hit close to home. As someone neck-deep in tech, witnessing our world become ever more digital, their call for urgent political focus on cybersecurity isn't just noise – it's a critical signal. It's not some abstract worry; it has very real implications for our economy, our society, and the digital foundations we're all building on.

@@ -1,11 +1,20 @@
 ---
-title: "You Blocked ChatGPT? That’s Cute. Your Data Still Leaks."
+title: You Blocked ChatGPT? That’s Cute. Your Data Still Leaks.
 date: 2025-06-19
 draft: false
-slug: "blocking-chatgpt-is-cute"
-description: "In sectors like healthcare and SMBs, AI is being adopted faster than it's being secured. Here's why blocking tools is a failing strategy, and what to do instead."
-categories: ["Security", "Rant"]
-tags: ["AI", "ChatGPT", "Data-Protection", "Security-Theater", "Shadow-IT", "Healthcare", "SMB"]
+slug: blocking-chatgpt-is-cute
+description: In sectors like healthcare and SMBs, AI is being adopted faster than
+  it's being secured. Here's why blocking tools is a failing strategy, and what to
+  do instead.
+categories:
+- security-privacy
+- opinion-reflections
+tags:
+- ai
+- chatgpt
+- data-protection
+- security-theater
+- shadow-it
 ---
 
 A recent quote making the rounds nails the current AI chaos:

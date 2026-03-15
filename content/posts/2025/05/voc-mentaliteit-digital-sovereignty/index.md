@@ -1,11 +1,19 @@
 ---
-title: "Reclaiming Digital Sovereignty: Time for Real VOC-mentaliteit"
+title: 'Reclaiming Digital Sovereignty: Time for Real VOC-mentaliteit'
 date: 2025-05-16
 draft: false
-slug: "voc-mentaliteit-digital-sovereignty"
-description: "Why the Netherlands, and Europe, must throw off digital chains and rediscover its fighting spirit."
-categories: ["Opinion", "Tech", "Politics", "Sovereignty"]
-tags: ["Microsoft", "Europe", "Cloud", "Sovereignty", "US", "VOCmentaliteit"]
+slug: voc-mentaliteit-digital-sovereignty
+description: Why the Netherlands, and Europe, must throw off digital chains and rediscover
+  its fighting spirit.
+categories:
+- opinion-reflections
+- ai-tech-insights
+tags:
+- microsoft
+- europe
+- cloud
+- sovereignty
+- us
 ---
 
 Let’s cut the crap. If there was ever a time to channel our old Dutch VOC-mentaliteit, it’s now. The digital world is controlled by a handful of American tech giants and spineless bureaucrats in Brussels. Every day we read headlines about Microsoft “protecting” Europe or the EU “ensuring” our digital future. What a joke.

@@ -1,20 +1,20 @@
 ---
-title: "Farewell to Remote Work? The Future is Trust, Not Control - A Deeper Dive"
+title: Farewell to Remote Work? The Future is Trust, Not Control - A Deeper Dive
 date: 2025-07-01
 draft: false
-slug: "farewell-remote-work-future-is-trust-deeper-dive"
-description: "Reflecting on the shift away from remote work in 2025 and exploring diverse perspectives on why the future of work hinges on trust and employee autonomy, not a return to traditional office frameworks."
+slug: farewell-remote-work-future-is-trust-deeper-dive
+description: Reflecting on the shift away from remote work in 2025 and exploring diverse
+  perspectives on why the future of work hinges on trust and employee autonomy, not
+  a return to traditional office frameworks.
 categories:
-  - Future of Work
-  - Leadership
-  - Technology
+- career-sysadmin
+- ai-tech-insights
 tags:
-  - RemoteWork
-  - HybridWork
-  - Trust
-  - Productivity
-  - AI
-  - WorkplaceCulture
+- remotework
+- hybridwork
+- trust
+- productivity
+- ai
 ---
 
 ### Farewell to Remote Work (2020–2024)

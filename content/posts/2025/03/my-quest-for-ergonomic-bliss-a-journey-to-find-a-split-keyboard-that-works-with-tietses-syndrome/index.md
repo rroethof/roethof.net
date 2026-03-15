@@ -1,22 +1,17 @@
 ---
-title: "My Quest for Ergonomic Bliss: A Journey to Find a Split Keyboard that Works with Tietze's Syndrome"
+title: 'My Quest for Ergonomic Bliss: A Journey to Find a Split Keyboard that Works
+  with Tietze''s Syndrome'
 date: 2025-03-01
 draft: false
 tags:
-  - 'ergonomic design' 
-  - 'split keyboards'
-  - 'tietses syndrome'
-  - 'ergonomic keyboarding'
-  - 'health and wellness'
+- ergonomic design
+- split keyboards
+- tietses syndrome
+- ergonomic keyboarding
+- health and wellness
 categories:
-  - Ergonomics & Health
-  - Keyboards & Input Devices
-  - Split Keyboards
-  - Personal Reflections
-  - Personal Computing & Productivity
-  - Health Conditions & Technology
-  - Assistive Technology
-  - Product Reviews
+- health-ergonomics
+- personal-computing
 ---
 
 My recent heart attack in September 2024 was a wake-up call, forcing me to re-evaluate my priorities and make significant changes to my daily life. While I'm grateful to have survived, the aftermath has been a journey of self-discovery and adaptation. 

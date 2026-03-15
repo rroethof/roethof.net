@@ -1,22 +1,18 @@
 ---
-title: "The Death of the Architect: How AI Hijacks the Technical Soul"
+title: 'The Death of the Architect: How AI Hijacks the Technical Soul'
 slug: death-of-the-architect-ai-hijacks-technical-soul
 date: 2026-03-07
-author: "Ronny Roethof"
+author: Ronny Roethof
 draft: false
-
 categories:
-- ai
-
+- linux-open-source
 tags:
-- linux
 - ciso
 - pentesting
 - ansible
 - enshittification
-- technical-debt
-
-description: "AI tools are changing software architecture and engineering culture, increasing technical debt while reshaping the role of experienced architects."
+description: AI tools are changing software architecture and engineering culture,
+  increasing technical debt while reshaping the role of experienced architects.
 ---
 
 The internet is becoming a high-speed open sewer. Since the rise of generative AI, everyone can create content with minimal effort - and what we are witnessing now is merely the opening sequence. Meta is rolling out tools for fully automated advertising campaigns: you provide a website, a goal, and a budget, and the system handles everything. Video, images, copy. Not a single human touches the process.

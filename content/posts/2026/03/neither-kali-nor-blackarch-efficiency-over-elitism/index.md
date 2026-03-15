@@ -1,23 +1,21 @@
 ---
-title: "Efficiency is not a Flex: Beyond the 'I Use Arch, BTW' Meme"
+title: 'Efficiency is not a Flex: Beyond the ''I Use Arch, BTW'' Meme'
 slug: efficiency-is-not-a-flex-beyond-arch-meme
 date: 2026-03-06
 lastmod: 2026-03-06
 draft: false
-author: "Ronny Roethof"
-
+author: Ronny Roethof
 categories:
-- linux
-
+- linux-open-source
 tags:
 - cybersecurity
 - cachyos
 - efficiency
-- linux
 - career
-
-summary: "Using Arch Linux isn’t inherently more efficient — here’s why tech efficiency is about practices, not distro choice."
-description: "A critical look at the 'I Use Arch, BTW' meme and why efficiency in IT is more than just your Linux distribution."
+summary: Using Arch Linux isn’t inherently more efficient — here’s why tech efficiency
+  is about practices, not distro choice.
+description: A critical look at the 'I Use Arch, BTW' meme and why efficiency in IT
+  is more than just your Linux distribution.
 ---
 
 ## The LinkedIn Distraction

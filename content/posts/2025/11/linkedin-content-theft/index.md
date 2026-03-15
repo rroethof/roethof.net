@@ -1,19 +1,20 @@
 ---
-title: "Content Theft on LinkedIn: A Professional Problem Worth Addressing"
+title: 'Content Theft on LinkedIn: A Professional Problem Worth Addressing'
 date: 2025-11-17
 draft: false
-slug: "linkedin-content-theft"
+slug: linkedin-content-theft
 categories:
-  - "Professionalism"
-  - "Content"
-  - "Ethics"
+- career-sysadmin
+- personal-computing
 keywords:
-  - "LinkedIn"
-  - "Content Theft"
-  - "Professional Integrity"
-  - "Attribution"
-  - "Original Content"
-description: "Why content theft on LinkedIn is becoming more common, why it matters, and how professionals should handle content creation and attribution."
+- LinkedIn
+- Content Theft
+- Professional Integrity
+- Attribution
+- Original Content
+description: Why content theft on LinkedIn is becoming more common, why it matters,
+  and how professionals should handle content creation and attribution.
+tags: []
 ---
 
 LinkedIn has become the default stage for professionals to exchange knowledge, share insights, and showcase expertise. The platform rewards visibility, which in turn rewards content. But the race for visibility has also created a predictable side effect: an increase in copied, repackaged, or outright stolen content.

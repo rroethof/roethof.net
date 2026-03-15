@@ -1,23 +1,25 @@
 ---
-date: '2011-11-18T09:32:29+01:00'
+title: Postfix IPv6 Capable with RBL and BIND9 as DNSBL
+slug: postfix-ipv6-capable-rbl-bind9-dnsbl
+date: 2011-11-18
+lastmod: 2011-11-18
 draft: false
-title: 'Postfix IPv6 capable + RBL + BIND9 as DNSBL'
-tags:
-  - 'Postfix'
-  - 'IPv6'
-  - 'DNSBL'
-  - 'BIND 9'
-  - 'RBLs'
-  - 'Email Security'
-  - 'Spam Filtering'
+author: Ronny Roethof
+cover: posts/2011/11/postfix-ipv6-capable-rbl-bind9-dnsbl/cover.jpg
 categories:
-  - Linux & Open Source
-  - Infrastructure & Servers
-  - System Management
-  - Networking
-  - Security & Privacy
+- linux-open-source
+- devops-infrastructure
+tags:
+- postfix
+- ipv6
+- dnsbl
+- bind9
+- rbls
+summary: Setting up Postfix with IPv6 support and integrating BIND9 as a DNS-based
+  blacklist to block spam efficiently.
+description: Step-by-step guide to configure Postfix with IPv6 capable RBLs using
+  BIND9, including zone files, CNAME efficiency, and testing.
 ---
-
 Here we go again…
 For using ipv6 dnsbl, we need postfix version => 2.6 as the author of postfix state in postfix-users list.
 

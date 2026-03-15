@@ -1,24 +1,22 @@
 ---
-title: "Hands-On AI Prompt Engineering for Sysadmins"
+title: Hands-On AI Prompt Engineering for Sysadmins
 slug: ai-prompt-engineering-sysadmins
 date: 2025-11-13
 lastmod: 2025-11-13
 draft: false
-author: "Ronny Roethof"
-
+author: Ronny Roethof
 categories:
-- ai
-
+- ai-tech-insights
 tags:
 - ai
 - prompt-engineering
 - sysadmin
 - automation
 - logs
-- monitoring
-
-summary: "Practical AI prompt frameworks and examples for sysadmins and tech professionals to generate actionable repeatable results."
-description: "Practical AI prompt frameworks and examples for sysadmins and tech professionals to generate actionable, repeatable results."
+summary: Practical AI prompt frameworks and examples for sysadmins and tech professionals
+  to generate actionable repeatable results.
+description: Practical AI prompt frameworks and examples for sysadmins and tech professionals
+  to generate actionable, repeatable results.
 ---
 
 

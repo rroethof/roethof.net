@@ -1,29 +1,18 @@
 ---
-title: "Navigating the Ergonomic Landscape: Exploring Split Keyboard Options in My Quest for Comfort"
-date: "2025-04-01"
+title: 'Navigating the Ergonomic Landscape: Exploring Split Keyboard Options in My
+  Quest for Comfort'
+date: '2025-04-01'
 draft: false
-slug: "ergonomic-keyboard-research"
+slug: ergonomic-keyboard-research
 tags:
-  - 'ergonomic design'
-  - 'split keyboards'
-  - 'tietses syndrome'
-  - 'ergonomic keyboarding'
-  - 'health and wellness'
-  - 'keyboard research'
-  - 'splitkb.com'
-  - 'zsa voyager'
-  - 'dygma defy'
-  - 'iris ce'
-  - 'sofle choc pro'
+- ergonomic design
+- split keyboards
+- tietses syndrome
+- ergonomic keyboarding
+- health and wellness
 categories:
-  - Ergonomics & Health
-  - Keyboards & Input Devices
-  - Split Keyboards
-  - Personal Reflections
-  - Personal Computing & Productivity
-  - Health Conditions & Technology
-  - Assistive Technology
-  - Product Research
+- health-ergonomics
+- personal-computing
 ---
 ## Introduction: Seeking Ergonomic Support at Work
 

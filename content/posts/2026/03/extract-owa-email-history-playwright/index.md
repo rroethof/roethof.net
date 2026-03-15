@@ -1,25 +1,19 @@
 ---
-title: "If You Can Read It in OWA, You Can Archive It: A Playwright Approach"
-slug: "extract-owa-email-history-playwright"
-date: 2026-03-11T12:00:00+01:00
+title: 'If You Can Read It in OWA, You Can Archive It: A Playwright Approach'
+slug: extract-owa-email-history-playwright
+date: 2026-03-11 12:00:00+01:00
 draft: false
-
 categories:
-- security
-
+- security-privacy
 tags:
 - python
 - playwright
 - owa
 - data-ownership
 - gdpr
-- compliance
-- workplace
-- docker
-
-author: "Ronny Roethof"
-
-description: "Extract and archive Outlook Web Access email using Python and Playwright for compliance, GDPR data ownership and personal archiving."
+author: Ronny Roethof
+description: Extract and archive Outlook Web Access email using Python and Playwright
+  for compliance, GDPR data ownership and personal archiving.
 ---
 
 

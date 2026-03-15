@@ -1,23 +1,22 @@
 ---
-title: "The Badge, The Burnout, and the Backdoor: Why Scammers Love Your CISO"
+title: 'The Badge, The Burnout, and the Backdoor: Why Scammers Love Your CISO'
 slug: the-tired-admin-scam-gamification
 date: 2026-02-01
 lastmod: 2026-02-01
 draft: false
-author: "Ronny Roethof"
-
+author: Ronny Roethof
 categories:
-- security
-
+- security-privacy
 tags:
 - social-engineering
 - burnout
 - corporate-failure
 - gamification
 - security-awareness
-
-summary: "How burnout and gamification create easy targets for social engineering attacks on enterprise admins."
-description: "A deep dive into why enterprise CISOs and IT staff are vulnerable to scams and corporate burnout, and how gamification can backfire."
+summary: How burnout and gamification create easy targets for social engineering attacks
+  on enterprise admins.
+description: A deep dive into why enterprise CISOs and IT staff are vulnerable to
+  scams and corporate burnout, and how gamification can backfire.
 ---
 
 ## The Intelligence Trap

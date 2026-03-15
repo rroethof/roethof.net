@@ -1,18 +1,16 @@
 ---
 date: '2025-03-20'
 draft: false
-title: 'Why I Decided to Move My Weblogs to Hugo'
-tags: 
-  - 'Web Development'
-  - 'Blogging'
-  - 'Hugo'
-  - 'Content Management'
-  - 'Productivity'
+title: Why I Decided to Move My Weblogs to Hugo
+tags:
+- web development
+- blogging
+- hugo
+- content management
+- productivity
 categories:
-  - Blogging & Content Management
-  - Linux & Open Source
-  - Personal Computing & Productivity
-  - Tech & Industry Insights
+- personal-computing
+- linux-open-source
 ---
 
 For years, I've been passionate about sharing my technical findings, ponderings and open-source insights through a weblog. My journey started with hand-crafted HTML, evolved into a PHP-powered custom database solution and eventually landed me with WordPress. While each approach had its merits, they all shared a common Achilles' heel: maintenance.

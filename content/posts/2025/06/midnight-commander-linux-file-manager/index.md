@@ -1,20 +1,20 @@
 ---
-title: "Midnight Commander: The Linux Terminal File Manager That Beats the Rest"
+title: 'Midnight Commander: The Linux Terminal File Manager That Beats the Rest'
 date: 2025-06-30
 draft: false
-slug: "midnight-commander-linux-file-manager"
-description: "Discover why Midnight Commander (mc) is considered by many to be the ultimate terminal-based file manager for Linux, offering powerful features for efficient file management."
+slug: midnight-commander-linux-file-manager
+description: Discover why Midnight Commander (mc) is considered by many to be the
+  ultimate terminal-based file manager for Linux, offering powerful features for efficient
+  file management.
 categories:
-  - Linux
-  - Productivity
-  - Tools
+- linux-open-source
+- personal-computing
 tags:
-  - Midnight Commander
-  - mc
-  - Terminal
-  - File Management
-  - Linux Utilities
-  - Command Line
+- midnight commander
+- mc
+- terminal
+- file management
+- linux utilities
 ---
 
 When it comes to managing files on Linux, especially for those who spend a lot of time in the terminal, the sheer number of options can be overwhelming. However, one classic tool consistently stands out: **Midnight Commander (mc)**.

@@ -1,26 +1,23 @@
 ---
-title: "Inception-Level Evasion: When Your EDR Can’t See the Linux VM Hiding in Windows"
+title: 'Inception-Level Evasion: When Your EDR Can’t See the Linux VM Hiding in Windows'
 slug: inception-level-evasion-edr-linux-vm
 date: 2025-11-06
 lastmod: 2025-11-06
 draft: false
-author: "Ronny Roethof"
-
+author: Ronny Roethof
 categories:
-- security
-
+- security-privacy
 tags:
 - ciso
 - threat-intel
 - edr
 - virtualization
 - evasion
-- security-blindspot
-- wsl
-- hyper-v
-
-summary: "Pro-Russian hackers exploit Linux VMs inside Windows to bypass EDR, creating a critical security blind spot."
-description: "Pro-Russian hackers are using Linux VMs inside Windows to completely bypass your EDR. An architectural nightmare that proves your security stack has a critical blind spot."
+summary: Pro-Russian hackers exploit Linux VMs inside Windows to bypass EDR, creating
+  a critical security blind spot.
+description: Pro-Russian hackers are using Linux VMs inside Windows to completely
+  bypass your EDR. An architectural nightmare that proves your security stack has
+  a critical blind spot.
 ---
 
 I saw a post on LinkedIn recently that really stopped me mid-scroll. The core takeaway was simple and terrifying: hackers just went *full Inception*.

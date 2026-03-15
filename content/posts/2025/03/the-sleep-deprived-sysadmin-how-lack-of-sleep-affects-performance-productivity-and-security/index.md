@@ -2,26 +2,15 @@
 date: '2025-03-23'
 draft: false
 title: 'The Sleep-Deprived Sysadmin: A Personal Journey Through Burnout and Recovery'
-tags: 
-  - 'sleep-deprivation'
-  - 'burnout'
-  - 'productivity-hacks'
-  - 'security-tips'
-  - 'it-health'
-  - 'digital-wellness'
-  - 'tech-wellbeing'
-  - 'career-advice'
+tags:
+- sleep-deprivation
+- burnout
+- productivity-hacks
+- security-tips
+- it-health
 categories:
-  - Burnout Prevention & Recovery
-  - Career & Professional Development
-  - Ergonomics & Health
-  - Personal Health Journeys
-  - Personal Reflections
-  - Sleep Science & Hygiene
-  - Work-Life Balance
-  - Sysadmin Life
-  - IT Health & Well-being
-  - Productivity Strategies for Tech Professionals
+- health-ergonomics
+- career-sysadmin
 ---
 
 ## Introduction: The Silent Struggle of a Sysadmin

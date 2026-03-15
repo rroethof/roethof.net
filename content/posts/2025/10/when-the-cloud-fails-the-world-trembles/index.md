@@ -1,27 +1,20 @@
 ---
 date: '2025-10-28T12:00:00+01:00'
 draft: false
-title: 'When the Cloud Falls, the World Trembles'
+title: When the Cloud Falls, the World Trembles
 tags:
-  - 'cloud'
-  - 'aws'
-  - 'outage'
-  - 'mainframe'
-  - 'resilience'
-  - 'private cloud'
-  - 'hybrid cloud'
-  - 'proxmox'
-  - 'control'
-  - 'digital sovereignty'
-  - 'infrastructure'
+- cloud
+- aws
+- outage
+- mainframe
+- resilience
 categories:
-  - 'Cloud Computing'
-  - 'IT Infrastructure'
-  - 'Technology & Society'
-  - 'Hybrid Cloud'
-  - 'Security & Privacy'
-description: "A recent AWS outage highlights the critical dependency on public cloud providers, contrasting their fragility with the enduring resilience of mainframes and advocating for balanced hybrid and private cloud strategies."
-slug: "when-the-cloud-falls-the-world-trembles"
+- devops-infrastructure
+- digital-sovereignty
+description: A recent AWS outage highlights the critical dependency on public cloud
+  providers, contrasting their fragility with the enduring resilience of mainframes
+  and advocating for balanced hybrid and private cloud strategies.
+slug: when-the-cloud-falls-the-world-trembles
 ---
 
 But the Mainframe and Private Infrastructure Keep Running.

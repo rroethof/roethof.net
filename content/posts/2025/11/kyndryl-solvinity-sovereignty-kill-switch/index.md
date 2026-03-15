@@ -1,11 +1,20 @@
 ---
-title: "The Dutch Kill Switch: Kyndryl, Solvinity, and the Sovereignty Mirage"
+title: 'The Dutch Kill Switch: Kyndryl, Solvinity, and the Sovereignty Mirage'
 date: 2025-11-10
 draft: false
 slug: kyndryl-solvinity-sovereignty-kill-switch
-tags: ["Sovereignty", "Cloud Act", "Kyndryl", "Solvinity", "Geopolitics", "National Security", "Digital Identity", "CISO Stress", "SPOF"]
-categories: ["Cybersecurity", "Technical Deep Dive", "Opinion", "Geopolitics"]
-description: "Kyndryl's acquisition of Solvinity and its subsequent claim of a 'sovereign solution' for the Netherlands puts critical infrastructure, including DigiD, JuBIT3, and the AIVD cloud, potentially under US jurisdiction via the CLOUD Act."
+tags:
+- sovereignty
+- cloud act
+- kyndryl
+- solvinity
+- geopolitics
+categories:
+- security-privacy
+- devops-infrastructure
+description: Kyndryl's acquisition of Solvinity and its subsequent claim of a 'sovereign
+  solution' for the Netherlands puts critical infrastructure, including DigiD, JuBIT3,
+  and the AIVD cloud, potentially under US jurisdiction via the CLOUD Act.
 ---
 
 Kyndryl, the IBM spin-off, has acquired Dutch cloud provider Solvinity and is already marketing the deal as a "sovereign solution" for the Dutch market. This claim is not just misleading; it's a dangerous fiction. Given Solvinity’s client list, which includes the digital backbone of the Dutch state, this acquisition represents a catastrophic failure of operational foresight and a direct threat to national and European security objectives.

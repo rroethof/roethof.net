@@ -1,24 +1,22 @@
 ---
-title: "The DJI and AP Collapse: A Masterclass in Institutional Hypocrisy"
+title: 'The DJI and AP Collapse: A Masterclass in Institutional Hypocrisy'
 slug: dji-ap-collapse-institutional-hypocrisy
 date: 2026-02-27
 lastmod: 2026-02-27
 draft: false
-author: "Ronny Roethof"
-
+author: Ronny Roethof
 categories:
-- security
-
+- security-privacy
 tags:
 - dji
 - autoriteit-persoonsgegevens
 - ivanti
 - cybersecurity
 - systemic-failure
-- rce
-
-summary: "A case study of institutional failures in cybersecurity and governance, highlighting systemic risks in enterprise IT."
-description: "Examining how DJI and Autoriteit Persoonsgegevens mishandled security governance, exposing systemic failures in enterprise IT management."
+summary: A case study of institutional failures in cybersecurity and governance, highlighting
+  systemic risks in enterprise IT.
+description: Examining how DJI and Autoriteit Persoonsgegevens mishandled security
+  governance, exposing systemic failures in enterprise IT management.
 --- 
 
 ## Summary

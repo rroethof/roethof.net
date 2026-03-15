@@ -1,29 +1,22 @@
 ---
-title: "Digital Vassals: Why the EU’s Big Mouth Is a Suicide Note"
+title: 'Digital Vassals: Why the EU’s Big Mouth Is a Suicide Note'
 slug: digital-vassals-eu-suicide-note
 date: 2026-01-08
 lastmod: 2026-01-08
 draft: false
-author: "Ronny Roethof"
-
+author: Ronny Roethof
 categories:
-- politics
-
+- digital-sovereignty
 tags:
 - open-source
 - cloud-act
 - sovereignty
 - usa
 - denmark
-- nato
-- geopolitics
-- greenland
-- cloudflare
-- aws
-- azure
-
-summary: "How EU policies, digital sovereignty, and cloud dependencies put member states at systemic risk."
-description: "Examining why the EU’s approach to digital governance exposes nations to systemic failures, cloud dependence, and sovereignty issues."
+summary: How EU policies, digital sovereignty, and cloud dependencies put member states
+  at systemic risk.
+description: Examining why the EU’s approach to digital governance exposes nations
+  to systemic failures, cloud dependence, and sovereignty issues.
 ---
 ### The Greenland Situation: A Delusion
 

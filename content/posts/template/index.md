@@ -1,22 +1,21 @@
 ---
-title: "YOUR ARTICLE TITLE HERE"
-slug: your-article-slug-here
-date: 1970-01-01
-author: "Ronny Roethof"
+title: "Your Post Title"
+slug: your-post-slug
+date: YYYY-MM-DD
+lastmod: YYYY-MM-DD
 draft: true
+author: "Ronny Roethof"
 
 categories:
-- category1
-- category2
+- <one-of-core-categories>
 
 tags:
-- tag1
-- tag2
-- tag3
-- tag4
-- tag5
+- normalized
+- tags
+- here
 
-summary: "A short, punchy one-line summary capturing the essence of the article."
+cover: posts/YYYY/MM/your-post/cover.png
 
-description: "A slightly longer, SEO-friendly description that explains what the article is about and entices readers to click."
+summary: "Short preview of the post for homepage and category pages."
+description: "SEO meta description explaining the post content in 155–160 characters."
 ---

@@ -1,22 +1,14 @@
 ---
 date: '2025-03-22'
 draft: false
-title: "The Paradox of Excessive Security Measures: When Does 'Safer' Become 'Overkill'?"
+title: 'The Paradox of Excessive Security Measures: When Does ''Safer'' Become ''Overkill''?'
 tags:
-  - 'security'
-  - 'cybersecurity'
-  - 'usability'
-  - 'risk assessment'
+- cybersecurity
+- usability
+- risk assessment
 categories:
-  - Security & Privacy
-  - Career & Professional Development
-  - Tech & Industry Insights
-  - Personal Reflections
-  - Community & Culture
-  - Security Policy & Management
-  - Human Factors in Security
-  - Risk Management
-  - Usability in Security
+- security-privacy
+- career-sysadmin
 ---
 
 I'm a Security Officer, Pentester, a SysAdmin, a nerd and a stuborn human. How do we, as companies, strike a balance between a secure IT environment and respecting the human element? This post explores how excessive security can hinder productivity and trust.

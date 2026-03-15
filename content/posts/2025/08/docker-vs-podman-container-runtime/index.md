@@ -1,10 +1,18 @@
 ---
-title: "Docker vs. Podman: Which Container Runtime Should You Use?"
+title: 'Docker vs. Podman: Which Container Runtime Should You Use?'
 date: 2025-08-30
 draft: false
-tags: ["docker", "podman", "containers", "devops", "homelab", "linux"]
-description: "Quick, practical comparison of Docker and Podman for homelabs and DevOps projects, highlighting architecture, security, and ease of use."
-slug: "docker-vs-podman-container-runtime"
+tags:
+- docker
+- podman
+- containers
+- homelab
+description: Quick, practical comparison of Docker and Podman for homelabs and DevOps
+  projects, highlighting architecture, security, and ease of use.
+slug: docker-vs-podman-container-runtime
+categories:
+- devops-infrastructure
+- linux-open-source
 ---
 
 Containers are the backbone of modern, portable applications. But which runtime should you pick? Docker has long been the standard, but Podman is a strong, secure alternative. Here's a quick comparison to help you decide.

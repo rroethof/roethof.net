@@ -1,11 +1,19 @@
 ---
-title: "Microsoft's Latest Shakedown: Pay Extra to Patch Their Bugs Faster?"
+title: 'Microsoft''s Latest Shakedown: Pay Extra to Patch Their Bugs Faster?'
 date: 2025-05-01
 draft: false
 slug: microsoft-hotpatching-subscription-rant
-tags: ["Microsoft", "Windows Server", "Security", "Licensing", "Subscription", "Hotpatching", "Rant"]
-categories: ["Technology", "Opinion", "Sysadmin Life"]
-description: "Why Microsoft charging a subscription for Windows Server Hotpatching feels like an exploitative move to profit from fixing their own bugs."
+tags:
+- microsoft
+- windows server
+- security
+- licensing
+- subscription
+categories:
+- ai-tech-insights
+- opinion-reflections
+description: Why Microsoft charging a subscription for Windows Server Hotpatching
+  feels like an exploitative move to profit from fixing their own bugs.
 ---
 
 Seriously, Microsoft? Are we doing this again? Just when you think the nickel-and-diming can't get any more blatant, they pull another rabbit out of the hat – only this rabbit demands a subscription fee for something that feels like it should be table stakes.

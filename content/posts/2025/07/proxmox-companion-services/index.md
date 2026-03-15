@@ -1,24 +1,21 @@
 ---
-title: "Beyond the Hypervisor: Essential Companion Services for a Robust Proxmox VE Setup"
+title: 'Beyond the Hypervisor: Essential Companion Services for a Robust Proxmox VE
+  Setup'
 date: 2025-07-15
 draft: false
-slug: "proxmox-companion-services"
-description: "Diving into the critical companion services that elevate a Proxmox VE environment from basic virtualization to a truly resilient, monitored, and efficient infrastructure."
+slug: proxmox-companion-services
+description: Diving into the critical companion services that elevate a Proxmox VE
+  environment from basic virtualization to a truly resilient, monitored, and efficient
+  infrastructure.
 categories:
-  - Virtualization
-  - Linux
-  - DevOps
-  - SysAdmin
+- devops-infrastructure
+- linux-open-source
 tags:
-  - Proxmox
-  - ProxmoxVE
-  - ProxmoxBackupServer
-  - ProxmoxMailGateway
-  - Grafana
-  - Prometheus
-  - Monitoring
-  - Backup
-  - OpenSource
+- proxmox
+- proxmoxve
+- proxmoxbackupserver
+- proxmoxmailgateway
+- grafana
 ---
 
 Proxmox Virtual Environment (Proxmox VE) is, without a doubt, a beast of a hypervisor. It's an open-source powerhouse that combines KVM virtualization and LXC containers into a single, integrated platform. For anyone serious about self-hosting, building a robust homelab, or even managing small to medium enterprise infrastructure, Proxmox VE offers an incredible amount of control and flexibility. But let's be clear: running just the hypervisor, while powerful, is only half the battle. To truly build a resilient, efficient, and manageable environment, you need a suite of companion services.

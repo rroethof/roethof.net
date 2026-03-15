@@ -1,21 +1,18 @@
 ---
-title: "Building a Proper CI/CD Pipeline for Ansible Roles (Because Manual Testing is for Suckers)"
+title: Building a Proper CI/CD Pipeline for Ansible Roles (Because Manual Testing
+  is for Suckers)
 date: 2025-04-13
 draft: false
-slug: "building-proper-cicd-pipeline-ansible-roles"
+slug: building-proper-cicd-pipeline-ansible-roles
 tags:
-  - ansible
-  - automation
-  - devops
-  - ci-cd
-  - github-actions
-  - testing
-  - infrastructure-as-code
+- ansible
+- automation
+- ci-cd
+- github-actions
+- testing
 categories:
-  - DevOps & Infrastructure
-  - Automation & Scripting
-  - System Management
-  - Tech & Industry Insights
+- devops-infrastructure
+- ai-tech-insights
 ---
 
 Alright, let's talk about CI/CD pipelines for Ansible roles. If you've read my [thoughts on automation](posts/2025/03/why_i_decided_to_move_my_weblogs_to_hugo/), you know I'm obsessed with automating everything. Manual testing? That's so 2020. Let's build something robust that does the heavy lifting for us.

@@ -1,16 +1,15 @@
 ---
-title: "VMware Is Dead: Broadcom Killed Operational Trust. Now, We Build Our Own Stack."
+title: 'VMware Is Dead: Broadcom Killed Operational Trust. Now, We Build Our Own Stack.'
 date: 2025-11-18
 categories:
-- IT Failure
-- Virtualization
-- CISO Concerns
+- career-sysadmin
+- devops-infrastructure
 tags:
-- VMware
-- Broadcom
-- Proxmox
-- Technical Debt
-- Enterprise Failure
+- vmware
+- broadcom
+- proxmox
+- technical debt
+- enterprise failure
 draft: false
 slug: vmware-is-dead-broadcom-killed-operational-trust
 ---

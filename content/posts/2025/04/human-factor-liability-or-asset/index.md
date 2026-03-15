@@ -1,19 +1,19 @@
 ---
-title: "The Human in Cybersecurity: Liability or Asset? My Take."
+title: 'The Human in Cybersecurity: Liability or Asset? My Take.'
 date: 2025-04-20
 draft: false
 tags:
-  - Behavioral Design
-  - Cybersecurity
-  - Human Error
-  - Human Factor
-  - Resilience
-  - User Training
-  - Weakest Link
+- behavioral design
+- cybersecurity
+- human error
+- human factor
+- resilience
 categories:
-  - My Perspective
-  - Security & Privacy
-description: "My perspective challenging the 'weakest link' narrative, illustrated by how even simple, targeted training can empower users to become valuable security allies." # Updated description
+- opinion-reflections
+- security-privacy
+description: My perspective challenging the 'weakest link' narrative, illustrated
+  by how even simple, targeted training can empower users to become valuable security
+  allies.
 ---
 
 I often think back to my former Director. He was an older gentleman, a big soft guy, definitely not what you'd call tech-savvy. But he'd learned one crucial, simple thing about handling suspicious emails: forward them to me, the security guy, **as an attachment**. Every time something looked even slightly dodgy in his inbox, I'd get that email: "Ronny, can you report or check this?" Because he'd learned that specific step – sending it as an attachment – I could actually dig into the headers, do a proper check, and give him a quick thumbs up or down. You know what? He was genuinely *proud* to do his part, to contribute to security in his own way. Simple, targeted training for a non-technical user, and it worked beautifully. He wasn't a liability; he was actively helping.

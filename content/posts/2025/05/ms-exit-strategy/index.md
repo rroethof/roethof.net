@@ -1,11 +1,21 @@
 ---
-title: "Vendor Lock-In: Why Every Company Needs a Microsoft Exit Strategy (But Almost None Have One)"
+title: 'Vendor Lock-In: Why Every Company Needs a Microsoft Exit Strategy (But Almost
+  None Have One)'
 date: 2025-05-06
 draft: false
-tags: ["Microsoft", "Vendor Lock-In", "Cloud", "Exit Strategy", "IT Strategy", "Monopoly", "Alternatives", "M365", "On-Premises", "Pricing"]
-categories: ["IT Strategy", "Security & Privacy", "Personal Reflections", "Infrastructure"]
-description: "Why do so few companies have an exit strategy for Microsoft or VMware? Let's talk about vendor lock-in, cloud hype, and why you need a plan before the next price hike or policy change screws you over."
-slug: "ms-exit-strategy"
+tags:
+- microsoft
+- vendor lock-in
+- cloud
+- exit strategy
+- it strategy
+categories:
+- digital-sovereignty
+- security-privacy
+description: Why do so few companies have an exit strategy for Microsoft or VMware?
+  Let's talk about vendor lock-in, cloud hype, and why you need a plan before the
+  next price hike or policy change screws you over.
+slug: ms-exit-strategy
 ---
 
 ## Introduction: Bend Over and Say Thank You (The Microsoft Way)

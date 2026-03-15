@@ -1,27 +1,22 @@
 ---
-title: "A Critical Look at Messaging Apps: Signal, WhatsApp, Telegram and Matrix"
+title: 'A Critical Look at Messaging Apps: Signal, WhatsApp, Telegram and Matrix'
 slug: a_critical_look_at_messaging_apps_signal_whatsapp_telegram_and_matrix
 date: 2025-03-21
 lastmod: 2025-03-21
 draft: false
-author: "Ronny Roethof"
-
+author: Ronny Roethof
 categories:
-- linux
-
+- linux-open-source
 tags:
-- linux
 - messaging-apps
 - signal
 - whatsapp
 - telegram
 - matrix
-- communication-tools
-- security
-- productivity
-
-summary: "A critical analysis of messaging apps including Signal, WhatsApp, Telegram, and Matrix."
-description: "Comparing Signal, WhatsApp, Telegram, and Matrix for Linux users: security, privacy, productivity, and communication effectiveness."
+summary: A critical analysis of messaging apps including Signal, WhatsApp, Telegram,
+  and Matrix.
+description: 'Comparing Signal, WhatsApp, Telegram, and Matrix for Linux users: security,
+  privacy, productivity, and communication effectiveness.'
 ---
 
 ## Introduction

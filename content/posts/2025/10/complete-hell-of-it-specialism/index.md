@@ -1,10 +1,18 @@
 ---
-title: "From Sysadmin to CISO: The Complete Hell of IT Specialism"
+title: 'From Sysadmin to CISO: The Complete Hell of IT Specialism'
 date: 2025-10-29
 draft: false
-tags: ["IT-specialist", "DevOps", "Security", "Architecture", "workload", "burnout"]
-description: "A brutally honest look at the reality of the modern IT specialist. You build, secure, and clean up the mess. The price? The constant battle against chaos."
-slug: "complete-hell-of-it-specialism"
+tags:
+- it-specialist
+- devops
+- security
+- architecture
+- workload
+description: A brutally honest look at the reality of the modern IT specialist. You
+  build, secure, and clean up the mess. The price? The constant battle against chaos.
+slug: complete-hell-of-it-specialism
+categories:
+- health-ergonomics
 ---
 
 Everyone wants to be in IT… until they discover that the IT specialist is the **single buffer between a working system and complete implosion.**

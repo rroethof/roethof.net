@@ -1,11 +1,18 @@
 ---
-title: "If Digital Autonomy Feels Like an Attack, What Does That Say About Dependency?"
+title: If Digital Autonomy Feels Like an Attack, What Does That Say About Dependency?
 date: 2025-12-25
 draft: false
-author: "Ronny Roethof"
-categories: ["Geopolitics", "Digital Sovereignty", "IT Strategy"]
-tags: ["National Sovereignty", "EU Digital Autonomy", "Cloud Dependency", "Cybersecurity"]
-description: "If regaining control over critical digital infrastructure is perceived as provocative, what does that say about dependency and national sovereignty? A debate-focused blog drawing on previous analyses of EU and national digital strategy."
+author: Ronny Roethof
+categories:
+- digital-sovereignty
+tags:
+- national sovereignty
+- eu digital autonomy
+- cloud dependency
+- cybersecurity
+description: If regaining control over critical digital infrastructure is perceived
+  as provocative, what does that say about dependency and national sovereignty? A
+  debate-focused blog drawing on previous analyses of EU and national digital strategy.
 slug: digital-autonomy-dependency-debate
 ---
 

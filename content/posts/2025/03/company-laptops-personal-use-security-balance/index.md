@@ -1,27 +1,23 @@
 ---
-title: "My Personal Take: Company Laptops - Security Ain't Everything (But It's Still My Job, Damn IT)"
+title: 'My Personal Take: Company Laptops - Security Ain''t Everything (But It''s
+  Still My Job, Damn IT)'
 slug: company-laptops-personal-use-security-balance
 date: 2025-03-25
 lastmod: 2025-03-25
 draft: false
-author: "Ronny Roethof"
-
+author: Ronny Roethof
 categories:
-- security
-
+- security-privacy
 tags:
-- security
 - privacy
 - policies
 - linux
 - freebsd
 - work-hard-play-hard
-- control
-- autonomy
-- realism
-
-summary: "A personal reflection on company laptop security, balancing policy, autonomy and practical IT responsibilities."
-description: "Examining company laptop security from a sysadmin’s perspective, focusing on privacy, policy enforcement and the human factor in IT."
+summary: A personal reflection on company laptop security, balancing policy, autonomy
+  and practical IT responsibilities.
+description: Examining company laptop security from a sysadmin’s perspective, focusing
+  on privacy, policy enforcement and the human factor in IT.
 ---
 
 ## Alright, let's talk company laptops. 

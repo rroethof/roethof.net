@@ -1,22 +1,20 @@
 ---
-title: "Microsoft Teams or Microsoft Tattles? The Latest Step in Corporate Surveillance"
+title: Microsoft Teams or Microsoft Tattles? The Latest Step in Corporate Surveillance
 date: 2025-10-27
 draft: false
-slug: "microsoft-teams-or-microsoft-tattles"
-description: "Microsoft Teams is rolling out a feature to track employee location via Wi-Fi. Is this a helpful tool for hybrid work, or just another step towards digital micromanagement and the erosion of trust?"
+slug: microsoft-teams-or-microsoft-tattles
+description: Microsoft Teams is rolling out a feature to track employee location via
+  Wi-Fi. Is this a helpful tool for hybrid work, or just another step towards digital
+  micromanagement and the erosion of trust?
 categories:
-  - "Future of Work"
-  - "Technology & Society"
-  - "Security & Privacy"
-  - "Opinion"
+- career-sysadmin
+- digital-sovereignty
 tags:
-  - "Microsoft Teams"
-  - "Surveillance"
-  - "Privacy"
-  - "Remote Work"
-  - "Corporate Culture"
-  - "Trust"
-  - "Vendor Lock-in"
+- microsoft teams
+- surveillance
+- privacy
+- remote work
+- corporate culture
 ---
 
 Just when you thought corporate tech couldn't get more intrusive, Microsoft has decided to level up. Coming this December, Teams will start snitching to your boss when you’re not in the office.

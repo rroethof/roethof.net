@@ -1,24 +1,18 @@
 ---
-title: "Contributing to Open Source: Why It Matters and How to Get Involved"
+title: 'Contributing to Open Source: Why It Matters and How to Get Involved'
 date: 2025-03-31
-description: "Explore the importance of contributing to open-source projects and learn practical ways you can get involved in this vibrant community."
+description: Explore the importance of contributing to open-source projects and learn
+  practical ways you can get involved in this vibrant community.
 draft: false
 categories:
-  - Linux & Open Source
-  - Automation & Scripting
-  - Community & Culture
-  - Learning & Growth
+- linux-open-source
+- devops-infrastructure
 tags:
-  - Open Source
-  - Contribution
-  - Community
-  - Collaboration
-  - Development
-  - Ansible
-  - Ansible Galaxy
-  - Documentation
-  - Support
-  - DevOps
+- contribution
+- community
+- collaboration
+- development
+- ansible
 ---
 Hey tech folks! If you're anything like me, you probably use open-source software every single day. Think about the operating system you use, the tools you rely on for work or personal projects – chances are, many of them are open source. For those of us who work with tools like **Ansible**, we see firsthand the power of collaborative, open development.
 

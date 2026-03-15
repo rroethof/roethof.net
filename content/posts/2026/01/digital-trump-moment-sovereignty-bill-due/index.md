@@ -1,28 +1,22 @@
 ---
-title: "The Digital Trump Moment: The Bill for Our Collective Negligence Is Due"
+title: 'The Digital Trump Moment: The Bill for Our Collective Negligence Is Due'
 slug: digital-trump-moment-sovereignty-bill-due
 date: 2026-01-30
 lastmod: 2026-01-30
 draft: false
-author: "Ronny Roethof"
-
+author: Ronny Roethof
 categories:
-- politics
-
+- digital-sovereignty
 tags:
 - open-source
 - cloud-act
 - sovereignty
 - usa
 - geopolitics
-- cloudflare
-- aws
-- azure
-- resilience
-- systemic-failure
-
-summary: "How collective IT negligence and geopolitical decisions expose systemic risks in digital sovereignty."
-description: "Exploring the 'Digital Trump Moment' — why systemic IT failures, open-source governance, and geopolitical risks collide in today's tech landscape."
+summary: How collective IT negligence and geopolitical decisions expose systemic risks
+  in digital sovereignty.
+description: Exploring the 'Digital Trump Moment' — why systemic IT failures, open-source
+  governance, and geopolitical risks collide in today's tech landscape.
 ---
 
 On roethof.net, I have spent significant time analyzing why projects fail, why workloads explode, and why the digital foundations of organizations and increasingly entire societies are crumbling. In earlier posts, I argued that our reliance on foreign controlled platforms is not just a technical vulnerability. It is a strategic risk. At the time, many dismissed these points as internal operational concerns or the musings of a critical outsider. The world has changed.

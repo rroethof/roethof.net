@@ -1,25 +1,25 @@
 ---
-date: '2011-11-18T09:30:29+01:00'
+title: Converting KVM Guests from LVM to QCOW2, Base Images and Snapshots
+slug: converting-kvm-guests-from-lvm-to-qcow2-base-images-and-snapshots
+date: 2011-11-18
+lastmod: 2011-11-18
 draft: false
-title: 'Unattended Security Updates in Ubuntu'
-tags:
-  - 'Ubuntu'
-  - 'Linux'
-  - 'Security Updates'
-  - 'Unattended Upgrades'
-  - 'System Maintenance'
-  - 'Automation'
-  - 'Scripting'
-  - 'Shell Scripting'
-  - 'Debian'
-  - 'Package Management'
+author: Ronny Roethof
+cover: posts/2011/11/converting-kvm-guests-from-lvm-to-qcow2-base-images-and-snapshots/cover.jpg
 categories:
-  - Linux & Open Source
-  - Security & Privacy
-  - Automation & Scripting
-  - System Management
+- devops-infrastructure
+- linux-open-source
+tags:
+- kvm
+- qemu
+- virtualization
+- lvm
+- qcow2
+summary: Guide on converting LVM-based KVM guests to QCOW2, creating base images and
+  snapshots for flexible virtualization management.
+description: Step-by-step instructions for converting KVM guests from LVM to QCOW2,
+  using base images, snapshots, and improving virtualization workflows.
 ---
-
 In order to have automatic and unattended security updates in Ubuntu, one needs to install the according package:
 
 ```

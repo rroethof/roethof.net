@@ -1,12 +1,21 @@
 ---
 layout: post
-title: "Switzerland’s First Domino: Are We Finally Heading Toward Real Digital Sovereignty?"
-subtitle: "Beyond the compliance theater, a grassroots movement for digital autonomy is gaining momentum. Europe is waking up, and the old excuses are starting to wear thin."
+title: 'Switzerland’s First Domino: Are We Finally Heading Toward Real Digital Sovereignty?'
+subtitle: Beyond the compliance theater, a grassroots movement for digital autonomy
+  is gaining momentum. Europe is waking up, and the old excuses are starting to wear
+  thin.
 author: Ronny Roethof
 date: 2025-11-28 09:48:01 +0100
 slug: switzerlands-first-domino-digital-sovereignty
-category: [CISO/Operations]
-tags: [DigitalSovereignty, CLOUDAct, ComplianceTheater, EnterpriseRisk, USSurveillance, Geopolitics, OpenSource, Europe]
+category:
+- CISO/Operations
+tags:
+- digitalsovereignty
+- cloudact
+- compliancetheater
+- enterpriserisk
+- ussurveillance
+categories: []
 ---
 
 # From Digital Despair to Digital Sovereignty: Europe’s Awakening

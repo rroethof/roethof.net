@@ -1,10 +1,18 @@
 ---
-title: "The Systemic Trap: When Corporate Pressure Turns Deadly"
+title: 'The Systemic Trap: When Corporate Pressure Turns Deadly'
 date: 2025-10-12
-description: "Burnout is not a personal failure but a symptom of a toxic system that prioritises productivity over people. My story shows how relentless work pressure can become a literal threat to life."
-tags: ["burnout", "mental health", "work culture", "systemic failure"]
-slug: "the-systemic-trap-when-corporate-pressure-turns-deadly"
+description: Burnout is not a personal failure but a symptom of a toxic system that
+  prioritises productivity over people. My story shows how relentless work pressure
+  can become a literal threat to life.
+tags:
+- burnout
+- mental health
+- work culture
+- systemic failure
+slug: the-systemic-trap-when-corporate-pressure-turns-deadly
 draft: false
+categories:
+- health-ergonomics
 ---
 
 > ⚠️ Content Note: This post discusses burnout, medical emergency (heart attack), chronic illness, and existential stress.

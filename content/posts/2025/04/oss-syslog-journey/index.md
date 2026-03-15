@@ -1,31 +1,19 @@
 ---
-title: "Taming the Log Tsunami: My Quest for an Open Source Syslog Solution"
+title: 'Taming the Log Tsunami: My Quest for an Open Source Syslog Solution'
 date: 2025-04-15
 draft: false
 slug: oss-syslog-journey
 categories:
-  - Security & Privacy
-  - Linux & Open Source
-  - System Management
-  - DevOps & Infrastructure
-  - Monitoring & Observability
+- security-privacy
+- linux-open-source
 tags:
-  - Open Source
-  - Security
-  - Syslog
-  - Graylog
-  - OpenSearch
-  - Wazuh
-  - Loki
-  - Log Management
-  - Linux
-  - Self-Hosting
-  - Digital Sovereignty
-  - LDAP
-  - Active Directory
-  - Proxmox
-  - VMware
-description: "Trying to make sense of server logs? Join my journey exploring open-source tools to centralize them, focusing on usability, control, and specific needs."
+- syslog
+- graylog
+- opensearch
+- wazuh
+- loki
+description: Trying to make sense of server logs? Join my journey exploring open-source
+  tools to centralize them, focusing on usability, control, and specific needs.
 ---
 
 Alright, let's talk logs. You know, that endless stream of messages pouring out of every server and application? For too long, I've been drowning in them, SSHing from machine to machine, trying to piece together what went wrong or why something's acting weird. It's messy, time-consuming, and honestly, just doesn't scale.

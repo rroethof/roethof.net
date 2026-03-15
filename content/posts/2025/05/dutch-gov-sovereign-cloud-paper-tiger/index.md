@@ -1,11 +1,21 @@
---- 
-title: "Dutch Gov's 'Sovereign' Cloud Fantasy: More Hot Air or Finally Growing a Spine?" 
+---
+title: 'Dutch Gov''s ''Sovereign'' Cloud Fantasy: More Hot Air or Finally Growing
+  a Spine?'
 date: 2025-05-02
 draft: false
-tags: ["government", "big tech", "digital sovereignty", "FOSS", "open source", "cloud", "SaaS", "vendor lock-in", "politics", "skepticism", "Netherlands", "Trump", "EU"]
-categories: ["Technology", "Politics", "Opinion", "Rant"]
-description: "The Dutch government finally talks about tackling Big Tech dependency with a 'sovereign' cloud. About time, but is it just hot air, or will they finally mandate FOSS and real national control? A skeptical look."
-slug: "dutch-gov-sovereign-cloud-paper-tiger"
+tags:
+- government
+- big tech
+- digital sovereignty
+- foss
+- open source
+categories:
+- ai-tech-insights
+- digital-sovereignty
+description: The Dutch government finally talks about tackling Big Tech dependency
+  with a 'sovereign' cloud. About time, but is it just hot air, or will they finally
+  mandate FOSS and real national control? A skeptical look.
+slug: dutch-gov-sovereign-cloud-paper-tiger
 ---
 
 ## Introduction: Waking Up to the Obvious, Years Too Late

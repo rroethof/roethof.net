@@ -1,23 +1,20 @@
 ---
-title: "Building an Open Source Security Fortress: A Blueprint for Sovereignty (and Sanity)"
+title: 'Building an Open Source Security Fortress: A Blueprint for Sovereignty (and
+  Sanity)'
 date: 2025-04-11
 draft: false
 slug: oss-security-platform-blueprint
 categories:
-  - Security & Privacy
-  - Linux & Open Source
-  - System Management
-  - DevOps & Infrastructure
-  - System Hardening
+- security-privacy
+- linux-open-source
 tags:
-  - Ansible
-  - Digital Sovereignty
-  - Open Source
-  - OpenSearch
-  - Security
-  - Self-Hosting
-  - Wazuh
-description: "An opinionated blueprint for building a cohesive, effective, and manageable open-source security platform focused on digital sovereignty, primarily for SMBs."
+- ansible
+- digital sovereignty
+- opensearch
+- self-hosting
+- wazuh
+description: An opinionated blueprint for building a cohesive, effective, and manageable
+  open-source security platform focused on digital sovereignty, primarily for SMBs.
 ---
 
 The digital world feels increasingly precarious, doesn't it? Concepts like "digital sovereignty" are no longer just conference buzzwords; they're becoming critical considerations. For many, especially outside the US, relying entirely on proprietary, often US-based, security stacks raises uncomfortable questions about data control and geopolitical dependencies. We worry about our data in foreign clouds, but what about the very *tools* we use to protect it?

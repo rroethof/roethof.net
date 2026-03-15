@@ -1,11 +1,20 @@
 ---
-title: "NCSC's Late-Stage Panic: BYOD Is Risky? No Shit."
+title: 'NCSC''s Late-Stage Panic: BYOD Is Risky? No Shit.'
 date: 2025-05-28
 draft: false
-slug: "ncsc-byod-late-panic-rant"
-description: "The Dutch NCSC finally discovered that BYOD and session cookies are a risk. Meanwhile, actual IT professionals have been dealing with this for over a decade. Here's a dose of reality, unfiltered."
-categories: ["Security", "Rant"]
-tags: ["BYOD", "Session Cookies", "Security Theatre", "Endpoint Security", "Policy Failures", "Zero Trust"]
+slug: ncsc-byod-late-panic-rant
+description: The Dutch NCSC finally discovered that BYOD and session cookies are a
+  risk. Meanwhile, actual IT professionals have been dealing with this for over a
+  decade. Here's a dose of reality, unfiltered.
+categories:
+- security-privacy
+- opinion-reflections
+tags:
+- byod
+- session cookies
+- security theatre
+- endpoint security
+- policy failures
 ---
 
 Let me set the scene: The Dutch NCSC just dropped an “urgent” advisory about the horrifying risk of letting people access company resources on their own devices ,  you know, **BYOD**. And the terrifying threat they’ve identified? Wait for it...

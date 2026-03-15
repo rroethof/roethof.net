@@ -1,26 +1,22 @@
 ---
-title: "Taming the Beast: My Arch Linux Install for a Clean, Mean and Secure Work Machine"
+title: 'Taming the Beast: My Arch Linux Install for a Clean, Mean and Secure Work
+  Machine'
 slug: taming-the-beast-my-arch-linux-install-for-a-clean-mean-and-secure-work-machine
 date: 2025-02-24
 lastmod: 2025-02-24
 draft: false
-author: "Ronny Roethof"
-
+author: Ronny Roethof
 categories:
-- linux
-
+- linux-open-source
 tags:
 - arch-linux
 - system-installation
 - security
 - configuration
 - setup-guides
-- productivity
-- clean-install
-- mean-machine
-
-summary: "Setting up Arch Linux for a clean, secure, and productive work machine."
-description: "Step-by-step guide to installing Arch Linux for a secure, clean, and efficient workstation, including system hardening and workflow tips."
+summary: Setting up Arch Linux for a clean, secure, and productive work machine.
+description: Step-by-step guide to installing Arch Linux for a secure, clean, and
+  efficient workstation, including system hardening and workflow tips.
 ---
 
 So, I've done it again. I've decided to ditch Windows on my company laptop (for the, uh, nth time). I briefly flirted with FreeBSD (it was okay, but let's just say my other laptop wasn't playing nice with it) and I really wanted a consistent setup across both machines.

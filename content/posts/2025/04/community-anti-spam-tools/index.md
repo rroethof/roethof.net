@@ -1,31 +1,19 @@
 ---
-title: "Community-Driven Anti-Spam Arsenal: From SpamCop to Modern Defense Networks"
-date: "2025-04-14"
+title: 'Community-Driven Anti-Spam Arsenal: From SpamCop to Modern Defense Networks'
+date: '2025-04-14'
 draft: false
-slug: "community-anti-spam-tools"
+slug: community-anti-spam-tools
 categories:
-  - Security & Privacy
-  - System Management
-  - Community & Culture
-  - Infrastructure & Servers
-  - Networking
-  - System Hardening
-  - Security Best Practices
+- security-privacy
+- devops-infrastructure
 tags:
-  - anti-spam
-  - security
-  - project honey pot
-  - abuseipdb
-  - blocklist.de
-  - spamcop
-  - spamvrij.nl
-  - community
-  - email security
-  - infrastructure protection
-  - threat intelligence
-  - open source
-  - collaboration
-description: "A deep dive into community-driven anti-spam tools, their evolution, and how they continue to protect our digital spaces through collective defense."
+- anti-spam
+- project honey pot
+- abuseipdb
+- blocklist.de
+- spamcop
+description: A deep dive into community-driven anti-spam tools, their evolution, and
+  how they continue to protect our digital spaces through collective defense.
 ---
 
 Having spent decades in the trenches fighting spam and scams, I've learned that the most effective defense isn't just technical, it's communal. The tools we use today are built on the shoulders of pioneers who understood that fighting spam requires collaboration. Let's dive into some of these community-driven solutions that have made our digital lives a bit more manageable.

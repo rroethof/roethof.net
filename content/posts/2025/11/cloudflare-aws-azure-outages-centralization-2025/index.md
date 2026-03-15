@@ -1,28 +1,23 @@
 ---
-title: "Cloudflare Fell Over And Everyone Built on Top of It Too"
+title: Cloudflare Fell Over And Everyone Built on Top of It Too
 slug: cloudflare-aws-azure-outages-centralization-2025
 date: 2025-11-19
 lastmod: 2025-11-19
 draft: false
-author: "Ronny Roethof"
-
+author: Ronny Roethof
 categories:
-- infrastructure
-
+- devops-infrastructure
 tags:
 - cloudflare
 - aws
 - azure
 - outage
 - centralization
-- resilience
-- vendor-lock-in
-- infrastructure
-- ai
-- cloud
-
-summary: "Cloudflare, AWS, and Azure outages show that centralized dependency risks affect modern infrastructure."
-description: "Cloudflare sneezed, AWS and Azure wobbled, and once again we learned that 'distributed' often means 'we stuffed everything behind one vendor and hoped for the best'."
+summary: Cloudflare, AWS, and Azure outages show that centralized dependency risks
+  affect modern infrastructure.
+description: Cloudflare sneezed, AWS and Azure wobbled, and once again we learned
+  that 'distributed' often means 'we stuffed everything behind one vendor and hoped
+  for the best'.
 ---
 
 Another week, another outage, Cloudflare this time, but let’s not forget AWS ([see my post](https://roethof.net/posts/2025/10/when-the-cloud-falls-the-world-trembles/)) and Azure in Europe, which went down due to a “thermal event” ([Techzine EU](https://www.techzine.eu/news/privacy-compliance/136407/aws-azure-and-google-cloud-under-scrutiny-by-eu-after-series-of-outages/)).  

@@ -1,14 +1,15 @@
 ---
-title: "The Death of the 'Windows Default' and the Rise of Technical Sanity"
+title: The Death of the 'Windows Default' and the Rise of Technical Sanity
 date: 2025-12-24
 draft: false
 toc: false
 tags:
-  - windows
-  - linux
-  - active-directory
-  - security
+- windows
+- active-directory
+- security
 slug: death-of-windows-default-rise-technical-sanity
+categories:
+- linux-open-source
 ---
 
 ## The Death of the “Windows Default” and the Rise of Technical Sanity

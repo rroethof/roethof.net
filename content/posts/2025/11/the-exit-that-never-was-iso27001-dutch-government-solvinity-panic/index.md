@@ -1,19 +1,18 @@
 ---
-title: "The Exit That Never Was: ISO27001, the Dutch Government, and the Solvinity Panic"
+title: 'The Exit That Never Was: ISO27001, the Dutch Government, and the Solvinity
+  Panic'
 date: 2025-11-12
 tags:
-- ISO27001
-- Cloud
-- Government
-- Exit Strategy
-- Solvinity
-- Digital Sovereignty
+- iso27001
+- cloud
+- government
+- exit strategy
+- solvinity
 draft: false
 slug: the-exit-that-never-was-iso27001-dutch-government-solvinity-panic
 categories:
-- Security & Privacy
-- Government
-- Risk Management
+- security-privacy
+- digital-sovereignty
 ---
 
 This post follows my earlier analysis, [“The Dutch Kill Switch: Kyndryl, Solvinity, and the Sovereignty Mirage”](/posts/2025/11/kyndryl-solvinity-sovereignty-kill-switch), where I discussed the risks of critical Dutch infrastructure being exposed to foreign control and the illusion of digital sovereignty.

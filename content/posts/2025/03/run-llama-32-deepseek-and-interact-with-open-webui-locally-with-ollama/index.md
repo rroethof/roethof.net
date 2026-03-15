@@ -1,21 +1,16 @@
 ---
 date: '2025-03-19T18:30:00+01:00'
 draft: false
-title: 'Run Llama 3.2, DeepSeek and Interact with Open WebUI Locally with Ollama'
-tags: 
-  - 'ai'
-  - 'llama 32'
-  - 'deepseek'
-  - 'local development'
-  - 'ai research'
+title: Run Llama 3.2, DeepSeek and Interact with Open WebUI Locally with Ollama
+tags:
+- ai
+- llama 32
+- deepseek
+- local development
+- ai research
 categories:
-- AI & Machine Learning
-- Local Development
-- Tech & Industry Insights
-- Personal Computing & Productivity
-- Large Language Models
-- Docker
-- Web Interfaces
+- ai-tech-insights
+- devops-infrastructure
 ---
 
 Explore the power of language models like "Llama 3.2" (please verify the actual model name), the coding prowess of DeepSeek and interact with them through a user-friendly web interface using **Open WebUI**, all powered locally by **Ollama**. Running LLMs locally offers significant advantages, including enhanced privacy and the freedom to experiment without relying on external APIs. This guide will walk you through the effortless process using Ollama and Open WebUI.

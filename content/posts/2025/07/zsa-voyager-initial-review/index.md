@@ -1,20 +1,20 @@
 ---
-title: "My ZSA Voyager Journey Part 2: Initial Impressions and Early Weeks"
+title: 'My ZSA Voyager Journey Part 2: Initial Impressions and Early Weeks'
 date: 2025-07-06
 draft: false
-slug: "zsa-voyager-initial-review"
-description: "A follow-up to my ergonomic keyboard quest, detailing the initial experience and a few weeks of use with the ZSA Voyager, including insights on the acquisition process."
+slug: zsa-voyager-initial-review
+description: A follow-up to my ergonomic keyboard quest, detailing the initial experience
+  and a few weeks of use with the ZSA Voyager, including insights on the acquisition
+  process.
 categories:
-  - Ergonomics
-  - Health
-  - TechReview
+- health-ergonomics
+- ai-tech-insights
 tags:
-  - ZSAVoyager
-  - ErgonomicKeyboard
-  - TietzeSyndrome
-  - Workspace
-  - Productivity
-  - Review
+- zsavoyager
+- ergonomickeyboard
+- tietzesyndrome
+- workspace
+- productivity
 ---
 
 Following up on my previous posts about the ongoing quest for ergonomic bliss, I'm thrilled to share that the ZSA Voyager has finally arrived and is now part of my daily setup! This marks a significant milestone in managing the challenges posed by Tietze's Syndrome during my work. If you missed the first part of this journey, you can read about it here: 

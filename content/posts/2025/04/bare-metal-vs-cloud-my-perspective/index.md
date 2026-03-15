@@ -1,21 +1,15 @@
 ---
-title: "Cloud or Bare Metal? My Case for Control, Sovereignty, and Sanity"
-date: "2025-04-06T16:03:00+02:00"
+title: Cloud or Bare Metal? My Case for Control, Sovereignty, and Sanity
+date: '2025-04-06T16:03:00+02:00'
 draft: false
-slug: "bare-metal-vs-cloud-my-perspective"
+slug: bare-metal-vs-cloud-my-perspective
 tags:
-  - Bare Metal
-  - DevOps
-  - Digital Sovereignty
-  - Linux
-  - Open Source
-  - Security
-  - Self-Hosting
+- bare metal
+- digital sovereignty
+- security
 categories:
-  - DevOps & Infrastructure
-  - My Perspective
-  - Security & Privacy
-  - System Management
+- devops-infrastructure
+- linux-open-source
 ---
 
 ## Cloud vs. Bare Metal: My Hard-Won Wisdom

@@ -1,23 +1,21 @@
 ---
-title: "The ISO 27001 Hallucination: Documenting Your Way to Disaster"
+title: 'The ISO 27001 Hallucination: Documenting Your Way to Disaster'
 slug: iso-27001-compliance-illusion-resilience-failure
 date: 2026-03-09
-author: "Ronny Roethof"
+author: Ronny Roethof
 draft: false
-
 categories:
-- security
-
+- security-privacy
 tags:
 - iso-27001
 - nis2
 - anylinq
 - enterprise-failure
 - resilience
-
-summary: "ISO 27001 documentation can give a false sense of security, leading to compliance illusions and enterprise risk."
-
-description: "ISO 27001 documentation can give a false sense of security. Learn why compliance paperwork alone doesn’t guarantee enterprise resilience."
+summary: ISO 27001 documentation can give a false sense of security, leading to compliance
+  illusions and enterprise risk.
+description: ISO 27001 documentation can give a false sense of security. Learn why
+  compliance paperwork alone doesn’t guarantee enterprise resilience.
 ---
 
 ## Trigger: How This Post Started

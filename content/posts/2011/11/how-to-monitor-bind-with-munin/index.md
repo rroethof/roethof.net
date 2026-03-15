@@ -1,23 +1,24 @@
 ---
-date: '2011-11-18T09:23:29+01:00'
+title: How to Monitor Bind with Munin
+slug: how-to-monitor-bind-with-munin
+date: 2011-11-18
+lastmod: 2011-11-18
 draft: false
-title: 'How to monitor Bind with Munin'
-tags: 
-  - 'Virtualization'
-  - 'System Administration'
-  - 'Linux'
-  - 'Munin'
-  - 'Bind'
-  - 'Monitoring'
-  - 'IT Infrastructure'
+author: Ronny Roethof
 categories:
-  - Linux & Open Source
-  - Infrastructure & Servers
-  - System Management
-  - Monitoring & Observability
-  - Networking
+- monitoring
+tags:
+- virtualization
+- system-administration
+- linux
+- munin
+- bind
+cover: posts/2011/11/how-to-monitor-bind-with-munin/cover.png
+summary: Step-by-step guide to monitor Bind using Munin, including logging setup,
+  plugins, and troubleshooting tips.
+description: Learn how to monitor Bind with Munin, configure logging, enable plugins,
+  and ensure proper access for accurate metrics.
 ---
-
 Munin does have some limitations.
 It does not scale well (to hundreds of servers) and I find it particularly painful to create aggregated graphs (for example aggregated network graph of two or more hosts). But I know these issues are being worked on.
 

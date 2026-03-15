@@ -1,24 +1,21 @@
 ---
-title: "My minimal desktop (Hyprland) installation on a fresh Archlinux"
+title: My minimal desktop (Hyprland) installation on a fresh Archlinux
 slug: my-minimal-desktop-hyprland-installation-on-a-fresh-archlinux
 date: 2025-02-25
 lastmod: 2025-02-25
 draft: false
-author: "Ronny Roethof"
-
+author: Ronny Roethof
 categories:
-- linux
-
+- linux-open-source
 tags:
 - arch-linux
 - hyprland
 - desktop-environments
 - minimalist-setup
 - system-installation
-- command-line
-
-summary: "My minimal desktop setup using Hyprland on a fresh Arch Linux installation."
-description: "Step-by-step account of setting up a minimal Hyprland desktop environment on Arch Linux, including key configurations and workflow."
+summary: My minimal desktop setup using Hyprland on a fresh Arch Linux installation.
+description: Step-by-step account of setting up a minimal Hyprland desktop environment
+  on Arch Linux, including key configurations and workflow.
 ---
 
 ## We Tamed the Beast! Arch Linux + Hyprland = 🔥

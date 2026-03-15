@@ -1,11 +1,28 @@
 ---
-title: "Who Really Owns the Student Laptop? A Critical Look at Duty of Care vs. Ownership"
+title: Who Really Owns the Student Laptop? A Critical Look at Duty of Care vs. Ownership
 date: 2025-11-11
 draft: false
-tags: ["ownership", "duty of care", "education", "BYOD", "privacy", "security", "open source", "linux"]
-description: "A critical look at the responsibility for student laptops. Who is really in charge of a device paid for by parents?"
-keywords: ["student laptops", "BYOD", "digital autonomy", "GDPR", "education policy", "open source", "Linux", "privacy", "school devices"]
-slug: "ownership-is-ownership-duty-of-care-is-not-a-free-pass"
+tags:
+- ownership
+- duty of care
+- education
+- byod
+- privacy
+description: A critical look at the responsibility for student laptops. Who is really
+  in charge of a device paid for by parents?
+keywords:
+- student laptops
+- BYOD
+- digital autonomy
+- GDPR
+- education policy
+- open source
+- Linux
+- privacy
+- school devices
+slug: ownership-is-ownership-duty-of-care-is-not-a-free-pass
+categories:
+- linux-open-source
 ---
 
 Digitalization in education brings great opportunities, but it also creates new tensions between privacy, control and cost. This is highlighted once again in the e-book [“Who is responsible for student devices?”](https://ossewold.net/wie-is-verantwoordelijk-voor-leerlingdevices/) by Paul Ossewold. Schools have a duty of care and parents understand that. But when that duty quietly extends into control over privately purchased devices, something essential gets lost: ownership.

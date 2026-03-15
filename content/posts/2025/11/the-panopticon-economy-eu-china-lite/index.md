@@ -1,18 +1,18 @@
 ---
-title: "The Panopticon Economy: How the EU is Building China-Lite"
-slug: "the-panopticon-economy-eu-china-lite"
-date: 2025-11-20T09:48:04+01:00
-description: "The EU is trading digital freedom for perceived security and economic growth. Centralized AI, mandatory digital ID, and a relentless push for chat control are not democratic necessities. They are structural failures of regulatory ambition."
+title: 'The Panopticon Economy: How the EU is Building China-Lite'
+slug: the-panopticon-economy-eu-china-lite
+date: 2025-11-20 09:48:04+01:00
+description: The EU is trading digital freedom for perceived security and economic
+  growth. Centralized AI, mandatory digital ID, and a relentless push for chat control
+  are not democratic necessities. They are structural failures of regulatory ambition.
 categories:
-  - Tech Policy
-  - Security
-  - EU
-  - Europe
+- digital-sovereignty
+- security-privacy
 tags:
-  - EU
-  - AI
-  - Privacy
-  - ChatControl
+- eu
+- ai
+- privacy
+- chatcontrol
 draft: false
 ---
 

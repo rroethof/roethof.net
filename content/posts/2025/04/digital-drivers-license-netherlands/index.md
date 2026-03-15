@@ -1,25 +1,17 @@
 ---
-title: "The Digital Driver's License: Convenience or Control?"
-date: "2025-04-07T16:03:00+02:00"
+title: 'The Digital Driver''s License: Convenience or Control?'
+date: '2025-04-07T16:03:00+02:00'
 draft: false
 slug: digital-drivers-license-netherlands
 tags:
-  - "Digital Driver's License"
-  - "Privacy"
-  - "Data Security"
-  - "Government"
-  - "Control"
-  - "Technology"
-  - "Netherlands"
-  - "RDW"
-  - "Blockchain"
-  - "Encryption"
-  - "Biometrics"
-  - "RIVM"
+- digital driver's license
+- privacy
+- data security
+- government
+- control
 categories:
-  - Security & Privacy
-  - Tech & Industry Insights
-  - Personal Reflections
+- security-privacy
+- ai-tech-insights
 ---
 Let's be blunt: the Dutch government wants your driver's license on your phone. Sounds convenient, right? Think again. I've spent years knee-deep in security and privacy, building and securing systems from the ground up ([see my bare metal vs. cloud post](posts/2025/04/bare-metal-vs-cloud-my-perspective/)). This digital driver's license screams "disaster waiting to happen." My experience building the infrastructure for the [COVID-19 QR code system for the RIVM](https://www.government.nl/topics/coronavirus-covid-19/covid-certificate/proof-of-vaccination) ([read more about the burnout that project caused](posts/2025/03/the-sleep-deprived-sysadmin-how-lack-of-sleep-affects-performance-productivity-and-security/)) has given me a unique perspective on the potential pitfalls of large-scale digital identity projects.
 

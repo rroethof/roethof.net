@@ -1,9 +1,16 @@
 ---
-title: "The Ultimate Guide to Self-Hosted Containers in 2025"
+title: The Ultimate Guide to Self-Hosted Containers in 2025
 date: 2025-09-01
 draft: false
-tags: ["containers", "devops", "self-hosting", "homelab", "docker", "podman", "lxc"]
-slug: "ultimate-guide-self-hosted-containers-2025"
+tags:
+- containers
+- self-hosting
+- homelab
+- docker
+- podman
+slug: ultimate-guide-self-hosted-containers-2025
+categories:
+- devops-infrastructure
 ---
 
 In 2025, the world of self-hosting with containers has expanded into a vast and exciting ecosystem. This guide provides a categorized list of some of the best containerized applications available, helping you build, manage, and enhance your home lab or production environment.
