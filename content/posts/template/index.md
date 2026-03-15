@@ -1,8 +1,8 @@
 ---
 title: "Your Post Title"
 slug: your-post-slug
-date: YYYY-MM-DD
-lastmod: YYYY-MM-DD
+date: 1970-01-01
+lastmod: 1970-01-01
 draft: true
 author: "Ronny Roethof"
 
