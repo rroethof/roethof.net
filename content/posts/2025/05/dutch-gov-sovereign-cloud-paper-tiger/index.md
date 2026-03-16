@@ -16,6 +16,8 @@ description: The Dutch government finally talks about tackling Big Tech dependen
   with a 'sovereign' cloud. About time, but is it just hot air, or will they finally
   mandate FOSS and real national control? A skeptical look.
 slug: dutch-gov-sovereign-cloud-paper-tiger
+series:
+- digital-sovereignty-nl
 ---
 
 ## Introduction: Waking Up to the Obvious, Years Too Late

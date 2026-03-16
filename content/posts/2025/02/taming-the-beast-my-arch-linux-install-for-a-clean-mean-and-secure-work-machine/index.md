@@ -17,6 +17,8 @@ tags:
 summary: Setting up Arch Linux for a clean, secure, and productive work machine.
 description: Step-by-step guide to installing Arch Linux for a secure, clean, and
   efficient workstation, including system hardening and workflow tips.
+series:
+- arch-linux-setup
 ---
 
 So, I've done it again. I've decided to ditch Windows on my company laptop (for the, uh, nth time). I briefly flirted with FreeBSD (it was okay, but let's just say my other laptop wasn't playing nice with it) and I really wanted a consistent setup across both machines.

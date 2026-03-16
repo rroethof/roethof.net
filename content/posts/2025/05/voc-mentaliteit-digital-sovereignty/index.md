@@ -14,6 +14,8 @@ tags:
 - cloud
 - sovereignty
 - us
+series:
+- digital-sovereignty-nl
 ---
 
 Let’s cut the crap. If there was ever a time to channel our old Dutch VOC-mentaliteit, it’s now. The digital world is controlled by a handful of American tech giants and spineless bureaucrats in Brussels. Every day we read headlines about Microsoft “protecting” Europe or the EU “ensuring” our digital future. What a joke.

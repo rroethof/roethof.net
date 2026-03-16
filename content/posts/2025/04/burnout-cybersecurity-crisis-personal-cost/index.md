@@ -14,6 +14,8 @@ categories:
 description: Revisiting the burnout crisis with shocking new data from Forrester and
   the harsh reality of my own health consequences. It's worse than we thought.
 slug: burnout-cybersecurity-crisis-still-ignored
+series:
+- burnout-sysadmin
 ---
 
 Let's cut the usual cybersecurity bullshit about tech for a minute. Forget the zero-trust frameworks, the AI-powered threat detection, all of it. Let's talk about the *people*. The ones pulling the insane hours, living under constant pressure, the ones treated like disposable cogs in the machine until they shatter.

@@ -12,6 +12,8 @@ tags:
 categories:
 - health-ergonomics
 - personal-computing
+series:
+- ergonomic-keyboard-journey
 ---
 
 My recent heart attack in September 2024 was a wake-up call, forcing me to re-evaluate my priorities and make significant changes to my daily life. While I'm grateful to have survived, the aftermath has been a journey of self-discovery and adaptation. 

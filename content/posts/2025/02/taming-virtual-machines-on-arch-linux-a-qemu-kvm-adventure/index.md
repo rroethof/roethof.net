@@ -16,6 +16,8 @@ tags:
 summary: A hands-on exploration of virtualization on Arch Linux using QEMU-KVM.
 description: Step-by-step adventure installing and managing virtual machines on Arch
   Linux with QEMU-KVM, covering configuration and workflow tips.
+series:
+- arch-linux-setup
 ---
 
 So, you're ready to dive into the world of virtualization on Arch Linux? Awesome!  This guide will walk you through setting up QEMU-KVM, turning your machine into a virtual playground.  We'll keep things simple and focus on the essentials.

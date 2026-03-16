@@ -15,6 +15,8 @@ tags:
 - automationcontroller
 - awx
 - ansiblesemaphore
+series:
+- ansible-mastery
 ---
 
 The world of IT infrastructure management is relentlessly moving towards automation. And in this landscape, Ansible has firmly established itself as an indispensable player. Its elegance lies in its simplicity, agentless architecture, and formidable capabilities for configuration management, application deployment, and orchestration. Yet, as our Ansible deployments inevitably grow – scaling from a handful of playbooks to hundreds, or even thousands – the need for a centralized management platform becomes not just a convenience, but a critical necessity. Historically, Ansible Tower (now rebranded as Red Hat Ansible Automation Platform's Automation Controller) has been the de facto solution. But let's be honest, for many, the question quickly becomes: what are the viable alternatives?

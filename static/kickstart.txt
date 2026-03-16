@@ -1,101 +1,156 @@
 #version=RHEL9
-# Rocky Linux 9 Kickstart File with DISA STIG Profile
-# 2026 Security Standards & Best Practices Implementation
-#
-# Author: Ronny Roethof
-# Production-ready hardened image
-#
-# Minimal attack surface, STIG compliant, monitoring-ready
-
-#-------------------------------------------------------
-# AUTHENTICATION CONFIGURATION
-#-------------------------------------------------------
-auth --enableshadow --passalgo=sha512
 text
 
+#=======================================================
+# AUTHENTICATION CONFIGURATION
 #-------------------------------------------------------
+# Kies minimal authselect profiel voor RHEL9/Rocky9.
+# Dit vervangt het oude authconfig mechanisme.
+# Eventueel kan je sssd/ad toevoegen met "with-mkhomedir".
+#=======================================================
+authselect select minimal
+
+#=======================================================
 # INSTALLATION SOURCE
 #-------------------------------------------------------
+# BaseOS, AppStream en extras repositories
+# Mirror van Leaseweb Nederland
+#=======================================================
 url --url="https://mirror.nl.leaseweb.net/rockylinux/9/BaseOS/x86_64/os/"
 repo --name="AppStream" --baseurl="https://mirror.nl.leaseweb.net/rockylinux/9/AppStream/x86_64/os/"
 repo --name="extras" --baseurl="https://mirror.nl.leaseweb.net/rockylinux/9/extras/x86_64/os/"
 
+#=======================================================
+# LOCALE AND TIMEZONE
 #-------------------------------------------------------
-# SYSTEM LANGUAGE / KEYBOARD
-#-------------------------------------------------------
+# US English locale, US keyboard layout
+# Tijdzone Europe/Amsterdam
+#=======================================================
 keyboard --vckeymap=us --xlayouts='us'
 lang en_US.UTF-8
-
-#-------------------------------------------------------
-# NETWORK CONFIGURATION
-#-------------------------------------------------------
-network --bootproto=dhcp --device=link --ipv6=auto --activate
-network --hostname=rocky9-cis
-
-#-------------------------------------------------------
-# SECURITY BASELINE
-#-------------------------------------------------------
-selinux --enforcing
-firewall --enabled --ssh --service=cockpit
-rootpw --lock
-
-#-------------------------------------------------------
-# SYSTEM SERVICES
-#-------------------------------------------------------
-services --enabled="chronyd,sshd,cockpit.socket,auditd,firewalld,rsyslog,usbguard,osqueryd,zabbix-agent2" \
-         --disabled="bluetooth,avahi-daemon"
-
-#-------------------------------------------------------
-# TIMEZONE
-#-------------------------------------------------------
 timezone Europe/Amsterdam --utc
 
+#=======================================================
+# NETWORK CONFIGURATION
 #-------------------------------------------------------
+# DHCP netwerkconfiguratie
+# Hostname hardcoded naar "rocky9-secure"
+# IPv6 automatisch
+#=======================================================
+network --bootproto=dhcp --device=link --ipv6=auto --activate
+network --hostname=rocky9-secure
+
+#=======================================================
+# SECURITY BASELINE
+#-------------------------------------------------------
+# SELinux enforcing
+# Firewalld aan, SSH open
+# Root password locked
+#=======================================================
+selinux --enforcing
+firewall --enabled --ssh
+rootpw --lock
+
+#=======================================================
+# SYSTEM SERVICES
+#-------------------------------------------------------
+# Alleen essentiële services ingeschakeld tijdens installatie
+# Nog niet geïnstalleerde services zoals osqueryd worden later in %post geenabled
+#=======================================================
+services --enabled="chronyd,sshd,auditd,firewalld,rsyslog" \
+         --disabled="bluetooth,avahi-daemon"
+
+#=======================================================
 # ADMIN USER
 #-------------------------------------------------------
+# Wheel group geeft sudo rechten
+# Gecodeerd wachtwoord
+#=======================================================
 user --name=rroethof --groups=wheel \
      --gecos="Ronny Roethof" \
      --password=$y$j9T$TzNnH9jQpBaQ6gOEdIVz2/$yQr/MaO5tpNlscUVfbUZEr6DFTqG5p5RGOQoAZuw4C1 \
      --iscrypted
 
-#-------------------------------------------------------
+#=======================================================
 # DISK PARTITIONING
+#-------------------------------------------------------
+# Alleen sda gebruiken
+# Bestaande partitietabellen wissen
+#=======================================================
+#-------------------------------------------------------
+# DISK PARTITIONING MET UNIEKE LVM NAMEN
 #-------------------------------------------------------
 ignoredisk --only-use=sda
 clearpart --drives=sda --initlabel
 
+# EFI en /boot zijn standaard
 part /boot/efi --fstype="efi" --size=512 --fsoptions="umask=0077"
 part /boot --fstype="xfs" --size=1024
 
+# Maak Physical Volume
 part pv.01 --fstype="lvmpv" --size=1 --grow
-volgroup rhel --pesize=4096 pv.01
-
-logvol /tmp --vgname=rhel --size=2048 --fstype="xfs" --name=tmp --fsoptions="nodev,nosuid,noexec"
-logvol /var --vgname=rhel --size=8192 --fstype="xfs" --name=var --fsoptions="nodev"
-logvol /var/log --vgname=rhel --size=8192 --fstype="xfs" --name=var_log --fsoptions="nodev,nosuid"
-logvol /var/log/audit --vgname=rhel --size=8192 --fstype="xfs" --name=var_log_audit --fsoptions="nodev,nosuid"
-logvol /var/tmp --vgname=rhel --size=2048 --fstype="xfs" --name=var_tmp --fsoptions="nodev,nosuid,noexec"
-logvol /home --vgname=rhel --size=4096 --fstype="xfs" --name=home --fsoptions="nodev,nosuid"
-logvol / --vgname=rhel --size=10240 --fstype="xfs" --name=root
 
 #-------------------------------------------------------
-# BOOTLOADER HARDENING
+# Unieke Volume Group naam genereren op basis van host UUID
 #-------------------------------------------------------
+%pre
+UUID=$(cat /sys/class/dmi/id/product_uuid | tr -d '-')
+VGNAME="vg_rl9_${UUID:0:8}"
+echo "volgroup $VGNAME pv.01 --pesize=4096" > /tmp/vgname.ks
+%end
+
+# Include VG creatie
+%include /tmp/vgname.ks
+
+#-------------------------------------------------------
+# Maak logische volumes met unieke namen per host
+#-------------------------------------------------------
+%pre
+LV_ROOT="lv_root_${UUID:0:8}"
+LV_TMP="lv_tmp_${UUID:0:8}"
+LV_VAR="lv_var_${UUID:0:8}"
+LV_VAR_LOG="lv_var_log_${UUID:0:8}"
+LV_VAR_LOG_AUDIT="lv_var_log_audit_${UUID:0:8}"
+LV_VAR_TMP="lv_var_tmp_${UUID:0:8}"
+LV_HOME="lv_home_${UUID:0:8}"
+
+# Schrijf de logvol regels naar een temporary kickstart file
+cat > /tmp/lvs.ks <<EOL
+logvol swap --vgname=$VGNAME --name=lv_swap_$UUID --size=4096
+logvol / --vgname=$VGNAME --name=$LV_ROOT --size=20480 --fstype="xfs"
+logvol /tmp --vgname=$VGNAME --name=$LV_TMP --size=2048 --fstype="xfs" --fsoptions="nodev,nosuid,noexec"
+logvol /var --vgname=$VGNAME --name=$LV_VAR --size=8192 --grow --fstype="xfs" --fsoptions="nodev"
+logvol /var/log --vgname=$VGNAME --name=$LV_VAR_LOG --size=8192 --fstype="xfs" --fsoptions="nodev,nosuid"
+logvol /var/log/audit --vgname=$VGNAME --name=$LV_VAR_LOG_AUDIT --size=8192 --fstype="xfs" --fsoptions="nodev,nosuid"
+logvol /var/tmp --vgname=$VGNAME --name=$LV_VAR_TMP --size=2048 --fstype="xfs" --fsoptions="nodev,nosuid,noexec"
+logvol /home --vgname=$VGNAME --name=$LV_HOME --size=4096 --fstype="xfs" --fsoptions="nodev,nosuid"
+EOL
+%end
+
+# Include de unieke logvols
+%include /tmp/lvs.ks
+
+#=======================================================
+# BOOTLOADER
+#-------------------------------------------------------
+# Grub bootloader locatie en kernel parameters voor audit/secure boot
+#=======================================================
 bootloader --location=boot --timeout=5 \
 --append="audit=1 audit_backlog_limit=8192 page_poison=1 vsyscall=none slub_debug=P"
 
-#-------------------------------------------------------
+#=======================================================
 # PACKAGE SELECTION
 #-------------------------------------------------------
+# Minimal environment
+# Security tooling + admin tools
+#=======================================================
 %packages --excludedocs --instLangs=en_US.utf8
 @^minimal-environment
 
-# Core system
 kernel
 kernel-tools
 microcode_ctl
 
-# Security baseline
 openscap-scanner
 scap-security-guide
 aide
@@ -104,33 +159,12 @@ chrony
 rsyslog
 fapolicyd
 usbguard
-osquery
 
-# Infrastructure tooling
 ansible-core
 
-# Python ecosystem
 python3
 python3-pip
-python3-netaddr
-python3-jmespath
 
-# Management interface
-cockpit
-cockpit-system
-cockpit-networkmanager
-cockpit-selinux
-
-# Security tools
-lynis
-chkrootkit
-clamav
-rkhunter
-
-# Monitoring
-zabbix-agent2
-
-# Admin tools
 git
 curl
 wget
@@ -140,158 +174,96 @@ htop
 tree
 %end
 
-#-------------------------------------------------------
-# POST INSTALL CONFIGURATION
+#=======================================================
+# POST INSTALL SCRIPT
 #-------------------------------------------------------
 %post --log=/var/log/kickstart.log
 #!/bin/bash
-exec 1> >(tee -a /var/log/kickstart.log)
-exec 2>&1
 
-echo "Starting post-install hardening..."
+echo "Starting post-install hardening"
 
-# Enable EPEL
+#-------------------------------------------------------
+# EPEL repository voor extra tooling
+#-------------------------------------------------------
 dnf install -y epel-release
 
 #-------------------------------------------------------
-# CHRONY HARDENING
+# INSTALL SECURITY TOOLING
 #-------------------------------------------------------
-cat > /etc/chrony.conf <<EOF
-server 0.nl.pool.ntp.org iburst
-server 1.nl.pool.ntp.org iburst
-driftfile /var/lib/chrony/drift
-makestep 1.0 3
-rtcsync
-bindcmdaddress 127.0.0.1
-cmdallow 127.0.0.1
-EOF
-
-#-------------------------------------------------------
-# LOAD AUDIT RULES
-#-------------------------------------------------------
-augenrules --load
-
-#-------------------------------------------------------
-# SSH HARDENING
-#-------------------------------------------------------
-cp /etc/ssh/sshd_config /etc/ssh/sshd_config.backup
-cat >> /etc/ssh/sshd_config <<EOF
-PermitRootLogin no
-MaxAuthTries 3
-PasswordAuthentication no
-AllowAgentForwarding no
-AllowTcpForwarding no
-X11Forwarding no
-ClientAliveInterval 300
-ClientAliveCountMax 0
-EOF
-
-#-------------------------------------------------------
-# DISABLE USB STORAGE (legacy)
-#-------------------------------------------------------
-echo "install usb-storage /bin/false" > /etc/modprobe.d/usb-storage.conf
-
-#-------------------------------------------------------
-# AIDE FILE INTEGRITY
-#-------------------------------------------------------
-aide --init
-mv /var/lib/aide/aide.db.new.gz /var/lib/aide/aide.db.gz
-echo "0 3 * * * root /usr/sbin/aide --check" > /etc/cron.d/aide
-
-#-------------------------------------------------------
-# IMMUTABLE AUDIT LOGS
-#-------------------------------------------------------
-chattr +a /var/log/audit/audit.log
+# ClamAV, RKHunter, Lynis, Osquery, Zabbix agent
+dnf install -y \
+clamav \
+rkhunter \
+lynis \
+osquery \
+zabbix-agent2
 
 #-------------------------------------------------------
 # KERNEL HARDENING
 #-------------------------------------------------------
 cat > /etc/sysctl.d/99-security.conf <<EOF
+# IP forwarding en redirects
 net.ipv4.ip_forward=0
 net.ipv4.conf.all.accept_redirects=0
 net.ipv4.conf.all.send_redirects=0
 net.ipv4.conf.all.accept_source_route=0
 net.ipv4.tcp_syncookies=1
-net.ipv4.icmp_echo_ignore_broadcasts=1
-net.ipv4.conf.all.log_martians=1
-net.ipv4.conf.default.rp_filter=1
 
+# Kernel memory protection
 kernel.randomize_va_space=2
 kernel.kptr_restrict=2
 kernel.dmesg_restrict=1
+kernel.unprivileged_bpf_disabled=1
+kernel.yama.ptrace_scope=2
 
+# File system protection
 fs.suid_dumpable=0
 EOF
 
+# Load sysctl
 sysctl --system
 
 #-------------------------------------------------------
-# FINAL PERMISSIONS
+# SSH HARDENING
 #-------------------------------------------------------
-chmod 0644 /etc/passwd
-chmod 0644 /etc/group
-chmod 640 /etc/shadow
-chmod 640 /etc/gshadow
-chown root:shadow /etc/shadow
-chown root:shadow /etc/gshadow
-chmod 0600 /etc/ssh/sshd_config
+cat >> /etc/ssh/sshd_config <<EOF
+PermitRootLogin no
+PasswordAuthentication no
+MaxAuthTries 3
+AllowAgentForwarding no
+AllowTcpForwarding no
+ClientAliveInterval 300
+ClientAliveCountMax 0
+EOF
 
 #-------------------------------------------------------
-# USBGUARD
+# SCAP STIG REMEDIATION
 #-------------------------------------------------------
-systemctl enable usbguard
-systemctl start usbguard
+oscap xccdf eval \
+--remediate \
+--profile xccdf_org.ssgproject.content_profile_stig \
+--results /root/scap-results.xml \
+--report /root/scap-report.html \
+/usr/share/xml/scap/ssg/content/ssg-rocky9-ds.xml
 
 #-------------------------------------------------------
-# OSQUERY
+# AIDE INIT (na SCAP)
 #-------------------------------------------------------
-systemctl enable osqueryd
-systemctl start osqueryd
-
-#-------------------------------------------------------
-# ZABBIX AGENT 2
-#-------------------------------------------------------
-systemctl enable zabbix-agent2
-systemctl start zabbix-agent2
-
-#-------------------------------------------------------
-# WAZUH READINESS (firewall)
-#-------------------------------------------------------
-firewall-cmd --permanent --add-port=1514/tcp
-firewall-cmd --permanent --add-port=1515/tcp
-firewall-cmd --reload
+aide --init
+mv /var/lib/aide/aide.db.new.gz /var/lib/aide/aide.db.gz
 
 #-------------------------------------------------------
 # ENABLE SERVICES
 #-------------------------------------------------------
-systemctl enable auditd chronyd firewalld cockpit.socket fapolicyd
+# Services die tijdens %packages nog niet bestonden
+systemctl enable \
+usbguard \
+zabbix-agent2 \
+osqueryd \
+fapolicyd \
+chronyd
 
-
-#-------------------------------------------------------
-# APPLY DISA STIG USING SCAP SECURITY GUIDE
-#-------------------------------------------------------
-if [ -f /usr/share/xml/scap/ssg/content/ssg-rocky9-ds.xml ]; then
-    echo "Applying DISA STIG profile..."
-    oscap xccdf eval \
-        --profile xccdf_org.ssgproject.content_profile_stig \
-        --results /root/scap-results.xml \
-        --report /root/scap-report.html \
-        /usr/share/xml/scap/ssg/content/ssg-rocky9-ds.xml
-    echo "SCAP hardening complete"
-else
-    echo "SCAP content not found; skipping SCAP evaluation"
-fi
-
-#-------------------------------------------------------
-# ADD SSH KEY FOR ADMIN USER
-#-------------------------------------------------------
-mkdir -p /home/rroethof/.ssh
-chmod 700 /home/rroethof/.ssh
-echo "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMELqQdsIVHY4dU/rwGVkgAb1MV+TQM9rFzYDhweWafB" > /home/rroethof/.ssh/authorized_keys
-chmod 600 /home/rroethof/.ssh/authorized_keys
-chown -R rroethof:rroethof /home/rroethof/.ssh
-
-echo "Kickstart hardening complete"
+echo "Post-install hardening complete"
 %end
 
 reboot

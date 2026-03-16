@@ -16,6 +16,8 @@ tags:
 summary: My minimal desktop setup using Hyprland on a fresh Arch Linux installation.
 description: Step-by-step account of setting up a minimal Hyprland desktop environment
   on Arch Linux, including key configurations and workflow.
+series:
+- arch-linux-setup
 ---
 
 ## We Tamed the Beast! Arch Linux + Hyprland = 🔥

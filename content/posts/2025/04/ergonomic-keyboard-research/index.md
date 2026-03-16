@@ -13,6 +13,8 @@ tags:
 categories:
 - health-ergonomics
 - personal-computing
+series:
+- ergonomic-keyboard-journey
 ---
 ## Introduction: Seeking Ergonomic Support at Work
 

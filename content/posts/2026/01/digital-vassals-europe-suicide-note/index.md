@@ -17,6 +17,8 @@ summary: How EU policies, digital sovereignty, and cloud dependencies put member
   at systemic risk.
 description: Examining why the EU’s approach to digital governance exposes nations
   to systemic failures, cloud dependence, and sovereignty issues.
+series:
+- digital-sovereignty-nl
 ---
 ### The Greenland Situation: A Delusion
 

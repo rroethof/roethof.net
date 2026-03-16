@@ -16,6 +16,8 @@ tags:
 - enterpriserisk
 - ussurveillance
 categories: []
+series:
+- digital-sovereignty-nl
 ---
 
 # From Digital Despair to Digital Sovereignty: Europe’s Awakening

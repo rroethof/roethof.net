@@ -11,6 +11,8 @@ tags:
 categories:
 - health-ergonomics
 - career-sysadmin
+series:
+- burnout-sysadmin
 ---
 
 ## Introduction: The Silent Struggle of a Sysadmin

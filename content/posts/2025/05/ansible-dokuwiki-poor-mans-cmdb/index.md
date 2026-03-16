@@ -14,6 +14,8 @@ tags:
 - dokuwiki
 - automation
 - infrastructureascode
+series:
+- ansible-mastery
 ---
 
 It's always a bit of a trip to look back at old projects. About a decade ago, I cobbled together an Ansible playbook designed to create a very basic, what I affectionately called, "Poor Man's CMDB" using DokuWiki. The idea was simple: use Ansible to gather information about servers and automatically generate wiki pages for them. No fancy databases, no complex frontends – just a straightforward way to get essential server data into an easily accessible format.

@@ -7,6 +7,8 @@ categories:
 - devops-infrastructure
 - career-sysadmin
 tags: []
+series:
+- ansible-mastery
 ---
 Tired of repetitive IT tasks? Ansible modules are your answer. They're the building blocks for automating infrastructure management, deployments, and all that manual work we sysadmins love to hate.
 

@@ -14,6 +14,8 @@ description: If regaining control over critical digital infrastructure is percei
   as provocative, what does that say about dependency and national sovereignty? A
   debate-focused blog drawing on previous analyses of EU and national digital strategy.
 slug: digital-autonomy-dependency-debate
+series:
+- digital-sovereignty-nl
 ---
 
 In a recent post, [Rob Vos](https://www.linkedin.com/posts/rmvos_mbo-digitalisering-soevereiniteit-activity-7409855615553925120-xWSe) observed that Europe’s pursuit of digital autonomy is increasingly perceived by foreign governments, particularly the United States, as an attack. That perception matters in diplomatic terms, but we should ask the deeper question:  

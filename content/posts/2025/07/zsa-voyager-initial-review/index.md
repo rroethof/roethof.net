@@ -15,6 +15,8 @@ tags:
 - tietzesyndrome
 - workspace
 - productivity
+series:
+- ergonomic-keyboard-journey
 ---
 
 Following up on my previous posts about the ongoing quest for ergonomic bliss, I'm thrilled to share that the ZSA Voyager has finally arrived and is now part of my daily setup! This marks a significant milestone in managing the challenges posed by Tietze's Syndrome during my work. If you missed the first part of this journey, you can read about it here: 

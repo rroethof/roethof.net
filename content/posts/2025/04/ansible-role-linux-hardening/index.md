@@ -15,6 +15,8 @@ categories:
 description: Join me as we build an Ansible role to automate basic Linux security
   hardening. We'll walk through the key tasks and configurations to secure a fresh
   system.
+series:
+- ansible-mastery
 ---
 
 Alright, let's talk security hardening. It's one of the first, if not *the* first, steps we should take on any new Linux system. Doing it all manually gets old fast, especially when we're managing more than a couple of servers. That's where Ansible comes in!

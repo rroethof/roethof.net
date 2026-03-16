@@ -13,6 +13,8 @@ tags:
 categories:
 - devops-infrastructure
 - ai-tech-insights
+series:
+- ansible-mastery
 ---
 
 Alright, let's talk about CI/CD pipelines for Ansible roles. If you've read my [thoughts on automation](posts/2025/03/why_i_decided_to_move_my_weblogs_to_hugo/), you know I'm obsessed with automating everything. Manual testing? That's so 2020. Let's build something robust that does the heavy lifting for us.

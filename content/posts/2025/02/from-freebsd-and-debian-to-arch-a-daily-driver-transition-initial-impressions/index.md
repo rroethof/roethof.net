@@ -17,6 +17,8 @@ summary: My initial impressions transitioning from FreeBSD and Debian to Arch Li
   as a daily driver.
 description: A firsthand account of moving from FreeBSD and Debian to Arch Linux,
   covering workflow, system administration, and command-line experiences.
+series:
+- arch-linux-setup
 ---
 
 For years, Debian has been my rock. A bastion of stability, it served me faithfully on servers and even as a daily driver. Before Debian, I spent a significant amount of time with FreeBSD, which I admire for its robust design. However, lately, I've felt a growing itch for something more... dynamic. So, I'm making the leap: I'm switching my daily driver laptop to Arch Linux. Here's a breakdown of my reasoning and initial impressions:

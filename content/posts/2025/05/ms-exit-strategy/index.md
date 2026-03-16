@@ -16,6 +16,8 @@ description: Why do so few companies have an exit strategy for Microsoft or VMwa
   Let's talk about vendor lock-in, cloud hype, and why you need a plan before the
   next price hike or policy change screws you over.
 slug: ms-exit-strategy
+series:
+- digital-sovereignty-nl
 ---
 
 ## Introduction: Bend Over and Say Thank You (The Microsoft Way)
