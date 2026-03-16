@@ -2,11 +2,10 @@
 text
 
 #=======================================================
-# AUTHENTICATION CONFIGURATION
+# AUTHENTICATION
 #-------------------------------------------------------
-# Kies minimal authselect profiel voor RHEL9/Rocky9.
-# Dit vervangt het oude authconfig mechanisme.
-# Eventueel kan je sssd/ad toevoegen met "with-mkhomedir".
+# Minimal authselect profiel voor Rocky9/RHEL9
+# Vervangt oude authconfig. Eventueel kan sssd/ad met "with-mkhomedir"
 #=======================================================
 authselect select minimal
 
@@ -14,7 +13,7 @@ authselect select minimal
 # INSTALLATION SOURCE
 #-------------------------------------------------------
 # BaseOS, AppStream en extras repositories
-# Mirror van Leaseweb Nederland
+# Mirror: Leaseweb Nederland
 #=======================================================
 url --url="https://mirror.nl.leaseweb.net/rockylinux/9/BaseOS/x86_64/os/"
 repo --name="AppStream" --baseurl="https://mirror.nl.leaseweb.net/rockylinux/9/AppStream/x86_64/os/"
@@ -34,7 +33,7 @@ timezone Europe/Amsterdam --utc
 # NETWORK CONFIGURATION
 #-------------------------------------------------------
 # DHCP netwerkconfiguratie
-# Hostname hardcoded naar "rocky9-secure"
+# Hostname hardcoded
 # IPv6 automatisch
 #=======================================================
 network --bootproto=dhcp --device=link --ipv6=auto --activate
@@ -54,17 +53,16 @@ rootpw --lock
 #=======================================================
 # SYSTEM SERVICES
 #-------------------------------------------------------
-# Alleen essentiële services ingeschakeld tijdens installatie
-# Nog niet geïnstalleerde services zoals osqueryd worden later in %post geenabled
+# Alleen essentiële services tijdens installatie
+# Extra services (usbguard, osqueryd, zabbix) via %post
 #=======================================================
-services --enabled="chronyd,sshd,auditd,firewalld,rsyslog" \
-         --disabled="bluetooth,avahi-daemon"
+services --enabled="chronyd,sshd,auditd,firewalld,rsyslog"
 
 #=======================================================
 # ADMIN USER
 #-------------------------------------------------------
 # Wheel group geeft sudo rechten
-# Gecodeerd wachtwoord
+# Wachtwoord is gecodeerd (SHA512)
 #=======================================================
 user --name=rroethof --groups=wheel \
      --gecos="Ronny Roethof" \
@@ -72,40 +70,30 @@ user --name=rroethof --groups=wheel \
      --iscrypted
 
 #=======================================================
-# DISK PARTITIONING
-#-------------------------------------------------------
-# Alleen sda gebruiken
-# Bestaande partitietabellen wissen
-#=======================================================
-#-------------------------------------------------------
 # DISK PARTITIONING MET UNIEKE LVM NAMEN
 #-------------------------------------------------------
 ignoredisk --only-use=sda
 clearpart --drives=sda --initlabel
 
-# EFI en /boot zijn standaard
+# EFI en /boot
 part /boot/efi --fstype="efi" --size=512 --fsoptions="umask=0077"
 part /boot --fstype="xfs" --size=1024
 
-# Maak Physical Volume
+# Physical volume voor LVM
 part pv.01 --fstype="lvmpv" --size=1 --grow
 
 #-------------------------------------------------------
-# Unieke Volume Group naam genereren op basis van host UUID
+# Pre-install script om unieke VG + LV namen te genereren
 #-------------------------------------------------------
 %pre
+# UUID van host ophalen
 UUID=$(cat /sys/class/dmi/id/product_uuid | tr -d '-')
 VGNAME="vg_rl9_${UUID:0:8}"
+
+# Maak kickstart regels voor VG
 echo "volgroup $VGNAME pv.01 --pesize=4096" > /tmp/vgname.ks
-%end
 
-# Include VG creatie
-%include /tmp/vgname.ks
-
-#-------------------------------------------------------
-# Maak logische volumes met unieke namen per host
-#-------------------------------------------------------
-%pre
+# Maak unieke logvol namen
 LV_ROOT="lv_root_${UUID:0:8}"
 LV_TMP="lv_tmp_${UUID:0:8}"
 LV_VAR="lv_var_${UUID:0:8}"
@@ -114,7 +102,6 @@ LV_VAR_LOG_AUDIT="lv_var_log_audit_${UUID:0:8}"
 LV_VAR_TMP="lv_var_tmp_${UUID:0:8}"
 LV_HOME="lv_home_${UUID:0:8}"
 
-# Schrijf de logvol regels naar een temporary kickstart file
 cat > /tmp/lvs.ks <<EOL
 logvol swap --vgname=$VGNAME --name=lv_swap_$UUID --size=4096
 logvol / --vgname=$VGNAME --name=$LV_ROOT --size=20480 --fstype="xfs"
@@ -127,30 +114,28 @@ logvol /home --vgname=$VGNAME --name=$LV_HOME --size=4096 --fstype="xfs" --fsopt
 EOL
 %end
 
-# Include de unieke logvols
+# Include VG en LV creatie
+%include /tmp/vgname.ks
 %include /tmp/lvs.ks
 
 #=======================================================
 # BOOTLOADER
 #-------------------------------------------------------
-# Grub bootloader locatie en kernel parameters voor audit/secure boot
-#=======================================================
 bootloader --location=boot --timeout=5 \
 --append="audit=1 audit_backlog_limit=8192 page_poison=1 vsyscall=none slub_debug=P"
 
 #=======================================================
 # PACKAGE SELECTION
 #-------------------------------------------------------
-# Minimal environment
-# Security tooling + admin tools
-#=======================================================
 %packages --excludedocs --instLangs=en_US.utf8
 @^minimal-environment
 
+# Core system
 kernel
 kernel-tools
 microcode_ctl
 
+# Security baseline
 openscap-scanner
 scap-security-guide
 aide
@@ -160,11 +145,14 @@ rsyslog
 fapolicyd
 usbguard
 
+# Infrastructure tooling
 ansible-core
 
+# Python ecosystem
 python3
 python3-pip
 
+# Admin tools
 git
 curl
 wget
@@ -179,18 +167,16 @@ tree
 #-------------------------------------------------------
 %post --log=/var/log/kickstart.log
 #!/bin/bash
-
 echo "Starting post-install hardening"
 
 #-------------------------------------------------------
-# EPEL repository voor extra tooling
+# EPEL repository voor extra packages
 #-------------------------------------------------------
 dnf install -y epel-release
 
 #-------------------------------------------------------
-# INSTALL SECURITY TOOLING
+# Security tooling
 #-------------------------------------------------------
-# ClamAV, RKHunter, Lynis, Osquery, Zabbix agent
 dnf install -y \
 clamav \
 rkhunter \
@@ -199,7 +185,7 @@ osquery \
 zabbix-agent2
 
 #-------------------------------------------------------
-# KERNEL HARDENING
+# Kernel hardening
 #-------------------------------------------------------
 cat > /etc/sysctl.d/99-security.conf <<EOF
 # IP forwarding en redirects
@@ -219,12 +205,10 @@ kernel.yama.ptrace_scope=2
 # File system protection
 fs.suid_dumpable=0
 EOF
-
-# Load sysctl
 sysctl --system
 
 #-------------------------------------------------------
-# SSH HARDENING
+# SSH hardening
 #-------------------------------------------------------
 cat >> /etc/ssh/sshd_config <<EOF
 PermitRootLogin no
@@ -237,7 +221,7 @@ ClientAliveCountMax 0
 EOF
 
 #-------------------------------------------------------
-# SCAP STIG REMEDIATION
+# SCAP STIG remediatie
 #-------------------------------------------------------
 oscap xccdf eval \
 --remediate \
@@ -247,21 +231,35 @@ oscap xccdf eval \
 /usr/share/xml/scap/ssg/content/ssg-rocky9-ds.xml
 
 #-------------------------------------------------------
-# AIDE INIT (na SCAP)
+# AIDE INIT
 #-------------------------------------------------------
 aide --init
 mv /var/lib/aide/aide.db.new.gz /var/lib/aide/aide.db.gz
 
 #-------------------------------------------------------
-# ENABLE SERVICES
+# Services enable
 #-------------------------------------------------------
-# Services die tijdens %packages nog niet bestonden
 systemctl enable \
 usbguard \
 zabbix-agent2 \
 osqueryd \
 fapolicyd \
 chronyd
+
+#=======================================================
+# ADD ADMIN SSH KEY
+#-------------------------------------------------------
+# Maak .ssh directory voor rroethof, zet permissies correct
+# Voeg provided ssh-ed25519 key toe aan authorized_keys
+#=======================================================
+mkdir -p /home/rroethof/.ssh
+chmod 700 /home/rroethof/.ssh
+
+echo "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMELqQdsIVHY4dU/rwGVkgAb1MV+TQM9rFzYDhweWafB" \
+    > /home/rroethof/.ssh/authorized_keys
+
+chmod 600 /home/rroethof/.ssh/authorized_keys
+chown -R rroethof:rroethof /home/rroethof/.ssh
 
 echo "Post-install hardening complete"
 %end
