@@ -56,7 +56,14 @@ rootpw --lock
 # Alleen essentiële services tijdens installatie
 # Extra services (usbguard, osqueryd, zabbix) via %post
 #=======================================================
-services --enabled="chronyd,sshd,auditd,firewalld,rsyslog"
+services --enabled=chronyd
+services --enabled=sshd
+services --enabled=auditd
+services --enabled=firewalld
+services --enabled=rsyslog
+
+services --disabled=bluetooth
+services --disabled=avahi-daemon
 
 #=======================================================
 # ADMIN USER
@@ -64,10 +71,7 @@ services --enabled="chronyd,sshd,auditd,firewalld,rsyslog"
 # Wheel group geeft sudo rechten
 # Wachtwoord is gecodeerd (SHA512)
 #=======================================================
-user --name=rroethof --groups=wheel \
-     --gecos="Ronny Roethof" \
-     --password=$y$j9T$TzNnH9jQpBaQ6gOEdIVz2/$yQr/MaO5tpNlscUVfbUZEr6DFTqG5p5RGOQoAZuw4C1 \
-     --iscrypted
+user --name=rroethof --groups=wheel --gecos="Ronny Roethof" --password="$y$j9T$TzNnH9jQpBaQ6gOEdIVz2/$yQr/MaO5tpNlscUVfbUZEr6DFTqG5p5RGOQoAZuw4C1" --iscrypted
 
 #=======================================================
 # DISK PARTITIONING MET UNIEKE LVM NAMEN
@@ -121,8 +125,7 @@ EOL
 #=======================================================
 # BOOTLOADER
 #-------------------------------------------------------
-bootloader --location=boot --timeout=5 \
---append="audit=1 audit_backlog_limit=8192 page_poison=1 vsyscall=none slub_debug=P"
+bootloader --location=boot --timeout=5 --append="audit=1 audit_backlog_limit=8192 page_poison=1 vsyscall=none slub_debug=P"
 
 #=======================================================
 # PACKAGE SELECTION
