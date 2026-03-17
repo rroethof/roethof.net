@@ -101,11 +101,7 @@ services --disabled=avahi-daemon  # mDNS niet nodig op server
 # Wachtwoord is yescrypt-gehashed (SHA512 equivalent voor RHEL9).
 # SSH key wordt in %post toegevoegd.
 #=======================================================
-user --name=rroethof \
-     --groups=wheel \
-     --gecos="Ronny Roethof" \
-     --password="$y$j9T$TzNnH9jQpBaQ6gOEdIVz2/$yQr/MaO5tpNlscUVfbUZEr6DFTqG5p5RGOQoAZuw4C1" \
-     --iscrypted
+user --name=rroethof --groups=wheel --gecos="Ronny Roethof" --password="$y$j9T$TzNnH9jQpBaQ6gOEdIVz2/$yQr/MaO5tpNlscUVfbUZEr6DFTqG5p5RGOQoAZuw4C1" --iscrypted
 
 
 #=======================================================
@@ -201,9 +197,7 @@ EOL
 #   vsyscall=none            - Schakel verouderd vsyscall interface uit
 #   slub_debug=P             - Poison SLUB allocator (detecteert UAF bugs)
 #=======================================================
-bootloader --location=boot \
-           --timeout=5 \
-           --append="audit=1 audit_backlog_limit=8192 page_poison=1 vsyscall=none slub_debug=P"
+bootloader --location=boot --timeout=5 --append="audit=1 audit_backlog_limit=8192 page_poison=1 vsyscall=none slub_debug=P"
 
 
 #=======================================================
