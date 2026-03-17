@@ -323,8 +323,8 @@ dnf install -y \
     rkhunter \
     lynis \
     osquery \
-    zabbix-agent2
-
+    zabbix-agent2 \
+    lynis
 
 #-------------------------------------------------------
 # STAP 2: SCAP / STIG remediatie
