@@ -9,8 +9,9 @@
 #=======================================================
 # AUTHENTICATION
 #-------------------------------------------------------
-# Gebruik authselect ipv legacy authconfig. "minimal" profiel is voldoende voor standaard 
-# lokale accounts. Eventueel kan SSSD/AD met 'with-mkhomedir' worden toegevoegd.
+# Gebruik authselect in plaats van legacy authconfig.
+# Minimal profiel is voldoende voor standaard lokale accounts.
+# Eventueel kan SSSD/AD met 'with-mkhomedir' worden toegevoegd.
 #=======================================================
 authselect select minimal
 
@@ -18,7 +19,7 @@ authselect select minimal
 # INSTALLATION SOURCE
 #-------------------------------------------------------
 # BaseOS, AppStream en extras repositories van Leaseweb NL mirror.
-# Hiermee kan het systeem de installatiepakketten ophalen.
+# Hiermee kan het systeem installatiepakketten ophalen.
 #=======================================================
 url --url="https://mirror.nl.leaseweb.net/rockylinux/9/BaseOS/x86_64/os/"
 repo --name="AppStream" --baseurl="https://mirror.nl.leaseweb.net/rockylinux/9/AppStream/x86_64/os/"
@@ -28,7 +29,7 @@ repo --name="extras" --baseurl="https://mirror.nl.leaseweb.net/rockylinux/9/extr
 # LOCALE AND TIMEZONE
 #-------------------------------------------------------
 # Stel US English locale en keyboard layout in.
-# Tijdzone is Europe/Amsterdam met UTC coördinatie.
+# Tijdzone Europe/Amsterdam met UTC coördinatie.
 #=======================================================
 keyboard --vckeymap=us --xlayouts='us'
 lang en_US.UTF-8
@@ -47,9 +48,10 @@ network --hostname=rocky9-secure
 #=======================================================
 # SECURITY BASELINE
 #-------------------------------------------------------
-# SELinux staat op enforcing (strikte mode)
-# Firewalld wordt ingeschakeld met SSH open
-# Root-account wordt geblokkeerd (geen direct login)
+# SELinux enforcing (strikt)
+# Firewalld ingeschakeld met SSH open
+# Root-account wordt geblokkeerd (geen directe login)
+# Password authentication wordt wél toegestaan
 #=======================================================
 selinux --enforcing
 firewall --enabled --ssh
@@ -59,13 +61,13 @@ rootpw --lock
 # SYSTEM SERVICES
 #-------------------------------------------------------
 # Alleen essentiële services tijdens installatie
-# Extra security en monitoring tools worden via post-install geactiveerd
+# Extra security/monitoring tools via post-install geactiveerd
 #=======================================================
-services --enabled=chronyd        # NTP/chrony voor tijdsync
+services --enabled=chronyd        # NTP/chrony
 services --enabled=sshd           # SSH-server
-services --enabled=auditd         # Auditd voor logging/security
+services --enabled=auditd         # Auditd voor security logging
 services --enabled=firewalld      # Firewall
-services --enabled=rsyslog        # Syslog logging
+services --enabled=rsyslog        # Syslog
 
 services --disabled=bluetooth     # Niet nodig op server
 services --disabled=avahi-daemon  # Niet nodig op server
@@ -73,17 +75,17 @@ services --disabled=avahi-daemon  # Niet nodig op server
 #=======================================================
 # ADMIN USER
 #-------------------------------------------------------
-# Maak admin user aan: rroethof
-# Lid van wheel group -> sudo rechten
+# Admin user 'rroethof' met sudo rechten via wheel
 # Wachtwoord is SHA512 gehashed
 #=======================================================
-user --name=rroethof --groups=wheel --gecos="Ronny Roethof" --password="$y$j9T$TzNnH9jQpBaQ6gOEdIVz2/$yQr/MaO5tpNlscUVfbUZEr6DFTqG5p5RGOQoAZuw4C1" --iscrypted
+user --name=rroethof --groups=wheel --gecos="Ronny Roethof" \
+     --password="$y$j9T$TzNnH9jQpBaQ6gOEdIVz2/$yQr/MaO5tpNlscUVfbUZEr6DFTqG5p5RGOQoAZuw4C1" --iscrypted
 
 #=======================================================
 # DISK PARTITIONING MET UNIEKE LVM NAMEN
 #-------------------------------------------------------
-# Slechts één disk wordt gebruikt: /dev/sda
-# Verwijder oude partities en init label
+# Slechts één disk gebruikt: /dev/sda
+# Oude partities verwijderen en nieuwe label initialiseren
 #=======================================================
 ignoredisk --only-use=sda
 clearpart --drives=sda --initlabel
@@ -98,13 +100,13 @@ part pv.01 --fstype="lvmpv" --size=1 --grow
 #=======================================================
 # PRE-INSTALL SCRIPT
 #-------------------------------------------------------
-# Script genereert unieke LVM volumegroepen en LVs per host UUID
-#-------------------------------------------------------
+# Genereert unieke LVM volumegroep en logical volumes per host UUID
+#=======================================================
 %pre
 # Haal hardware UUID op
 UUID=$(cat /sys/class/dmi/id/product_uuid 2>/dev/null | tr -d '-')
 
-# Valideer of UUID beschikbaar is, anders maak nieuwe
+# Valideer UUID of genereer nieuwe
 if [ -z "$UUID" ] || [[ "$UUID" == "00000000000000000000000000000000" ]]; then
     UUID=$(uuidgen)
 fi
@@ -112,11 +114,11 @@ fi
 # Gebruik eerste 8 karakters voor korte naam
 SHORT_UUID=${UUID:0:8}
 
-# Unieke Volume Group naam
+# Volume Group naam
 VGNAME="vg_rl9_${SHORT_UUID}"
 echo "volgroup $VGNAME pv.01 --pesize=4096" > /tmp/vgname.ks
 
-# Definieer Logical Volumes met unieke namen
+# Logical Volumes
 LV_ROOT="lv_root_${SHORT_UUID}"
 LV_TMP="lv_tmp_${SHORT_UUID}"
 LV_VAR="lv_var_${SHORT_UUID}"
@@ -126,10 +128,9 @@ LV_VAR_TMP="lv_var_tmp_${SHORT_UUID}"
 LV_HOME="lv_home_${SHORT_UUID}"
 LV_SWAP="lv_swap_${SHORT_UUID}"
 
-# Maak LV configuratie file
+# LV configuratie file
 cat > /tmp/lvs.ks <<EOL
 logvol swap --vgname=$VGNAME --name=$LV_SWAP --size=2048
-
 logvol / --vgname=$VGNAME --name=$LV_ROOT --size=20480 --fstype="xfs" --mkfsoptions="-m reflink=0"
 logvol /tmp --vgname=$VGNAME --name=$LV_TMP --size=2048 --fstype="xfs" --fsoptions="nodev,nosuid,noexec"
 logvol /var --vgname=$VGNAME --name=$LV_VAR --size=8192 --fstype="xfs" --fsoptions="nodev"
@@ -147,7 +148,7 @@ EOL
 #=======================================================
 # BOOTLOADER
 #-------------------------------------------------------
-# Zet bootloader locatie en kernel parameters voor security hardening
+# Kernel boot parameters voor extra hardening
 #=======================================================
 bootloader --location=boot --timeout=5 --append="audit=1 audit_backlog_limit=8192 page_poison=1 vsyscall=none slub_debug=P"
 
@@ -155,9 +156,9 @@ bootloader --location=boot --timeout=5 --append="audit=1 audit_backlog_limit=819
 # PACKAGE SELECTION
 #-------------------------------------------------------
 %packages --excludedocs
-@^minimal-environment    # Minimal OS installatie
+@^minimal-environment  # Minimal OS
 
-# Core system
+# Core
 kernel
 kernel-tools
 microcode_ctl
@@ -185,23 +186,26 @@ curl
 wget
 vim-enhanced
 tmux
+btop   # realtime resource monitor
 tree
+tar
 %end
 
 #=======================================================
 # POST INSTALL SCRIPT
 #-------------------------------------------------------
+# Log alles naar /var/log/kickstart.log voor debugging
 %post --log=/var/log/kickstart.log
 #!/bin/bash
 echo "Starting post-install hardening"
 
 #-------------------------------------------------------
-# Voeg EPEL repository toe voor extra pakketten
+# EPEL repository voor extra pakketten
 #-------------------------------------------------------
 dnf install -y epel-release
 
 #-------------------------------------------------------
-# Installeer security tools
+# Installeer extra security tools
 #-------------------------------------------------------
 dnf install -y \
 clamav \
@@ -209,7 +213,7 @@ rkhunter \
 lynis \
 osquery \
 zabbix-agent2 \
-btop
+btop   # realtime monitoring tool
 
 #-------------------------------------------------------
 # Kernel hardening via sysctl
@@ -236,7 +240,7 @@ sysctl --system
 #-------------------------------------------------------
 cat >> /etc/ssh/sshd_config <<EOF
 PermitRootLogin no
-PasswordAuthentication no
+PasswordAuthentication yes   # Wachtwoord login toegestaan
 MaxAuthTries 3
 AllowAgentForwarding no
 AllowTcpForwarding no
@@ -252,7 +256,7 @@ oscap xccdf eval \
 --profile xccdf_org.ssgproject.content_profile_stig \
 --results /root/scap-results.xml \
 --report /root/scap-report.html \
-/usr/share/xml/scap/ssg/content/ssg-rocky9-ds.xml
+/usr/share/xml/scap/ssg/content/ssg-rhel9-ds.xml
 
 #-------------------------------------------------------
 # AIDE initialisatie
@@ -261,7 +265,7 @@ aide --init
 mv /var/lib/aide/aide.db.new.gz /var/lib/aide/aide.db.gz
 
 #-------------------------------------------------------
-# Enable services
+# Enable security services
 #-------------------------------------------------------
 systemctl enable \
 usbguard \
@@ -273,18 +277,19 @@ chronyd
 # Maak audit log append-only
 chattr +a /var/log/audit/audit.log
 
+#-------------------------------------------------------
 # Journald tuning
+#-------------------------------------------------------
 sed -i 's/^#Storage=.*/Storage=persistent/' /etc/systemd/journald.conf
 sed -i 's/^#SystemMaxUse=.*/SystemMaxUse=1G/' /etc/systemd/journald.conf
 systemctl restart systemd-journald
 
-#=======================================================
-# ADD ADMIN SSH KEY
+#-------------------------------------------------------
+# Voeg admin SSH key toe
 #-------------------------------------------------------
 mkdir -p /home/rroethof/.ssh
 chmod 700 /home/rroethof/.ssh
 
-# Voeg publieke SSH key toe
 echo "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMELqQdsIVHY4dU/rwGVkgAb1MV+TQM9rFzYDhweWafB" \
     > /home/rroethof/.ssh/authorized_keys
 
@@ -294,5 +299,7 @@ chown -R rroethof:rroethof /home/rroethof/.ssh
 echo "Post-install hardening complete"
 %end
 
-# Herstart systeem na installatie
+#=======================================================
+# REBOOT NA INSTALLATIE
+#=======================================================
 reboot
