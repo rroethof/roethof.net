@@ -185,7 +185,6 @@ curl
 wget
 vim-enhanced
 tmux
-htop
 tree
 %end
 
@@ -209,7 +208,8 @@ clamav \
 rkhunter \
 lynis \
 osquery \
-zabbix-agent2
+zabbix-agent2 \
+btop
 
 #-------------------------------------------------------
 # Kernel hardening via sysctl
