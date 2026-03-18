@@ -259,7 +259,6 @@ curl
 wget
 vim-enhanced
 tmux
-btop
 tree
 tar
 %end
