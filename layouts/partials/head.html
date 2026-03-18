@@ -75,7 +75,7 @@
     integrity="{{ $bundleJS.Data.Integrity }}" data-copy="{{ i18n " code.copy" }}" data-copied="{{ i18n " code.copied"
     }}"></script>
   {{ end }}
-  {{ if not .Site.Params.disableImageZoom | default true }}
+  {{ if not .Site.Params.imageZoom | default false }}
   {{ $zoomJS := resources.Get "lib/zoom/zoom.min.js" | resources.Fingerprint "sha512" }}
   <script src="{{ $zoomJS.RelPermalink }}" integrity="{{ $zoomJS.Data.Integrity }}"></script>
   {{ end }}
