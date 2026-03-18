@@ -71,4 +71,4 @@ Handing keys to an unelected Commission in Brussels is the same mistake made wit
 
 The Dutch government had a Rijkscloud in 2011. It chose not to build it. It had eight years to respond to the CLOUD Act. It chose not to. It had Cloud Kootwijk in 2023. It chose not to.
 
-We handed the keys over ourselves. Both sets. To both sides. The least we can do now is stop pretending it was inevitable.
+We handed the keys over ourselves. Both sets. To both sides. The least we can do now is bend over, take it like a man and enjoy the consequences.
