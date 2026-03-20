@@ -6,11 +6,11 @@
 # https://blowfish.page/docs/configuration/#theme-parameters
 
 colorScheme = "blowfish"
-defaultAppearance = "dark" # valid options: light or dark
+defaultAppearance = "dark"
 autoSwitchAppearance = true
 
 Logo = "apple-touch-icon.png"
-SecondaryLogo = "apple-touch-icon.png" # als je geen verschil wilt dark/light
+SecondaryLogo = "apple-touch-icon.png"
 
 enableSearch = true
 enableCodeCopy = true
@@ -18,15 +18,12 @@ showComments = true
 
 replyByEmail = false
 
-mainSections = ["posts", "section2"]
-#mainSections = ["2025", "2024", "2023", "2022", "2021", "2020", "2019", "2018", "2017", "2016", "2015", "2014", "2013", "2012", "2011", "2010"]
+mainSections = ["posts"]
 robots = "true"
 
 disableImageOptimization = false
 disableTextInHeader = false
-# backgroundImageWidth = 1200
 
-#defaultBackgroundImage = "/img/background.svg"
 defaultFeaturedImage = "/img/featured.svg"
 
 highlightCurrentMenuArea = true
@@ -39,7 +36,7 @@ forgejoDefaultServer = "https://v8.next.forgejo.org"
 imageZoom = false
 
 [header]
-  layout = "fixed" # valid options: basic, fixed, fixed-fill, fixed-gradient, fixed-fill-blur
+  layout = "fixed"
 
 [footer]
   showMenu = true
@@ -49,15 +46,15 @@ imageZoom = false
   showScrollToTop = true
 
 [homepage]
-  layout = "background" # valid options: page, profile, hero, card, background, custom
-  homepageImage = "bg.jpg" # used in: hero and card
+  layout = "background"
+  homepageImage = "bg.jpg"
   showRecent = true
   showRecentItems = 30
   showMoreLink = true
   showMoreLinkDest = "/posts/"
   cardView = true
   cardViewScreenWidth = false
-  layoutBackgroundBlur = true # only used when layout equals background
+  layoutBackgroundBlur = true
 
 [article]
   showDate = true

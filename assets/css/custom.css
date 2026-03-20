@@ -1,0 +1,27 @@
+header nav {
+  gap: 1.75rem;
+}
+
+.main-menu nav {
+  gap: 1.00rem !important;
+}
+
+.main-menu {
+  gap: 1.00rem;
+}
+
+footer nav {
+  gap: 1.75rem;
+}
+
+footer nav ul li {
+  margin-right: 1.75rem !important;
+}
+
+.author-card img.rounded-full {
+  margin-left: 2rem;
+}
+
+div.flex.author {
+    padding-left: 1rem;
+}
