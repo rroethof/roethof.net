@@ -36,10 +36,6 @@ You connect to the terrace wifi because the hotspot is slow. You defer the patch
 
 None of these feel like mistakes in the moment. That's the point.  
 
-* Reduced staff: Skeleton crews mean slower detection.  
-* Distracted minds: Mental load shifts from compliance to vacation.  
-* The "Later" Fallacy: Security theater falls apart when urgency is deferred until September.  
-
 ### Systems Don't Take Summer Hours
 
 Your security posture doesn't collapse because of sophisticated zero-days. It collapses because everyone quietly decided that discipline is a winter activity.  
