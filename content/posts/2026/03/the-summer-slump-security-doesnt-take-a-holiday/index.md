@@ -6,6 +6,7 @@ lastmod: 2026-03-20
 draft: false
 author: "Ronny Roethof"
 cover: posts/2026/03/the-summer-slump-security-doesnt-take-a-holiday/cover.jpg
+showTableOfContents: false
 
 categories:
 - security-privacy
