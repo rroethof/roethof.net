@@ -1,5 +1,5 @@
 ---
-title: "The Illusion of Control: Your Laptop Choice Isn't the Security Risk"
+title: 'The Illusion of Control: Your Laptop Choice Isn''t the Security Risk'
 slug: the-illusion-of-control-your-laptop-choice-isnt-the-security-risk
 date: 2026-03-17
 lastmod: 2026-03-17
@@ -7,18 +7,20 @@ draft: false
 author: Ronny Roethof
 cover: posts/2026/03/the-illusion-of-control-your-laptop-choice-isnt-the-security-risk/cover.png
 categories:
-  - security-privacy
+- security-privacy
 tags:
-  - mfa
-  - yubikey
-  - pki
-  - linux
-  - authentication
-  - enterprise
-  - just-in-time-access
-summary: Mobile authenticator vulnerabilities expose a fundamental truth. Securing the endpoint OS while leaving the phone untouched is security theater. Here is what actually works.
-description: Why banning Linux laptops after mobile MFA vulnerabilities is the wrong fix, and how hardware-backed identity with JIT access and separation of duties actually solves the problem.
-series:
+- mfa
+- yubikey
+- pki
+- linux
+- authentication
+summary: Mobile authenticator vulnerabilities expose a fundamental truth. Securing
+  the endpoint OS while leaving the phone untouched is security theater. Here is what
+  actually works.
+description: Why banning Linux laptops after mobile MFA vulnerabilities is the wrong
+  fix, and how hardware-backed identity with JIT access and separation of duties actually
+  solves the problem.
+series: null
 ---
 
 A recent class of deep-link vulnerabilities in mobile authenticator apps, including [CVE-2026-26123 in Microsoft Authenticator](https://nvd.nist.gov/vuln/detail/CVE-2026-26123), has rattled enterprise IT departments. The flaw is simple and devastating: a malicious app on a smartphone can hijack URI deep links to sniff MFA codes and session tokens.

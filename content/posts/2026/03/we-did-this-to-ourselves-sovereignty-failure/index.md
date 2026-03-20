@@ -1,23 +1,25 @@
 ---
-title: "We Did This To Ourselves"
+title: We Did This To Ourselves
 slug: we-did-this-to-ourselves-sovereignty-failure
 date: 2026-03-18
 lastmod: 2026-03-19
 draft: false
-author: "Ronny Roethof"
+author: Ronny Roethof
 categories:
-  - digital-sovereignty
-  - security-privacy
+- digital-sovereignty
+- security-privacy
 tags:
-  - cloud-act
-  - microsoft-365
-  - azure
-  - huawei
-  - sidn
-  - belastingdienst
-  - fast-enterprises
-summary: "A decade of Dutch digital sovereignty surrendered through procurement. From the failed Rijkscloud to the CLOUD Act, and now a state secretary who confirms it in writing and presses on anyway."
-description: "Analysis of the systemic failure in Dutch IT policy, highlighting the legal and physical dependencies on US and Chinese infrastructure despite years of expert warnings, and the Kamerbrief that finally put it in writing."
+- cloud-act
+- microsoft-365
+- azure
+- huawei
+- sidn
+summary: A decade of Dutch digital sovereignty surrendered through procurement. From
+  the failed Rijkscloud to the CLOUD Act, and now a state secretary who confirms it
+  in writing and presses on anyway.
+description: Analysis of the systemic failure in Dutch IT policy, highlighting the
+  legal and physical dependencies on US and Chinese infrastructure despite years of
+  expert warnings, and the Kamerbrief that finally put it in writing.
 ---
 
 Microsoft stood before the French Senate last week and confirmed, under oath, that it cannot guarantee European data will never be disclosed to US authorities.
