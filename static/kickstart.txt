@@ -188,7 +188,7 @@ LV_SWAP="lv_swap_${SHORT_UUID}"
 cat > /tmp/lvs.ks <<EOL
 logvol swap           --vgname=${VGNAME} --name=${LV_SWAP}          --size=2048
 logvol /              --vgname=${VGNAME} --name=${LV_ROOT}          --size=20480 --fstype="xfs" --mkfsoptions="-m reflink=0"
-logvol /tmp           --vgname=${VGNAME} --name=${LV_TMP}           --size=2048  --fstype="xfs" --fsoptions="nodev,nosuid,noexec"
+logvol /tmp           --vgname=${VGNAME} --name=${LV_TMP}           --size=2048  --fstype="xfs" --fsoptions="nodev,nosuid"
 logvol /var           --vgname=${VGNAME} --name=${LV_VAR}           --size=8192  --fstype="xfs" --fsoptions="nodev"
 logvol /var/log       --vgname=${VGNAME} --name=${LV_VAR_LOG}       --size=4096  --fstype="xfs" --fsoptions="nodev,nosuid"
 logvol /var/log/audit --vgname=${VGNAME} --name=${LV_VAR_LOG_AUDIT} --size=4096  --fstype="xfs" --fsoptions="nodev,nosuid"
@@ -414,7 +414,7 @@ kernel.randomize_va_space=2                 # ASLR op maximaal niveau
 kernel.kptr_restrict=2                      # Verberg kernel pointer adressen
 kernel.dmesg_restrict=1                     # Beperk toegang tot dmesg
 kernel.unprivileged_bpf_disabled=1          # Verberg BPF JIT programma's
-kernel.yama.ptrace_scope=2                  # Beperk ptrace naar parent/child
+#kernel.yama.ptrace_scope=2                  # Beperk ptrace naar parent/child
 kernel.sysrq=0                              # Schakel SysRq uit
 
 # --- Filesystem hardening ---
