@@ -7,6 +7,7 @@ categories: ["Opinion", "Infosec"]
 tags: ["sysadmin", "infosec", "opinion", "hacktic", "digital-sovereignty"]
 slug: "the-suit-killed-the-operator"
 description: "The era where corporate bureaucracy replaced technical authority with compliance theater."
+summary: "From a 9600 bps modem in Lelystad to the server rooms of XS4ALL and Leaseweb, I watched technical authority get replaced by compliance theater and PowerPoint circles. The operator didn't retire. He got managed out."
 ---
 
 Someone recently told me they'd been in IT for seven years. "That's a long time," they said. I didn't respond. I just thought about the Eekholt.
