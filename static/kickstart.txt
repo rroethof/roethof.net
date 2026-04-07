@@ -126,8 +126,8 @@ user --name=rroethof --groups=wheel --gecos="Ronny Roethof" --password="$y$j9T$T
 # --all zorgt dat bestaande partities daadwerkelijk worden gewist
 # voordat de nieuwe indeling wordt aangemaakt (--initlabel).
 #=======================================================
-ignoredisk --only-use=sda
-clearpart --all --drives=sda --initlabel
+ignoredisk --only-use=nvme0n1,sda
+clearpart --all --drives=nvme0n1,sda --initlabel
 
 # EFI systeempartitie (vereist voor UEFI boot)
 # umask=0077 = alleen root kan inhoud lezen
@@ -139,7 +139,8 @@ part /boot      --fstype="xfs"   --size=1024
 
 # Resterende schijfruimte gaat naar LVM physical volume
 # --grow zorgt dat de PV de volledige resterende ruimte gebruikt
-part pv.01      --fstype="lvmpv" --size=1 --grow
+part pv.01      --fstype="lvmpv" --ondisk=nvme0n1 --size=1 --grow
+part pv.02      --fstype="lvmpv" --ondisk=sda     --size=1 --grow
 
 
 #=======================================================
@@ -168,9 +169,11 @@ SHORT_UUID="${UUID:0:8}"
 
 # Volume Group naam (uniek per host)
 VGNAME="vg_rl9_${SHORT_UUID}"
+VGNAME_DATA="vg_data_${SHORT_UUID}"
 
 # Schrijf VG definitie naar tijdelijk kickstart fragment
 echo "volgroup ${VGNAME} pv.01 --pesize=4096" > /tmp/vgname.ks
+echo "volgroup ${VGNAME_DATA} pv.02 --pesize=4096" >> /tmp/vgname.ks
 
 # Logical Volume namen
 LV_ROOT="lv_root_${SHORT_UUID}"
@@ -180,6 +183,7 @@ LV_VAR_LOG="lv_var_log_${SHORT_UUID}"
 LV_VAR_LOG_AUDIT="lv_var_log_audit_${SHORT_UUID}"
 LV_VAR_TMP="lv_var_tmp_${SHORT_UUID}"
 LV_HOME="lv_home_${SHORT_UUID}"
+LV_OPT="lv_opt_${SHORT_UUID}"
 LV_SWAP="lv_swap_${SHORT_UUID}"
 
 # Schrijf LV definities naar tijdelijk kickstart fragment.
@@ -194,6 +198,7 @@ logvol /var/log       --vgname=${VGNAME} --name=${LV_VAR_LOG}       --size=4096 
 logvol /var/log/audit --vgname=${VGNAME} --name=${LV_VAR_LOG_AUDIT} --size=4096  --fstype="xfs" --fsoptions="nodev,nosuid"
 logvol /var/tmp       --vgname=${VGNAME} --name=${LV_VAR_TMP}       --size=2048  --fstype="xfs" --fsoptions="nodev,nosuid"
 logvol /home          --vgname=${VGNAME} --name=${LV_HOME}          --size=4096  --fstype="xfs" --fsoptions="nodev,nosuid"
+logvol /opt           --vgname=${VGNAME_DATA} --name=${LV_OPT}      --size=1 --grow --fstype="xfs" --fsoptions="nodev"
 EOL
 %end
 
