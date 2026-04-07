@@ -4,20 +4,7 @@
 # Doel:    Automatische installatie van een minimaal Rocky 9 systeem
 #          met security baseline, LVM-schijfindeling, SCAP remediatie
 #          en post-install hardening.
-# Versie:  2026-v2
-#
-# WIJZIGINGEN T.O.V. V1:
-#   - kernel.modules_disabled=1 verwijderd (breekt EFI/vfat boot)
-#   - /tmp, /var/tmp, /boot mount opties aangevuld (noexec)
-#   - Package installatie vóór SCAP remediatie (correcte volgorde)
-#   - Alle packages naar %packages sectie verplaatst
-#   - fapolicyd trust entries toegevoegd
-#   - usbguard policy gegenereerd vanuit installatie-omgeving
-#   - auditd configuratie aangescherpt (space_left_action, halt)
-#   - SSH X11Forwarding no toegevoegd
-#   - trap verbeterd met $BASH_COMMAND
-#   - Healthcheck summary aan einde %post toegevoegd
-#   - Installatie documentatie opgeslagen in /root/
+# Versie:  2026
 #
 # UITVOERVOLGORDE (kickstart fases):
 #   1. %pre        — shell vóór installatie (LVM namen genereren)
@@ -135,8 +122,7 @@ user --name=rroethof --groups=wheel --gecos="Ronny Roethof" --password="$y$j9T$T
 #=======================================================
 # DISK CONFIGURATIE
 #-------------------------------------------------------
-# nvme0n1 = OS schijf (boot, LVM OS volumes)
-# sda     = data schijf (LVM data volumes)
+# Alleen /dev/sda wordt gebruikt.
 # --all zorgt dat bestaande partities daadwerkelijk worden gewist
 # voordat de nieuwe indeling wordt aangemaakt (--initlabel).
 #=======================================================
@@ -145,15 +131,11 @@ clearpart --all --drives=nvme0n1,sda --initlabel
 
 # EFI systeempartitie (vereist voor UEFI boot)
 # umask=0077 = alleen root kan inhoud lezen
-# LET OP: geen noexec op EFI — sommige firmware tools schrijven hier
 part /boot/efi --fstype="efi"   --ondisk=nvme0n1 --size=512  --fsoptions="umask=0077"
+part /boot      --fstype="xfs"  --ondisk=nvme0n1 --size=1024
 
-# /boot buiten LVM: kernel en initrd moeten toegankelijk zijn
-# vóór LVM geactiveerd wordt
-# noexec: geen executables direct van /boot — kernel wordt via bootloader geladen
-part /boot      --fstype="xfs"  --ondisk=nvme0n1 --size=1024 --fsoptions="nodev,nosuid,noexec"
-
-# Resterende schijfruimte gaat naar LVM physical volumes
+# Resterende schijfruimte gaat naar LVM physical volume
+# --grow zorgt dat de PV de volledige resterende ruimte gebruikt
 part pv.01      --fstype="lvmpv" --ondisk=nvme0n1 --size=1 --grow
 part pv.02      --fstype="lvmpv" --ondisk=sda     --size=1 --grow
 
@@ -182,7 +164,7 @@ fi
 # Gebruik eerste 8 karakters voor leesbaarheid
 SHORT_UUID="${UUID:0:8}"
 
-# Volume Group namen (uniek per host)
+# Volume Group naam (uniek per host)
 VGNAME="vg_rl9_${SHORT_UUID}"
 VGNAME_DATA="vg_data_${SHORT_UUID}"
 
@@ -205,18 +187,14 @@ LV_SWAP="lv_swap_${SHORT_UUID}"
 # Schrijf LV definities naar tijdelijk kickstart fragment.
 # Aparte mountpoints voor /tmp, /var, /home etc. zijn een
 # CIS/STIG vereiste (aparte noexec/nosuid/nodev mount opties).
-#
-# /tmp en /var/tmp: noexec toegevoegd t.o.v. v1 (CIS vereiste).
-# SCAP remediatie draait vanuit %post, niet vanuit /tmp,
-# dus noexec hier is veilig.
 cat > /tmp/lvs.ks <<EOL
 logvol swap           --vgname=${VGNAME} --name=${LV_SWAP}          --size=4096
 logvol /              --vgname=${VGNAME} --name=${LV_ROOT}          --size=20480 --fstype="xfs" --mkfsoptions="-m reflink=0"
-logvol /tmp           --vgname=${VGNAME} --name=${LV_TMP}           --size=4096  --fstype="xfs" --fsoptions="nodev,nosuid,noexec"
+logvol /tmp           --vgname=${VGNAME} --name=${LV_TMP}           --size=4096  --fstype="xfs" --fsoptions="nodev,nosuid"
 logvol /var           --vgname=${VGNAME} --name=${LV_VAR}           --size=8192  --fstype="xfs" --fsoptions="nodev"
-logvol /var/log       --vgname=${VGNAME} --name=${LV_VAR_LOG}       --size=8192  --fstype="xfs" --fsoptions="nodev,nosuid,noexec"
-logvol /var/log/audit --vgname=${VGNAME} --name=${LV_VAR_LOG_AUDIT} --size=8192  --fstype="xfs" --fsoptions="nodev,nosuid,noexec"
-logvol /var/tmp       --vgname=${VGNAME} --name=${LV_VAR_TMP}       --size=4096  --fstype="xfs" --fsoptions="nodev,nosuid,noexec"
+logvol /var/log       --vgname=${VGNAME} --name=${LV_VAR_LOG}       --size=8192  --fstype="xfs" --fsoptions="nodev,nosuid"
+logvol /var/log/audit --vgname=${VGNAME} --name=${LV_VAR_LOG_AUDIT} --size=8192  --fstype="xfs" --fsoptions="nodev,nosuid"
+logvol /var/tmp       --vgname=${VGNAME} --name=${LV_VAR_TMP}       --size=4096  --fstype="xfs" --fsoptions="nodev,nosuid"
 logvol /home          --vgname=${VGNAME} --name=${LV_HOME}          --size=8192  --fstype="xfs" --fsoptions="nodev,nosuid"
 logvol /opt           --vgname=${VGNAME} --name=${LV_OPT}           --size=30720 --fstype="xfs" --fsoptions="nodev"
 logvol /data          --vgname=${VGNAME_DATA} --name=${LV_DATA}     --size=1 --grow --fstype="xfs" --fsoptions="nodev"
@@ -248,12 +226,7 @@ bootloader --location=boot --timeout=5 --append="audit=1 audit_backlog_limit=819
 # PACKAGE SELECTION
 #-------------------------------------------------------
 # --excludedocs: geen man pages / docs installeren (kleinere footprint)
-# Alle pakketten hier gedefinieerd zodat de packagelijst volledig
-# en auditeerbaar is. Niets wordt stiekem in %post geïnstalleerd.
-#
-# LET OP: osquery zit niet in standaard repos en wordt in %post
-#         geïnstalleerd na het toevoegen van de osquery repo.
-#         zabbix-agent2 idem (vereist Zabbix repo).
+# Alleen wat noodzakelijk is voor een secure server baseline.
 #=======================================================
 %packages --excludedocs
 @^minimal-environment   # Minimale OS omgeving
@@ -265,19 +238,11 @@ microcode_ctl
 
 # Security baseline tools
 openscap-scanner        # SCAP scanner voor compliance checks
-scap-security-guide     # CIS/STIG profielen voor RHEL9/Rocky9
+scap-security-guide     # STIG/CIS profielen voor RHEL9/Rocky9
 aide                    # File integrity monitoring
 audit                   # Kernel audit subsysteem
 fapolicyd               # Applicatie whitelist (file access policy)
 usbguard                # USB device whitelist/blacklist
-
-# Antivirus en rootkit detectie
-clamav                  # Antivirus (lost Lynis 'malware scanner' warning op)
-clamav-update           # Signature updates voor ClamAV
-rkhunter                # Rootkit scanner
-
-# Security audit
-lynis                   # Security audit tool (Lynis)
 
 # Tijdsynchronisatie (vereist voor audit timestamps)
 chrony
@@ -310,44 +275,28 @@ tar
 #
 # VOLGORDE IS KRITIEK:
 #   0. Boot target op tekstmodus
-#   1. Extra repositories en pakketten (osquery, zabbix)
-#   2. fapolicyd trust entries configureren
-#   3. usbguard policy genereren
-#   4. SCAP remediatie (stelt baseline in — NA packages)
-#   5. Custom sysctl overrides (verfijnen SCAP resultaat)
-#   6. auditd configuratie aanscherpen
-#   7. SSH hardening (drop-in config)
-#   8. SSH key voor admin gebruiker
-#   9. Security services activeren
-#  10. Journald persistentie
-#  11. Audit log append-only maken
-#  12. AIDE database initialiseren (snapshot ná alle wijzigingen)
-#  13. Installatie documentatie opslaan
-#
-# NOOT: kernel.modules_disabled=1 is bewust VERWIJDERD.
-# Op EFI systemen breekt dit de boot (vfat module niet laadbaar).
-# Vervangende mitigaties: SELinux enforcing, fapolicyd, usbguard,
-# auditd en AIDE bieden gelijkwaardige bescherming zonder
-# de stabiliteit te compromitteren.
+#   1. Extra repositories en pakketten
+#   2. SCAP remediatie (stelt baseline in)
+#   3. Custom sysctl overrides (verfijnen SCAP resultaat)
+#   4. SSH hardening (drop-in config)
+#   5. SSH key voor admin gebruiker
+#   6. Security services activeren
+#   7. Journald persistentie
+#   8. Audit log append-only maken
+#   9. AIDE database initialiseren (snapshot ná alle wijzigingen)
+#  10. kernel.modules_disabled=1 als allerlaatste sysctl
 #
 # FOUTAFHANDELING:
 #   set -x  → alle commando's zichtbaar in kickstart.log
-#   trap    → logregel met regelnummer EN failing command bij elke fout
+#   trap    → logregel met regelnummer bij elke fout
 #   Per stap || echo "WAARSCHUWING" zodat één falende stap
 #   de rest niet blokkeert
-#   WARNINGS array verzamelt alle waarschuwingen voor eindsamenvatting
 #=======================================================
 %post --log=/var/log/kickstart.log
 #!/bin/bash
 
 set -x
-WARNINGS=()
-trap 'echo "FOUT op regel $LINENO: $BASH_COMMAND"' ERR
-
-warn() {
-    echo "WAARSCHUWING: $*"
-    WARNINGS+=("$*")
-}
+trap 'echo "FOUT op regel $LINENO — zie log voor details"' ERR
 
 echo "=== Post-install hardening gestart: $(date) ==="
 
@@ -355,26 +304,34 @@ echo "=== Post-install hardening gestart: $(date) ==="
 #-------------------------------------------------------
 # STAP 0: Boot target
 #-------------------------------------------------------
-echo "--- [0/13] Boot target instellen ---"
+# Zet default systemd target op tekstmodus.
+# Voorkomt dat grafische loginmanager opstart na reboot.
+#-------------------------------------------------------
+echo "--- [0/10] Boot target instellen ---"
 systemctl set-default multi-user.target
 
 
 #-------------------------------------------------------
-# STAP 1: Extra repositories en pakketten
+# STAP 1A: CRB + EPEL repository
 #-------------------------------------------------------
-# CRB en EPEL eerst, dan osquery en zabbix eigen repos.
-# osquery en zabbix-agent2 zitten niet in standaard repos.
+# CRB (CodeReady Builder) is vereist door veel EPEL pakketten.
+# Zonder CRB falen sommige EPEL dependencies bij installatie.
 #-------------------------------------------------------
-echo "--- [1/13] Repositories en extra pakketten ---"
-
-/usr/bin/crb enable || warn "CRB inschakelen mislukt"
-dnf install -y epel-release || warn "epel-release installatie mislukt"
+echo "--- [1/10] Repositories installeren ---"
+/usr/bin/crb enable || echo "WAARSCHUWING: CRB inschakelen mislukt"
+dnf install -y epel-release || echo "WAARSCHUWING: epel-release installatie mislukt"
 dnf makecache || true
 
-# osquery repo
+
+#-------------------------------------------------------
+# STAP 1B: osquery repository
+#-------------------------------------------------------
+# osquery zit niet in EPEL, vereist eigen repo.
+# GPG key en repo definitie worden apart aangemaakt.
+#-------------------------------------------------------
 curl -fsSL https://pkg.osquery.io/rpm/GPG \
     | tee /etc/pki/rpm-gpg/RPM-GPG-KEY-osquery > /dev/null \
-    || warn "osquery GPG key ophalen mislukt"
+    || echo "WAARSCHUWING: osquery GPG key ophalen mislukt"
 
 cat > /etc/yum.repos.d/osquery.repo <<'REPO'
 [osquery]
@@ -385,101 +342,56 @@ gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-osquery
 REPO
 
-# Zabbix repo (versie 7.0 LTS — pas aan indien nodig)
-rpm -Uvh https://repo.zabbix.com/zabbix/7.0/rhel/9/x86_64/zabbix-release-latest-7.0.el9.noarch.rpm \
-    || warn "Zabbix repo installatie mislukt"
 
-dnf makecache || true
-
-for PKG in osquery zabbix-agent2; do
-    dnf install -y "$PKG" || warn "$PKG installatie mislukt"
+#-------------------------------------------------------
+# STAP 1C: Extra security pakketten installeren
+#-------------------------------------------------------
+# Pakketten worden één voor één geïnstalleerd zodat een
+# falend pakket de rest niet blokkeert.
+#
+# clamav        = antivirus (lost Lynis 'malware scanner' warning op)
+# rkhunter      = rootkit scanner
+# lynis         = security audit tool
+# osquery       = SQL-achtige systeemquery tool
+# zabbix-agent2 = monitoring agent
+#-------------------------------------------------------
+echo "--- Extra pakketten installeren ---"
+for PKG in clamav rkhunter lynis osquery zabbix-agent2; do
+    dnf install -y "$PKG" || echo "WAARSCHUWING: $PKG installatie mislukt"
 done
 
-# Zabbix agent configuratie — minimaal Server instellen
-# Pas ServerIP aan naar je Zabbix server adres
-ZABBIX_CONF="/etc/zabbix/zabbix_agent2.conf"
-if [ -f "$ZABBIX_CONF" ]; then
-    sed -i 's/^Server=.*/Server=127.0.0.1/'         "$ZABBIX_CONF"
-    sed -i 's/^ServerActive=.*/ServerActive=127.0.0.1/' "$ZABBIX_CONF"
-    sed -i 's/^Hostname=.*/Hostname=threatscan-01.sds-draas.internal/' "$ZABBIX_CONF"
-    warn "Zabbix agent geconfigureerd met placeholder 127.0.0.1 — pas Server= aan"
-else
-    warn "Zabbix agent config niet gevonden — handmatige configuratie vereist"
-fi
-
 
 #-------------------------------------------------------
-# STAP 2: fapolicyd trust entries
+# STAP 2: SCAP / STIG remediatie
 #-------------------------------------------------------
-# fapolicyd blokkeert standaard alles wat niet in de trust
-# database staat. Zonder trust entries voor /usr en /opt
-# werkt je eigen tooling niet na activatie.
+# Voer SCAP remediatie EERST uit zodat onze custom overrides
+# (stap 3) daarna het laatste woord hebben.
 #
-# fapolicyd-cli --update herbouwt de trust database.
-# Na reboot is fapolicyd actief met deze trust entries.
-#-------------------------------------------------------
-echo "--- [2/13] fapolicyd trust configureren ---"
-
-# Vertrouw alle RPM-geïnstalleerde binaries (vanuit RPM database)
-fapolicyd-cli --update || warn "fapolicyd trust update mislukt"
-
-# Voeg /opt toe aan trust (niet altijd RPM-beheerd)
-cat > /etc/fapolicyd/rules.d/50-local-trust.rules <<'EOF'
-# Lokale trust regels — gegenereerd door kickstart
-# Sta executie toe vanuit standaard OS paden
-allow perm=execute all : dir=/usr/
-allow perm=execute all : dir=/bin/
-allow perm=execute all : dir=/sbin/
-allow perm=execute all : dir=/opt/
-# Blokkeer alles wat niet expliciet is toegestaan
-deny perm=execute all : all
-EOF
-
-
-#-------------------------------------------------------
-# STAP 3: usbguard policy genereren
-#-------------------------------------------------------
-# Genereer policy op basis van apparaten die nu aanwezig zijn.
-# Dit whitelisted de installatie-hardware (bijv. USB installer).
-# Na reboot worden onbekende USB apparaten geblokkeerd.
-#-------------------------------------------------------
-echo "--- [3/13] usbguard policy genereren ---"
-usbguard generate-policy > /etc/usbguard/rules.conf \
-    || warn "usbguard policy genereren mislukt — default block-all actief"
-
-
-#-------------------------------------------------------
-# STAP 4: SCAP / CIS remediatie
-#-------------------------------------------------------
-# Gebruik CIS profiel voor Rocky Linux 9 (betrouwbaarder dan
-# RHEL9 STIG profiel op Rocky — subtiele pakket/pad verschillen).
-#
-# Remediatie NA package installatie zodat SCAP de volledige
-# systeemstaat ziet inclusief osquery, clamav, lynis etc.
+# --remediate  = automatisch herstellen waar mogelijk
+# --profile    = DISA STIG profiel voor RHEL9
+# --results    = XML resultatenbestand voor archivering
+# --report     = leesbaar HTML rapport
 #
 # Exitcode 2 = bevindingen gevonden maar geen fatale fout → negeren
 #-------------------------------------------------------
-echo "--- [4/13] SCAP CIS remediatie uitvoeren ---"
+echo "--- [2/10] SCAP STIG remediatie uitvoeren ---"
 oscap xccdf eval \
     --remediate \
-    --profile xccdf_org.ssgproject.content_profile_cis \
+    --profile xccdf_org.ssgproject.content_profile_stig \
     --results /root/scap-results.xml \
     --report  /root/scap-report.html \
-    /usr/share/xml/scap/ssg/content/ssg-rl9-ds.xml \
+    /usr/share/xml/scap/ssg/content/ssg-rhel9-ds.xml \
     || true
 
 
 #-------------------------------------------------------
-# STAP 5: Kernel hardening via sysctl
+# STAP 3: Kernel hardening via sysctl
 #-------------------------------------------------------
 # Overschrijft eventuele SCAP waarden met onze eigen instellingen.
-#
-# kernel.modules_disabled is BEWUST WEGGELATEN:
-# Op EFI systemen breekt dit de boot omdat vfat (EFI partitie)
-# als module geladen moet worden. Geen whitelist mechanisme
-# beschikbaar voor modules_disabled.
+# LET OP: kernel.modules_disabled staat hier NOG NIET in —
+#         dat wordt als allerlaatste stap (stap 10) toegevoegd.
 #-------------------------------------------------------
-echo "--- [5/13] Sysctl kernel hardening ---"
+echo "--- [3/10] Sysctl kernel hardening ---"
 cat > /etc/sysctl.d/99-security.conf <<'EOF'
 #=======================================================
 # Kernel hardening - security baseline
@@ -487,94 +399,75 @@ cat > /etc/sysctl.d/99-security.conf <<'EOF'
 #=======================================================
 
 # --- IPv4 hardening ---
-net.ipv4.ip_forward=0
-net.ipv4.conf.all.accept_redirects=0
+net.ipv4.ip_forward=0                       # Geen IP forwarding (geen router)
+net.ipv4.conf.all.accept_redirects=0        # Weiger ICMP redirects
 net.ipv4.conf.default.accept_redirects=0
-net.ipv4.conf.all.send_redirects=0
-net.ipv4.conf.all.accept_source_route=0
-net.ipv4.conf.all.log_martians=1
+net.ipv4.conf.all.send_redirects=0          # Stuur geen ICMP redirects
+net.ipv4.conf.all.accept_source_route=0     # Weiger source-routed pakketten
+net.ipv4.conf.all.log_martians=1            # Log onmogelijke bronadressen
 net.ipv4.conf.default.log_martians=1
-net.ipv4.conf.all.rp_filter=1
-net.ipv4.tcp_syncookies=1
+net.ipv4.conf.all.rp_filter=1               # Reverse path filtering
+net.ipv4.tcp_syncookies=1                   # Bescherming tegen SYN floods
 
 # --- IPv6 hardening ---
-net.ipv6.conf.all.accept_redirects=0
+net.ipv6.conf.all.accept_redirects=0        # Weiger IPv6 ICMP redirects
 net.ipv6.conf.default.accept_redirects=0
 
 # --- Kernel hardening ---
-kernel.randomize_va_space=2
-kernel.kptr_restrict=2
-kernel.dmesg_restrict=1
-kernel.unprivileged_bpf_disabled=1
-kernel.yama.ptrace_scope=1
-kernel.sysrq=0
+kernel.randomize_va_space=2                 # ASLR op maximaal niveau
+kernel.kptr_restrict=2                      # Verberg kernel pointer adressen
+kernel.dmesg_restrict=1                     # Beperk toegang tot dmesg
+kernel.unprivileged_bpf_disabled=1          # Verberg BPF JIT programma's
+#kernel.yama.ptrace_scope=2                  # Beperk ptrace naar parent/child
+kernel.sysrq=0                              # Schakel SysRq uit
 
 # --- Filesystem hardening ---
-fs.suid_dumpable=0
-fs.protected_regular=2
-fs.protected_fifos=2
+fs.suid_dumpable=0                          # Geen core dumps van SUID programma's
+fs.protected_regular=2                      # Bescherm bestanden in sticky dirs
 
 # --- BPF / TTY hardening ---
-net.core.bpf_jit_harden=2
-dev.tty.ldisc_autoload=0
+net.core.bpf_jit_harden=2                  # Harden BPF JIT compiler
+dev.tty.ldisc_autoload=0                    # Voorkom automatisch laden TTY disciplines
+
+# NOOT: kernel.modules_disabled=1 wordt als LAATSTE stap toegevoegd
+# (zie stap 10) nadat alle benodigde modules geladen zijn.
 EOF
 
-sysctl --system || warn "sysctl --system mislukt"
+sysctl --system || echo "WAARSCHUWING: sysctl --system mislukt"
 
 
 #-------------------------------------------------------
-# STAP 6: auditd configuratie aanscherpen
-#-------------------------------------------------------
-# STIG vereiste: systeem moet stoppen als audit niet meer
-# kan schrijven (admin_space_left_action = halt).
-# Dit voorkomt dat een volle auditpartitie stil faalt.
-#
-# space_left_action = email stuurt waarschuwing bij 75% vol.
-# admin_space_left_action = halt stopt het systeem bij kritiek.
-#-------------------------------------------------------
-echo "--- [6/13] auditd configuratie aanscherpen ---"
-AUDITD_CONF="/etc/audit/auditd.conf"
-if [ -f "$AUDITD_CONF" ]; then
-    sed -i 's/^space_left_action.*/space_left_action = email/'           "$AUDITD_CONF"
-    sed -i 's/^action_mail_acct.*/action_mail_acct = root/'             "$AUDITD_CONF"
-    sed -i 's/^admin_space_left_action.*/admin_space_left_action = halt/' "$AUDITD_CONF"
-    sed -i 's/^max_log_file_action.*/max_log_file_action = keep_logs/'  "$AUDITD_CONF"
-else
-    warn "auditd.conf niet gevonden"
-fi
-
-
-#-------------------------------------------------------
-# STAP 7: SSH hardening via drop-in configuratie
+# STAP 4: SSH hardening via drop-in configuratie
 #-------------------------------------------------------
 # Gebruik /etc/ssh/sshd_config.d/99-hardening.conf als drop-in
 # zodat de hoofdconfiguratie onaangeroerd blijft.
+# Voordelen: idempotent, geen risico op duplicaten, makkelijk te auditen.
 #
 # PasswordAuthentication yes: bewust ingeschakeld voor
-# initiële toegang. Zet dit op 'no' via Ansible na inrichting.
-# Zie: roles/ssh_hardening/tasks/main.yml (dag-1 Ansible play)
+# initiële toegang; schakel na inrichting over naar keys-only.
 #-------------------------------------------------------
-echo "--- [7/13] SSH hardening ---"
+echo "--- [4/10] SSH hardening ---"
 cat > /etc/ssh/sshd_config.d/99-hardening.conf <<'EOF'
 # SSH hardening - drop-in configuratie
 # Gegenereerd door kickstart post-install script
 
-PermitRootLogin no
-PasswordAuthentication yes
-MaxAuthTries 3
-AllowAgentForwarding no
-AllowTcpForwarding no
-X11Forwarding no
-ClientAliveInterval 300
-ClientAliveCountMax 0
-LoginGraceTime 60
+PermitRootLogin no          # Blokkeer directe root login
+PasswordAuthentication yes  # Initiële toegang; na inrichting op 'no' zetten
+MaxAuthTries 3              # Maximaal 3 foutieve loginpogingen
+AllowAgentForwarding no     # Geen SSH agent forwarding (agent hijacking risico)
+AllowTcpForwarding no       # Geen TCP tunneling via SSH
+ClientAliveInterval 300     # Verbreek verbinding na 300s inactiviteit
+ClientAliveCountMax 0       # Geen keep-alive retries
 EOF
 
 
 #-------------------------------------------------------
-# STAP 8: SSH authorized key voor admin gebruiker
+# STAP 5: SSH authorized key voor admin gebruiker
 #-------------------------------------------------------
-echo "--- [8/13] SSH key installeren voor rroethof ---"
+# Maak .ssh directory aan met correcte permissies.
+# chown zorgt dat rroethof eigenaar is (SSH controleert dit streng).
+#-------------------------------------------------------
+echo "--- [5/10] SSH key installeren voor rroethof ---"
 mkdir -p /home/rroethof/.ssh
 chmod 700 /home/rroethof/.ssh
 
@@ -587,89 +480,92 @@ chown -R rroethof:rroethof /home/rroethof/.ssh
 
 
 #-------------------------------------------------------
-# STAP 9: Security services activeren
+# STAP 6: Security services activeren
 #-------------------------------------------------------
-echo "--- [9/13] Security services inschakelen ---"
+# Services worden hier ingeschakeld NADAT de pakketten zijn
+# geïnstalleerd (anders mislukt systemctl enable).
+# Per service zodat één falende service de rest niet blokkeert.
+#
+# usbguard      = blokkeert onbekende USB apparaten
+# zabbix-agent2 = monitoring agent
+# osqueryd      = osquery daemon
+# fapolicyd     = applicatie whitelist
+# chronyd       = NTP tijdsynchronisatie
+#-------------------------------------------------------
+echo "--- [6/10] Security services inschakelen ---"
 for SVC in usbguard zabbix-agent2 osqueryd fapolicyd chronyd; do
-    systemctl enable "$SVC" || warn "$SVC enable mislukt"
+    systemctl enable "$SVC" || echo "WAARSCHUWING: $SVC enable mislukt"
 done
 
 
 #-------------------------------------------------------
-# STAP 10: Journald persistente opslag
+# STAP 7: Journald persistente opslag
 #-------------------------------------------------------
-echo "--- [10/13] Journald persistentie instellen ---"
+# Standaard slaat journald logs op in RAM (/run/log/journal).
+# Met Storage=persistent worden logs bewaard in /var/log/journal.
+# SystemMaxUse=1G begrenst de schijfruimte.
+#
+# LET OP: geen systemctl restart hier — werkt niet in chroot.
+#         De instelling wordt actief na de eerste reboot.
+#-------------------------------------------------------
+echo "--- [7/10] Journald persistentie instellen ---"
 sed -i 's/^#\?Storage=.*/Storage=persistent/'   /etc/systemd/journald.conf
 sed -i 's/^#\?SystemMaxUse=.*/SystemMaxUse=1G/' /etc/systemd/journald.conf
-sed -i 's/^#\?Compress=.*/Compress=yes/'        /etc/systemd/journald.conf
 
 
 #-------------------------------------------------------
-# STAP 11: Audit log append-only maken
+# STAP 8: Audit log append-only maken
 #-------------------------------------------------------
 # chattr +a = alleen toevoegen (append-only), geen overschrijven.
+# Dit voorkomt dat een aanvaller audit sporen wist.
+#
+# touch eerst: bestand bestaat mogelijk nog niet in chroot.
+#
 # LET OP: ongedaan maken vereist chattr -a als root
 #         (fysieke toegang of single-user mode nodig).
 #-------------------------------------------------------
-echo "--- [11/13] Audit log append-only maken ---"
+echo "--- [8/10] Audit log immutable maken ---"
 mkdir -p /var/log/audit
 touch /var/log/audit/audit.log
-chattr +a /var/log/audit/audit.log || warn "chattr +a op audit.log mislukt"
+chattr +a /var/log/audit/audit.log || echo "WAARSCHUWING: chattr +a mislukt"
 
 
 #-------------------------------------------------------
-# STAP 12: AIDE database initialiseren
+# STAP 9: AIDE database initialiseren
 #-------------------------------------------------------
 # AIDE maakt een snapshot van alle bestanden met hashes.
+# Dit MOET voor kernel.modules_disabled zodat de database
+# de definitieve systeemstaat vastlegt.
 # Na reboot: 'aide --check' toont onverwachte wijzigingen.
 #-------------------------------------------------------
-echo "--- [12/13] AIDE file integrity database initialiseren ---"
-aide --init || warn "AIDE init mislukt"
+echo "--- [9/10] AIDE file integrity database initialiseren ---"
+aide --init || echo "WAARSCHUWING: AIDE init mislukt"
 if [ -f /var/lib/aide/aide.db.new.gz ]; then
     mv /var/lib/aide/aide.db.new.gz /var/lib/aide/aide.db.gz
 fi
 
 
 #-------------------------------------------------------
-# STAP 13: Installatie documentatie opslaan
+# STAP 10: kernel.modules_disabled=1 — ALLERLAATSTE STAP
 #-------------------------------------------------------
-# Vastleggen van de systeemstaat direct na installatie.
-# Bruikbaar voor audits, troubleshooting en baseline vergelijking.
+# Na het instellen van deze parameter kunnen GEEN kernel
+# modules meer worden geladen tot de volgende reboot.
+# Dit is een one-way operation per boot cycle.
+#
+# Bewust als LAATSTE stap zodat:
+#   - Alle drivers en modules al geladen zijn
+#   - fapolicyd, usbguard etc. al actief zijn
+#   - AIDE al een snapshot heeft gemaakt
+#
+# De instelling staat in sysctl.d zodat hij bij elke
+# opvolgende reboot opnieuw actief wordt.
 #-------------------------------------------------------
-echo "--- [13/13] Installatie documentatie opslaan ---"
-cp /proc/cmdline              /root/install-cmdline.txt      2>/dev/null || true
-rpm -qa --last                > /root/installed-packages.txt 2>/dev/null || true
-lsblk -f                     > /root/disk-layout.txt        2>/dev/null || true
-ip addr                      > /root/network-config.txt     2>/dev/null || true
-sysctl -a 2>/dev/null        > /root/sysctl-baseline.txt    2>/dev/null || true
-systemctl list-unit-files    > /root/services-baseline.txt  2>/dev/null || true
-cat /etc/fstab               > /root/fstab-baseline.txt     2>/dev/null || true
+echo "--- [10/10] kernel.modules_disabled instellen ---"
+echo "kernel.modules_disabled=1" >> /etc/sysctl.d/99-security.conf
+sysctl -w kernel.modules_disabled=1 || echo "WAARSCHUWING: modules_disabled mislukt"
 
 
-#-------------------------------------------------------
-# EINDSAMENVATTING
-#-------------------------------------------------------
-echo ""
 echo "=== Post-install hardening voltooid: $(date) ==="
-echo ""
-if [ ${#WARNINGS[@]} -eq 0 ]; then
-    echo "Resultaat: GEEN waarschuwingen — installatie volledig geslaagd."
-else
-    echo "Resultaat: ${#WARNINGS[@]} waarschuwing(en) — controleer voor ingebruikname:"
-    for W in "${WARNINGS[@]}"; do
-        echo "  - $W"
-    done
-fi
-echo ""
-echo "Documentatie opgeslagen in /root/"
-echo "SCAP rapport: /root/scap-report.html"
-echo "Kickstart log: /var/log/kickstart.log"
-echo ""
-echo "ACTIE VEREIST NA EERSTE LOGIN:"
-echo "  1. Zabbix Server= instellen in /etc/zabbix/zabbix_agent2.conf"
-echo "  2. PasswordAuthentication op 'no' zetten na SSH key verificatie"
-echo "  3. aide --check uitvoeren om baseline te verifiëren"
-echo "  4. SCAP rapport reviewen: /root/scap-report.html"
 %end
 
 
