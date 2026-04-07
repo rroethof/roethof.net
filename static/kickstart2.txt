@@ -131,11 +131,8 @@ clearpart --all --drives=nvme0n1,sda --initlabel
 
 # EFI systeempartitie (vereist voor UEFI boot)
 # umask=0077 = alleen root kan inhoud lezen
-part /boot/efi --fstype="efi"    --size=512  --fsoptions="umask=0077"
-
-# /boot buiten LVM: kernel en initrd moeten toegankelijk zijn
-# vóór LVM geactiveerd wordt
-part /boot      --fstype="xfs"   --size=1024
+part /boot/efi --fstype="efi"   --ondisk=nvme0n1 --size=512  --fsoptions="umask=0077"
+part /boot      --fstype="xfs"  --ondisk=nvme0n1 --size=1024
 
 # Resterende schijfruimte gaat naar LVM physical volume
 # --grow zorgt dat de PV de volledige resterende ruimte gebruikt
@@ -184,6 +181,7 @@ LV_VAR_LOG_AUDIT="lv_var_log_audit_${SHORT_UUID}"
 LV_VAR_TMP="lv_var_tmp_${SHORT_UUID}"
 LV_HOME="lv_home_${SHORT_UUID}"
 LV_OPT="lv_opt_${SHORT_UUID}"
+LV_DATA="lv_data_${SHORT_UUID}"
 LV_SWAP="lv_swap_${SHORT_UUID}"
 
 # Schrijf LV definities naar tijdelijk kickstart fragment.
@@ -198,7 +196,8 @@ logvol /var/log       --vgname=${VGNAME} --name=${LV_VAR_LOG}       --size=8192 
 logvol /var/log/audit --vgname=${VGNAME} --name=${LV_VAR_LOG_AUDIT} --size=8192  --fstype="xfs" --fsoptions="nodev,nosuid"
 logvol /var/tmp       --vgname=${VGNAME} --name=${LV_VAR_TMP}       --size=4096  --fstype="xfs" --fsoptions="nodev,nosuid"
 logvol /home          --vgname=${VGNAME} --name=${LV_HOME}          --size=8192  --fstype="xfs" --fsoptions="nodev,nosuid"
-logvol /opt           --vgname=${VGNAME_DATA} --name=${LV_OPT}      --size=1 --grow --fstype="xfs" --fsoptions="nodev"
+logvol /opt           --vgname=${VGNAME} --name=${LV_OPT}           --size=30720 --fstype="xfs" --fsoptions="nodev"
+logvol /data          --vgname=${VGNAME_DATA} --name=${LV_DATA}     --size=1 --grow --fstype="xfs" --fsoptions="nodev"
 EOL
 %end
 
