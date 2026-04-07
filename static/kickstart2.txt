@@ -1,0 +1,579 @@
+#=======================================================
+# RHEL9 / Rocky Linux 9 Kickstart Script
+# Auteur:  Ronny Roethof
+# Doel:    Automatische installatie van een minimaal Rocky 9 systeem
+#          met security baseline, LVM-schijfindeling, SCAP remediatie
+#          en post-install hardening.
+# Versie:  2026
+#
+# UITVOERVOLGORDE (kickstart fases):
+#   1. %pre        — shell vóór installatie (LVM namen genereren)
+#   2. Kickstart   — taal, netwerk, partities, packages, ...
+#   3. %post       — shell ná installatie (hardening, SCAP, AIDE, ...)
+#   4. reboot
+#=======================================================
+
+
+#=======================================================
+# DISPLAY / BOOT MODE
+#-------------------------------------------------------
+# Tekstmodus installatie (geen GUI).
+# skipx voorkomt dat X11 wordt geconfigureerd.
+#=======================================================
+text
+skipx
+
+
+#=======================================================
+# AUTHENTICATION
+#-------------------------------------------------------
+# authselect vervangt het verouderde authconfig commando.
+# Het 'minimal' profiel is voldoende voor lokale accounts zonder
+# LDAP/AD/SSSD integratie. Pas aan naar 'sssd' indien nodig.
+#=======================================================
+authselect select minimal
+
+
+#=======================================================
+# INSTALLATION SOURCE
+#-------------------------------------------------------
+# Installatiebron: Leaseweb NL mirror (snel vanuit Nederland).
+# BaseOS    = core OS pakketten
+# AppStream = uitgebreide pakketten (bijv. Python, git)
+# extras    = EPEL-gerelateerde extras
+# crb       = CodeReady Builder, vereist door veel EPEL pakketten
+#=======================================================
+url --url="https://mirror.nl.leaseweb.net/rockylinux/9/BaseOS/x86_64/os/"
+repo --name="AppStream" --baseurl="https://mirror.nl.leaseweb.net/rockylinux/9/AppStream/x86_64/os/"
+repo --name="extras"    --baseurl="https://mirror.nl.leaseweb.net/rockylinux/9/extras/x86_64/os/"
+repo --name="crb"       --baseurl="https://mirror.nl.leaseweb.net/rockylinux/9/CRB/x86_64/os/"
+
+
+#=======================================================
+# LOCALE AND TIMEZONE
+#-------------------------------------------------------
+# Keyboard: US layout (gangbaar voor servers)
+# Taal: Engels (vermijdt encoding problemen in logs)
+# Tijdzone: Amsterdam met UTC synchronisatie
+#=======================================================
+keyboard --vckeymap=us --xlayouts='us'
+lang en_US.UTF-8
+timezone Europe/Amsterdam --utc
+
+
+#=======================================================
+# NETWORK CONFIGURATION
+#-------------------------------------------------------
+# DHCP op de eerste actieve interface (--device=link)
+# IPv6 autoconfiguratie ingeschakeld
+# Hostname statisch ingesteld
+#=======================================================
+network --bootproto=dhcp --device=link --ipv6=auto --activate
+network --hostname=threatscan-01.sds-draas.internal
+
+
+#=======================================================
+# SECURITY BASELINE (tijdens installatie)
+#-------------------------------------------------------
+# SELinux: enforcing (nooit permissive op productie)
+# Firewalld: ingeschakeld, alleen SSH open
+# Root account: geblokkeerd (geen directe root login mogelijk)
+#   → beheer verloopt via sudo vanuit de wheel groep
+#=======================================================
+selinux --enforcing
+firewall --enabled --ssh
+rootpw --lock
+
+
+#=======================================================
+# SYSTEM SERVICES
+#-------------------------------------------------------
+# Alleen noodzakelijke services worden ingeschakeld.
+# Onnodige services (bluetooth, avahi) worden uitgeschakeld
+# om het aanvalsoppervlak te beperken.
+#
+# Extra security services worden in %post geactiveerd,
+# nadat de bijbehorende pakketten zijn geïnstalleerd.
+#=======================================================
+services --enabled=chronyd        # NTP tijdsynchronisatie
+services --enabled=sshd           # SSH toegang
+services --enabled=auditd         # Security audit logging
+services --enabled=firewalld      # Host-based firewall
+services --enabled=rsyslog        # Systeemlogboek
+
+services --disabled=bluetooth     # Niet aanwezig/nodig op server
+services --disabled=avahi-daemon  # mDNS niet nodig op server
+
+
+#=======================================================
+# ADMIN USER
+#-------------------------------------------------------
+# Beheerdersaccount 'rroethof' in de wheel groep (sudo).
+# Root login is geblokkeerd; dit account is de enige beheerroute.
+# Wachtwoord is yescrypt-gehashed (SHA512 equivalent voor RHEL9).
+# SSH key wordt in %post toegevoegd.
+#
+# LET OP: kickstart ondersteunt geen backslash line-continuations
+#         buiten %pre/%post blokken — alles op één regel.
+#=======================================================
+user --name=rroethof --groups=wheel --gecos="Ronny Roethof" --password="$y$j9T$TzNnH9jQpBaQ6gOEdIVz2/$yQr/MaO5tpNlscUVfbUZEr6DFTqG5p5RGOQoAZuw4C1" --iscrypted
+
+
+#=======================================================
+# DISK CONFIGURATIE
+#-------------------------------------------------------
+# Alleen /dev/sda wordt gebruikt.
+# --all zorgt dat bestaande partities daadwerkelijk worden gewist
+# voordat de nieuwe indeling wordt aangemaakt (--initlabel).
+#=======================================================
+ignoredisk --only-use=nvme0n1,sda
+clearpart --all --drives=nvme0n1,sda --initlabel
+
+# EFI systeempartitie (vereist voor UEFI boot)
+# umask=0077 = alleen root kan inhoud lezen
+part /boot/efi --fstype="efi"    --size=512  --fsoptions="umask=0077"
+
+# /boot buiten LVM: kernel en initrd moeten toegankelijk zijn
+# vóór LVM geactiveerd wordt
+part /boot      --fstype="xfs"   --size=1024
+
+# Resterende schijfruimte gaat naar LVM physical volume
+# --grow zorgt dat de PV de volledige resterende ruimte gebruikt
+part pv.01      --fstype="lvmpv" --ondisk=nvme0n1 --size=1 --grow
+part pv.02      --fstype="lvmpv" --ondisk=sda     --size=1 --grow
+
+
+#=======================================================
+# PRE-INSTALL SCRIPT
+#-------------------------------------------------------
+# Genereert unieke LVM volume group en logical volume namen
+# op basis van de hardware UUID van de machine.
+# Dit voorkomt conflicten bij clonen of snapshots.
+#
+# Resultaten worden weggeschreven naar /tmp/*.ks en
+# daarna ge-include via %include hieronder.
+#=======================================================
+%pre
+#!/bin/bash
+
+# Lees hardware UUID (SMBIOS/DMI)
+UUID=$(cat /sys/class/dmi/id/product_uuid 2>/dev/null | tr -d '-')
+
+# Fallback als UUID leeg of nul is (bijv. VM zonder DMI)
+if [ -z "$UUID" ] || [ "$UUID" = "00000000000000000000000000000000" ]; then
+    UUID=$(uuidgen | tr -d '-')
+fi
+
+# Gebruik eerste 8 karakters voor leesbaarheid
+SHORT_UUID="${UUID:0:8}"
+
+# Volume Group naam (uniek per host)
+VGNAME="vg_rl9_${SHORT_UUID}"
+VGNAME_DATA="vg_data_${SHORT_UUID}"
+
+# Schrijf VG definitie naar tijdelijk kickstart fragment
+echo "volgroup ${VGNAME} pv.01 --pesize=4096" > /tmp/vgname.ks
+echo "volgroup ${VGNAME_DATA} pv.02 --pesize=4096" >> /tmp/vgname.ks
+
+# Logical Volume namen
+LV_ROOT="lv_root_${SHORT_UUID}"
+LV_TMP="lv_tmp_${SHORT_UUID}"
+LV_VAR="lv_var_${SHORT_UUID}"
+LV_VAR_LOG="lv_var_log_${SHORT_UUID}"
+LV_VAR_LOG_AUDIT="lv_var_log_audit_${SHORT_UUID}"
+LV_VAR_TMP="lv_var_tmp_${SHORT_UUID}"
+LV_HOME="lv_home_${SHORT_UUID}"
+LV_OPT="lv_opt_${SHORT_UUID}"
+LV_SWAP="lv_swap_${SHORT_UUID}"
+
+# Schrijf LV definities naar tijdelijk kickstart fragment.
+# Aparte mountpoints voor /tmp, /var, /home etc. zijn een
+# CIS/STIG vereiste (aparte noexec/nosuid/nodev mount opties).
+cat > /tmp/lvs.ks <<EOL
+logvol swap           --vgname=${VGNAME} --name=${LV_SWAP}          --size=4096
+logvol /              --vgname=${VGNAME} --name=${LV_ROOT}          --size=20480 --fstype="xfs" --mkfsoptions="-m reflink=0"
+logvol /tmp           --vgname=${VGNAME} --name=${LV_TMP}           --size=4096  --fstype="xfs" --fsoptions="nodev,nosuid"
+logvol /var           --vgname=${VGNAME} --name=${LV_VAR}           --size=8192  --fstype="xfs" --fsoptions="nodev"
+logvol /var/log       --vgname=${VGNAME} --name=${LV_VAR_LOG}       --size=8192  --fstype="xfs" --fsoptions="nodev,nosuid"
+logvol /var/log/audit --vgname=${VGNAME} --name=${LV_VAR_LOG_AUDIT} --size=8192  --fstype="xfs" --fsoptions="nodev,nosuid"
+logvol /var/tmp       --vgname=${VGNAME} --name=${LV_VAR_TMP}       --size=4096  --fstype="xfs" --fsoptions="nodev,nosuid"
+logvol /home          --vgname=${VGNAME} --name=${LV_HOME}          --size=8192  --fstype="xfs" --fsoptions="nodev,nosuid"
+logvol /opt           --vgname=${VGNAME_DATA} --name=${LV_OPT}      --size=1 --grow --fstype="xfs" --fsoptions="nodev"
+EOL
+%end
+
+# Voeg de gegenereerde LVM configuratie in
+%include /tmp/vgname.ks
+%include /tmp/lvs.ks
+
+
+#=======================================================
+# BOOTLOADER
+#-------------------------------------------------------
+# Kernel boot parameters voor extra hardening:
+#   audit=1                  - Activeer kernel auditsubsysteem
+#   audit_backlog_limit=8192 - Vergroot audit buffer (voorkomt verlies)
+#   page_poison=1            - Overschrijf vrijgegeven geheugenpagina's
+#   vsyscall=none            - Schakel verouderd vsyscall interface uit
+#   slub_debug=P             - Poison SLUB allocator (detecteert UAF bugs)
+#
+# LET OP: kickstart ondersteunt geen backslash line-continuations
+#         buiten %pre/%post blokken — alles op één regel.
+#=======================================================
+bootloader --location=boot --timeout=5 --append="audit=1 audit_backlog_limit=8192 page_poison=1 vsyscall=none slub_debug=P"
+
+
+#=======================================================
+# PACKAGE SELECTION
+#-------------------------------------------------------
+# --excludedocs: geen man pages / docs installeren (kleinere footprint)
+# Alleen wat noodzakelijk is voor een secure server baseline.
+#=======================================================
+%packages --excludedocs
+@^minimal-environment   # Minimale OS omgeving
+
+# Kernel en CPU microcode
+kernel
+kernel-tools
+microcode_ctl
+
+# Security baseline tools
+openscap-scanner        # SCAP scanner voor compliance checks
+scap-security-guide     # STIG/CIS profielen voor RHEL9/Rocky9
+aide                    # File integrity monitoring
+audit                   # Kernel audit subsysteem
+fapolicyd               # Applicatie whitelist (file access policy)
+usbguard                # USB device whitelist/blacklist
+
+# Tijdsynchronisatie (vereist voor audit timestamps)
+chrony
+
+# Logging
+rsyslog
+
+# Automation
+ansible-core
+
+# Python (vereist voor veel tooling en ansible modules)
+python3
+python3-pip
+
+# Admin tooling
+git
+curl
+wget
+vim-enhanced
+tmux
+tree
+tar
+%end
+
+
+#=======================================================
+# POST INSTALL SCRIPT
+#-------------------------------------------------------
+# Alle hardening stappen NA installatie van het basissysteem.
+#
+# VOLGORDE IS KRITIEK:
+#   0. Boot target op tekstmodus
+#   1. Extra repositories en pakketten
+#   2. SCAP remediatie (stelt baseline in)
+#   3. Custom sysctl overrides (verfijnen SCAP resultaat)
+#   4. SSH hardening (drop-in config)
+#   5. SSH key voor admin gebruiker
+#   6. Security services activeren
+#   7. Journald persistentie
+#   8. Audit log append-only maken
+#   9. AIDE database initialiseren (snapshot ná alle wijzigingen)
+#  10. kernel.modules_disabled=1 als allerlaatste sysctl
+#
+# FOUTAFHANDELING:
+#   set -x  → alle commando's zichtbaar in kickstart.log
+#   trap    → logregel met regelnummer bij elke fout
+#   Per stap || echo "WAARSCHUWING" zodat één falende stap
+#   de rest niet blokkeert
+#=======================================================
+%post --log=/var/log/kickstart.log
+#!/bin/bash
+
+set -x
+trap 'echo "FOUT op regel $LINENO — zie log voor details"' ERR
+
+echo "=== Post-install hardening gestart: $(date) ==="
+
+
+#-------------------------------------------------------
+# STAP 0: Boot target
+#-------------------------------------------------------
+# Zet default systemd target op tekstmodus.
+# Voorkomt dat grafische loginmanager opstart na reboot.
+#-------------------------------------------------------
+echo "--- [0/10] Boot target instellen ---"
+systemctl set-default multi-user.target
+
+
+#-------------------------------------------------------
+# STAP 1A: CRB + EPEL repository
+#-------------------------------------------------------
+# CRB (CodeReady Builder) is vereist door veel EPEL pakketten.
+# Zonder CRB falen sommige EPEL dependencies bij installatie.
+#-------------------------------------------------------
+echo "--- [1/10] Repositories installeren ---"
+/usr/bin/crb enable || echo "WAARSCHUWING: CRB inschakelen mislukt"
+dnf install -y epel-release || echo "WAARSCHUWING: epel-release installatie mislukt"
+dnf makecache || true
+
+
+#-------------------------------------------------------
+# STAP 1B: osquery repository
+#-------------------------------------------------------
+# osquery zit niet in EPEL, vereist eigen repo.
+# GPG key en repo definitie worden apart aangemaakt.
+#-------------------------------------------------------
+curl -fsSL https://pkg.osquery.io/rpm/GPG \
+    | tee /etc/pki/rpm-gpg/RPM-GPG-KEY-osquery > /dev/null \
+    || echo "WAARSCHUWING: osquery GPG key ophalen mislukt"
+
+cat > /etc/yum.repos.d/osquery.repo <<'REPO'
+[osquery]
+name=osquery
+baseurl=https://pkg.osquery.io/rpm/
+enabled=1
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-osquery
+REPO
+
+
+#-------------------------------------------------------
+# STAP 1C: Extra security pakketten installeren
+#-------------------------------------------------------
+# Pakketten worden één voor één geïnstalleerd zodat een
+# falend pakket de rest niet blokkeert.
+#
+# clamav        = antivirus (lost Lynis 'malware scanner' warning op)
+# rkhunter      = rootkit scanner
+# lynis         = security audit tool
+# osquery       = SQL-achtige systeemquery tool
+# zabbix-agent2 = monitoring agent
+#-------------------------------------------------------
+echo "--- Extra pakketten installeren ---"
+for PKG in clamav rkhunter lynis osquery zabbix-agent2; do
+    dnf install -y "$PKG" || echo "WAARSCHUWING: $PKG installatie mislukt"
+done
+
+
+#-------------------------------------------------------
+# STAP 2: SCAP / STIG remediatie
+#-------------------------------------------------------
+# Voer SCAP remediatie EERST uit zodat onze custom overrides
+# (stap 3) daarna het laatste woord hebben.
+#
+# --remediate  = automatisch herstellen waar mogelijk
+# --profile    = DISA STIG profiel voor RHEL9
+# --results    = XML resultatenbestand voor archivering
+# --report     = leesbaar HTML rapport
+#
+# Exitcode 2 = bevindingen gevonden maar geen fatale fout → negeren
+#-------------------------------------------------------
+echo "--- [2/10] SCAP STIG remediatie uitvoeren ---"
+oscap xccdf eval \
+    --remediate \
+    --profile xccdf_org.ssgproject.content_profile_stig \
+    --results /root/scap-results.xml \
+    --report  /root/scap-report.html \
+    /usr/share/xml/scap/ssg/content/ssg-rhel9-ds.xml \
+    || true
+
+
+#-------------------------------------------------------
+# STAP 3: Kernel hardening via sysctl
+#-------------------------------------------------------
+# Overschrijft eventuele SCAP waarden met onze eigen instellingen.
+# LET OP: kernel.modules_disabled staat hier NOG NIET in —
+#         dat wordt als allerlaatste stap (stap 10) toegevoegd.
+#-------------------------------------------------------
+echo "--- [3/10] Sysctl kernel hardening ---"
+cat > /etc/sysctl.d/99-security.conf <<'EOF'
+#=======================================================
+# Kernel hardening - security baseline
+# Gegenereerd door kickstart post-install script
+#=======================================================
+
+# --- IPv4 hardening ---
+net.ipv4.ip_forward=0                       # Geen IP forwarding (geen router)
+net.ipv4.conf.all.accept_redirects=0        # Weiger ICMP redirects
+net.ipv4.conf.default.accept_redirects=0
+net.ipv4.conf.all.send_redirects=0          # Stuur geen ICMP redirects
+net.ipv4.conf.all.accept_source_route=0     # Weiger source-routed pakketten
+net.ipv4.conf.all.log_martians=1            # Log onmogelijke bronadressen
+net.ipv4.conf.default.log_martians=1
+net.ipv4.conf.all.rp_filter=1               # Reverse path filtering
+net.ipv4.tcp_syncookies=1                   # Bescherming tegen SYN floods
+
+# --- IPv6 hardening ---
+net.ipv6.conf.all.accept_redirects=0        # Weiger IPv6 ICMP redirects
+net.ipv6.conf.default.accept_redirects=0
+
+# --- Kernel hardening ---
+kernel.randomize_va_space=2                 # ASLR op maximaal niveau
+kernel.kptr_restrict=2                      # Verberg kernel pointer adressen
+kernel.dmesg_restrict=1                     # Beperk toegang tot dmesg
+kernel.unprivileged_bpf_disabled=1          # Verberg BPF JIT programma's
+#kernel.yama.ptrace_scope=2                  # Beperk ptrace naar parent/child
+kernel.sysrq=0                              # Schakel SysRq uit
+
+# --- Filesystem hardening ---
+fs.suid_dumpable=0                          # Geen core dumps van SUID programma's
+fs.protected_regular=2                      # Bescherm bestanden in sticky dirs
+
+# --- BPF / TTY hardening ---
+net.core.bpf_jit_harden=2                  # Harden BPF JIT compiler
+dev.tty.ldisc_autoload=0                    # Voorkom automatisch laden TTY disciplines
+
+# NOOT: kernel.modules_disabled=1 wordt als LAATSTE stap toegevoegd
+# (zie stap 10) nadat alle benodigde modules geladen zijn.
+EOF
+
+sysctl --system || echo "WAARSCHUWING: sysctl --system mislukt"
+
+
+#-------------------------------------------------------
+# STAP 4: SSH hardening via drop-in configuratie
+#-------------------------------------------------------
+# Gebruik /etc/ssh/sshd_config.d/99-hardening.conf als drop-in
+# zodat de hoofdconfiguratie onaangeroerd blijft.
+# Voordelen: idempotent, geen risico op duplicaten, makkelijk te auditen.
+#
+# PasswordAuthentication yes: bewust ingeschakeld voor
+# initiële toegang; schakel na inrichting over naar keys-only.
+#-------------------------------------------------------
+echo "--- [4/10] SSH hardening ---"
+cat > /etc/ssh/sshd_config.d/99-hardening.conf <<'EOF'
+# SSH hardening - drop-in configuratie
+# Gegenereerd door kickstart post-install script
+
+PermitRootLogin no          # Blokkeer directe root login
+PasswordAuthentication yes  # Initiële toegang; na inrichting op 'no' zetten
+MaxAuthTries 3              # Maximaal 3 foutieve loginpogingen
+AllowAgentForwarding no     # Geen SSH agent forwarding (agent hijacking risico)
+AllowTcpForwarding no       # Geen TCP tunneling via SSH
+ClientAliveInterval 300     # Verbreek verbinding na 300s inactiviteit
+ClientAliveCountMax 0       # Geen keep-alive retries
+EOF
+
+
+#-------------------------------------------------------
+# STAP 5: SSH authorized key voor admin gebruiker
+#-------------------------------------------------------
+# Maak .ssh directory aan met correcte permissies.
+# chown zorgt dat rroethof eigenaar is (SSH controleert dit streng).
+#-------------------------------------------------------
+echo "--- [5/10] SSH key installeren voor rroethof ---"
+mkdir -p /home/rroethof/.ssh
+chmod 700 /home/rroethof/.ssh
+
+cat > /home/rroethof/.ssh/authorized_keys <<'EOF'
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMELqQdsIVHY4dU/rwGVkgAb1MV+TQM9rFzYDhweWafB rroethof@kickstart
+EOF
+
+chmod 600 /home/rroethof/.ssh/authorized_keys
+chown -R rroethof:rroethof /home/rroethof/.ssh
+
+
+#-------------------------------------------------------
+# STAP 6: Security services activeren
+#-------------------------------------------------------
+# Services worden hier ingeschakeld NADAT de pakketten zijn
+# geïnstalleerd (anders mislukt systemctl enable).
+# Per service zodat één falende service de rest niet blokkeert.
+#
+# usbguard      = blokkeert onbekende USB apparaten
+# zabbix-agent2 = monitoring agent
+# osqueryd      = osquery daemon
+# fapolicyd     = applicatie whitelist
+# chronyd       = NTP tijdsynchronisatie
+#-------------------------------------------------------
+echo "--- [6/10] Security services inschakelen ---"
+for SVC in usbguard zabbix-agent2 osqueryd fapolicyd chronyd; do
+    systemctl enable "$SVC" || echo "WAARSCHUWING: $SVC enable mislukt"
+done
+
+
+#-------------------------------------------------------
+# STAP 7: Journald persistente opslag
+#-------------------------------------------------------
+# Standaard slaat journald logs op in RAM (/run/log/journal).
+# Met Storage=persistent worden logs bewaard in /var/log/journal.
+# SystemMaxUse=1G begrenst de schijfruimte.
+#
+# LET OP: geen systemctl restart hier — werkt niet in chroot.
+#         De instelling wordt actief na de eerste reboot.
+#-------------------------------------------------------
+echo "--- [7/10] Journald persistentie instellen ---"
+sed -i 's/^#\?Storage=.*/Storage=persistent/'   /etc/systemd/journald.conf
+sed -i 's/^#\?SystemMaxUse=.*/SystemMaxUse=1G/' /etc/systemd/journald.conf
+
+
+#-------------------------------------------------------
+# STAP 8: Audit log append-only maken
+#-------------------------------------------------------
+# chattr +a = alleen toevoegen (append-only), geen overschrijven.
+# Dit voorkomt dat een aanvaller audit sporen wist.
+#
+# touch eerst: bestand bestaat mogelijk nog niet in chroot.
+#
+# LET OP: ongedaan maken vereist chattr -a als root
+#         (fysieke toegang of single-user mode nodig).
+#-------------------------------------------------------
+echo "--- [8/10] Audit log immutable maken ---"
+mkdir -p /var/log/audit
+touch /var/log/audit/audit.log
+chattr +a /var/log/audit/audit.log || echo "WAARSCHUWING: chattr +a mislukt"
+
+
+#-------------------------------------------------------
+# STAP 9: AIDE database initialiseren
+#-------------------------------------------------------
+# AIDE maakt een snapshot van alle bestanden met hashes.
+# Dit MOET voor kernel.modules_disabled zodat de database
+# de definitieve systeemstaat vastlegt.
+# Na reboot: 'aide --check' toont onverwachte wijzigingen.
+#-------------------------------------------------------
+echo "--- [9/10] AIDE file integrity database initialiseren ---"
+aide --init || echo "WAARSCHUWING: AIDE init mislukt"
+if [ -f /var/lib/aide/aide.db.new.gz ]; then
+    mv /var/lib/aide/aide.db.new.gz /var/lib/aide/aide.db.gz
+fi
+
+
+#-------------------------------------------------------
+# STAP 10: kernel.modules_disabled=1 — ALLERLAATSTE STAP
+#-------------------------------------------------------
+# Na het instellen van deze parameter kunnen GEEN kernel
+# modules meer worden geladen tot de volgende reboot.
+# Dit is een one-way operation per boot cycle.
+#
+# Bewust als LAATSTE stap zodat:
+#   - Alle drivers en modules al geladen zijn
+#   - fapolicyd, usbguard etc. al actief zijn
+#   - AIDE al een snapshot heeft gemaakt
+#
+# De instelling staat in sysctl.d zodat hij bij elke
+# opvolgende reboot opnieuw actief wordt.
+#-------------------------------------------------------
+echo "--- [10/10] kernel.modules_disabled instellen ---"
+echo "kernel.modules_disabled=1" >> /etc/sysctl.d/99-security.conf
+sysctl -w kernel.modules_disabled=1 || echo "WAARSCHUWING: modules_disabled mislukt"
+
+
+echo "=== Post-install hardening voltooid: $(date) ==="
+%end
+
+
+#=======================================================
+# REBOOT NA INSTALLATIE
+#-------------------------------------------------------
+# Automatisch herstarten na voltooiing van alle scripts.
+# Bij de eerste boot zijn alle hardening instellingen actief.
+#=======================================================
+reboot
