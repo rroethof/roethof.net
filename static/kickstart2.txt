@@ -271,14 +271,6 @@ audit                   # Kernel audit subsysteem
 fapolicyd               # Applicatie whitelist (file access policy)
 usbguard                # USB device whitelist/blacklist
 
-# Antivirus en rootkit detectie
-clamav                  # Antivirus (lost Lynis 'malware scanner' warning op)
-clamav-update           # Signature updates voor ClamAV
-rkhunter                # Rootkit scanner
-
-# Security audit
-lynis                   # Security audit tool (Lynis)
-
 # Tijdsynchronisatie (vereist voor audit timestamps)
 chrony
 
@@ -459,14 +451,6 @@ usbguard generate-policy > /etc/usbguard/rules.conf \
 #
 # Exitcode 2 = bevindingen gevonden maar geen fatale fout → negeren
 #-------------------------------------------------------
-echo "--- [4/13] SCAP CIS remediatie uitvoeren ---"
-oscap xccdf eval \
-    --remediate \
-    --profile xccdf_org.ssgproject.content_profile_cis \
-    --results /root/scap-results.xml \
-    --report  /root/scap-report.html \
-    /usr/share/xml/scap/ssg/content/ssg-rl9-ds.xml \
-    || true
 
 
 #-------------------------------------------------------
@@ -580,6 +564,7 @@ chmod 700 /home/rroethof/.ssh
 
 cat > /home/rroethof/.ssh/authorized_keys <<'EOF'
 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMELqQdsIVHY4dU/rwGVkgAb1MV+TQM9rFzYDhweWafB rroethof@kickstart
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJY0FNy1EKTlVZL0GZszEn0sCl0Kn8boWNhrpIbhZ6WY rroethof@xps
 EOF
 
 chmod 600 /home/rroethof/.ssh/authorized_keys
@@ -637,8 +622,8 @@ fi
 # Bruikbaar voor audits, troubleshooting en baseline vergelijking.
 #-------------------------------------------------------
 echo "--- [13/13] Installatie documentatie opslaan ---"
-cp /proc/cmdline              /root/install-cmdline.txt      2>/dev/null || true
-rpm -qa --last                > /root/installed-packages.txt 2>/dev/null || true
+cp /proc/cmdline             /root/install-cmdline.txt      2>/dev/null || true
+rpm -qa --last               > /root/installed-packages.txt 2>/dev/null || true
 lsblk -f                     > /root/disk-layout.txt        2>/dev/null || true
 ip addr                      > /root/network-config.txt     2>/dev/null || true
 sysctl -a 2>/dev/null        > /root/sysctl-baseline.txt    2>/dev/null || true
