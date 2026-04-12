@@ -21,15 +21,9 @@ summary: "France acts. The Netherlands watches. Digital sovereignty is not a vis
 description: "Why France is pulling the plug on vendor lock-in while the Netherlands stays stuck in pilots, dependency, and deliberate inaction."
 ---
 
-France has ordered its government ministries to migrate from Windows to Linux. The directive, issued by DINUM on 8 April 2026, requires every ministry and public operator to submit a formal exit roadmap by autumn 2026. DINUM itself will migrate first, serving as the proof of concept before the broader rollout begins.
+France has ordered its government ministries to migrate from Windows to Linux. The directive, issued by DINUM on 8 April 2026, requires every ministry and public operator to submit a formal exit roadmap by autumn 2026. DINUM itself will migrate first, serving as the proof of concept before the broader rollout begins. This is not a pilot. It is not a strategy document about a strategy document. It is a line in the sand. This is what sovereignty looks like when it stops being a conference topic and becomes policy.
 
-This is not a pilot. It is not a strategy document about a strategy document. It is a line in the sand.
-
-This is what sovereignty looks like when it stops being a conference topic and becomes policy.
-
-Meanwhile, the Netherlands is still exploring options, running pilots, and writing strategy documents about strategy documents.
-
-France moves. We don't.
+Meanwhile, the Netherlands is still exploring options, running pilots, and writing strategy documents about strategy documents. France moves. We don't.
 
 ## The Illusion of Choice in Enterprise
 
@@ -51,9 +45,7 @@ This is not a knowledge gap. It is willful avoidance.
 
 ## The Dutch Paradox: Endless Pilots, Zero Commitment
 
-The Netherlands does not lack expertise. It lacks decisions.
-
-We pilot. We evaluate. We iterate. We never commit.
+The Netherlands does not lack expertise. It lacks decisions. We pilot. We evaluate. We iterate. We never commit.
 
 In April 2026, Amsterdam, Ede, 's-Hertogenbosch, and Zaanstad launched the DAWO pilot: a Linux-based workplace environment that meaningfully challenges Microsoft 365. That is good. The question is what happens next. MijnBureau is assembling a European productivity stack from French, German, and Dutch components. The blueprint exists. So why is it still classified as an experiment?
 
@@ -85,14 +77,8 @@ Open standards flip the power dynamic. When you require interoperability, vendor
 
 ---
 
-France pulled the trigger. Switzerland backed it with law. Germany is executing.
+France pulled the trigger. Switzerland backed it with law. Germany is executing. We are still writing memos about whether pulling the trigger is feasible.
 
-We are still writing memos about whether pulling the trigger is feasible.
+The technology is here. The expertise is here. The examples are here. What is missing is the decision.
 
-The technology is here. The expertise is here. The examples are here.
-
-What is missing is the decision.
-
-Stop piloting. Start cutting.
-
-Stop renting. Start owning.
+Stop piloting. Start cutting. Stop renting. Start owning.
