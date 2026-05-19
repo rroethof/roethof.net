@@ -18,19 +18,19 @@ tags:
 - data-protection
 ---
 
-On 12 May 2026, BNR reported that Stichting 113 Zelfmoordpreventie forwarded visitor data to Google and Microsoft for years. No valid consent. A Hackedemia analysis showed Microsoft Clarity still running after a user explicitly refused tracking. Not before consent, after refusal. At that point you're not looking at a privacy oversight. The system does something different from what it claims.
+On 12 May 2026, BNR reported that Stichting 113 Zelfmoordpreventie forwarded visitor data to Google and Microsoft for years. No valid consent. A Hackedemia analysis showed Microsoft Clarity still running after a user explicitly refused tracking. Not before consent, after refusal. At that point you are not looking at a privacy oversight. The system does something different from what it claims.
 
 ## Where it actually fails
 
-Consent is not a banner, it is a runtime condition. Either tracking stops or it doesn't. If Clarity still fires, the chain is broken. Consent is ignored or never wired into execution. This takes five minutes to check. Open devtools, reject consent, watch the requests go out anyway. Basic work. Someone could have done this on the day it was built. Someone could have done it any time after.
+Consent is not a banner, it is a runtime condition. Either tracking stops or it does not. If Clarity still fires, the chain is broken. Consent is ignored or never wired into execution. This takes five minutes to check. Open devtools, reject consent, watch the requests. Basic work. Someone could have done this on the day it was built. Someone could have done it any time after.
 
-They didn't.
+They did not.
 
-Or they did, saw it, and decided it wasn't a problem.
+Or they did, saw it, and decided it was not a problem.
 
 ## What a DPIA would have meant
 
-People will point at DPIAs now. Files, approvals, checklists. None of that matters if nobody ties it back to runtime behaviour. If your assessment says tracking is controlled, and a simple browser session proves it isn't, the assessment is fiction.
+People will point at DPIAs now. Files, approvals, checklists. None of that matters if nobody ties it back to runtime behaviour. If your assessment says tracking is controlled, and a simple browser session proves it is not, the assessment is fiction.
 
 So what happened here is not subtle. Either the DPIA never touched the actual system, or it did and someone signed off on it anyway. Both options mean the same thing. The paper mattered more than the system.
 
@@ -40,15 +40,15 @@ This is the part everyone recognises. Privacy statement, consent banner, careful
 
 And people accept that gap.
 
-Developers ship it. Security signs off. Management looks at the dashboard and moves on. Nobody stops and says "this does not do what we tell users it does", or they say it and get ignored.
+Developers ship it. Security signs off. Management looks at the dashboard and moves on. Nobody in that chain stops and says "this does not do what we tell users it does", or they say it and get ignored.
 
-## The stack didn't drift by itself
+## The stack did not drift by itself
 
 Nothing magical happened here. A CMS, a tag manager, third party scripts. Someone added them. Someone configured them. Someone kept them in place after every update, every change, every discussion about privacy risk.
 
 This is not entropy. This is maintenance.
 
-People made choices, repeatedly, and every time chose not to fix it.
+People made choices, repeatedly, and each time chose not to fix it.
 
 ## Why it stayed
 
@@ -62,13 +62,13 @@ For a webshop this is sloppy.
 
 Here it means something else. The people who visit 113 at two in the morning are not casual users. They have already negotiated with themselves about whether it is safe to reach out. They clear their history. They use private browsing. They think about whether anyone will know.
 
-The tracker doesn't know any of that. It fires anyway.
+The tracker does not know any of that. It fires anyway.
 
 That assumption of anonymity was wrong. Not because of a sophisticated attack. Because the people building and operating this platform never treated it as something that required verification at that level. The users assumed someone had checked. Nobody had.
 
 ## Not an incident
 
-This will be framed as a mistake. Tools removed, investigation started, lessons learned. A report will be produced. It will be written carefully, in the passive voice, and it will not name anyone. The people who added these scripts, who signed off on DPIAs without testing the implementation, who renewed vendor contracts year after year while the AP was publishing guidance that made those contracts untenable on a platform like this — none of them will appear in that report by name. Some of them will help write the recommendations.
+This will be framed as a mistake. Tools removed, investigation started, lessons learned. A report will be produced. It will be written carefully, in the passive voice, and it will not name anyone. The people who added these scripts, who signed off on DPIAs without verifying the implementation, who renewed vendor contracts year after year while the AP was publishing guidance that made those contracts untenable on a platform like this, none of them will appear in that report by name. Some of them will help write the recommendations.
 
 That is how this always works. And I am done pretending it is acceptable.
 
@@ -78,4 +78,4 @@ Those people know who they are. The investigation will let them stay anonymous. 
 
 That is not a mistake.
 
-That is a choice someone made and never took back.
+That is a choice someone kept making.
