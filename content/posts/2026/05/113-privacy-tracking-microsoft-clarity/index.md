@@ -18,32 +18,64 @@ tags:
 - data-protection
 ---
 
-On 12 May 2026, BNR reported that Stichting 113 Zelfmoordpreventie forwarded visitor data to Google and Microsoft for years. No valid consent. A Hackedemia analysis showed Microsoft Clarity still running after a user explicitly refused tracking. That last part matters. Not before consent. After refusal. At that point you’re not looking at a privacy oversight. The system simply does something different from what it claims to do.
+On 12 May 2026, BNR reported that Stichting 113 Zelfmoordpreventie forwarded visitor data to Google and Microsoft for years. No valid consent. A Hackedemia analysis showed Microsoft Clarity still running after a user explicitly refused tracking. Not before consent, after refusal. At that point you're not looking at a privacy oversight. The system does something different from what it claims.
 
 ## Where it actually fails
 
-Consent is not a banner, it is a runtime condition. Either tracking stops after refusal or it does not. If Clarity still fires, something in that chain is broken. The consent state is ignored or never actually controls execution. Both point to the same thing: nobody verified behaviour in a real session. Not in a browser, not on network level, not after deployment. If someone had, this would have shown up immediately.
+Consent is not a banner, it is a runtime condition. Either tracking stops or it doesn't. If Clarity still fires, the chain is broken. Consent is ignored or never wired into execution. This takes five minutes to check. Open devtools, reject consent, watch the requests go out anyway. Basic work. Someone could have done this on the day it was built. Someone could have done it any time after.
 
-## What a DPIA would have caught
+They didn't.
 
-People point at DPIAs as if they solve this. They don’t, unless they are tied to reality. If you assess tools like Analytics or Clarity and never check what they actually do in your environment, you’re documenting intent, not behaviour. Either the analysis missed that tracking continues after refusal, or nobody looked at that layer at all. Both happen more often than anyone admits.
+Or they did, saw it, and decided it wasn't a problem.
+
+## What a DPIA would have meant
+
+People will point at DPIAs now. Files, approvals, checklists. None of that matters if nobody ties it back to runtime behaviour. If your assessment says tracking is controlled, and a simple browser session proves it isn't, the assessment is fiction.
+
+So what happened here is not subtle. Either the DPIA never touched the actual system, or it did and someone signed off on it anyway. Both options mean the same thing. The paper mattered more than the system.
 
 ## Privacy by declaration
 
-This pattern is everywhere. A privacy statement, a consent banner, language about improving the service. Everything needed to explain compliance is present. What’s missing is verification. Privacy statements don’t enforce anything. Consent flows don’t enforce anything unless they are wired into execution and tested under real conditions. If that link is weak, the system behaves differently from what is documented. That is exactly what happened here.
+This is the part everyone recognises. Privacy statement, consent banner, careful wording about improving services. Everything looks correct on the surface. Meanwhile the implementation does something else.
 
-## The standard stack problem
+And people accept that gap.
 
-Nothing here is exotic. A CMS, a tag manager, a few external scripts layered on top. Each component works individually. The combination is rarely tested end to end. Timing differences, fallback behaviour, scripts firing earlier than expected. That’s where issues live. Not in obvious misconfigurations, but in interactions nobody checks. The result is a system that looks fine on paper and behaves differently in production.
+Developers ship it. Security signs off. Management looks at the dashboard and moves on. Nobody stops and says "this does not do what we tell users it does", or they say it and get ignored.
 
-## Why this keeps happening
+## The stack didn't drift by itself
 
-Because the decision is framed as “we want better insight”. So analytics gets added. Then something else. Nothing gets removed because nothing looks broken. And nobody owns runtime behaviour as a whole. Until someone external tests it.
+Nothing magical happened here. A CMS, a tag manager, third party scripts. Someone added them. Someone configured them. Someone kept them in place after every update, every change, every discussion about privacy risk.
 
-## What makes this different
+This is not entropy. This is maintenance.
 
-For most sites this is just bad practice. Here it isn’t. People use 113 assuming anonymity, not as a preference but as a condition. The system doesn’t know that. It just runs the scripts it was given. Once requests leave the browser towards third parties, control is gone. You don’t know what is stored, how long, or what happens next. That uncertainty is exactly what these users try to avoid.
+People made choices, repeatedly, and every time chose not to fix it.
+
+## Why it stayed
+
+Because nothing broke that management cares about. Metrics still came in. Reports still worked. No alarms, no incident, no external pressure. So the easiest decision is to do nothing and let it run.
+
+Until someone outside tests it and writes it down.
+
+## What makes this worse
+
+For a webshop this is sloppy.
+
+Here it means something else. The people who visit 113 at two in the morning are not casual users. They have already negotiated with themselves about whether it is safe to reach out. They clear their history. They use private browsing. They think about whether anyone will know.
+
+The tracker doesn't know any of that. It fires anyway.
+
+That assumption of anonymity was wrong. Not because of a sophisticated attack. Because the people building and operating this platform never treated it as something that required verification at that level. The users assumed someone had checked. Nobody had.
 
 ## Not an incident
 
-This will be treated as something that went wrong and has now been fixed. Technically, nothing unusual happened. This is what you get when you run a standard analytics stack and assume the consent layer works because it exists. 113 didn’t behave unexpectedly. It behaved exactly the way it was configured.
+This will be framed as a mistake. Tools removed, investigation started, lessons learned. A report will be produced. It will be written carefully, in the passive voice, and it will not name anyone. The people who added these scripts, who signed off on DPIAs without testing the implementation, who renewed vendor contracts year after year while the AP was publishing guidance that made those contracts untenable on a platform like this — none of them will appear in that report by name. Some of them will help write the recommendations.
+
+That is how this always works. And I am done pretending it is acceptable.
+
+These are not anonymous systemic failures. Somebody added Clarity to this platform. Somebody approved the privacy documentation without verifying the implementation. Somebody decided, repeatedly, that the question of whether the consent mechanism actually worked was not worth answering.
+
+Those people know who they are. The investigation will let them stay anonymous. The rest of us are left with the knowledge that somewhere in the Netherlands, people in crisis reached out for help on a platform that was quietly watching them do it, and nobody responsible for that platform thought it was important enough to check.
+
+That is not a mistake.
+
+That is a choice someone made and never took back.
