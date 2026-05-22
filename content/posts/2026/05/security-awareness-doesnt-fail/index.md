@@ -1,5 +1,5 @@
 ---
-title: "Security Awareness Doesn’t Fail (It Was Never the Fix)"
+title: "Security Awareness Doesn't Fail (It Was Never the Fix)"
 slug: "security-awareness-doesnt-fail"
 date: "2026-05-22"
 lastmod: "2026-05-22"
@@ -18,149 +18,103 @@ description: "Security awareness training assumes that knowledge leads to safer 
 summary: "A phishing simulation showed that even when people know what to do, there is often no correct decision to make. Organisations respond by managing reactions instead of fixing the conditions that caused the problem."
 ---
 
-I read a [post](https://www.linkedin.com/pulse/security-awareness-een-managementstoring-stop-met-het-edwin-ribbers-zkhze/) by [Edwin Ribbers](https://www.linkedin.com/in/edwinribbers/) describing security awareness as a management failure.
-
-He is right.
-
-But that is only the surface of the problem.
+I read a [post](https://www.linkedin.com/pulse/security-awareness-een-managementstoring-stop-met-het-edwin-ribbers-zkhze/) by [Edwin Ribbers](https://www.linkedin.com/in/edwinribbers/) describing security awareness as a management failure. He is right, but that is only the surface.
 
 ---
 
-Most organisations run some form of security awareness.
+## Awareness as a comfortable illusion
 
-People watch a video, click through a few questions, and complete a training that ends in a certificate. Somewhere along the way, completion rates go up and dashboards turn green.
+Most organisations run security awareness programs. People watch a video, answer a quiz, and earn a certificate. Dashboards turn green, completion rates go up, and from a reporting perspective everything looks fine. From an operational perspective, nothing changes.
 
-From a reporting perspective, things improve.
-
-From an operational perspective, nothing changes.
-
-The assumption is simple: if people know what to look for, they will act differently.
-
-That assumption sounds reasonable.
-
-It is also wrong.
+The underlying assumption is simple: if people know better, they will behave better. It sounds logical. It isn’t.
 
 ---
 
-We tested this with a phishing simulation.
+## A phishing simulation
 
-Nothing advanced. Just an email about Christmas gifts. A voucher, a link, a code.
+We tested it. Not with anything sophisticated, but with something ordinary: an email about Christmas gifts—a voucher, a link, a code. The kind of message people see every year and process without thinking too much about it.
 
-The kind of message people see every year. The kind that fits perfectly within normal business communication.
+Within thirty seconds, a director clicked. Within forty seconds, a senior engineer followed. Both had completed awareness training. Both knew what phishing is. Both understood what they were supposed to look for.
 
-Within thirty seconds, a director clicked.
+It made no difference.
 
-Within forty seconds, a senior network engineer followed.
+The usual conclusion is predictable:
 
-Both had completed the training. Both understood what phishing is. Both knew, in theory, what to look for.
+> “Users clicked a phishing link.”
 
-It did not matter.
-
----
-
-The usual conclusion is predictable.
-
-“Users clicked a phishing link.”
-
-That sounds like the problem.
-
-It is not.
-
-It is the outcome.
+That feels like the problem. It isn’t. It is the outcome.
 
 ---
 
-Because something else happened at the same time.
+## Context beats knowledge
 
-Other people did not click.
+At the same time, something else happened. Other people did not click. Especially not the finance team. They paused, questioned the message, and verified it before doing anything.
 
-Not the ones most organisations expect.
+That behaviour did not come from training, but from context. Their work deals with irregular requests, financial risk and external pressure. Caution is not optional there.
 
-The finance team paused. They questioned the message. They checked whether it was real before doing anything.
+Elsewhere in the organisation, behaviour develops differently. Speed, responsiveness and confidence are rewarded.
 
-That behaviour did not come from awareness training.
+That works.
 
-It came from exposure.
-
-Their day-to-day work deals with irregular requests, external input and financial risk. Caution is not optional there.
-
-Elsewhere, behaviour develops differently.
-
-Speed is rewarded. Responsiveness is expected. Confidence is normal.
-
-Those traits work—until they don’t.
+Until it doesn’t.
 
 ---
 
-The email itself worked exactly as intended.
+## When real looks like fake
 
-Not because people are careless.
-
-Because it was good communication.
-
-It was relevant. It arrived at the right moment. It used existing trust. It offered something of value.
+The email worked exactly as intended—not because people are careless, but because it was good communication. It was relevant, timely, and built on existing trust while offering something of value.
 
 In other words, it behaved exactly like a real business process.
 
 And that is where the model starts to break.
 
----
+Security awareness assumes that knowledge leads to correct decisions. Reality shows that behaviour is shaped by context. People act under time pressure, interruptions and expectations created by the organisation itself.
 
-Security awareness assumes that knowledge leads to correct decisions.
-
-Reality shows something else.
-
-Behaviour is shaped by context.
-
-People do not act in isolation. They act under time pressure, while switching between tasks, with partial attention and within expectations created by the organisation itself.
-
-Knowledge is part of that.
-
-It is rarely the deciding factor.
+Knowledge is part of that. It is rarely the deciding factor.
 
 ---
 
-The most revealing part came after the simulation.
+## The gamification interlude
 
-People were not discussing the security risk.
+Before treating this as an isolated incident, it is worth looking at what organisations often do next.
 
-They were discussing fairness.
+They gamify the problem. Leaderboards, points, streaks, progress dashboards. Engagement increases. Completion rates improve. Simulated click rates go down.
 
-imageturn0image0 (Image: employee email asking for promised voucher)
+On paper, things get better.
 
-One response acknowledged the phishing attempt and then asked whether the €150 voucher could still be transferred.
+In reality, something else happens.
 
-Not as a joke.
+People learn the game.
 
-Because the expectation had already been created.
+They recognise templates. They anticipate patterns. They adapt to the simulation, not to real attacks. At one organisation running such a platform, a small group of engineers with access to the underlying database occupied the top positions on the leaderboard for months.
 
-imageturn0image1 (Image: employee email criticising phishing simulation)
+Not because they were more secure.
 
-Another response was even clearer. The click was admitted. The situation was understood.
+Because they understood how they were being measured.
 
-But the objection was not about behaviour.
-
-It was about the scenario.
-
-Too realistic.  
-Too convincing.  
-Not appropriate.
-
-“The measure is worse than the problem.”
+We train people to win the game, not to understand risk.
 
 ---
+
+## After the simulation
+
+The most revealing part came afterwards.
+
+The discussion was not about security. It was about fairness.
+
+One response acknowledged the phishing attempt and then asked whether the €150 voucher could still be transferred—not as sarcasm, but as a continuation of an expectation that had already been created.
+
+Another admitted the click, but rejected the approach. Too realistic. Too convincing. Not appropriate. “The measure is worse than the problem.”
 
 At that point, the discussion had shifted.
 
-This was no longer about security.
+This was no longer about phishing.
 
-It had become a discussion about trust.
+It was about trust.
 
 ---
 
-The organisation had created a situation where the communication looked legitimate, the reward felt real and the action made sense.
-
-Only afterwards was it revealed that none of it existed.
+The organisation created a situation where the communication looked legitimate, the reward felt real, and the action made sense—only to reveal afterwards that none of it existed.
 
 People did not reject the lesson.
 
@@ -168,135 +122,82 @@ They rejected the premise.
 
 ---
 
-If a realistic scenario feels unfair, a real attack will not feel any better.
+## The organisational response
+
+The response followed a familiar pattern: not system change, but reaction management. Supermarket vouchers were introduced. Complaints stopped. The situation stabilised.
+
+The system remained unchanged.
 
 ---
 
-The organisation responded in a predictable way.
+## Then everything broke
 
-Not by changing how communication works.
-
-But by managing the reaction.
-
-Everyone received €150 per month in supermarket vouchers for six months.
-
-The complaints stopped.
-
-The situation settled.
-
-The system remained the same.
-
----
-
-Nothing fundamental changed.
-
----
-
-A year later, something else happened.
-
-A similar email appeared.
-
-Same pattern. Different sender. External origin, a link to claim a gift, even credentials included in the message.
+A year later, a similar email appeared again. Same pattern, different sender: external origin, a link to claim a gift, even credentials included in the message.
 
 Everything people had just been trained not to trust.
 
-This time, people did exactly what the training was supposed to achieve.
+This time, people did exactly what the awareness program intended. They ignored it, reported it, and escalated it.
 
-They ignored it.
-
-They reported it.
-
-They escalated it.
-
----
+They did not click.
 
 They were wrong.
 
-The email was legitimate.
-
-The organisation actually used that exact pattern to distribute Christmas gifts.
+The email was legitimate. The organisation itself used that pattern.
 
 ---
 
-At that point, the model breaks completely.
+## No stable behaviour
 
-Because now both outcomes fail.
+At that point, the model collapses.
 
-Click, and you are wrong.
-
+Click, and you are wrong.  
 Don’t click, and you are wrong.
 
 There is no stable, correct behaviour left.
 
----
+Security awareness assumes that users can learn a reliable response. In practice, the same pattern can be both legitimate and malicious. From the user’s perspective, that is not decision-making.
 
-Security awareness assumes that users can learn a reliable response.
-
-In practice, the same pattern can be both legitimate and malicious.
-
-From the user’s perspective, that turns decision-making into guessing.
+It is guessing.
 
 ---
 
-The environment makes this unavoidable.
+## The contradiction
 
-People are expected to respond quickly, to trust internal communication and to act on messages that look legitimate.
+Organisations expect people to act quickly, trust communication and respond without friction, while simultaneously training them to distrust, hesitate and verify everything.
 
-At the same time, they are trained to distrust, to hesitate and to verify everything.
+These expectations cannot coexist.
 
-Both cannot be true.
-
----
-
-This is why the results never improve in a meaningful way.
-
-Behaviour follows the system people operate in, not the training they complete.
+That is why the results never improve in a meaningful way. Behaviour follows the system people operate in, not the training they complete.
 
 ---
+
+## The real dependency
 
 “They always get it done.”
 
 “They clicked the link.”
 
-Both describe the same structural issue.
-
-In one case, the system depends on individuals compensating for its flaws.
-
-In the other, it blames them when they do not.
+Both describe the same structural problem. In one case, the organisation depends on people compensating for flawed system design. In the other, it blames them when they do not.
 
 ---
 
-Security awareness does not fail.
+## Security awareness does not fail
 
-It performs exactly as designed.
-
-It produces metrics.
-
-It demonstrates effort.
-
-It creates the appearance of control.
-
----
+It works exactly as designed. It produces metrics, demonstrates effort and creates the appearance of control.
 
 What it does not do is change the system.
 
 ---
 
+## Closing
+
 If your security depends on people consistently making the right decision, you do not have security.
 
 You have probability.
 
----
+People clicked. People learned. People adapted.
 
-People clicked.
-
-People learned.
-
-People adapted.
-
-And still, nothing improved.
-
----
+And still, nothing fundamentally changed.
 
 It was never about awareness.
 
