@@ -17,6 +17,7 @@ tags:
 description: "Security awareness training assumes that knowledge leads to safer behaviour. In practice, behaviour is shaped by context, incentives and system design."
 summary: "A phishing simulation showed that even when people know what to do, there is often no correct decision to make. Organisations respond by managing reactions instead of fixing the conditions that caused the problem."
 ---
+
 I read a [post](https://www.linkedin.com/pulse/security-awareness-een-managementstoring-stop-met-het-edwin-ribbers-zkhze/) by [Edwin Ribbers](https://www.linkedin.com/in/edwinribbers/) describing security awareness as a management failure.
 He is right.
 But that is only the surface.
@@ -33,7 +34,6 @@ The underlying assumption is simple: if people know better, they will behave bet
 It sounds logical.
 It isn't.
 
----
 
 ## A phishing simulation
 
@@ -49,8 +49,6 @@ The response from the organisation was not to examine why a well-crafted, well-t
 
 The security posture was unchanged. The liability had simply been managed.
 
----
-
 ## The gamification interlude
 
 Before dismissing that example as an outlier, consider what the alternative looks like in practice.
@@ -65,10 +63,6 @@ The following year, at a different organisation, a nearly identical Christmas pa
 
 What had actually happened was that institutional memory had substituted for genuine understanding. The people who did not click that year would have clicked a different pretext, delivered through a different channel, during a period when they were not primed to be cautious. The underlying vulnerability was intact.
 
----
-
----
-
 ## The decision environment nobody designed
 
 This is the part that awareness programs do not address, because addressing it would require organisations to look at themselves rather than at their users.
@@ -81,8 +75,6 @@ What awareness training communicates, intentionally or not, is that the user bea
 
 The training transfers liability. It does not transfer capability.
 
----
-
 ## What would actually reduce risk
 
 Awareness training is not worthless. People who understand the threat model make better decisions at the margin. But it functions as a last line of defence being treated as a primary control, and that inversion is where the failure lives.
@@ -94,8 +86,6 @@ Beyond email specifically, the broader principle is that the burden of security 
 This requires investment in architecture, not in dashboard completion rates. It requires organisations to treat security as an engineering problem rather than a training budget line item.
 
 Most organisations find that considerably less comfortable than sending another module.
-
----
 
 ## Managing appearances
 
