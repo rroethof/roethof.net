@@ -34,7 +34,6 @@ The underlying assumption is simple: if people know better, they will behave bet
 It sounds logical.
 It isn't.
 
-
 ## A phishing simulation
 
 We tested it.
