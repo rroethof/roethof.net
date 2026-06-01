@@ -1,14 +1,21 @@
 ---
-title = "When Your Body Pulls the Plug"
-slug = "when-your-body-pulls-the-plug"
-date = 2026-06-01
-description = "Four weeks in. The stent is fine. The numbers are fine. Everything is fine, apparently."
-draft = false
-author = "Ronny Roethof"
-
-categories = ["health-ergonomics", "opinion-reflections"]
-
-tags = ["burnout", "tietze", "heart-attack", "work-life-balance", "recovery"]
+title: "When Your Body Pulls the Plug"
+slug: when-your-body-pulls-the-plug
+date: 2026-06-01
+lastmod: 2026-06-01
+draft: false
+author: "Ronny Roethof"
+categories:
+- health-ergonomics
+- opinion-reflections
+tags:
+- burnout
+- tietze
+- heart-attack
+- work-life-balance
+- recovery
+summary: "Four weeks in. The stent is fine. The numbers are fine. Everything is fine, apparently."
+description: "Four weeks in. The stent is fine. The numbers are fine. Everything is fine, apparently."
 ---
 
 I am at home. Week four, maybe five. I stopped counting at some point.
@@ -36,6 +43,8 @@ At some point during that session the pain got bad enough that I was crying whil
 That is how I have always worked. You carry it. Finish first, deal with it later. It works.
 
 Until it does not.
+
+This is how it works. Things break. People push through. Eventually, it works again. From the outside, that is a success. What you do not see is how close it got to failing completely. Or what it took from the people fixing it.
 
 ## What that actually means
 
