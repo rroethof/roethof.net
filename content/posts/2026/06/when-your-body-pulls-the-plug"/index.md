@@ -14,8 +14,8 @@ tags:
 - heart-attack
 - work-life-balance
 - recovery
-summary: "Four weeks in. The stent is fine. The numbers are fine. Everything is fine, apparently."
-description: "Four weeks in. The stent is fine. The numbers are fine. Everything is fine, apparently."
+summary: "Week four or five at home. A heart attack in 2024, a stent, medication. On paper everything is stable. The pain disagrees."
+description: "Week four or five at home. A heart attack in 2024, a stent, medication. On paper everything is stable. The pain disagrees."
 ---
 
 I am at home. Week four, maybe five. I stopped counting at some point.
