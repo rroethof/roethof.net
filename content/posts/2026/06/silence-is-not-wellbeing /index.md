@@ -16,125 +16,49 @@ tags:
 - management
 - culture
 
-summary: "Too many organizations mistake silence for stability while employees quietly burn out, detach emotionally, and disappear long before management notices."
+summary: "Most organizations don’t notice burnout. They notice silence. By the time they do, it is already too late."
 
 description: "A personal reflection on burnout, toxic workplace culture, emotional erosion, and why so many employees silently disappear before organizations realize something is wrong."
 ---
 
 A LinkedIn post by recruiter Linda Wildbret went viral this week.
 
-Normally I scroll past viral LinkedIn content almost instantly. Most of it disappears into the usual cycle of engagement bait, fake vulnerability, and corporate theatre.
+Normally I scroll past viral LinkedIn content almost instantly. Most of it blends into the same pattern of engagement bait, fake vulnerability and corporate theatre. This one didn’t. Not only because it was interesting in itself, but because the reactions underneath it didn’t feel like noise. They felt real.
 
-This one stayed with me.
+Hundreds of people describing the same things: burnout after years of overperformance, waking up with stomach pain before work, workplace bullying that has somehow become “culture”, managers looking away because it’s easier, people being quietly pushed out after decades of loyalty, and then the slow shift where you stop reacting at all because reacting costs too much.
 
-Not because the post itself was revolutionary, but because the reactions underneath it felt painfully real.
-
-Hundreds of people describing the same pattern:
-- burnout after years of overperforming;
-- waking up with stomach pain before work;
-- workplace bullying normalized as "culture";
-- managers looking away;
-- being quietly discarded after decades of loyalty;
-- emotionally shutting down just to survive.
-
-And underneath almost every reply:
-
-> "Heel herkenbaar."
+And almost every thread had the same line: “Heel herkenbaar.”
 
 Recognizable.
 
-That may be the most alarming part of the entire discussion.
+That alone should say enough, because when something like that becomes widely recognizable you’re not looking at individual cases anymore. You’re looking at a system.
 
-Because when emotional exhaustion becomes recognizable at this scale, we are no longer dealing with isolated incidents.
-
-We are looking at something structural.
-
-You can read Linda Wildbret’s original post [here](https://www.linkedin.com/posts/linda-fortasolutions_een-baan-die-je-leegtrekt-trekt-je-kapot-share-7469609217918935041-cyPV).
+You can read Linda Wildbret’s original post [here](https://www.linkedin.com/posts/linda-fortasolutions_een-baan-die-je-leegtrekt-trekt-je-kapot-share-7469609217918935041-cyPV?utm_source=chatgpt.com).
 
 ---
 
-What struck me personally is that many of the people responding did not hate their jobs.
+What struck me is that most of the people responding didn’t hate their jobs. That’s the strange part. Quite the opposite. They cared. Sometimes far too much.
 
-Quite the opposite.
-
-Most genuinely cared.
-
-They believed in what they were building. They stayed loyal through reorganizations, politics, understaffing, management churn, endless "transformations", and permanent instability because they believed things would improve eventually.
+They believed in what they were building. They stayed through reorganizations, politics, understaffing, constant management changes, endless “transformations” that never really transform anything. They stayed because the idea was always the same: it will get better eventually.
 
 Until eventually something broke.
 
-Usually not dramatically.
+Not in one moment. Not in a dramatic breaking point.
 
-Quietly.
+Just quietly.
 
 That is how it happens most of the time.
 
-First people stop speaking up.
+You don’t really notice when it happens. First you stop speaking up. Then exhaustion becomes normal. Then you start disconnecting just enough to keep functioning.
 
-Then exhaustion becomes normal.
-
-Then emotional detachment becomes survival.
+That’s it. That’s the shift.
 
 ---
 
-I recognized that part immediately.
+I recognized that immediately. Not in theory, but in myself.
 
-Not theoretically.
+A week ago I wrote about my current burnout in [When Your Body Pulls the Plug](https://roethof.net/posts/2026/06/when-your-body-pulls-the-plug/?utm_source=chatgpt.com).
 
-Personally.
+What I didn’t fully understand then is how many people are sitting in that same space. Not the fragile ones. Not the ones you’d expect. The reliable ones. The people who keep systems running when others drop out. The ones who absorb pressure so nobody else has to. The ones who are still delivering long after something internally has already gone wrong.
 
-A week ago I wrote about my current burnout in [When Your Body Pulls the Plug](https://roethof.net/posts/2026/06/when-your-body-pulls-the-plug/).
-
-What I did not fully realize at that moment is how many people are stuck in the exact same pattern.
-
-Not weak people.
-
-Usually the opposite.
-
-The reliable ones.
-
-The people who keep systems running.
-
-The people who absorb pressure so nobody else has to.
-
-The people who keep delivering long after the warning lights started flashing internally.
-
-And eventually the body stops negotiating.
-
----
-
-Modern companies are remarkably good at hiding emotional decay.
-
-The dashboards stay green.
-
-Projects continue.
-
-Targets get met.
-
-Meetings continue as usual.
-
-Meanwhile people slowly disappear internally long before they resign physically.
-
-And toxic workplaces are rarely obvious from the outside.
-
-Most are not screaming managers or explosive conflict.
-
-Most are sterile professional environments where psychological erosion accumulates slowly through:
-- endless reorganizations;
-- permanent uncertainty;
-- politics rewarded over competence;
-- chronic understaffing framed as efficiency;
-- leadership detached from operational reality;
-- process culture replacing human judgment;
-- bullying tolerated because someone is "valuable".
-
-One response underneath Linda Wildbret’s post described something painfully accurate: employees are told to treat work as "just a job", while simultaneously being expected to make work their passion, identity, and purpose.
-
-That contradiction destroys people.
-
-Especially the ones who care the most.
-
-Because committed employees absorb dysfunction far longer than detached employees do.
-
----
-
+And at some point the body just stops participating in the negotiation.
