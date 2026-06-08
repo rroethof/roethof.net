@@ -2,7 +2,7 @@
 title: "The Breach After the Breach"
 slug: the-breach-after-the-breach
 date: 2026-06-08
-draft: false
+draft: true
 author: "Ronny Roethof"
 
 categories:
@@ -25,9 +25,7 @@ In early June 2026, ethical hacker Wesley Neelen published the results of a quie
 
 Starting from the Odido data breach, a leak that most people had mentally filed away as someone else's problem, he extracted the e-mail addresses of customers who had listed their financial guardian as their contact. A financial guardian is a court-appointed administrator who manages finances on behalf of people unable to do so themselves.
 
-He then checked whether those guardians' domains were still active.
-
-Many were not.
+He then checked whether those guardians' domains were still active. Many were not.
 
 He registered a handful of expired domains, configured mail reception, and waited.
 
@@ -51,11 +49,7 @@ What that playbook does not account for is the second-order use of leaked data a
 
 The breach provided e-mail addresses. Those e-mail addresses pointed to domains. Those domains were unmonitored.
 
-The attack surface was not created by the original breach.
-
-It existed independently.
-
-The breach merely made it findable.
+The attack surface was not created by the original breach. It existed independently. The breach merely made it findable.
 
 Sandra D., an information security consultant who commented on Neelen's post, described it correctly as a failure of chain security rather than a single incident. The financial guardians did not suffer a breach in the conventional sense. No credentials were stolen. No perimeter was bypassed. A domain expired, ownership changed hands, and incoming mail could then be accepted by whoever registered the domain next.
 
@@ -69,13 +63,11 @@ The pattern is structural, not coincidental.
 
 This failure mode is not hypothetical to me.
 
-During a corporate rebranding and domain migration at a employer, management wanted to decommission the legacy domain and shut down the associated Microsoft 365 tenancy as soon as the migration project was marked complete.
+During a corporate rebranding and domain migration at a previous employer, management wanted to decommission the legacy domain and shut down the associated Microsoft 365 tenancy as soon as the migration project was marked complete.
 
 The reasoning was predictable: the migration was finished, maintaining the legacy environment cost money, and supposedly nobody used the old addresses anymore.
 
-Nobody was visibly using them anymore.
-
-That is a very different thing entirely.
+Nobody was visibly using them anymore. That is a very different thing entirely.
 
 I blocked the decommission.
 
@@ -89,15 +81,11 @@ I renewed the domain myself and configured mail forwarding so that anything stil
 
 That distinction matters.
 
-An organisation does not stop receiving e-mail when it abandons a domain.
-
-It merely loses control over where that e-mail goes.
+An organisation does not stop receiving e-mail when it abandons a domain. It merely loses control over where that e-mail goes.
 
 The problem is not necessarily incompetence as much as abstraction. To management, a domain often looks like a subscription that can simply be cancelled once the migration project closes. To anyone who understands mail infrastructure, it is closer to abandoning a building while leaving the mail slot active.
 
-Finance departments see cost reduction.
-
-Attackers see unmonitored trust relationships.
+Finance departments see cost reduction. Attackers see unmonitored trust relationships.
 
 ---
 
@@ -111,9 +99,7 @@ Ronald Eygendaal made the precise regulatory comparison: telephone numbers in th
 
 Domain names carry no equivalent protection.
 
-SIDN does operate warning systems for sensitive expiring domains, and researchers such as Moritz Müller have spent years drawing attention to this category of risk. The warnings exist.
-
-They are still routinely ignored.
+SIDN does operate warning systems for sensitive expiring domains, and researchers such as Moritz Müller have spent years drawing attention to this category of risk. The warnings exist. They are still routinely ignored.
 
 And that is the real issue here.
 
@@ -133,9 +119,7 @@ And unlike corporations, they do not have legal departments, incident response t
 
 That asymmetry is what makes stories like this so uncomfortable.
 
-Not because the attack technique is sophisticated.
-
-But because it is banal.
+Not because the attack technique is sophisticated, but because it is banal.
 
 No malware. No zero-day. No nation-state capability.
 
@@ -157,9 +141,7 @@ The risks created by abandoning trust relationships are delayed, invisible, and 
 
 That is why this keeps happening.
 
-Wesley Neelen acted responsibly.
-
-The next person may not.
+Wesley Neelen acted responsibly. The next person may not.
 
 The infrastructure conditions that enabled this exposure did not depend on ethical behaviour to exist.
 
