@@ -129,15 +129,9 @@ Just a forgotten domain and the assumption that nobody would notice.
 
 ## What this actually costs to prevent
 
-Domain renewal costs almost nothing.
+Domain renewal costs almost nothing. Following up on expiry warnings costs nothing. Writing a lifecycle policy for domains and mail infrastructure costs an afternoon and perhaps a mildly uncomfortable meeting with management.
 
-Following up on expiry warnings costs nothing.
-
-Writing a lifecycle policy for domains and mail infrastructure costs an afternoon and perhaps a mildly uncomfortable meeting with management.
-
-The savings from decommissioning old infrastructure are measurable, visible, and easy to justify on a spreadsheet.
-
-The risks created by abandoning trust relationships are delayed, invisible, and usually assigned to someone else.
+The savings from decommissioning old infrastructure are measurable, visible, and easy to justify on a spreadsheet. The risks created by abandoning trust relationships are delayed, invisible, and usually assigned to someone else.
 
 That is why this keeps happening.
 
