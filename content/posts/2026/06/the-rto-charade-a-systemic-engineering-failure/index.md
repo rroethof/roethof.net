@@ -23,7 +23,7 @@ description: "Forced RTO is not about collaboration. It is a failure of manageme
 
 ### The RTO Charade: A Systemic Engineering Failure
 
-The return to office movement is a masterclass in failed system design. We are witnessing a forced regression that ignores everything we learned about efficiency. Management mandates are not driven by collaboration. They are driven by an outdated lazy need for surveillance. When you force engineers back into noisy offices to sit on Teams calls you are not building culture. You are creating a professional nightmare.
+The return to office movement is a masterclass in failed system design. As Olga Maksymova recently pointed out in her analysis (https://www.linkedin.com/posts/olga-maksymova_rto-remotework-burnout-share-7469680428740747265-a1Gp), we are witnessing a forced regression that ignores everything we learned about efficiency. Management mandates are not driven by collaboration. They are driven by an outdated lazy need for surveillance. When you force engineers back into noisy offices to sit on Teams calls you are not building culture. You are creating a professional nightmare.
 
 #### The Pandemic Paradox
 Before COVID we had a hybrid balance. Then the pandemic hit. During my time at the RIVM office presence was out of the question. It was dangerous and irresponsible. If we as RIVM employees had flocked to the office it would have been a national scandal. We had to lead by example. Working from home was the only ethical standard for safety and continuity. I set up a proper home office and that was the turning point. Work continued. Output was high. I discovered I was far more effective as an engineer without the constant office noise.
@@ -55,3 +55,6 @@ If we want functional organizations we need to treat workplace engineering with 
 If we maintained our server infrastructure with the same flawed logic we apply to our human infrastructure prioritizing compliance over resilience we would be fired for negligence. 
 
 If the current design leads to system failure it is not the engineers who need to change. The system does. Stop the mandates. Focus on results. Build environments where people can actually function.
+
+---
+*Discuss this post on https://www.linkedin.com/in/ronnyroethof*
