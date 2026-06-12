@@ -57,4 +57,3 @@ If we maintained our server infrastructure with the same flawed logic we apply t
 If the current design leads to system failure it is not the engineers who need to change. The system does. Stop the mandates. Focus on results. Build environments where people can actually function.
 
 ---
-*Discuss this post on https://www.linkedin.com/in/ronnyroethof*
