@@ -37,7 +37,7 @@ As engineers we solve problems. RTO is a bottleneck that serves no purpose other
 
 * The Teams Paradox: We reintroduce physical co-location while using remote protocols. It is a technical disaster. You hear your colleague speak next to you while the delayed audio hits your headset. It is inferior distracting and honestly just plain stupid.
 * The Geographic Absurdity: Moving an office so that your engineers spend 4 hours a day in traffic is not return to office. It is a deliberate erosion of your team's time health and energy. When this was demanded of me I drew a line. My role allowed for remote work and my output proved it was the only logical choice.
-* Environmental Incompetence: Being forced into an office where you have no control over your ergonomics or climate is unworkable for high-focus tasks. I rely on noise-canceling headphones to enter my zone. When someone taps me on the shoulder while I am fully focused I hit the ceiling. As a heart patient that is not a joke. That is a direct trip to the ECG. It is nerve-wracking even as a memory.
+* Environmental Incompetence: Being forced into an office where you have no control over your ergonomics or climate is unworkable for high-focus tasks. As Chris Dorsman rightly pointed out there is a mountain of studies confirming that open-plan offices are fundamentally ineffectual and damaging to employee health. Yet management forces us into these environments anyway. It is baffling that this is not a major Arbo-issue. I rely on noise-canceling headphones to enter my zone. When someone taps me on the shoulder while I am fully focused I hit the ceiling. As a heart patient that is not a joke. That is a direct trip to the ECG. It is nerve-wracking even as a memory.
 
 #### The Constraint Case
 My transition proved that professional output and personal stability are interdependent. For those of us balancing professional work with intensive caregiving for my partner with MS and my autistic son flexibility is not a luxury. It is a core requirement.
@@ -55,5 +55,3 @@ If we want functional organizations we need to treat workplace engineering with 
 If we maintained our server infrastructure with the same flawed logic we apply to our human infrastructure prioritizing compliance over resilience we would be fired for negligence. 
 
 If the current design leads to system failure it is not the engineers who need to change. The system does. Stop the mandates. Focus on results. Build environments where people can actually function.
-
----
