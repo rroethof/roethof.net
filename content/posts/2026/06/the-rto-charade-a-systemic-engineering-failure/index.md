@@ -50,7 +50,12 @@ Research from TU Delft and TU Eindhoven consistently confirms the fallout. High-
 
 The mandate is a structural contradiction. You cannot demand high-level analytical output while forcing engineers into an environment proven to degrade concentration and well-being. It is a fundamental mismatch. You are managing for visibility at the cost of actual performance and individual safety.
 
-This is not just about efficiency for me. It is about physical stability. Being forced into an office where I have no control over my ergonomics or climate is unworkable. I rely on noise-canceling headphones to enter my zone. When someone taps me on the shoulder while I am fully focused, I hit the ceiling. As a heart patient, that is not a joke. That is a direct trip to the ECG. It is nerve-wracking even as a memory. When the system forces me into a state of constant physiological alarm, it is not just bad management. It is a violation of the basic conditions required for me to do my job without risking my health.
+This is not just about efficiency for me. It is about physical stability. Being forced into an office where I have no control over my ergonomics or climate is unworkable. 
+I rely on noise-canceling headphones to enter my zone. When someone taps me on the shoulder while I am fully focused, I hit the ceiling. As a heart patient, that is not a joke. 
+
+That is a direct trip to the ECG. It is nerve-wracking even as a memory. 
+
+When the system forces me into a state of constant physiological alarm, it is not just bad management. It is a violation of the basic conditions required for me to do my job without risking my health.
 
 ### Further Reading (Stable Dutch Research Base)
 * [TU Delft: Office design, privacy, and workplace satisfaction](https://research.tudelft.nl/en/publications/interior-design-features-predicting-satisfaction-with-office-work/) (Peer-reviewed research repository).
