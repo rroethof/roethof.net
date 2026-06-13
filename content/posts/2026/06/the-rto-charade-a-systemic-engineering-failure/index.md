@@ -2,7 +2,7 @@
 title: "The RTO Charade: A Systemic Engineering Failure"
 slug: the-rto-charade-a-systemic-engineering-failure
 date: 2026-06-12
-lastmod: 2026-06-12
+lastmod: 2026-06-13
 draft: false
 author: "Ronny Roethof"
 
@@ -37,7 +37,17 @@ As engineers we solve problems. RTO is a bottleneck that serves no purpose other
 
 * The Teams Paradox: We reintroduce physical co-location while using remote protocols. It is a technical disaster. You hear your colleague speak next to you while the delayed audio hits your headset. It is inferior distracting and honestly just plain stupid.
 * The Geographic Absurdity: Moving an office so that your engineers spend 4 hours a day in traffic is not return to office. It is a deliberate erosion of your team's time health and energy. When this was demanded of me I drew a line. My role allowed for remote work and my output proved it was the only logical choice.
-* Environmental Incompetence: Being forced into an office where you have no control over your ergonomics or climate is unworkable for high-focus tasks. As Chris Dorsman rightly pointed out there is a mountain of studies confirming that open-plan offices are fundamentally ineffectual and damaging to employee health. Yet management forces us into these environments anyway. It is baffling that this is not a major Arbo-issue. I rely on noise-canceling headphones to enter my zone. When someone taps me on the shoulder while I am fully focused I hit the ceiling. As a heart patient that is not a joke. That is a direct trip to the ECG. It is nerve-wracking even as a memory.
+
+#### The Open-Plan Fallacy
+As a friend and former coworker Chris Dorsman rightly pointed out there is a mountain of studies confirming that open-plan offices are fundamentally ineffectual and damaging to employee health. It is baffling that this is not a major Arbo-issue. 
+
+Research from TNO and various universities confirms that high-density office environments lead to significant declines in cognitive performance and well-being. Studies demonstrate that open-plan workers suffer from higher stress levels, increased fatigue, and a marked decline in privacy. A key Dutch study by TNO indicates that the loss of focus caused by background noise and visual interruptions is not just a productivity killer; it is a long-term health risk. 
+
+Being forced into an office where you have no control over your ergonomics or climate is unworkable for high-focus tasks. I rely on noise-canceling headphones to enter my zone. When someone taps me on the shoulder while I am fully focused I hit the ceiling. As a heart patient that is not a joke. That is a direct trip to the ECG. It is nerve-wracking even as a memory.
+
+* Further Reading:
+    * [TNO: Onderzoek naar de werkomgeving en productiviteit](https://www.tno.nl/nl/duurzame-gezondheid/gezond-werken/werkplek-en-prestaties/)
+    * [Kennisplatform Werkomgeving (KPW): De effecten van kantoortuinen](https://kpw.nl/kennisdossier/geluid-in-de-werkomgeving)
 
 #### The Constraint Case
 My transition proved that professional output and personal stability are interdependent. For those of us balancing professional work with intensive caregiving for my partner with MS and my autistic son flexibility is not a luxury. It is a core requirement.
