@@ -49,7 +49,7 @@ Research from TNO and various universities confirms that high-density office env
 Being forced into an office where you have no control over your ergonomics or climate is unworkable for high-focus tasks. I rely on noise-canceling headphones to enter my zone. When someone taps me on the shoulder while I am fully focused I hit the ceiling. As a heart patient that is not a joke. That is a direct trip to the ECG. It is nerve-wracking even as a memory.
 
 * Further Reading:
-    * [TNO: Dossier Werkomgeving en Welzijn](https://www.tno.nl/nl/duurzame-gezondheid/gezond-werken/werkplek-en-prestaties/)
+    * [Arboportaal: Psychosociale arbeidsbelasting (PSA)](https://www.arboportaal.nl/onderwerpen/psychosociale-arbeidsbelasting-psa)
     * [Arboportaal: Geluid op de werkplek](https://www.arboportaal.nl/onderwerpen/geluid)
 
 #### The Constraint Case
