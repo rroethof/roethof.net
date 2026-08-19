@@ -114,8 +114,12 @@ timezone Europe/Amsterdam --utc
 # NETWORK
 #=======================================================
 
-network --bootproto=dhcp \
+network --bootproto=static \
         --device=link \
+        --ip=172.16.0.30 \
+        --netmask=255.255.255.0 \
+        --gateway=172.16.0.1 \
+        --nameserver=172.16.0.1 \
         --ipv6=auto \
         --activate
 
