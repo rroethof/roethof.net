@@ -120,7 +120,7 @@ network --bootproto=static \
         --netmask=255.255.255.0 \
         --gateway=172.16.0.1 \
         --nameserver=172.16.0.1 \
-        --ipv6=auto \
+        --ipv6=disabled \
         --activate
 
 network --hostname=mc-proxy01
