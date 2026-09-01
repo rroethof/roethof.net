@@ -11,7 +11,7 @@ summary: "Put two Linux people in a room and one word is enough. Put a manager i
 description: "A personal, slightly irreverent take on what it actually costs to move between technical shorthand and plain language, and why autonomy is the real fix."
 ---
 
-*On shorthand, intruders and why closing the door is sometimes the whole strategy.*
+*On shorthand, intruders, and why closing the door is sometimes the whole strategy.*
 
 ## One word is enough
 
@@ -21,9 +21,11 @@ Put two people who know Linux in the same room and watch how little language the
 
 Then a manager walks in and asks what is going on. Nothing about that question is unreasonable, they have every right to ask it and honestly they probably should. And yet the reaction I will admit to having more often than I would like is that it feels like an intrusion. Not because the person is unwelcome, but because the timing could not be worse. The flow that existed thirty seconds earlier is gone, and now you are doing two jobs at once, solving the actual problem and rebuilding it from scratch in a language that was never designed for speed.
 
+Not every interruption carries the same weight, though. There is a real difference between a manager who needs to know because they are accountable for what happens next, and a manager who asks because not knowing makes them uncomfortable. The first is doing their job. The second is offloading their own unease onto someone else's concentration and calling it oversight. The engineer pays for that discomfort in lost context, and the manager walks away feeling informed, which is a strange kind of trade when you look at it honestly. For some managers, the interruption itself is the reward. Not the answer, not the information, just the brief, satisfying reminder that they can still make the engineer stop what they are doing. Some people are addicted to that little hit of power more than they realise.
+
 ## The gear change nobody logs
 
-That second job is the part people underestimate. It is not simply a matter of swapping technical words for plain ones, it is a full gear change in the middle of a sentence you were already halfway through in your head. You go from thinking in shorthand to thinking in explanations, and that switch costs something real even if it never shows up in any incident report.
+That second job is the part people underestimate. It is not simply a matter of swapping technical words for plain ones, it is a full gear change in the middle of a sentence you were already halfway through in your head. In Dutch we have a name for this register: praten in Jip-en-Janneke-taal, named after a pair of storybook toddlers, meaning language so plain a child could follow it. You go from thinking in shorthand to thinking in explanations pitched at that level, and that switch costs something real even if it never shows up in any incident report.
 
 ## Jargon is not always efficiency
 
@@ -43,8 +45,8 @@ That is probably the distinction I have become more aware of over time. Autonomy
 
 ## Interrupt less
 
-What changed for me is not my willingness to explain. I still explain, I still translate, I still understand that technical work has to be made visible to people who do not share the same mental model. What changed is that I am more honest about what the interruption actually costs, and a little more deliberate about when the door needs to stay shut. 
+What changed for me is not my willingness to explain. I still explain, I still translate, I still understand that technical work has to be made visible to people who do not share the same mental model. What changed is that I am more honest about what the interruption actually costs, and a little more deliberate about when the door needs to stay shut.
 
-Sometimes the best way to improve communication is not to communicate more. 
+Sometimes the best way to improve communication is not to communicate more.
 
 Sometimes it is to interrupt less.
