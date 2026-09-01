@@ -11,7 +11,7 @@ summary: "Put two Linux people in a room and one word is enough. Put a manager i
 description: "A personal, slightly irreverent take on what it actually costs to move between technical shorthand and plain language, and why autonomy is the real fix."
 ---
 
-*On shorthand, intruders, and why closing the door is sometimes the whole strategy.*
+*On shorthand, intruders and why closing the door is sometimes the whole strategy.*
 
 ## One word is enough
 
@@ -43,4 +43,8 @@ That is probably the distinction I have become more aware of over time. Autonomy
 
 ## Interrupt less
 
-What changed for me is not my willingness to explain. I still explain, I still translate, I still understand that technical work has to be made visible to people who do not share the same mental model. What changed is that I am more honest about what the interruption actually costs, and a little more deliberate about when the door needs to stay shut. Sometimes the best way to improve communication is not to communicate more. Sometimes it is to interrupt less.
+What changed for me is not my willingness to explain. I still explain, I still translate, I still understand that technical work has to be made visible to people who do not share the same mental model. What changed is that I am more honest about what the interruption actually costs, and a little more deliberate about when the door needs to stay shut. 
+
+Sometimes the best way to improve communication is not to communicate more. 
+
+Sometimes it is to interrupt less.
