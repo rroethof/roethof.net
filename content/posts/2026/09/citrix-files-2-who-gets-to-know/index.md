@@ -3,7 +3,7 @@ title: "Citrix Files 2: The Revenge? Who Gets to Know"
 slug: "citrix-files-2-who-gets-to-know"
 date: 2026-09-29
 lastmod: 2026-09-29
-draft: true
+draft: false
 author: "Ronny"
 cover: ""
 categories: ["security-privacy", "digital-sovereignty"]
