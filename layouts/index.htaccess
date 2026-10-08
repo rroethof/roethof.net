@@ -1,0 +1,77 @@
+<IfModule mod_headers.c>
+    Header set X-XSS-Protection "1; mode=block"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set X-Content-Type-Options "nosniff"
+    Header always set Strict-Transport-Security "max-age=63072000"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+
+    Header set Content-Security-Policy "default-src 'self' https: data: 'unsafe-inline'; \
+        script-src 'self' https: 'unsafe-inline'; \
+        style-src 'self' https: 'unsafe-inline'; \
+        img-src 'self' https: data:; \
+        font-src 'self' https: data:; \
+        connect-src 'self' https:; \
+        frame-ancestors 'self'; \
+        object-src 'none'; \
+        base-uri 'self';"
+
+    Header set Report-To "{\"group\":\"csp-endpoint\",\"max_age\":10886400,\"endpoints\":[{\"url\":\"https://roethof.net/csp-report.php\"}]}"
+</IfModule>
+
+# ----------------------------------------
+# Compression (Deflate) - safe for BREACH
+# ----------------------------------------
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/plain text/html text/xml text/css \
+        application/xml application/xhtml+xml application/rss+xml \
+        application/javascript application/x-javascript application/json
+
+    # Prevent BREACH attack on sensitive endpoints
+    SetEnvIfNoCase Request_URI "\.(json|csrf|token)$" no-gzip
+</IfModule>
+
+<IfModule mod_brotli.c>
+    AddOutputFilterByType BROTLI_COMPRESS text/html text/plain text/css \
+        application/javascript application/json
+</IfModule>
+
+# ----------------------------------------
+# Caching for Static Assets
+# ----------------------------------------
+<IfModule mod_expires.c>
+    ExpiresActive On
+    <FilesMatch "\.(jpg|jpeg|png|gif|ico|webp)$">
+        ExpiresDefault "access plus 1 year"
+        Header set Cache-Control "public, max-age=31536000, immutable"
+    </FilesMatch>
+    <FilesMatch "\.(css|js|woff2?|svg|ttf|eot)$">
+        ExpiresDefault "access plus 1 year"
+        Header set Cache-Control "public, max-age=31536000, immutable"
+    </FilesMatch>
+</IfModule>
+
+# Disable ETag headers
+<IfModule mod_headers.c>
+    Header unset ETag
+</IfModule>
+FileETag None
+
+# ----------------------------------------
+# Reduce HTTP Requests / Combine Assets (Hugo Pipes)
+# ----------------------------------------
+# (Hugo Pipes zal CSS/JS minify en combine automatisch)
+# Zorg dat je templates resources.Minify() en resources.Concat() gebruiken
+# JavaScript defer of async in templates om render-blocking te voorkomen
+
+# ----------------------------------------
+# Custom Error Pages
+# ----------------------------------------
+ErrorDocument 404 /404.html
+
+# ----------------------------------------
+# URL Rewrites / Redirects
+# ----------------------------------------
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^arch-linux-installatie/$ /arch/installatie/ [R=301,L]
+</IfModule>

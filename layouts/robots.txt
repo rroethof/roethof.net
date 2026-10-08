@@ -1,0 +1,8 @@
+# www.robotstxt.org
+User-agent: *
+Allow: /
+Disallow: /cgi-bin/
+Disallow: /cdn-cgi/
+
+# It's dangerous to go alone, take this:
+Sitemap: {{ "/sitemap.xml" | absURL }}
