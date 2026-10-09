@@ -1,6 +1,6 @@
 disabled = false
-languageCode = "en"
-languageName = "English"
+locale = "en"
+label = "English"
 weight = 1
 title = "Roethof.Net"
 
@@ -11,9 +11,7 @@ title = "Roethof.Net"
   dateFormat = "2 January 2006"
   description = "roethof.net: a dossier of a hands-on enterprise IT practitioner. Raw, honest, and confronting issues like legacy systems, security debts, mismanagement, and staff exploitation."
   socialDescription = "roethof.net is not a casual IT blog. A dossier of a front-line IT practitioner with deep technical analyses and philosophical reflections on productivity, work pressure, security, and mismanagement. A must-read for professionals."
-  copyright = "&copy; Ronny Roethof, All rights reserved."
-  keywords = "SystemAdmin,SecurityOfficer,GeneralNerd,Nerd,Father,Linux,Tips,Tutorials,Techblog"
-
+  
 [params.author]
   name = "Ronny Roethof"
   email = "ronny@roethof.net"
