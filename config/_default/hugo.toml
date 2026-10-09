@@ -9,7 +9,7 @@ linenos = true
 
 timeZone = "Europe/Amsterdam"
 defaultContentLanguage = "en"
-languageCode = "en-us"
+locale = "en-us"
 timeout = "180s"
 
 summaryLength = 0
