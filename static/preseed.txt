@@ -34,7 +34,7 @@ d-i clock-setup/ntp boolean true
 d-i clock-setup/ntp-server string 0.nl.pool.ntp.org
 
 ### Accounts
-# No installer-managed user and no static root password.
+# No regular installer-managed user; ask for root password interactively.
 d-i passwd/make-user boolean false
 
 ### APT mirror
@@ -107,6 +107,12 @@ d-i partman-auto/expert_recipe string \
         method{ format } format{ } \
         use_filesystem{ } filesystem{ ext4 } \
         mountpoint{ /boot } \
+      . \
+      1000 10000 1000000000 ext4 \
+        $defaultignore{ } \
+        $primary{ } \
+        method{ lvm } \
+        vg_name{ vg0 } \
       . \
       12288 12288 12288 ext4 \
         $defaultignore{ } $lvmok{ } \
@@ -206,11 +212,15 @@ d-i grub-installer/force-efi-extra-removable boolean true
 # The users receive passwordless sudo; SSH password authentication is disabled.
 # Keep the private keys private. Never put private keys in this file.
 d-i preseed/late_command string \
-    set -eu; \
+    mkdir -p /target/var/log/installer; \
+    exec >>/target/var/log/installer/late-command.log 2>&1; \
+    set -eux; \
+    echo '=== late_command started ==='; date -Is; \
     RROETHOF_KEY='ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJY0FNy1EKTlVZL0GZszEn0sCl0Kn8boWNhrpIbhZ6WY rroethof@xps'; \
     MSWEEP_KEY='ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGIIJRfGeRaD5csj0tqyfjeAuYZhyuESCnA3EN3dGpXe michael.sweep@spie.com'; \
     BBEURDEN_KEY='ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBsUU3N/w0ijZ0QsLyEY2I1tVpJQjCHRNu9Q3AM4SJLf BasvBeurden'; \
     RDOORAKKERS_KEY='ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFDBe/3bqAiGlZ8xW2vOGjbA6TqLkc9XtwQDu0gOZeT6 eddsa-key-20260316 Robin'; \
+    echo '=== Creating users and SSH keys ==='; \
     case "$RROETHOF_KEY:$MSWEEP_KEY:$BBEURDEN_KEY:$RDOORAKKERS_KEY" in *REPLACE_WITH*) echo 'ERROR: replace SSH public-key placeholders before installing' >/dev/tty; exit 1 ;; esac; \
     in-target useradd --create-home --shell /bin/bash --groups sudo rroethof; \
     in-target useradd --create-home --shell /bin/bash --groups sudo msweep; \
@@ -252,7 +262,7 @@ d-i preseed/late_command string \
       'ClientAliveInterval 300' \
       'ClientAliveCountMax 0' \
       > /target/etc/ssh/sshd_config.d/00-hardening.conf; \
-    in-target passwd -l root; \
+    :; \
     in-target install -d -m 0750 /etc/audit/rules.d; \
     printf '%s\n' \
       '-w /etc/passwd -p wa -k identity' \
@@ -307,10 +317,12 @@ d-i preseed/late_command string \
     in-target systemctl enable unattended-upgrades; \
     in-target systemctl enable chrony; \
     in-target sshd -t; \
+    echo '=== Configuring Docker repository ==='; \
     in-target install -m 0755 -d /etc/apt/keyrings; \
     in-target curl -fsSL https://download.docker.com/linux/debian/gpg -o /etc/apt/keyrings/docker.asc; \
     in-target chmod a+r /etc/apt/keyrings/docker.asc; \
     in-target sh -c 'echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/debian $(. /etc/os-release && echo "$VERSION_CODENAME") stable" > /etc/apt/sources.list.d/docker.list'; \
+    echo '=== Installing Docker Engine and Compose plugin ==='; \
     in-target apt-get update; \
     in-target env DEBIAN_FRONTEND=noninteractive apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin; \
     in-target install -d -m 0750 /opt/docker /opt/compose /opt/data; \
@@ -324,6 +336,18 @@ d-i preseed/late_command string \
     in-target systemctl enable docker; \
     in-target systemctl enable containerd; \
     in-target systemctl daemon-reload; \
+    echo '=== Verifying users, Docker and storage configuration ==='; \
+    in-target id rroethof; \
+    in-target id msweep; \
+    in-target id bbeurden; \
+    in-target id rdoorakkers; \
+    in-target docker --version; \
+    in-target docker compose version; \
+    in-target systemctl is-enabled docker; \
+    in-target cat /etc/docker/daemon.json; \
+    echo '=== late_command completed successfully ==='; date -Is; \
+    cp -a /var/log/syslog /target/var/log/installer/installer-syslog.log 2>/dev/null || true; \
+    cp -a /var/log/partman /target/var/log/installer/partman 2>/dev/null || true; \
     true
 
 d-i finish-install/reboot_in_progress note
