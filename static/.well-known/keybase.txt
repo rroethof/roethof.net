@@ -1,0 +1,57 @@
+
+==================================================================
+https://keybase.io/rroethof
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://roethof.net
+  * I am rroethof (https://keybase.io/rroethof) on keybase.
+  * I have a public key ASBb-VBNXnwteG7DkuaFhlyE5vLm2cCJxv38oMMZPw3ypAo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "01204a8eda92de9a3b2cfd63447dca33e8910e24800a505f24f017f918826c982c8f0a",
+      "host": "keybase.io",
+      "kid": "01205bf9504d5e7c2d786ec392e685865c84e6f2e6d9c089c6fdfca0c3193f0df2a40a",
+      "uid": "53d93a9016fdd2f254e259b081d36500",
+      "username": "rroethof"
+    },
+    "merkle_root": {
+      "ctime": 1742932389,
+      "hash": "85fef13190226d2fa79fb942ba865c568fefc6b9d000a77bb01d3ea2c3579438e661c49079e0cd089112537830cc186e58897339f075c1aca34f9a33d3c2056d",
+      "hash_meta": "b3f42018fa8d05f61aa9800ccd373cf67d3bd8754c873c2e26cdd4d208148854",
+      "seqno": 26658986
+    },
+    "service": {
+      "entropy": "9pLwxYDsI3dioyUBX/DC8SZ2",
+      "hostname": "roethof.net",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "6.4.0"
+  },
+  "ctime": 1742932466,
+  "expire_in": 504576000,
+  "prev": "a37cce8140de39d78e29205da1b91a1a4199b558f2b15e70004b4d202c84aef1",
+  "seqno": 135,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgW/lQTV58LXhuw5LmhYZchOby5tnAicb9/KDDGT8N8qQKp3BheWxvYWTES5cCzIfEIKN8zoFA3jnXjikgXaG5GhpBmbVY8rFecABLTSAshK7xxCDXQfDCF5ONdLNuYWUI56nuyriIAoXRhcR4qMKeak/QhAIBwqNzaWfEQCn10vOM6aEYGWKESpgJG9mufajN+cBpBKHxtsr0k90yYa5waujN4u/dkBUlnpc6IrP1QcYJCst7oUgGT/QqRAaoc2lnX3R5cGUgpGhhc2iCpHR5cGUIpXZhbHVlxCDvUORIegp8KESVQ/Sgga87jOh0LXs762hf/JdZgTXNP6N0YWfNAgKndmVyc2lvbgE=
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/rroethof
+
+==================================================================
