@@ -2,9 +2,10 @@
 title: "PHP2Shell: The Warning Was Early. The Response Was More Complicated."
 slug: php2shell-the-warning-was-early-the-response-was-more-complicated
 date: 2026-10-21
-lastmod: 2026-10-21
+lastmod: 2026-10-22
 draft: false
-author: "Ronny Roethof" 
+author: "Ronny Roethof"
+cover: posts/2026/10/php2shell-the-warning-was-early-the-response-was-more-complicated/cover.png
 
 categories:
   - security-privacy
@@ -26,7 +27,7 @@ description: "A first-hand account of the PHP2Shell response, the tension betwee
 
 *Two critical vulnerabilities, one instinct to pull the plug, and a reminder that security is a technical discipline.*
 
-On 21 October, two critical PHP vulnerabilities put organisations on alert. My morning started with an internal warning to the technical teams in my business unit. At 08:18, I formally reported the issue through our information security process, including recommendations for identifying exposed systems and preparing mitigations.
+On 21 October 2026, two critical PHP vulnerabilities put organisations on alert. My morning started with an internal warning to the technical teams in my business unit. At 08:18, I formally reported the issue through our information security process, including recommendations for identifying exposed systems and preparing mitigations.
 
 The response I received was not quite what I expected.
 
@@ -56,17 +57,19 @@ The decision should depend on the actual exposure, the available controls and th
 
 ## Online, with tighter controls
 
-Within our business unit, additional technical measures were reported to reduce exposure while keeping the monitoring service operational.
+My decision as the senior technical authority of my business unit was to keep the monitoring service online and reduce its exposure through additional technical controls.
 
-External access to the customer monitoring dashboard was restricted to approved IPv4 addresses. Administration tools that did not need public access were moved to internal-only access. Geographic filtering was applied at the reverse proxy, alongside existing web application firewall and intrusion prevention controls.
+External access to the customer monitoring dashboard was restricted to approved IPv4 addresses. Administration tools that did not require public access were moved to internal-only access. Geographic filtering was applied at the reverse proxy, alongside the existing web application firewall and intrusion prevention controls.
 
 Customers were informed about the access restrictions and how to request access for their public IPv4 addresses. Existing VPN access remained unchanged.
 
-This did not prove that every PHP component had been identified, nor did it replace the need to patch vulnerable software. It did reduce the externally exposed attack surface while the response continued.
+This did not prove that every PHP component had been identified, nor did it replace the need to patch vulnerable software. It was a deliberate decision to reduce the externally exposed attack surface while keeping the service operational.
 
 The service stayed online. Access was simply more restricted.
 
-That is the point of engineering a mitigation rather than treating availability and security as mutually exclusive. Sometimes you need to pull the plug. Sometimes you can reduce the risk without taking the service down. Knowing which option makes sense requires technical understanding.
+That was not a decision to ignore the risk. It was a technical judgement about how to manage it. Rather than shutting down the service by default, I chose to apply controls that reduced exposure while preserving availability for authorised customers.
+
+Sometimes you need to pull the plug. Sometimes you can reduce the risk without taking the service down. Knowing the difference requires technical understanding, a clear view of the environment and the willingness to take responsibility for the decision.
 
 ## We don't develop PHP
 
