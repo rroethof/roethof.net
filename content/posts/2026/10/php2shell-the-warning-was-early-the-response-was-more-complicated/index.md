@@ -59,7 +59,7 @@ The decision should depend on the actual exposure, the available controls and th
 
 My decision as the senior technical authority of my business unit was to keep the monitoring service online and reduce its exposure through additional technical controls.
 
-External access to the customer monitoring dashboard was restricted to approved IPv4 addresses. Administration tools that did not require public access were moved to internal-only access. Geographic filtering was applied at the reverse proxy, alongside the existing web application firewall and intrusion prevention controls.
+External access to the customer monitoring dashboard was restricted to approved IPv4 addresses. Administration tools that did not require public access were moved to internal-only access. These additional ACLs provided another layer of access control on top of the existing reverse proxy protections, which already included geographic filtering, a web application firewall and CrowdSec.
 
 Customers were informed about the access restrictions and how to request access for their public IPv4 addresses. Existing VPN access remained unchanged.
 
