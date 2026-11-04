@@ -27,7 +27,7 @@ Anyone who regularly looks at job vacancies knows the standard phrases by now. C
 
 ## A Career Move Should Make Sense
 
-I'm currently exploring opportunities with other employers myself. Not because I'm desperate to leave tomorrow, but because I'm interested in finding an organisation where my experience, technical interests and preferred way of working are genuinely appreciated. After spending years in IT, I have a fairly good understanding of what I want and, perhaps more importantly, what I don't want.
+After spending years in IT, I've developed a fairly clear understanding of what makes an employer worth working for, and perhaps more importantly, what doesn't. A good salary matters, but so do technical freedom, professional autonomy and an environment where experience is genuinely valued. Changing jobs should be a step forward, not an exercise in giving up established working conditions in exchange for a few corporate perks.
 
 And no, the highest salary doesn't automatically mean the best job. Obviously, compensation matters. I haven't spent years building experience in Linux, infrastructure, automation and security just to start at the bottom of another salary scale with the promise that I might eventually grow into the position. But I also look at the complete package. A generous salary means considerably less when it comes with five mandatory office days, endless approval procedures and a management structure where every technical decision needs to pass through three committees before anyone is allowed to touch a server.
 
@@ -71,7 +71,7 @@ There's also the famous promise of career development. Apparently, accepting a l
 
 There are perfectly valid reasons why someone might deliberately accept a lower salary. A shorter commute, less stress, more interesting work, better colleagues or greater freedom can make a significant difference. I completely understand that. But it should be a conscious decision made by the employee, not a sales pitch used by an employer to justify offering less than the position and experience deserve.
 
-For me, the calculation is relatively straightforward. I'm looking for an employer who takes my experience seriously, offers fair compensation, provides a proper lease car, supports hybrid or remote working and allows me to use my own Linux-based working environment. Preferably an organisation where technology still matters, people understand what they're doing and not every decision requires a steering committee.
+For me, the calculation is relatively straightforward. An attractive employer values experience, offers fair compensation, provides proper mobility arrangements, supports hybrid or remote working and respects professional freedom, including the choice of a Linux-based working environment. Preferably, it's an organisation where technology still matters, people understand what they're doing and not every decision requires a steering committee.
 
 Those aren't particularly exotic demands. They're the conditions under which I can do my job effectively and actually enjoy doing it. An employer doesn't have to agree with them, but then we're simply not a suitable match. There's nothing wrong with that, and nobody needs to be offended.
 
