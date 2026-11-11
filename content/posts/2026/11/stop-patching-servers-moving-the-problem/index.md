@@ -19,7 +19,7 @@ summary: "Replacing servers instead of patching them sounds attractive, but immu
 description: "Why cattle-not-pets, immutable infrastructure and automated rebuilds are valuable strategies, but don't eliminate the need for patching, lifecycle management or operational responsibility."
 ---
 
-*Immutable infrastructure doesn't eliminate patch management. It changes where and how you perform it.*
+**Immutable infrastructure doesn't eliminate patch management. It changes where and how you perform it.**
 
 Recently, I came across a LinkedIn post by [Chad P.](https://www.linkedin.com/in/cprey/) that opened with a rather provocative statement: "Patching your servers is a waste of time." His argument was that organizations running Linux, bare metal, virtual machines or containers could achieve better stability and security by replacing systems instead of patching them, using the familiar cattle-not-pets approach.
 
@@ -27,7 +27,7 @@ I understand the reasoning, and to a certain extent, I agree with the underlying
 
 However, claiming that patching servers is a waste of time overlooks something fundamental. Replacing a vulnerable system with a newly deployed system doesn't automatically make the vulnerability disappear. Somewhere in your infrastructure lifecycle, software still needs to be updated, security fixes still need to be incorporated and compatibility still needs to be validated.
 
-**You're not eliminating patch management. You're moving it somewhere else.**
+****You're not eliminating patch management. You're moving it somewhere else.****
 
 And depending on the environment, that might be exactly the right thing to do. But presenting it as a universal solution for everything from containers to bare-metal infrastructure is where the argument starts falling apart.
 
@@ -59,23 +59,21 @@ The difference is that you're applying updates during the build process rather t
 
 The work hasn't disappeared. It has moved into the software supply chain and deployment lifecycle.
 
-## My Approach: Rebuild Everything, but Understand What You're Rebuilding
+## My Approach: Build From Scratch, Maintain Through Automation
 
-In my own infrastructure automation work, I prefer reproducible operating system installations over manually maintained server images. With Debian preseed, I can deploy a fresh operating system using a defined installation configuration, including partitioning, networking and initial system settings.
+In my own infrastructure, I use a different model. Every Linux machine begins with a fresh Debian installation using my publicly available [Preseed Generator](https://preseed.roethof.net/). I don't use golden images or cloned virtual machine templates. Preseed provides a reproducible installation process, including the initial operating system configuration, so I can rebuild a machine from scratch without depending on a manually maintained image. The provisioning process can be combined with OpenTofu and Proxmox, but the important principle is that every machine starts from a known installation procedure.
 
-From there, Ansible applies the baseline configuration, security hardening, user management and additional roles required for the server's intended purpose. OpenTofu can handle the provisioning of virtual machines within Proxmox, allowing the infrastructure itself to be defined and deployed through code.
+After installation, the machine is registered in my Ansible inventory. My [baseline role](https://git.sdc1.fastwebhosting.nl/rroethof/ansible-role-baseline) establishes the standard configuration, followed by the [hardening role](https://git.sdc1.fastwebhosting.nl/rroethof/ansible-role-hardening), which applies additional operating system security controls. This is not a collection of manual SSH sessions or undocumented changes. The configuration lives in Ansible, can be reviewed and adjusted, and can be applied consistently to the managed systems.
 
-This gives me a repeatable process for creating systems without depending on a manually maintained golden image. It also makes it considerably easier to understand how a server was configured, because the installation and configuration logic can be reviewed, version-controlled and reproduced.
+The ongoing lifecycle is orchestrated through Ansible-UI. A workflow handles system updates, hardening, user management, Zabbix agents, Wazuh agents and CMDB updates. Monitoring, endpoint security and documentation are therefore part of the management process rather than unrelated tasks left to individual administrators. Every day at 19:00, Ansible performs the scheduled system updates. Patching is not an occasional manual activity; it is part of normal operations.
 
-However, I would never claim that this eliminates patch management.
+This approach gives me two capabilities that are sometimes presented as mutually exclusive. I can rebuild a system from scratch when necessary, and I can maintain a healthy running system without replacing it for every security update. Reproducible provisioning does not require immutable operation. A system can be consistently built, hardened, monitored, documented and patched throughout its lifetime.
 
-The Debian repositories still need to provide security updates. My Ansible roles need maintenance as software versions and configuration requirements change. The installation process needs to be tested against new Debian releases, and the resulting systems must be validated before they become part of a production environment.
+That does not mean automated updates are risk-free. Package changes can introduce regressions, some updates require a reboot, and application compatibility still needs attention. Monitoring, validation and recovery remain necessary. Automation can also reproduce mistakes at scale, which is why the roles, workflows and their changes deserve the same scrutiny as any other production component.
 
-Even when every virtual machine can be rebuilt from scratch, the applications and services running on those machines still have their own lifecycle requirements. Reproducibility solves an important operational problem, but it doesn't remove the responsibility to maintain the software being deployed.
+The implementation is not just a diagram. My [Preseed Generator](https://preseed.roethof.net/) and [public Forgejo repositories](https://git.sdc1.fastwebhosting.nl/rroethof) make the underlying installation and Ansible code available for inspection, including the [system updates role](https://git.sdc1.fastwebhosting.nl/rroethof/ansible-role-systemupdates). The specific workflow scheduling and inventory belong to the operating environment; the public code demonstrates the building blocks, not necessarily every production setting.
 
-In fact, automation makes that responsibility more important. A mistake in a manually maintained server might affect one system. A mistake in an automated deployment pipeline can reproduce the same vulnerability or configuration error across an entire environment.
-
-**Automation doesn't automatically make infrastructure secure. It makes infrastructure consistent, including its mistakes.**
+**I don't need to stop patching my servers to achieve automation. I've automated their operational lifecycle, including patch management.**
 
 ## The Hypervisor Doesn't Magically Disappear
 
@@ -175,7 +173,7 @@ In an immutable environment, remediation might involve updating a base image, re
 
 Both approaches require planning, testing, monitoring and accountability. Both can be automated, and both can fail when poorly implemented.
 
-The important distinction is between **patching as a technical procedure** and **patch management as an operational responsibility**.
+The important distinction is between ****patching as a technical procedure**** and ****patch management as an operational responsibility****.
 
 You can eliminate the need to patch individual running servers without eliminating the need to manage software vulnerabilities. Confusing those two concepts creates a false sense of security.
 
@@ -183,7 +181,7 @@ You can eliminate the need to patch individual running servers without eliminati
 
 I would much rather rebuild a poorly configured Linux server from a known baseline than spend hours trying to understand years of undocumented manual changes. I also prefer infrastructure that can be recreated through automation instead of depending on individual administrators remembering how everything was originally installed.
 
-That's why I invest time in Debian preseed, Ansible, OpenTofu and reproducible infrastructure configurations. These tools make deployments predictable, reduce configuration drift and provide a foundation for controlled changes.
+That's why I build every machine from scratch with Debian preseed, register it in Ansible inventory and manage its configuration and ongoing lifecycle through Ansible-UI. The workflow covers hardening, users, Zabbix and Wazuh agents, CMDB updates and scheduled system updates at 19:00 every day. OpenTofu and Proxmox can automate provisioning, but I still have the choice to maintain a healthy system or rebuild it from the same reproducible process.
 
 But I also recognize that some systems require careful in-place maintenance, particularly when dealing with persistent data, specialized hardware or applications that cannot easily be replaced. The challenge is knowing which approach is appropriate and designing the operational procedures accordingly.
 
@@ -191,12 +189,12 @@ We should absolutely move away from manually maintained servers that nobody dare
 
 What we shouldn't do is pretend that replacing servers somehow removes the need to maintain the software running on them.
 
-**Patching your servers isn't necessarily a waste of time. Patching them manually, inconsistently and without a reproducible process often is.**
+****Patching your servers isn't necessarily a waste of time. Patching them manually, inconsistently and without a reproducible process often is.****
 
 Immutable infrastructure can be a significant improvement, but it doesn't make vulnerabilities disappear. It changes how we deliver fixes, how we manage risk and where the responsibility for maintenance resides.
 
 And if your newly deployed server contains the same vulnerabilities as the one you just destroyed, congratulations.
 
-**You've successfully automated the deployment of outdated software.**
+****You've successfully automated the deployment of outdated software.****
 
-*Ronny Roethof*
+**Ronny Roethof**
