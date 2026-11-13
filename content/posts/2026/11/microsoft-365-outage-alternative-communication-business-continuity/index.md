@@ -162,15 +162,13 @@ My philosophy has always been simple: **Do it right. Do it yourself.**
 
 That doesn't mean self-hosting is automatically better. Running your own infrastructure requires knowledge, time, maintenance, monitoring, security updates, backups and tested recovery procedures. A poorly maintained self-hosted service can be far less secure or reliable than a professionally managed cloud platform.
 
-But I value the independence it provides.
+For me, it's about having a choice. I don't need to compete with Microsoft, Google or any other technology giant. Nor do I pretend that my infrastructure can match their scale, resources or engineering capabilities.
 
-In my own infrastructure, Linux machines are installed from scratch using Debian Preseed, then registered in Ansible inventory. Baseline configuration and security hardening are applied through automation, while Ansible-UI orchestrates workflows for system updates, hardening, user management, Zabbix agents, Wazuh agents and CMDB updates. Scheduled system updates run daily at 19:00.
+I simply prefer to remain in control of the services I choose to operate myself, including the responsibility when something goes wrong.
 
-I don't use manually maintained golden images or cloned virtual machine templates. I prefer reproducible installations, version-controlled configuration and an operational lifecycle that I understand and control. The building blocks are publicly available through my [Preseed Generator](https://preseed.roethof.net/) and [Forgejo repositories](https://git.sdc1.fastwebhosting.nl/rroethof).
+Self-hosting isn't about proving that I can do something better than a hyperscaler. It's about understanding my dependencies and deciding which ones I'm willing to accept.
 
-This doesn't make my systems immune to failure. It means that when something goes wrong, I have the tools, knowledge and access required to investigate the problem and decide what to do next.
-
-For me, self-hosting isn't about rejecting modern technology. It's about refusing to confuse convenience with independence.
+**Independence doesn't mean eliminating every dependency. It means knowing which dependencies you've chosen.**
 
 ## My Mail Server Doesn't Care If Microsoft Goes Down
 
@@ -254,7 +252,5 @@ Make sure you know the answer before the next outage.
 - [Tom Tran — LinkedIn profile](https://www.linkedin.com/in/tommytranpro/)
 - [Microsoft 365 Service Health](https://status.cloud.microsoft/m365/)
 - [ISO/IEC 27001:2022 — Information security management systems](https://www.iso.org/standard/27001)
-- [My Debian Preseed Generator](https://preseed.roethof.net/)
-- [My Ansible roles and automation repositories](https://git.sdc1.fastwebhosting.nl/rroethof)
 
 *Ronny Roethof*
