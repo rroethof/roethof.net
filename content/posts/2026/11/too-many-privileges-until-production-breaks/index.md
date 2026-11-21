@@ -79,7 +79,7 @@ But it does make me wonder why the responsibility people are perfectly comfortab
 
 The thing is, I understand why people want reassurance. When production is at risk, they want to know what's happening, what the plan is and what happens if it fails. So I explain it, document the risks, communicate progress and make sure nobody gets unnecessary surprises. I tell people what I know, what I haven't established yet and what I need from them. Once people understand the approach, they're usually happy to give me the freedom to execute it. They're not being kept in the dark, but they're also not standing over my shoulder while I try to troubleshoot a database.
 
-This is the same point I made in [Feed the Monkey](/posts/2026/09/feed-the-monkey-context-switching/) and [The Office Is Not a Productivity Metric](/posts/2026/11/the-office-is-not-a-productivity-metric/). I am not trying to avoid accountability. I want fewer interruptions between the explanation and the actual work. Feed the monkey and leave me the fuck alone.
+This is the same point I made in [Feed the Monkey](/posts/2026/09/feed-the-monkey-context-switching/) and [The Office Is Not a Productivity Metric](/posts/2026/11/the-office-is-not-a-productivity-metric/). I'm not trying to avoid accountability. I want fewer interruptions between the explanation and the actual work. Feed the monkey and leave me the fuck alone.
 
 ## The migration problem
 
@@ -101,7 +101,7 @@ Most of the work consists of checking things, thinking ahead and knowing when no
 
 There's another side to this work that tends to disappear behind the CPU graphs and database statistics. Documentation. Over the years I've built my own DokuWiki setup and documentation structure for the infrastructure I manage. It's where I keep the architecture, installation procedures, configuration details, troubleshooting notes, incident reports and operational runbooks. I built it, I maintain it and, at the moment, I'm also the only one actually writing those pages.
 
-There is a problem with that, of course. Writing everything down is not the same as transferring ownership. I made much the same point in [When the Fixer Becomes the Problem](/posts/2026/09/when-the-fixer-becomes-the-problem/): the aim is not to make one engineer even better at carrying the system, but to make the system less dependent on that engineer. The wiki helps. It does not solve that problem on its own.
+There's a problem with that, of course. Writing everything down isn't the same as transferring knowledge or responsibility. The aim isn't to make one engineer even better at keeping everything running, but to make the environment less dependent on that engineer in the first place. The wiki helps, but someone else still needs to understand the systems, maintain the procedures and know what to do when things break. Documentation is a starting point, not a replacement for shared ownership.
 
 The Galera incidents are a good example. Previous incident reports helped reconstruct the history of the platform. The technical investigation became a structured set of findings rather than a collection of assumptions. The new deployment has its own architecture and configuration documentation, and the migration runbook contains the checks, commands, decisions and recovery procedures developed along the way. When an import fails halfway through, having a reliable procedure for identifying the affected environment and cleaning up safely is considerably more useful than another pretty architecture diagram.
 
@@ -113,7 +113,7 @@ The irony is that the more seriously you take documentation, the more visible th
 
 ## Same engineer. Different week.
 
-There is a temptation to start believing your own reputation when people keep looking in your direction. I try to avoid that. I'm not the only capable engineer in the organization, and I don't do all of this alone. Other people provide support, arrange resources, challenge assumptions and bring expertise I don't have. Some of those colleagues have trusted me for years, and that means a lot more to me than suddenly being called the hero of the week. Taking technical ownership doesn't mean acting like the entire company revolves around you.
+There's a temptation to start believing your own reputation when people keep looking in your direction. I try to avoid that. I'm not the only capable engineer in the organization, and I don't do all of this alone. Other people provide support, arrange resources, challenge assumptions and bring expertise I don't have. Some of those colleagues have trusted me for years, and that means a lot more to me than suddenly being called the hero of the week. Taking technical ownership doesn't mean acting like the entire company revolves around you.
 
 But I can't ignore the irony of the past week. An architecture I objected to years ago was pushed through. I've spent months dealing with incidents, restoring services and documenting what happened, including being called upon while I was recovering from burnout. The original automation wasn't something I could reasonably build upon, so I rebuilt the replacement infrastructure and its automation from scratch. And while all of that was happening, I was simultaneously explaining why my responsibilities, Linux workstation and existing working arrangements deserved recognition.
 
@@ -125,6 +125,6 @@ At the time of writing, the migration itself isn't finished. There are still ris
 
 I haven't become a different engineer overnight. I still have a big mouth, I still question decisions I disagree with and I still prefer my Linux environment and the freedom to work independently. I'm also still perfectly capable of making mistakes, as the interrupted test migration demonstrated.
 
-I enjoy the technical work, and I am glad the discussion about my working arrangements produced a concrete result. But I do not need a hero title. The real test is whether we can keep that trust, improve the platform and spread the knowledge without waiting for the next incident.
+I enjoy the technical work, and I'm glad the discussion about my working arrangements actually led somewhere. I don't need a hero title. I want that trust to last beyond the next incident.
 
 I'd just like the same trust when nothing is broken.
