@@ -31,11 +31,11 @@ There's some history behind this particular environment. Years ago, an external 
 
 The setup consisted of two MariaDB Galera database nodes and an arbitrator. Three cluster members, but only two actual copies of the database. The arbitrator helps maintain quorum, but it doesn't store data. Lose one database node and you may still have a functioning cluster, but you've also lost your database redundancy. That's exactly where we ended up. One surviving production database containing a rather substantial amount of monitoring data, with an entire Zabbix environment depending on it. Galera still reported a Primary Component, but that didn't magically create another copy of the database.
 
-And this wasn't the first time the environment had caused trouble. Back in May, during a datacenter migration, we experienced serious database problems and Zabbix went down completely. I was at home dealing with a burnout at the time, something I've written about on this blog before. Nevertheless, when things went wrong, the phone rang. I ended up helping bring the environment back to life while I was supposed to be recovering myself. Looking back, there's something rather uncomfortable about that. You're home because you've already reached your limit, yet somehow you're still the person people call when the infrastructure reaches its own.
+And this wasn't the first time the environment had caused trouble. Back in May, during a datacenter migration, we experienced serious database problems and Zabbix went down completely. I was at home dealing with burnout at the time, something I wrote about in [When Your Body Pulls the Plug](/posts/2026/06/when-your-body-pulls-the-plug/). Nevertheless, when things went wrong, the phone rang. I ended up helping bring the environment back to life while I was supposed to be recovering myself. Looking back, there's something rather uncomfortable about that. You're home because you've already reached your limit, yet somehow you're still the person people call when the infrastructure reaches its own.
 
 October brought more database crashes and monitoring-related disruptions. November brought another series of Galera problems, replication issues, recovery attempts and complications involving backups and database maintenance. I investigated the incidents, restored the affected services and documented what happened. Not every root cause could be conclusively established and restoring service didn't always restore the redundancy we wanted, but the immediate problems were resolved. Until the next one arrived.
 
-At some point you stop looking at these things as isolated incidents and start questioning the environment itself. How often are we going to recover the same platform before admitting that we need to change the way it's built and maintained?
+I had already described the trap in [I Always Get It Done (That’s the Problem)](/posts/2026/05/i-always-get-it-done-problem/): when one person keeps recovering the same systems, the successful recovery becomes an excuse to postpone structural change. Six months later, I was looking at that exact problem again. The services were back, the incident reports were written, but the architecture still needed fixing. At what point do you stop congratulating yourself on another recovery and actually remove the reason you keep needing one?
 
 ## What the investigation actually revealed
 
@@ -47,7 +47,7 @@ The broader investigation revealed inconsistencies in data retention, maintenanc
 
 Not every unusual configuration is automatically wrong, and not every weakness causes an outage. But when you're maintaining a critical platform, you should understand the choices behind it, know how it behaves during failure and be able to demonstrate that recovery actually works. Having a cluster is not the same as having a recovery strategy, and having backups isn't the same as knowing you can restore them.
 
-The findings went into my documentation, including what could be verified, what remained uncertain and which improvements were needed. No invented root causes, no convenient assumptions and no pretending that getting production running again meant everything was fixed.
+I recorded what the evidence supported, what remained uncertain and what needed to change. That distinction matters. Fixing the immediate outage is one thing; proving that the underlying risk has gone away is something else entirely.
 
 ## Starting over. Everything.
 
@@ -79,7 +79,7 @@ But it does make me wonder why the responsibility people are perfectly comfortab
 
 The thing is, I understand why people want reassurance. When production is at risk, they want to know what's happening, what the plan is and what happens if it fails. So I explain it, document the risks, communicate progress and make sure nobody gets unnecessary surprises. I tell people what I know, what I haven't established yet and what I need from them. Once people understand the approach, they're usually happy to give me the freedom to execute it. They're not being kept in the dark, but they're also not standing over my shoulder while I try to troubleshoot a database.
 
-And that's all I've really been asking for. Feed the monkey and leave me the fuck alone. Not because I don't want accountability, but because I know the difference between being accountable for my work and having someone constantly looking over my shoulder.
+This is the same point I made in [Feed the Monkey](/posts/2026/09/feed-the-monkey-context-switching/) and [The Office Is Not a Productivity Metric](/posts/2026/11/the-office-is-not-a-productivity-metric/). I am not trying to avoid accountability. I want fewer interruptions between the explanation and the actual work. Feed the monkey and leave me the fuck alone.
 
 ## The migration problem
 
@@ -91,7 +91,7 @@ The first test migration encountered a problem involving database objects and pe
 
 The third test behaved much better. The new Galera cluster remained healthy, replication queues were almost empty, resource usage was reasonable and the old production database continued doing its job. Technically everything looked fine, apart from one rather annoying detail: it was slow as hell. After more than six hours, the new database filesystem had grown by roughly 170 GiB. At that rate, completing the full dataset could easily take well over a day, depending on how the remaining tables behaved. Filesystem growth isn't an exact measure of logical data throughput, but it was more than enough to tell me that a single SQL stream wasn't a particularly attractive option for a maintenance window.
 
-That's exactly why I wanted to test the migration before taking Zabbix offline. A solution can work perfectly and still be the wrong solution for the job. So I started investigating parallel migration methods. Rather than feeding everything through one SQL stream, tools such as MyDumper and MyLoader can divide the work across multiple workers and potentially stream data directly between machines. That avoids creating and copying a complete intermediate dump while making better use of the available resources. Whether it delivers the performance we need remains to be tested. I prefer measurements over promises, especially when the only remaining production database is involved.
+That was the point of testing before taking Zabbix offline. A solution can work and still be unsuitable for the job. So I started investigating parallel migration methods. Rather than feeding everything through one SQL stream, tools such as MyDumper and MyLoader can divide the work across multiple workers and potentially stream data directly between machines. That avoids creating and copying a complete intermediate dump while making better use of the available resources. Whether it delivers the performance we need remains to be tested. I prefer measurements over promises, especially when the only remaining production database is involved.
 
 Meanwhile, there are plenty of operational details to consider. Available storage, the impact of long-running consistent exports, database maintenance jobs, cluster health, recovery procedures and a controlled maintenance window. During the final cutover, the application and any other database writers must be stopped so we're not moving data that keeps changing underneath us. Then there's validation, application testing and the decision about when the old environment can safely be retired.
 
@@ -101,7 +101,7 @@ Most of the work consists of checking things, thinking ahead and knowing when no
 
 There's another side to this work that tends to disappear behind the CPU graphs and database statistics. Documentation. Over the years I've built my own DokuWiki setup and documentation structure for the infrastructure I manage. It's where I keep the architecture, installation procedures, configuration details, troubleshooting notes, incident reports and operational runbooks. I built it, I maintain it and, at the moment, I'm also the only one actually writing those pages.
 
-That's not something I'm particularly proud of from an organizational perspective. Knowledge shouldn't depend on one person. But when you've spent months recovering an environment and investigating problems that weren't properly documented in the first place, you quickly appreciate having somewhere to record what you've learned.
+There is a problem with that, of course. Writing everything down is not the same as transferring ownership. I made much the same point in [When the Fixer Becomes the Problem](/posts/2026/09/when-the-fixer-becomes-the-problem/): the aim is not to make one engineer even better at carrying the system, but to make the system less dependent on that engineer. The wiki helps. It does not solve that problem on its own.
 
 The Galera incidents are a good example. Previous incident reports helped reconstruct the history of the platform. The technical investigation became a structured set of findings rather than a collection of assumptions. The new deployment has its own architecture and configuration documentation, and the migration runbook contains the checks, commands, decisions and recovery procedures developed along the way. When an import fails halfway through, having a reliable procedure for identifying the affected environment and cleaning up safely is considerably more useful than another pretty architecture diagram.
 
@@ -113,9 +113,7 @@ The irony is that the more seriously you take documentation, the more visible th
 
 ## Same engineer. Different week.
 
-There's a temptation to become rather impressed with yourself when everybody suddenly starts looking in your direction. You're the one investigating the problem, making technical decisions and explaining what needs to happen next. It's easy to start believing you're somehow more important than everybody else.
-
-I try to avoid that. I'm not the only capable engineer in the organization, and I don't do all of this alone. Other people provide support, arrange resources, challenge assumptions and bring expertise I don't have. Some of those colleagues have trusted me for years, and that means a lot more to me than suddenly being called the hero of the week. Taking technical ownership doesn't mean acting like the entire company revolves around you.
+There is a temptation to start believing your own reputation when people keep looking in your direction. I try to avoid that. I'm not the only capable engineer in the organization, and I don't do all of this alone. Other people provide support, arrange resources, challenge assumptions and bring expertise I don't have. Some of those colleagues have trusted me for years, and that means a lot more to me than suddenly being called the hero of the week. Taking technical ownership doesn't mean acting like the entire company revolves around you.
 
 But I can't ignore the irony of the past week. An architecture I objected to years ago was pushed through. I've spent months dealing with incidents, restoring services and documenting what happened, including being called upon while I was recovering from burnout. The original automation wasn't something I could reasonably build upon, so I rebuilt the replacement infrastructure and its automation from scratch. And while all of that was happening, I was simultaneously explaining why my responsibilities, Linux workstation and existing working arrangements deserved recognition.
 
@@ -127,6 +125,6 @@ At the time of writing, the migration itself isn't finished. There are still ris
 
 I haven't become a different engineer overnight. I still have a big mouth, I still question decisions I disagree with and I still prefer my Linux environment and the freedom to work independently. I'm also still perfectly capable of making mistakes, as the interrupted test migration demonstrated.
 
-I don't need to be the hero. I enjoy solving difficult technical problems, rebuilding infrastructure and automating things properly. I don't need applause for doing my job. This week showed that trust and autonomy are perfectly possible without giving up accountability.
+I enjoy the technical work, and I am glad the discussion about my working arrangements produced a concrete result. But I do not need a hero title. The real test is whether we can keep that trust, improve the platform and spread the knowledge without waiting for the next incident.
 
 I'd just like the same trust when nothing is broken.
